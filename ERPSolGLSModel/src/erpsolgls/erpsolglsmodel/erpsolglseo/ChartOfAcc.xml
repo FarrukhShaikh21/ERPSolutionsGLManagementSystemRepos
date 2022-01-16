@@ -203,6 +203,13 @@
       <Attr Name="_DisplaySize" Value="2"/>
     </DesignTime>
   </Attribute>
+  <AccessorAttribute
+    Name="VoucherDet"
+    Association="erpsolgls.erpsolglsmodel.erpsolglsassoc.ChartOfAccountVoucherDetailGLCodeAssoc"
+    AssociationEnd="erpsolgls.erpsolglsmodel.erpsolglsassoc.ChartOfAccountVoucherDetailGLCodeAssoc.VoucherDet"
+    AssociationOtherEnd="erpsolgls.erpsolglsmodel.erpsolglsassoc.ChartOfAccountVoucherDetailGLCodeAssoc.ChartOfAcc"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="SysC0016261"
     PrimaryKey="true">

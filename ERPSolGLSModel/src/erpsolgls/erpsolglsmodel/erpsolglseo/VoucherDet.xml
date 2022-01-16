@@ -413,6 +413,13 @@
     AssociationOtherEnd="erpsolgls.erpsolglsmodel.erpsolglseo.SysC0016796Assoc.VoucherDet1"
     Type="oracle.jbo.server.EntityImpl"
     IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="ChartOfAcc"
+    Association="erpsolgls.erpsolglsmodel.erpsolglsassoc.ChartOfAccountVoucherDetailGLCodeAssoc"
+    AssociationEnd="erpsolgls.erpsolglsmodel.erpsolglsassoc.ChartOfAccountVoucherDetailGLCodeAssoc.ChartOfAcc"
+    AssociationOtherEnd="erpsolgls.erpsolglsmodel.erpsolglsassoc.ChartOfAccountVoucherDetailGLCodeAssoc.VoucherDet"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
   <Key
     Name="SysC0015523"
     PrimaryKey="true">
@@ -487,6 +494,21 @@
       <Item Value="erpsolgls.erpsolglsmodel.erpsolglseo.VoucherDet.VoucherNo"/>
       <Item Value="erpsolgls.erpsolglsmodel.erpsolglseo.VoucherDet.VoucherType"/>
       <Item Value="erpsolgls.erpsolglsmodel.erpsolglseo.VoucherDet.LocCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_VoucherDet">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="SYS_C0016261"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_VOUCHER_DET"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolgls.erpsolglsmodel.erpsolglseo.VoucherDet.GlbroadCategory"/>
+      <Item Value="erpsolgls.erpsolglsmodel.erpsolglseo.VoucherDet.GlcontrolAC"/>
+      <Item Value="erpsolgls.erpsolglsmodel.erpsolglseo.VoucherDet.GlnatureOfAC"/>
+      <Item Value="erpsolgls.erpsolglsmodel.erpsolglseo.VoucherDet.GlsubControlAC"/>
+      <Item Value="erpsolgls.erpsolglsmodel.erpsolglseo.VoucherDet.GlsubsidaryAC"/>
     </AttrArray>
   </Key>
   <ResourceBundle>

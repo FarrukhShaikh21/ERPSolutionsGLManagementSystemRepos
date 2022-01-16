@@ -118,4 +118,9 @@
     EntityAttrName="CoaType"
     EntityUsage="ChartOfAcc"
     AliasName="COA_TYPE"/>
+  <ViewLinkAccessor
+    Name="VoucherDetView"
+    ViewLink="erpsolgls.erpsolglsmodel.erpsolglslink.ChartOfAccountVoucherDetailGLCodeLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
 </ViewObject>
