@@ -300,4 +300,10 @@
     ViewLink="erpsolgls.erpsolglsmodel.erpsolglsvo.SysC0016796Link"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="AllLocationsView"
+    ViewLink="erpsolgls.erpsolglsmodel.erpsolglslink.AllLocationsVoucherLocationIdLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
 </ViewObject>
