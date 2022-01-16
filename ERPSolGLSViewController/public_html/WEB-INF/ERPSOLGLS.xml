@@ -67,7 +67,7 @@
     <method-call id="RollbackBeforeFornGLS">
       <method>#{bindings.Rollback.execute}</method>
       <outcome>
-        <fixed-outcome>Rollback</fixed-outcome>
+        <fixed-outcome>ACTStartERPSolutionTaskFlow</fixed-outcome>
       </outcome>
     </method-call>
     <control-flow-rule id="__1">
