@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ERPSolGLSAppModule"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  ClearCacheOnRollback="true">
+  <ViewUsage
+    Name="AllLocationsView1"
+    ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsvo.AllLocationsView"/>
+  <ViewUsage
+    Name="VoucherDetView1"
+    ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsvo.VoucherDetView"/>
+  <ViewUsage
+    Name="VoucherView1"
+    ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsvo.VoucherView"/>
+  <ViewUsage
+    Name="VoucherDetView2"
+    ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsvo.VoucherDetView"/>
+  <ViewUsage
+    Name="VoucherDetView3"
+    ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsvo.VoucherDetView"/>
+  <ViewUsage
+    Name="AllLocationsView2"
+    ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsvo.AllLocationsView"/>
+  <ViewLinkUsage
+    Name="FkVoucherDetVoucherSeqLink1"
+    ViewLinkObjectName="erpsolgls.erpsolglsmodel.erpsolglsvo.FkVoucherDetVoucherSeqLink"
+    SrcViewUsageName="erpsolgls.erpsolglsmodel.erpsolglsam.ERPSolGLSAppModule.VoucherView1"
+    DstViewUsageName="erpsolgls.erpsolglsmodel.erpsolglsam.ERPSolGLSAppModule.VoucherDetView2"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="SysC0016796Link1"
+    ViewLinkObjectName="erpsolgls.erpsolglsmodel.erpsolglsvo.SysC0016796Link"
+    SrcViewUsageName="erpsolgls.erpsolglsmodel.erpsolglsam.ERPSolGLSAppModule.VoucherView1"
+    DstViewUsageName="erpsolgls.erpsolglsmodel.erpsolglsam.ERPSolGLSAppModule.VoucherDetView3"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="R264Link1"
+    ViewLinkObjectName="erpsolgls.erpsolglsmodel.erpsolglsvo.R264Link"
+    SrcViewUsageName="erpsolgls.erpsolglsmodel.erpsolglsam.ERPSolGLSAppModule.AllLocationsView1"
+    DstViewUsageName="erpsolgls.erpsolglsmodel.erpsolglsam.ERPSolGLSAppModule.AllLocationsView2"
+    Reversed="false"/>
+</AppModule>
