@@ -11,6 +11,9 @@
     <page path="/WEB-INF/ERPSOLGLS.xml#ERPSOLGLS@ExecuteWithParaReportDetGLS"
           usageId="erpsolgls_erpsolglsview_ERPSOLGLS_ERPSOLGLS_ExecuteWithParamsPageDef111"/>
     <page path="/ERPSolGLSMain.jsf" usageId="erpsolgls_erpsolglsview_ERPSolGLSMainPageDef"/>
+    <page path="/WEB-INF/ERPSOLGLS.xml#ERPSOLGLS@RollbackBeforeFornGLS"
+          usageId="erpsolgls_erpsolglsview_ERPSOLGLS_ERPSOLGLS_RollbackPageDef"/>
+    <page path="/GL_0004.jsf" usageId="erpsolgls_erpsolglsview_GL_0004PageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="erpsolgls_erpsolglsview_ERPSOLGLS_ERPSOLGLS_ExecuteWithParamsPageDef"
@@ -23,12 +26,20 @@
           path="erpsolgls.erpsolglsview.pageDefs.ERPSOLGLS_ERPSOLGLS_ExecuteWithParamsPageDef111"/>
     <page id="erpsolgls_erpsolglsview_ERPSolGLSMainPageDef"
           path="erpsolgls.erpsolglsview.pageDefs.ERPSolGLSMainPageDef"/>
+    <page id="erpsolgls_erpsolglsview_ERPSOLGLS_ERPSOLGLS_RollbackPageDef"
+          path="erpsolgls.erpsolglsview.pageDefs.ERPSOLGLS_ERPSOLGLS_RollbackPageDef"/>
+    <page id="erpsolgls_erpsolglsview_GL_0004PageDef" path="erpsolgls.erpsolglsview.pageDefs.GL_0004PageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="ERPSolTempAppModuleDataControl" Package="erpsoltemp.erpsoltempmodel.erpsoltempam"
                      FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
                      SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
                      SupportsSortCollection="true" Configuration="ERPSolTempAppModuleLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+    <BC4JDataControl id="ERPSolGLSAppModuleDataControl" Package="erpsolgls.erpsolglsmodel.erpsolglsam"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="ERPSolGLSAppModuleLocal" syncMode="Immediate"
                      xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
   </dataControlUsages>
 </Application>

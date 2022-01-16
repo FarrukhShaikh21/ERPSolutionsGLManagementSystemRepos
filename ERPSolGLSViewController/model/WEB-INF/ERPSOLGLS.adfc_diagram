@@ -15,18 +15,18 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">53.896484</property>
+         name="y">-158.15527</property>
       <property
-         name="x">456.0</property>
+         name="x">375.0</property>
    </TaskFlowReturn>
    <WildcardControlFlowRule
       id="WildcardControlFlowRule3">
       <property
          name="activityId">*</property>
       <property
-         name="y">-61.402344</property>
+         name="y">-270.10352</property>
       <property
-         name="x">455.0</property>
+         name="x">375.0</property>
    </WildcardControlFlowRule>
    <ControlFlowCase
       islink="true"
@@ -36,7 +36,7 @@
       <property
          name="fromOutcome">ACT-ERP-GOTO-MODLE-SELECTION</property>
       <property
-         name="sdm:polyPoints">B50,455.0,-18.75293,456.0,-0.45410156,T50</property>
+         name="sdm:polyPoints">B50,375.0,-227.4541,375.0,-212.50586,T50</property>
    </ControlFlowCase>
    <TaskFlowReturn
       id="TaskFlowReturn5">
@@ -177,6 +177,86 @@
       <property
          name="fromOutcome">ACT-ERP-GOTO-FMS-MAIN</property>
       <property
-         name="sdm:polyPoints">R50,366.35156,304.09766,451.35156,322.09766,L50</property>
+         name="sdm:polyPoints">R50,366.35156,304.09766,451.35156,318.59766,L46</property>
+   </ControlFlowCase>
+   <View
+      id="View17">
+      <property
+         name="activityId">ERPSolGLSMain</property>
+      <property
+         name="page">/ERPSolGLSMain.jsf</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ERPSolGLSMain&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">440.79883</property>
+      <property
+         name="x">393.01953</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase18"
+      from="MethodCall15"
+      to="View17">
+      <property
+         name="fromOutcome">ACT-ERP-GOTO-FMS-MAIN</property>
+      <property
+         name="sdm:polyPoints">L54,451.35156,325.59766,393.01953,386.44824,T50</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall19">
+      <property
+         name="activityId">doERPGotoGLSActivity</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>doERPGotoGLSActivity&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">151.89648</property>
+      <property
+         name="x">520.0</property>
+   </MethodCall>
+   <WildcardControlFlowRule
+      id="WildcardControlFlowRule20">
+      <property
+         name="activityId">*</property>
+      <property
+         name="y">-75.70117</property>
+      <property
+         name="x">505.0</property>
+   </WildcardControlFlowRule>
+   <MethodCall
+      id="MethodCall21">
+      <property
+         name="activityId">RollbackBeforeFornGLS</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>RollbackBeforeFornGLS&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">42.097656</property>
+      <property
+         name="x">518.5</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase22"
+      from="WildcardControlFlowRule20"
+      to="MethodCall21">
+      <property
+         name="fromOutcome">ACTStartERPSolutionTaskFlow</property>
+      <property
+         name="sdm:polyPoints">B50,505.0,-33.051758,518.5,-12.25293,T50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase23"
+      from="MethodCall21"
+      to="MethodCall19">
+      <property
+         name="fromOutcome">ACTStartERPSolutionTaskFlow</property>
+      <property
+         name="sdm:polyPoints">B50,518.5,95.74707,520.0,97.5459,T50</property>
    </ControlFlowCase>
 </SDM>
