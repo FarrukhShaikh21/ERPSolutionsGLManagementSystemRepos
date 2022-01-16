@@ -12,7 +12,7 @@
             Action="executeWithParams">
       <NamedData NDName="P_ADF_PROJECTID" NDValue="#{'GL'}" NDType="java.lang.String"/>
       <NamedData NDName="P_ADF_LEVELID" NDValue="#{'SETUP'}" NDType="java.lang.String"/>
-      <NamedData NDName="P_ADF_USERID" NDValue="#{#{pageFlowScope.ERPSolTempBean.LERPSolUserCode}}"
+      <NamedData NDName="P_ADF_USERID" NDValue="#{pageFlowScope.ERPSolTempBean.LERPSolUserCode}"
                  NDType="java.lang.String"/>
       <NamedData NDName="P_ADF_MODULE_TYPE" NDType="java.lang.String"/>
     </action>

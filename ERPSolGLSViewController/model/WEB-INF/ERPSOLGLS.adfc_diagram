@@ -235,7 +235,7 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">10.74707</property>
+         name="y">10.396484</property>
       <property
          name="x">521.5</property>
    </MethodCall>
@@ -247,7 +247,7 @@
       <property
          name="fromOutcome">ACTStartERPSolutionTaskFlow</property>
       <property
-         name="sdm:polyPoints">L50,469.0,-75.55176,480.5,10.74707,L50</property>
+         name="sdm:polyPoints">L50,469.0,-75.55176,480.5,10.045898,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -257,6 +257,31 @@
       <property
          name="fromOutcome">ACTStartERPSolutionTaskFlow</property>
       <property
-         name="sdm:polyPoints">B50,521.5,64.74707,520.0,97.5459,T50</property>
+         name="sdm:polyPoints">B50,521.5,64.0459,520.0,97.5459,T50</property>
+   </ControlFlowCase>
+   <View
+      id="View24">
+      <property
+         name="activityId">GL_0004</property>
+      <property
+         name="page">/GL_0004.jsf</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>GL_0004&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">322.79883</property>
+      <property
+         name="x">651.5</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase25"
+      from="MethodCall19"
+      to="View24">
+      <property
+         name="fromOutcome">ERP-ACT-GL-0004</property>
+      <property
+         name="sdm:polyPoints">B50,520.0,205.5459,651.5,268.44824,T50</property>
    </ControlFlowCase>
 </SDM>
