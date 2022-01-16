@@ -18,8 +18,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="VOUCHER"
-    PrimaryKey="true">
+    TableName="VOUCHER">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="10"/>
     </DesignTime>
@@ -32,8 +31,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="VOUCHER"
-    PrimaryKey="true">
+    TableName="VOUCHER">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="3"/>
     </DesignTime>
@@ -46,8 +44,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="VOUCHER"
-    PrimaryKey="true">
+    TableName="VOUCHER">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="15"/>
     </DesignTime>
@@ -494,9 +491,10 @@
     IsUnique="true"
     ColumnName="VOUCHERSEQ"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="VOUCHER"/>
+    TableName="VOUCHER"
+    PrimaryKey="true"/>
   <AccessorAttribute
     Name="VoucherDet"
     Association="erpsolgls.erpsolglsmodel.erpsolglseo.FkVoucherDetVoucherSeqAssoc"
@@ -518,9 +516,7 @@
       <Attr Name="_DBObjectName" Value="SYS_C0015522"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="erpsolgls.erpsolglsmodel.erpsolglseo.Voucher.VoucherNo"/>
-      <Item Value="erpsolgls.erpsolglsmodel.erpsolglseo.Voucher.VoucherType"/>
-      <Item Value="erpsolgls.erpsolglsmodel.erpsolglseo.Voucher.LocCode"/>
+      <Item Value="erpsolgls.erpsolglsmodel.erpsolglseo.Voucher.Voucherseq"/>
     </AttrArray>
   </Key>
   <Key
