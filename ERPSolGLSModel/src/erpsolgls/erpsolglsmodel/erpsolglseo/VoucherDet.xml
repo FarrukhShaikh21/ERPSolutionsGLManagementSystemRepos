@@ -12,105 +12,90 @@
   BindingStyle="OracleName">
   <Attribute
     Name="VoucherNo"
-    IsNotNull="true"
     Precision="10"
     ColumnName="VOUCHER_NO"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="VOUCHER_DET"
-    PrimaryKey="true">
+    TableName="VOUCHER_DET">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="10"/>
     </DesignTime>
   </Attribute>
   <Attribute
     Name="VoucherType"
-    IsNotNull="true"
     Precision="3"
     ColumnName="VOUCHER_TYPE"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="VOUCHER_DET"
-    PrimaryKey="true">
+    TableName="VOUCHER_DET">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="3"/>
     </DesignTime>
   </Attribute>
   <Attribute
     Name="LocCode"
-    IsNotNull="true"
     Precision="15"
     ColumnName="LOC_CODE"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="VOUCHER_DET"
-    PrimaryKey="true">
+    TableName="VOUCHER_DET">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="15"/>
     </DesignTime>
   </Attribute>
   <Attribute
     Name="GlnatureOfAC"
-    IsNotNull="true"
     Precision="1"
     ColumnName="GLNATURE_OF_A_C"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="VOUCHER_DET"
-    PrimaryKey="true">
+    TableName="VOUCHER_DET">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
   </Attribute>
   <Attribute
     Name="GlbroadCategory"
-    IsNotNull="true"
     Precision="2"
     ColumnName="GLBROAD_CATEGORY"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="VOUCHER_DET"
-    PrimaryKey="true">
+    TableName="VOUCHER_DET">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="2"/>
     </DesignTime>
   </Attribute>
   <Attribute
     Name="GlcontrolAC"
-    IsNotNull="true"
     Precision="2"
     ColumnName="GLCONTROL_A_C"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="VOUCHER_DET"
-    PrimaryKey="true">
+    TableName="VOUCHER_DET">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="2"/>
     </DesignTime>
   </Attribute>
   <Attribute
     Name="GlsubControlAC"
-    IsNotNull="true"
     Precision="2"
     ColumnName="GLSUB_CONTROL_A_C"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="VOUCHER_DET"
-    PrimaryKey="true">
+    TableName="VOUCHER_DET">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="2"/>
     </DesignTime>
   </Attribute>
   <Attribute
     Name="GlsubsidaryAC"
-    IsNotNull="true"
     Precision="5"
     ColumnName="GLSUBSIDARY_A_C"
     SQLType="VARCHAR"
@@ -124,42 +109,36 @@
   </Attribute>
   <Attribute
     Name="Ccregion"
-    IsNotNull="true"
     Precision="2"
     ColumnName="CCREGION"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="VOUCHER_DET"
-    PrimaryKey="true">
+    TableName="VOUCHER_DET">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="2"/>
     </DesignTime>
   </Attribute>
   <Attribute
     Name="CcsubLocation"
-    IsNotNull="true"
     Precision="2"
     ColumnName="CCSUB_LOCATION"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="VOUCHER_DET"
-    PrimaryKey="true">
+    TableName="VOUCHER_DET">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="2"/>
     </DesignTime>
   </Attribute>
   <Attribute
     Name="Ccsubsidary"
-    IsNotNull="true"
     Precision="5"
     ColumnName="CCSUBSIDARY"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="VOUCHER_DET"
-    PrimaryKey="true">
+    TableName="VOUCHER_DET">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="5"/>
     </DesignTime>
@@ -262,7 +241,16 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="VOUCHER_DET"/>
+    TableName="VOUCHER_DET">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolgls.erpsolglsmodel.erpsolglseo.VoucherDet.FcurrDebit_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="FcurrCredit"
     Precision="15"
@@ -271,7 +259,16 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="VOUCHER_DET"/>
+    TableName="VOUCHER_DET">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <LABEL
+          ResId="erpsolgls.erpsolglsmodel.erpsolglseo.VoucherDet.FcurrCredit_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="NarrationRescue2"
     Precision="300"
@@ -298,7 +295,110 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="VOUCHER_DET"/>
+    TableName="VOUCHER_DET"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="txtCostCenter"
+    Precision="80"
+    ColumnName="TXT_COST_CENTER"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="VOUCHER_DET">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolgls.erpsolglsmodel.erpsolglseo.VoucherDet.txtCostCenter_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="txtCostCenterDescription"
+    Precision="80"
+    ColumnName="TXT_COST_CENTER_DESCRIPTION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="VOUCHER_DET">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolgls.erpsolglsmodel.erpsolglseo.VoucherDet.txtCostCenterDescription_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="txtGLCode"
+    Precision="80"
+    ColumnName="TXT_GLCODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="VOUCHER_DET">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <LABEL
+          ResId="erpsolgls.erpsolglsmodel.erpsolglseo.VoucherDet.txtGLCode_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="txtGlDescription"
+    Precision="80"
+    ColumnName="TXT_GL_DESCRIPTION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="VOUCHER_DET">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolgls.erpsolglsmodel.erpsolglseo.VoucherDet.txtGlDescription_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="txtGLCodeCredit"
+    Precision="80"
+    ColumnName="TXT_GLCODE_CREDIT"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="VOUCHER_DET">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolgls.erpsolglsmodel.erpsolglseo.VoucherDet.txtGLCodeCredit_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="txtGLCodeCreditDescription"
+    Precision="80"
+    ColumnName="TXT_GLCODE_CREDIT_DESCRIPTION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="VOUCHER_DET">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolgls.erpsolglsmodel.erpsolglseo.VoucherDet.txtGLCodeCreditDescription_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <AccessorAttribute
     Name="Voucher"
     Association="erpsolgls.erpsolglsmodel.erpsolglseo.FkVoucherDetVoucherSeqAssoc"
@@ -320,18 +420,9 @@
       <Attr Name="_DBObjectName" Value="SYS_C0015523"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="erpsolgls.erpsolglsmodel.erpsolglseo.VoucherDet.VoucherNo"/>
-      <Item Value="erpsolgls.erpsolglsmodel.erpsolglseo.VoucherDet.VoucherType"/>
-      <Item Value="erpsolgls.erpsolglsmodel.erpsolglseo.VoucherDet.LocCode"/>
-      <Item Value="erpsolgls.erpsolglsmodel.erpsolglseo.VoucherDet.GlnatureOfAC"/>
-      <Item Value="erpsolgls.erpsolglsmodel.erpsolglseo.VoucherDet.GlbroadCategory"/>
-      <Item Value="erpsolgls.erpsolglsmodel.erpsolglseo.VoucherDet.GlcontrolAC"/>
-      <Item Value="erpsolgls.erpsolglsmodel.erpsolglseo.VoucherDet.GlsubControlAC"/>
-      <Item Value="erpsolgls.erpsolglsmodel.erpsolglseo.VoucherDet.GlsubsidaryAC"/>
-      <Item Value="erpsolgls.erpsolglsmodel.erpsolglseo.VoucherDet.Ccregion"/>
-      <Item Value="erpsolgls.erpsolglsmodel.erpsolglseo.VoucherDet.CcsubLocation"/>
-      <Item Value="erpsolgls.erpsolglsmodel.erpsolglseo.VoucherDet.Ccsubsidary"/>
       <Item Value="erpsolgls.erpsolglsmodel.erpsolglseo.VoucherDet.SNo"/>
+      <Item Value="erpsolgls.erpsolglsmodel.erpsolglseo.VoucherDet.Voucherdetseq"/>
+      <Item Value="erpsolgls.erpsolglsmodel.erpsolglseo.VoucherDet.GlsubsidaryAC"/>
     </AttrArray>
   </Key>
   <Key
@@ -398,4 +489,8 @@
       <Item Value="erpsolgls.erpsolglsmodel.erpsolglseo.VoucherDet.LocCode"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpsolgls.erpsolglsmodel.ERPSolGLSModelBundle"/>
+  </ResourceBundle>
 </Entity>

@@ -297,7 +297,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="VOUCHER">
+    TableName="VOUCHER"
+    DefaultValue="N">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -364,7 +365,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="VOUCHER">
+    TableName="VOUCHER"
+    DefaultValue="N">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -495,6 +497,46 @@
     ColumnType="NUMBER"
     TableName="VOUCHER"
     PrimaryKey="true"/>
+  <Attribute
+    Name="txtLocationName"
+    Precision="80"
+    ColumnName="TXT_LOCATION_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[AllLocations?.LocationDescription]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolgls.erpsolglsmodel.erpsolglseo.Voucher.txtLocationName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="txtGLVTYPE"
+    Precision="80"
+    ColumnName="TXT_GLVTYPE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="VOUCHER"
+    IsPersistent="false"
+    IsQueriable="false"
+    DefaultValue="R">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolgls.erpsolglsmodel.erpsolglseo.Voucher.txtGLVTYPE_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <AccessorAttribute
     Name="VoucherDet"
     Association="erpsolgls.erpsolglsmodel.erpsolglseo.FkVoucherDetVoucherSeqAssoc"
@@ -559,4 +601,8 @@
       <Item Value="erpsolgls.erpsolglsmodel.erpsolglseo.Voucher.LocCode"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpsolgls.erpsolglsmodel.ERPSolGLSModelBundle"/>
+  </ResourceBundle>
 </Entity>

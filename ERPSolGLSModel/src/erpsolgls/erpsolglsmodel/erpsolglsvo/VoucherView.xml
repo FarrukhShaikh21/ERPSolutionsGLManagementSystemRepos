@@ -290,6 +290,22 @@
     EntityAttrName="Voucherseq"
     EntityUsage="Voucher"
     AliasName="VOUCHERSEQ"/>
+  <ViewAttribute
+    Name="txtGLVTYPE"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtGLVTYPE"
+    EntityUsage="Voucher"
+    AliasName="TXT_GLVTYPE"/>
+  <ViewAttribute
+    Name="txtLocationName"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtLocationName"
+    EntityUsage="Voucher"
+    AliasName="TXT_LOCATION_NAME"/>
   <ViewLinkAccessor
     Name="VoucherDetView"
     ViewLink="erpsolgls.erpsolglsmodel.erpsolglsvo.FkVoucherDetVoucherSeqLink"
