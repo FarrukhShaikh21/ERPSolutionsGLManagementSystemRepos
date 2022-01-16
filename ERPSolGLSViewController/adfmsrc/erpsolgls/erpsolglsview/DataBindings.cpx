@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.1.3.10.47" id="DataBindings"
+             SeparateXMLFiles="false" Package="erpsolgls.erpsolglsview" ClientType="Generic">
+  <pageMap>
+    <page path="/WEB-INF/ERPSOLGLS.xml#ERPSOLGLS@ExecuteQueryGLSTransaction"
+          usageId="erpsolgls_erpsolglsview_ERPSOLGLS_ERPSOLGLS_ExecuteWithParamsPageDef"/>
+    <page path="/WEB-INF/ERPSOLGLS.xml#ERPSOLGLS@ExecuteQueryGLSSetup"
+          usageId="erpsolgls_erpsolglsview_ERPSOLGLS_ERPSOLGLS_ExecuteWithParamsPageDef1"/>
+    <page path="/WEB-INF/ERPSOLGLS.xml#ERPSOLGLS@ExecuteWithParamsReportGLS"
+          usageId="erpsolgls_erpsolglsview_ERPSOLGLS_ERPSOLGLS_ExecuteWithParamsPageDef11"/>
+    <page path="/WEB-INF/ERPSOLGLS.xml#ERPSOLGLS@ExecuteWithParaReportDetGLS"
+          usageId="erpsolgls_erpsolglsview_ERPSOLGLS_ERPSOLGLS_ExecuteWithParamsPageDef111"/>
+    <page path="/ERPSolGLSMain.jsf" usageId="erpsolgls_erpsolglsview_ERPSolGLSMainPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="erpsolgls_erpsolglsview_ERPSOLGLS_ERPSOLGLS_ExecuteWithParamsPageDef"
+          path="erpsolgls.erpsolglsview.pageDefs.ERPSOLGLS_ERPSOLGLS_ExecuteWithParamsPageDef"/>
+    <page id="erpsolgls_erpsolglsview_ERPSOLGLS_ERPSOLGLS_ExecuteWithParamsPageDef1"
+          path="erpsolgls.erpsolglsview.pageDefs.ERPSOLGLS_ERPSOLGLS_ExecuteWithParamsPageDef1"/>
+    <page id="erpsolgls_erpsolglsview_ERPSOLGLS_ERPSOLGLS_ExecuteWithParamsPageDef11"
+          path="erpsolgls.erpsolglsview.pageDefs.ERPSOLGLS_ERPSOLGLS_ExecuteWithParamsPageDef11"/>
+    <page id="erpsolgls_erpsolglsview_ERPSOLGLS_ERPSOLGLS_ExecuteWithParamsPageDef111"
+          path="erpsolgls.erpsolglsview.pageDefs.ERPSOLGLS_ERPSOLGLS_ExecuteWithParamsPageDef111"/>
+    <page id="erpsolgls_erpsolglsview_ERPSolGLSMainPageDef"
+          path="erpsolgls.erpsolglsview.pageDefs.ERPSolGLSMainPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="ERPSolTempAppModuleDataControl" Package="erpsoltemp.erpsoltempmodel.erpsoltempam"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="ERPSolTempAppModuleLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

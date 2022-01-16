@@ -1,8 +1,101 @@
 <?xml version="1.0" encoding="windows-1252" ?>
 <adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
   <task-flow-definition id="ERPSOLGLS">
+    <default-activity>doERPSolGLSSessionGlobals</default-activity>
     <data-control-scope>
       <shared/>
     </data-control-scope>
+    <managed-bean id="__5">
+      <managed-bean-name>ERPSolGLSPageFlowBean</managed-bean-name>
+      <managed-bean-class>erpsolgls.erpsolglsview.erpsolglsclass.ERPSolGLSBean</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__6">
+      <managed-bean-name>ERPSolTempBean</managed-bean-name>
+      <managed-bean-class>erpsoltemp.erpsoltempview.erptempclass.ERPSolutionTemplateBean</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <task-flow-return id="RETURN-FROM-GLS">
+      <outcome>
+        <name>RETURN-FROM-GLS</name>
+      </outcome>
+    </task-flow-return>
+    <task-flow-return id="ACT-ERP-SOL-LOGOUT">
+      <outcome>
+        <name>ACT-ERP-SOL-LOGOUT</name>
+      </outcome>
+    </task-flow-return>
+    <method-call id="doERPSolGLSSessionGlobals">
+      <method>#{pageFlowScope.ERPSolGLSPageFlowBean.doSetERPSolGLSSessionGlobals}</method>
+      <outcome>
+        <fixed-outcome>ACT-ERP-GOTO-FMS-MAIN</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExecuteQueryGLSTransaction">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ACT-ERP-GOTO-FMS-MAIN</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExecuteQueryGLSSetup">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ACT-ERP-GOTO-FMS-MAIN</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExecuteWithParamsReportGLS">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ACT-ERP-GOTO-FMS-MAIN</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExecuteWithParaReportDetGLS">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__1">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>ACT-ERP-GOTO-MODLE-SELECTION</from-outcome>
+        <to-activity-id>RETURN-FROM-GLS</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__3">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome>ACT-ERP-SOL-LOGOUT</from-outcome>
+        <to-activity-id>ACT-ERP-SOL-LOGOUT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__8">
+      <from-activity-id>doERPSolGLSSessionGlobals</from-activity-id>
+      <control-flow-case id="__9">
+        <from-outcome>ACT-ERP-GOTO-FMS-MAIN</from-outcome>
+        <to-activity-id>ExecuteQueryGLSTransaction</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__10">
+      <from-activity-id>ExecuteQueryGLSTransaction</from-activity-id>
+      <control-flow-case id="__11">
+        <from-outcome>ACT-ERP-GOTO-FMS-MAIN</from-outcome>
+        <to-activity-id>ExecuteQueryGLSSetup</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__12">
+      <from-activity-id>ExecuteQueryGLSSetup</from-activity-id>
+      <control-flow-case id="__13">
+        <from-outcome>ACT-ERP-GOTO-FMS-MAIN</from-outcome>
+        <to-activity-id>ExecuteWithParamsReportGLS</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__14">
+      <from-activity-id>ExecuteWithParamsReportGLS</from-activity-id>
+      <control-flow-case id="__15">
+        <from-outcome>ACT-ERP-GOTO-FMS-MAIN</from-outcome>
+        <to-activity-id>ExecuteWithParaReportDetGLS</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
   </task-flow-definition>
 </adfc-config>
