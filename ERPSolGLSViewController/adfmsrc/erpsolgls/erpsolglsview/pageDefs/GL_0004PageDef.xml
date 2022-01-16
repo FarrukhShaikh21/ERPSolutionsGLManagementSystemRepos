@@ -230,11 +230,6 @@
         <Item Value="txtGLVTYPE"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="VoucherCRUDIterator" id="txtLocationName">
-      <AttrNames>
-        <Item Value="txtLocationName"/>
-      </AttrNames>
-    </attributeValues>
     <tree IterBinding="VoucherDetViewDetCRUDIterator" id="VoucherDetViewDetCRUD">
       <nodeDefinition DefName="erpsolgls.erpsolglsmodel.erpsolglsvo.VoucherDetView" Name="VoucherDetViewDetCRUD0">
         <AttrNames>
@@ -273,5 +268,10 @@
     </tree>
     <action IterBinding="VoucherCRUDIterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
     <action IterBinding="VoucherCRUDIterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <listOfValues IterBinding="VoucherCRUDIterator" StaticList="false" Uses="LovtxtLocationName" id="txtLocationName"/>
+    <action IterBinding="VoucherCRUDIterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="VoucherCRUDIterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="ERPSolGLSAppModuleDataControl"/>
   </bindings>
 </pageDefinition>

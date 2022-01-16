@@ -1,10 +1,15 @@
 package erpsolgls.erpsolglsmodel.erpsolglseo;
 
+import erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobClassModel;
 import erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobalsEntityImpl;
 
 import java.math.BigDecimal;
 
+import java.sql.CallableStatement;
+import java.sql.SQLException;
 import java.sql.Timestamp;
+
+import java.sql.Types;
 
 import oracle.jbo.AttributeList;
 import oracle.jbo.Key;
@@ -953,7 +958,7 @@ public class VoucherImpl extends ERPSolGlobalsEntityImpl {
      * @param attributeList list of attribute names/values to initialize the row
      */
     protected void create(AttributeList attributeList) {
-        setERPSolPKColumnName("VoucherSeq");
+        setERPSolPKColumnName("Voucherseq");
         setERPSolPKSeqName("voucher_seq");
         super.create(attributeList);
     }
@@ -978,6 +983,26 @@ public class VoucherImpl extends ERPSolGlobalsEntityImpl {
      * @param e the transaction event
      */
     protected void doDML(int operation, TransactionEvent e) {
+        if (operation==DML_INSERT) {
+            String plsql=" BEGIN ?:=func_get_voucher_no('"+ERPSolGlobClassModel.doGetUserLocationCode()+"',TO_DATE('"+getVoucherDate()+"','YYYY-MM-DD'),'"+getVoucherType()+"'); END;";
+            CallableStatement cs = getDBTransaction().createCallableStatement(plsql, getDBTransaction().DEFAULT);
+            try {
+                cs.registerOutParameter(1, Types.VARCHAR);
+                cs.executeUpdate();
+                populateAttributeAsChanged(VOUCHERNO, cs.getString(1));
+            } catch (SQLException f) {
+            }
+            finally{
+                try {
+                    cs.close();
+                } catch (SQLException f) {
+                }
+            }
+
+            
+                  
+        }        
+
         super.doDML(operation, e);
     }
 }

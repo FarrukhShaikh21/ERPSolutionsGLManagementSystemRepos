@@ -108,16 +108,10 @@
                           <af:outputLabel value="#{bindings.VoucherType.label}" id="ol1"/>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="35%" id="gc9" halign="stretch" valign="middle">
-                          <af:selectOneChoice value="#{bindings.VoucherType.inputValue}"
-                                              label="#{bindings.VoucherType.label}"
-                                              required="#{bindings.VoucherType.hints.mandatory}"
-                                              shortDesc="#{bindings.VoucherType.hints.tooltip}" id="soc1" simple="true">
-                            <f:selectItems value="#{bindings.VoucherType.items}" id="si4"/>
-                            <f:validator binding="#{bindings.VoucherType.validator}"/>
-                          </af:selectOneChoice>
+                          0
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="15%" id="gc10" valign="middle">
-                          <af:outputLabel value="#{bindings.txtLocationName.hints.label}" id="ol9"/>
+                          <af:outputLabel id="ol9" value="#{bindings.txtLocationName.hints.label}"/>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc11" halign="stretch"
                                      valign="middle">
@@ -237,9 +231,7 @@
                       </af:toolbar>
                     </f:facet>
                     <f:facet name="statusbar"/>
-                    <f:facet name="secondaryToolbar">
-                      <af:toolbar id="t4"/>
-                    </f:facet>
+                    <f:facet name="secondaryToolbar"/>
                     <af:table value="#{bindings.VoucherDetViewDetCRUD.collectionModel}" var="row"
                               rows="#{bindings.VoucherDetViewDetCRUD.rangeSize}"
                               emptyText="#{bindings.VoucherDetViewDetCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"

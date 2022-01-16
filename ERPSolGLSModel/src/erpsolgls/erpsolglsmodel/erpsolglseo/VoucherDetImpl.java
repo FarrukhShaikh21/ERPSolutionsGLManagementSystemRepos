@@ -52,7 +52,8 @@ public class VoucherDetImpl extends ERPSolGlobalsEntityImpl {
         txtGLCodeCreditDescription,
         Voucher,
         Voucher1,
-        ChartOfAcc;
+        ChartOfAcc,
+        CostCenter;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -75,6 +76,7 @@ public class VoucherDetImpl extends ERPSolGlobalsEntityImpl {
             return vals;
         }
     }
+
 
     public static final int VOUCHERNO = AttributesEnum.VoucherNo.index();
     public static final int VOUCHERTYPE = AttributesEnum.VoucherType.index();
@@ -109,6 +111,7 @@ public class VoucherDetImpl extends ERPSolGlobalsEntityImpl {
     public static final int VOUCHER = AttributesEnum.Voucher.index();
     public static final int VOUCHER1 = AttributesEnum.Voucher1.index();
     public static final int CHARTOFACC = AttributesEnum.ChartOfAcc.index();
+    public static final int COSTCENTER = AttributesEnum.CostCenter.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -122,6 +125,7 @@ public class VoucherDetImpl extends ERPSolGlobalsEntityImpl {
     public static synchronized EntityDefImpl getDefinitionObject() {
         return EntityDefImpl.findDefObject("erpsolgls.erpsolglsmodel.erpsolglseo.VoucherDet");
     }
+
 
     /**
      * Gets the attribute value for VoucherNo, using the alias name VoucherNo.
@@ -643,6 +647,21 @@ public class VoucherDetImpl extends ERPSolGlobalsEntityImpl {
      */
     public void setChartOfAcc(EntityImpl value) {
         setAttributeInternal(CHARTOFACC, value);
+    }
+
+
+    /**
+     * @return the associated entity oracle.jbo.server.EntityImpl.
+     */
+    public EntityImpl getCostCenter() {
+        return (EntityImpl) getAttributeInternal(COSTCENTER);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity oracle.jbo.server.EntityImpl.
+     */
+    public void setCostCenter(EntityImpl value) {
+        setAttributeInternal(COSTCENTER, value);
     }
 
 

@@ -17,6 +17,10 @@
     Name="AccVWChartOfAccountQVO"
     ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsqvo.VWChartOfAccountQVO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccVWCostCenterQVO"
+    ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsqvo.VWCostCenterQVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LovtxtGlDescription"
     ListVOName="AccVWChartOfAccountQVO"
@@ -54,14 +58,88 @@
     <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="DerivedAttrNames">
       <Item Value="txtGLCodeCredit"/>
+      <Item Value="GlbroadCategory"/>
+      <Item Value="GlcontrolAC"/>
+      <Item Value="GlnatureOfAC"/>
+      <Item Value="GlsubControlAC"/>
+      <Item Value="GlsubsidaryAC"/>
     </AttrArray>
     <AttrArray Name="ListAttrNames">
       <Item Value="Description"/>
       <Item Value="Glcode"/>
+      <Item Value="GlbroadCategory"/>
+      <Item Value="GlcontrolAC"/>
+      <Item Value="GlnatureOfAC"/>
+      <Item Value="GlsubControlAC"/>
+      <Item Value="GlsubsidaryAC"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="Description"/>
       <Item Value="Glcode"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtCostCenterDescription"
+    ListVOName="AccVWCostCenterQVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtCostCenterDescription"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="Ccregion"/>
+      <Item Value="CcsubLocation"/>
+      <Item Value="Ccsubsidary"/>
+      <Item Value="txtCostCenter"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Description"/>
+      <Item Value="Ccregion"/>
+      <Item Value="CcsubLocation"/>
+      <Item Value="Ccsubsidary"/>
+      <Item Value="Costcenterid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+      <Item Value="Costcenterid"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtGLCodeCredit"
+    ListVOName="AccVWChartOfAccountQVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtGLCodeCredit"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="txtGLCode"/>
+      <Item Value="GlbroadCategory"/>
+      <Item Value="GlcontrolAC"/>
+      <Item Value="GlnatureOfAC"/>
+      <Item Value="GlsubControlAC"/>
+      <Item Value="GlsubsidaryAC"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Description"/>
+      <Item Value="Glcode"/>
+      <Item Value="GlbroadCategory"/>
+      <Item Value="GlcontrolAC"/>
+      <Item Value="GlnatureOfAC"/>
+      <Item Value="GlsubControlAC"/>
+      <Item Value="GlsubsidaryAC"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+      <Item Value="GlbroadCategory"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -231,13 +309,25 @@
     PrecisionRule="true"
     EntityAttrName="txtCostCenter"
     EntityUsage="VoucherDet"
-    AliasName="TXT_COST_CENTER"/>
+    AliasName="TXT_COST_CENTER"
+    IsQueriable="false"
+    IsPersistent="false"/>
   <ViewAttribute
     Name="txtCostCenterDescription"
     PrecisionRule="true"
     EntityAttrName="txtCostCenterDescription"
     EntityUsage="VoucherDet"
-    AliasName="TXT_COST_CENTER_DESCRIPTION"/>
+    AliasName="TXT_COST_CENTER_DESCRIPTION"
+    LOVName="LovtxtCostCenterDescription"
+    IsQueriable="false"
+    IsPersistent="false">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="txtGLCode"
     IsQueriable="false"
@@ -253,7 +343,15 @@
     PrecisionRule="true"
     EntityAttrName="txtGLCodeCredit"
     EntityUsage="VoucherDet"
-    AliasName="TXT_GLCODE_CREDIT"/>
+    AliasName="TXT_GLCODE_CREDIT"
+    LOVName="LovtxtGLCodeCredit">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="txtGLCodeCreditDescription"
     IsQueriable="false"
@@ -289,6 +387,12 @@
   <ViewLinkAccessor
     Name="ChartOfAccView"
     ViewLink="erpsolgls.erpsolglsmodel.erpsolglslink.ChartOfAccountVoucherDetailGLCodeLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="CostCenterView"
+    ViewLink="erpsolgls.erpsolglsmodel.erpsolglslink.CostCenterVoucherDetCostCenterLink"
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
