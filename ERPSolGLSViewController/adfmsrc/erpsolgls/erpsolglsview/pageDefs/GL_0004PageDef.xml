@@ -271,5 +271,7 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <action IterBinding="VoucherCRUDIterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="VoucherCRUDIterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
   </bindings>
 </pageDefinition>

@@ -21,6 +21,10 @@
     Name="AccVoucherTypeView"
     ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsvo.VoucherTypeView"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccAllLocationsView"
+    ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsvo.AllLocationsView"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LovVoucherType"
     ListVOName="AccVoucherTypeView"
@@ -36,6 +40,30 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtLocationName"
+    ListVOName="AccAllLocationsView"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtLocationName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="LocCode"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LocationDescription"/>
+      <Item Value="Locationid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="LocationDescription"/>
+      <Item Value="Locationid"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -339,7 +367,15 @@
     PrecisionRule="true"
     EntityAttrName="txtLocationName"
     EntityUsage="Voucher"
-    AliasName="TXT_LOCATION_NAME"/>
+    AliasName="TXT_LOCATION_NAME"
+    LOVName="LovtxtLocationName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewLinkAccessor
     Name="VoucherDetView"
     ViewLink="erpsolgls.erpsolglsmodel.erpsolglsvo.FkVoucherDetVoucherSeqLink"

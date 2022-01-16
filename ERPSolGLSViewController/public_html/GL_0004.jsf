@@ -50,10 +50,10 @@
                         <af:button actionListener="#{bindings.Next.execute}" text="Next"
                                    disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="b7"
                                    icon="#{resource['images:imgNext.png']}" iconPosition="top"/>
-                        <af:button actionListener="#{bindings.Delete.execute}" text="Delete Receipt"
+                        <af:button actionListener="#{bindings.Delete.execute}" text="Delete Voucher"
                                    disabled="#{pageFlowScope.ERPSolTempBean.LERPSolAllowDelete=='N'  || bindings.Submit.inputValue=='Y'}" id="b2"
                                    icon="#{resource['images:imgDelete.png']}" iconPosition="top"/>
-                        <af:button actionListener="#{bindings.CreateInsert.execute}" text="New Receipt"
+                        <af:button actionListener="#{bindings.CreateInsert.execute}" text="New Voucher"
                                    disabled="#{pageFlowScope.ERPSolTempBean.LERPSolAllowAdd=='N'}" id="b1"
                                    icon="#{resource['images:imgAdd.png']}" iconPosition="top"/>
                         <af:button actionListener="#{bindings.Rollback.execute}" text="Undo Changes" immediate="true"
