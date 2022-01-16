@@ -358,7 +358,6 @@
     ColumnType="VARCHAR2"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression><![CDATA[ChartOfAcc?.GlnatureOfAC==null?"":ChartOfAcc?.GlnatureOfAC+ChartOfAcc?.GlbroadCategory+ChartOfAcc?.GlcontrolAC+ChartOfAcc?.GlsubControlAC+ChartOfAcc?.GlsubsidaryAC]]></TransientExpression>
     <RecalcCondition><![CDATA[true]]></RecalcCondition>
     <Properties>
       <SchemaBasedProperties>

@@ -240,20 +240,5 @@
             Action="removeCurrentRow"/>
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
             DataControl="ERPSolGLSAppModuleDataControl"/>
-    <tree IterBinding="VoucherDetViewDetCRUDIterator" id="VoucherDetViewDetCRUD">
-      <nodeDefinition DefName="erpsolgls.erpsolglsmodel.erpsolglsvo.VoucherDetView" Name="VoucherDetViewDetCRUD0">
-        <AttrNames>
-          <Item Value="txtGLCode"/>
-          <Item Value="txtGLCodeCredit"/>
-          <Item Value="txtGLCodeCreditDescription"/>
-          <Item Value="txtGlDescription"/>
-          <Item Value="txtCostCenter"/>
-          <Item Value="txtCostCenterDescription"/>
-          <Item Value="FcurrDebit"/>
-          <Item Value="FcurrCredit"/>
-          <Item Value="Narration"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
   </bindings>
 </pageDefinition>

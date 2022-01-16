@@ -119,40 +119,6 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
-  <ListBinding
-    Name="LovtxtGLCodeCredit"
-    ListVOName="AccVWChartOfAccountQVO"
-    ListRangeSize="-1"
-    ComboRowCountHint="10"
-    NullValueFlag="none"
-    MRUCount="0">
-    <AttrArray Name="AttrNames">
-      <Item Value="txtGLCodeCredit"/>
-    </AttrArray>
-    <AttrArray Name="AttrExpressions"/>
-    <AttrArray Name="DerivedAttrNames">
-      <Item Value="txtGLCode"/>
-      <Item Value="GlbroadCategory"/>
-      <Item Value="GlcontrolAC"/>
-      <Item Value="GlnatureOfAC"/>
-      <Item Value="GlsubControlAC"/>
-      <Item Value="GlsubsidaryAC"/>
-    </AttrArray>
-    <AttrArray Name="ListAttrNames">
-      <Item Value="Description"/>
-      <Item Value="Glcode"/>
-      <Item Value="GlbroadCategory"/>
-      <Item Value="GlcontrolAC"/>
-      <Item Value="GlnatureOfAC"/>
-      <Item Value="GlsubControlAC"/>
-      <Item Value="GlsubsidaryAC"/>
-    </AttrArray>
-    <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="Description"/>
-      <Item Value="GlbroadCategory"/>
-    </AttrArray>
-    <DisplayCriteria/>
-  </ListBinding>
   <EntityUsage
     Name="VoucherDet"
     Entity="erpsolgls.erpsolglsmodel.erpsolglseo.VoucherDet"/>
@@ -353,15 +319,7 @@
     PrecisionRule="true"
     EntityAttrName="txtGLCodeCredit"
     EntityUsage="VoucherDet"
-    AliasName="TXT_GLCODE_CREDIT"
-    LOVName="LovtxtGLCodeCredit">
-    <Properties>
-      <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="combo_lov"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
+    AliasName="TXT_GLCODE_CREDIT"/>
   <ViewAttribute
     Name="txtGLCodeCreditDescription"
     IsQueriable="false"
