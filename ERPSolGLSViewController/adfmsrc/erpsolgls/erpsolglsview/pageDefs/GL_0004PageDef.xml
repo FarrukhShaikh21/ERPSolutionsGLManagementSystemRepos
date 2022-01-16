@@ -15,11 +15,6 @@
         <Item Value="VoucherNo"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="VoucherCRUDIterator" id="VoucherType">
-      <AttrNames>
-        <Item Value="VoucherType"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="VoucherCRUDIterator" id="VoucherDate">
       <AttrNames>
         <Item Value="VoucherDate"/>
@@ -230,42 +225,6 @@
         <Item Value="txtGLVTYPE"/>
       </AttrNames>
     </attributeValues>
-    <tree IterBinding="VoucherDetViewDetCRUDIterator" id="VoucherDetViewDetCRUD">
-      <nodeDefinition DefName="erpsolgls.erpsolglsmodel.erpsolglsvo.VoucherDetView" Name="VoucherDetViewDetCRUD0">
-        <AttrNames>
-          <Item Value="VoucherNo"/>
-          <Item Value="VoucherType"/>
-          <Item Value="LocCode"/>
-          <Item Value="GlnatureOfAC"/>
-          <Item Value="GlbroadCategory"/>
-          <Item Value="GlcontrolAC"/>
-          <Item Value="GlsubControlAC"/>
-          <Item Value="GlsubsidaryAC"/>
-          <Item Value="Ccregion"/>
-          <Item Value="CcsubLocation"/>
-          <Item Value="Ccsubsidary"/>
-          <Item Value="Debit"/>
-          <Item Value="Credit"/>
-          <Item Value="Quantity"/>
-          <Item Value="Narration"/>
-          <Item Value="SNo"/>
-          <Item Value="TrnLocCode"/>
-          <Item Value="OldGlcode"/>
-          <Item Value="NarrationRescue"/>
-          <Item Value="FcurrDebit"/>
-          <Item Value="FcurrCredit"/>
-          <Item Value="NarrationRescue2"/>
-          <Item Value="Voucherseq"/>
-          <Item Value="Voucherdetseq"/>
-          <Item Value="txtCostCenter"/>
-          <Item Value="txtCostCenterDescription"/>
-          <Item Value="txtGLCode"/>
-          <Item Value="txtGLCodeCredit"/>
-          <Item Value="txtGLCodeCreditDescription"/>
-          <Item Value="txtGlDescription"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
     <action IterBinding="VoucherCRUDIterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
     <action IterBinding="VoucherCRUDIterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
     <listOfValues IterBinding="VoucherCRUDIterator" StaticList="false" Uses="LovtxtLocationName" id="txtLocationName"/>
@@ -273,5 +232,28 @@
     <action IterBinding="VoucherCRUDIterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
     <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
             DataControl="ERPSolGLSAppModuleDataControl"/>
+    <list IterBinding="VoucherCRUDIterator" StaticList="false" Uses="LovVoucherType" id="VoucherType"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <action IterBinding="VoucherDetViewDetCRUDIterator" id="CreateInsert1" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="VoucherDetViewDetCRUDIterator" id="Delete1" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPSolGLSAppModuleDataControl"/>
+    <tree IterBinding="VoucherDetViewDetCRUDIterator" id="VoucherDetViewDetCRUD">
+      <nodeDefinition DefName="erpsolgls.erpsolglsmodel.erpsolglsvo.VoucherDetView" Name="VoucherDetViewDetCRUD0">
+        <AttrNames>
+          <Item Value="txtGLCode"/>
+          <Item Value="txtGLCodeCredit"/>
+          <Item Value="txtGLCodeCreditDescription"/>
+          <Item Value="txtGlDescription"/>
+          <Item Value="txtCostCenter"/>
+          <Item Value="txtCostCenterDescription"/>
+          <Item Value="FcurrDebit"/>
+          <Item Value="FcurrCredit"/>
+          <Item Value="Narration"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>

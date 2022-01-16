@@ -14,6 +14,7 @@ import java.sql.Types;
 import oracle.jbo.AttributeList;
 import oracle.jbo.Key;
 import oracle.jbo.RowIterator;
+import oracle.jbo.domain.Date;
 import oracle.jbo.server.EntityDefImpl;
 import oracle.jbo.server.EntityImpl;
 import oracle.jbo.server.TransactionEvent;
@@ -100,6 +101,8 @@ public class VoucherImpl extends ERPSolGlobalsEntityImpl {
             return vals;
         }
     }
+
+
     public static final int VOUCHERNO = AttributesEnum.VoucherNo.index();
     public static final int VOUCHERTYPE = AttributesEnum.VoucherType.index();
     public static final int LOCCODE = AttributesEnum.LocCode.index();
@@ -158,6 +161,14 @@ public class VoucherImpl extends ERPSolGlobalsEntityImpl {
     }
 
     /**
+     * @return the definition object for this instance class.
+     */
+    public static synchronized EntityDefImpl getDefinitionObject() {
+        return EntityDefImpl.findDefObject("erpsolgls.erpsolglsmodel.erpsolglseo.Voucher");
+    }
+
+
+    /**
      * Gets the attribute value for VoucherNo, using the alias name VoucherNo.
      * @return the value of VoucherNo
      */
@@ -209,15 +220,15 @@ public class VoucherImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for VoucherDate, using the alias name VoucherDate.
      * @return the value of VoucherDate
      */
-    public Timestamp getVoucherDate() {
-        return (Timestamp) getAttributeInternal(VOUCHERDATE);
+    public Date getVoucherDate() {
+        return (Date) getAttributeInternal(VOUCHERDATE);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for VoucherDate.
      * @param value value to set the VoucherDate
      */
-    public void setVoucherDate(Timestamp value) {
+    public void setVoucherDate(Date value) {
         setAttributeInternal(VOUCHERDATE, value);
     }
 
@@ -241,15 +252,15 @@ public class VoucherImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for ChequeDate, using the alias name ChequeDate.
      * @return the value of ChequeDate
      */
-    public Timestamp getChequeDate() {
-        return (Timestamp) getAttributeInternal(CHEQUEDATE);
+    public Date getChequeDate() {
+        return (Date) getAttributeInternal(CHEQUEDATE);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for ChequeDate.
      * @param value value to set the ChequeDate
      */
-    public void setChequeDate(Timestamp value) {
+    public void setChequeDate(Date value) {
         setAttributeInternal(CHEQUEDATE, value);
     }
 
@@ -353,15 +364,15 @@ public class VoucherImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for PrepareDt, using the alias name PrepareDt.
      * @return the value of PrepareDt
      */
-    public Timestamp getPrepareDt() {
-        return (Timestamp) getAttributeInternal(PREPAREDT);
+    public Date getPrepareDt() {
+        return (Date) getAttributeInternal(PREPAREDT);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for PrepareDt.
      * @param value value to set the PrepareDt
      */
-    public void setPrepareDt(Timestamp value) {
+    public void setPrepareDt(Date value) {
         setAttributeInternal(PREPAREDT, value);
     }
 
@@ -385,15 +396,15 @@ public class VoucherImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for CheckDt, using the alias name CheckDt.
      * @return the value of CheckDt
      */
-    public Timestamp getCheckDt() {
-        return (Timestamp) getAttributeInternal(CHECKDT);
+    public Date getCheckDt() {
+        return (Date) getAttributeInternal(CHECKDT);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for CheckDt.
      * @param value value to set the CheckDt
      */
-    public void setCheckDt(Timestamp value) {
+    public void setCheckDt(Date value) {
         setAttributeInternal(CHECKDT, value);
     }
 
@@ -417,15 +428,15 @@ public class VoucherImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for VerifyDt, using the alias name VerifyDt.
      * @return the value of VerifyDt
      */
-    public Timestamp getVerifyDt() {
-        return (Timestamp) getAttributeInternal(VERIFYDT);
+    public Date getVerifyDt() {
+        return (Date) getAttributeInternal(VERIFYDT);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for VerifyDt.
      * @param value value to set the VerifyDt
      */
-    public void setVerifyDt(Timestamp value) {
+    public void setVerifyDt(Date value) {
         setAttributeInternal(VERIFYDT, value);
     }
 
@@ -449,15 +460,15 @@ public class VoucherImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for ApproveDt, using the alias name ApproveDt.
      * @return the value of ApproveDt
      */
-    public Timestamp getApproveDt() {
-        return (Timestamp) getAttributeInternal(APPROVEDT);
+    public Date getApproveDt() {
+        return (Date) getAttributeInternal(APPROVEDT);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for ApproveDt.
      * @param value value to set the ApproveDt
      */
-    public void setApproveDt(Timestamp value) {
+    public void setApproveDt(Date value) {
         setAttributeInternal(APPROVEDT, value);
     }
 
@@ -609,15 +620,15 @@ public class VoucherImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for SubmitDate, using the alias name SubmitDate.
      * @return the value of SubmitDate
      */
-    public Timestamp getSubmitDate() {
-        return (Timestamp) getAttributeInternal(SUBMITDATE);
+    public Date getSubmitDate() {
+        return (Date) getAttributeInternal(SUBMITDATE);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for SubmitDate.
      * @param value value to set the SubmitDate
      */
-    public void setSubmitDate(Timestamp value) {
+    public void setSubmitDate(Date value) {
         setAttributeInternal(SUBMITDATE, value);
     }
 
@@ -689,15 +700,15 @@ public class VoucherImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for MigratedDate, using the alias name MigratedDate.
      * @return the value of MigratedDate
      */
-    public Timestamp getMigratedDate() {
-        return (Timestamp) getAttributeInternal(MIGRATEDDATE);
+    public Date getMigratedDate() {
+        return (Date) getAttributeInternal(MIGRATEDDATE);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for MigratedDate.
      * @param value value to set the MigratedDate
      */
-    public void setMigratedDate(Timestamp value) {
+    public void setMigratedDate(Date value) {
         setAttributeInternal(MIGRATEDDATE, value);
     }
 
@@ -937,6 +948,7 @@ public class VoucherImpl extends ERPSolGlobalsEntityImpl {
         setAttributeInternal(ALLLOCATIONS, value);
     }
 
+
     /**
      * @param voucherseq key constituent
 
@@ -944,13 +956,6 @@ public class VoucherImpl extends ERPSolGlobalsEntityImpl {
      */
     public static Key createPrimaryKey(Integer voucherseq) {
         return new Key(new Object[] { voucherseq });
-    }
-
-    /**
-     * @return the definition object for this instance class.
-     */
-    public static synchronized EntityDefImpl getDefinitionObject() {
-        return EntityDefImpl.findDefObject("erpsolgls.erpsolglsmodel.erpsolglseo.Voucher");
     }
 
     /**
@@ -986,6 +991,7 @@ public class VoucherImpl extends ERPSolGlobalsEntityImpl {
         if (operation==DML_INSERT) {
             String plsql=" BEGIN ?:=func_get_voucher_no('"+ERPSolGlobClassModel.doGetUserLocationCode()+"',TO_DATE('"+getVoucherDate()+"','YYYY-MM-DD'),'"+getVoucherType()+"'); END;";
             CallableStatement cs = getDBTransaction().createCallableStatement(plsql, getDBTransaction().DEFAULT);
+            System.out.println(plsql);
             try {
                 cs.registerOutParameter(1, Types.VARCHAR);
                 cs.executeUpdate();

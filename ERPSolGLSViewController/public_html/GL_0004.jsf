@@ -105,10 +105,16 @@
                       </af:gridRow>
                       <af:gridRow height="30px" id="gr5">
                         <af:gridCell marginStart="5px" width="15%" id="gc8" valign="middle">
-                          <af:outputLabel value="#{bindings.VoucherType.label}" id="ol1"/>
+                          <af:outputLabel id="ol1" value="#{bindings.VoucherType.label}"/>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="35%" id="gc9" halign="stretch" valign="middle">
-                          0
+                          <af:selectOneChoice value="#{bindings.VoucherType.inputValue}"
+                                              label="#{bindings.VoucherType.label}"
+                                              required="#{bindings.VoucherType.hints.mandatory}"
+                                              shortDesc="#{bindings.VoucherType.hints.tooltip}" id="soc1" simple="true">
+                            <f:selectItems value="#{bindings.VoucherType.items}" id="si1"/>
+                            <f:validator binding="#{bindings.VoucherType.validator}"/>
+                          </af:selectOneChoice>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="15%" id="gc10" valign="middle">
                           <af:outputLabel id="ol9" value="#{bindings.txtLocationName.hints.label}"/>
@@ -223,10 +229,9 @@
                     <f:facet name="menus"/>
                     <f:facet name="toolbar">
                       <af:toolbar id="t3">
-                        <af:button actionListener="#{bindings.CreateInsert1.execute}" text="Add Receipt Line"
-                                   disabled="#{bindings.Submit.inputValue=='Y'}" id="b3"
-                                   action="#{pageFlowScope.ERPSolFMSPageFlowBean.ErpSolsetFocusOnNewRecord}"/>
-                        <af:button actionListener="#{bindings.Delete1.execute}" text="Delete Receipt Line"
+                        <af:button actionListener="#{bindings.CreateInsert1.execute}" text="Add Voucher Line"
+                                   disabled="#{bindings.Submit.inputValue=='Y'}" id="b3"/>
+                        <af:button actionListener="#{bindings.Delete1.execute}" text="Delete Voucher Line"
                                    disabled="#{bindings.Submit.inputValue=='Y'}" id="b4"/>
                       </af:toolbar>
                     </f:facet>
@@ -238,7 +243,8 @@
                               rowBandingInterval="0"
                               selectedRowKeys="#{bindings.VoucherDetViewDetCRUD.collectionModel.selectedRow}"
                               selectionListener="#{bindings.VoucherDetViewDetCRUD.collectionModel.makeCurrent}"
-                              rowSelection="single" fetchSize="#{bindings.VoucherDetViewDetCRUD.rangeSize}" id="t2">
+                              rowSelection="single" fetchSize="#{bindings.VoucherDetViewDetCRUD.rangeSize}" id="t2"
+                              partialTriggers="::b3 ::b4">
                       <af:column headerText="#{bindings.VoucherDetViewDetCRUD.hints.txtGLCode.label}" id="c1">
                         <af:inputText value="#{row.bindings.txtGLCode.inputValue}"
                                       label="#{bindings.VoucherDetViewDetCRUD.hints.txtGLCode.label}"
@@ -249,30 +255,19 @@
                           <f:validator binding="#{row.bindings.txtGLCode.validator}"/>
                         </af:inputText>
                       </af:column>
-                      <af:column headerText="#{bindings.VoucherDetViewDetCRUD.hints.txtGlDescription.label}" id="c2">
-                        <af:inputComboboxListOfValues id="txtGlDescriptionId"
-                                                      popupTitle="Search and Select: #{bindings.VoucherDetViewDetCRUD.hints.txtGlDescription.label}"
-                                                      value="#{row.bindings.txtGlDescription.inputValue}"
-                                                      model="#{row.bindings.txtGlDescription.listOfValuesModel}"
-                                                      required="#{bindings.VoucherDetViewDetCRUD.hints.txtGlDescription.mandatory}"
-                                                      columns="#{bindings.VoucherDetViewDetCRUD.hints.txtGlDescription.displayWidth}"
-                                                      shortDesc="#{bindings.VoucherDetViewDetCRUD.hints.txtGlDescription.tooltip}">
-                          <f:validator binding="#{row.bindings.txtGlDescription.validator}"/>
+                      <af:column headerText="#{bindings.VoucherDetViewDetCRUD.hints.txtGLCodeCredit.label}" id="c2">
+                        <af:inputComboboxListOfValues id="txtGLCodeCreditId"
+                                                      popupTitle="Search and Select: #{bindings.VoucherDetViewDetCRUD.hints.txtGLCodeCredit.label}"
+                                                      value="#{row.bindings.txtGLCodeCredit.inputValue}"
+                                                      model="#{row.bindings.txtGLCodeCredit.listOfValuesModel}"
+                                                      required="#{bindings.VoucherDetViewDetCRUD.hints.txtGLCodeCredit.mandatory}"
+                                                      columns="#{bindings.VoucherDetViewDetCRUD.hints.txtGLCodeCredit.displayWidth}"
+                                                      shortDesc="#{bindings.VoucherDetViewDetCRUD.hints.txtGLCodeCredit.tooltip}">
+                          <f:validator binding="#{row.bindings.txtGLCodeCredit.validator}"/>
                         </af:inputComboboxListOfValues>
                       </af:column>
-                      <af:column headerText="#{bindings.VoucherDetViewDetCRUD.hints.txtGLCodeCredit.label}" id="c3">
-                        <af:inputText value="#{row.bindings.txtGLCodeCredit.inputValue}"
-                                      label="#{bindings.VoucherDetViewDetCRUD.hints.txtGLCodeCredit.label}"
-                                      required="#{bindings.VoucherDetViewDetCRUD.hints.txtGLCodeCredit.mandatory}"
-                                      columns="#{bindings.VoucherDetViewDetCRUD.hints.txtGLCodeCredit.displayWidth}"
-                                      maximumLength="#{bindings.VoucherDetViewDetCRUD.hints.txtGLCodeCredit.precision}"
-                                      shortDesc="#{bindings.VoucherDetViewDetCRUD.hints.txtGLCodeCredit.tooltip}"
-                                      id="it6">
-                          <f:validator binding="#{row.bindings.txtGLCodeCredit.validator}"/>
-                        </af:inputText>
-                      </af:column>
                       <af:column headerText="#{bindings.VoucherDetViewDetCRUD.hints.txtGLCodeCreditDescription.label}"
-                                 id="c4">
+                                 id="c3">
                         <af:inputComboboxListOfValues id="txtGLCodeCreditDescriptionId"
                                                       popupTitle="Search and Select: #{bindings.VoucherDetViewDetCRUD.hints.txtGLCodeCreditDescription.label}"
                                                       value="#{row.bindings.txtGLCodeCreditDescription.inputValue}"
@@ -283,8 +278,30 @@
                           <f:validator binding="#{row.bindings.txtGLCodeCreditDescription.validator}"/>
                         </af:inputComboboxListOfValues>
                       </af:column>
+                      <af:column headerText="#{bindings.VoucherDetViewDetCRUD.hints.txtGlDescription.label}" id="c4">
+                        <af:inputComboboxListOfValues id="txtGlDescriptionId"
+                                                      popupTitle="Search and Select: #{bindings.VoucherDetViewDetCRUD.hints.txtGlDescription.label}"
+                                                      value="#{row.bindings.txtGlDescription.inputValue}"
+                                                      model="#{row.bindings.txtGlDescription.listOfValuesModel}"
+                                                      required="#{bindings.VoucherDetViewDetCRUD.hints.txtGlDescription.mandatory}"
+                                                      columns="#{bindings.VoucherDetViewDetCRUD.hints.txtGlDescription.displayWidth}"
+                                                      shortDesc="#{bindings.VoucherDetViewDetCRUD.hints.txtGlDescription.tooltip}">
+                          <f:validator binding="#{row.bindings.txtGlDescription.validator}"/>
+                        </af:inputComboboxListOfValues>
+                      </af:column>
+                      <af:column headerText="#{bindings.VoucherDetViewDetCRUD.hints.txtCostCenter.label}" id="c5">
+                        <af:inputText value="#{row.bindings.txtCostCenter.inputValue}"
+                                      label="#{bindings.VoucherDetViewDetCRUD.hints.txtCostCenter.label}"
+                                      required="#{bindings.VoucherDetViewDetCRUD.hints.txtCostCenter.mandatory}"
+                                      columns="#{bindings.VoucherDetViewDetCRUD.hints.txtCostCenter.displayWidth}"
+                                      maximumLength="#{bindings.VoucherDetViewDetCRUD.hints.txtCostCenter.precision}"
+                                      shortDesc="#{bindings.VoucherDetViewDetCRUD.hints.txtCostCenter.tooltip}"
+                                      id="it6">
+                          <f:validator binding="#{row.bindings.txtCostCenter.validator}"/>
+                        </af:inputText>
+                      </af:column>
                       <af:column headerText="#{bindings.VoucherDetViewDetCRUD.hints.txtCostCenterDescription.label}"
-                                 id="c5">
+                                 id="c6">
                         <af:inputComboboxListOfValues id="txtCostCenterDescriptionId"
                                                       popupTitle="Search and Select: #{bindings.VoucherDetViewDetCRUD.hints.txtCostCenterDescription.label}"
                                                       value="#{row.bindings.txtCostCenterDescription.inputValue}"
@@ -295,24 +312,13 @@
                           <f:validator binding="#{row.bindings.txtCostCenterDescription.validator}"/>
                         </af:inputComboboxListOfValues>
                       </af:column>
-                      <af:column headerText="#{bindings.VoucherDetViewDetCRUD.hints.txtCostCenter.label}" id="c6">
-                        <af:inputText value="#{row.bindings.txtCostCenter.inputValue}"
-                                      label="#{bindings.VoucherDetViewDetCRUD.hints.txtCostCenter.label}"
-                                      required="#{bindings.VoucherDetViewDetCRUD.hints.txtCostCenter.mandatory}"
-                                      columns="#{bindings.VoucherDetViewDetCRUD.hints.txtCostCenter.displayWidth}"
-                                      maximumLength="#{bindings.VoucherDetViewDetCRUD.hints.txtCostCenter.precision}"
-                                      shortDesc="#{bindings.VoucherDetViewDetCRUD.hints.txtCostCenter.tooltip}"
-                                      id="it7">
-                          <f:validator binding="#{row.bindings.txtCostCenter.validator}"/>
-                        </af:inputText>
-                      </af:column>
                       <af:column headerText="#{bindings.VoucherDetViewDetCRUD.hints.FcurrDebit.label}" id="c7">
                         <af:inputText value="#{row.bindings.FcurrDebit.inputValue}"
                                       label="#{bindings.VoucherDetViewDetCRUD.hints.FcurrDebit.label}"
                                       required="#{bindings.VoucherDetViewDetCRUD.hints.FcurrDebit.mandatory}"
                                       columns="#{bindings.VoucherDetViewDetCRUD.hints.FcurrDebit.displayWidth}"
                                       maximumLength="#{bindings.VoucherDetViewDetCRUD.hints.FcurrDebit.precision}"
-                                      shortDesc="#{bindings.VoucherDetViewDetCRUD.hints.FcurrDebit.tooltip}" id="it8">
+                                      shortDesc="#{bindings.VoucherDetViewDetCRUD.hints.FcurrDebit.tooltip}" id="it7">
                           <f:validator binding="#{row.bindings.FcurrDebit.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.VoucherDetViewDetCRUD.hints.FcurrDebit.format}"/>
@@ -324,7 +330,7 @@
                                       required="#{bindings.VoucherDetViewDetCRUD.hints.FcurrCredit.mandatory}"
                                       columns="#{bindings.VoucherDetViewDetCRUD.hints.FcurrCredit.displayWidth}"
                                       maximumLength="#{bindings.VoucherDetViewDetCRUD.hints.FcurrCredit.precision}"
-                                      shortDesc="#{bindings.VoucherDetViewDetCRUD.hints.FcurrCredit.tooltip}" id="it9">
+                                      shortDesc="#{bindings.VoucherDetViewDetCRUD.hints.FcurrCredit.tooltip}" id="it8">
                           <f:validator binding="#{row.bindings.FcurrCredit.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.VoucherDetViewDetCRUD.hints.FcurrCredit.format}"/>
@@ -336,7 +342,7 @@
                                       required="#{bindings.VoucherDetViewDetCRUD.hints.Narration.mandatory}"
                                       columns="#{bindings.VoucherDetViewDetCRUD.hints.Narration.displayWidth}"
                                       maximumLength="#{bindings.VoucherDetViewDetCRUD.hints.Narration.precision}"
-                                      shortDesc="#{bindings.VoucherDetViewDetCRUD.hints.Narration.tooltip}" id="it10">
+                                      shortDesc="#{bindings.VoucherDetViewDetCRUD.hints.Narration.tooltip}" id="it9">
                           <f:validator binding="#{row.bindings.Narration.validator}"/>
                         </af:inputText>
                       </af:column>

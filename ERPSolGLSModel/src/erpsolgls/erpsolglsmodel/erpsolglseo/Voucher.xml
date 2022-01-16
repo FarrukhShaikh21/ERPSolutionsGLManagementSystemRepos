@@ -27,6 +27,14 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="10"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolgls.erpsolglsmodel.erpsolglseo.Voucher.VoucherNo_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="VoucherType"
@@ -58,7 +66,7 @@
     Name="VoucherDate"
     ColumnName="VOUCHER_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="VOUCHER"/>
   <Attribute
@@ -72,14 +80,31 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="15"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <LABEL
+          ResId="erpsolgls.erpsolglsmodel.erpsolglseo.Voucher.ChequeNo_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="ChequeDate"
     ColumnName="CHEQUE_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
-    TableName="VOUCHER"/>
+    TableName="VOUCHER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolgls.erpsolglsmodel.erpsolglseo.Voucher.ChequeDate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="Particulars"
     Precision="300"
@@ -91,6 +116,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="300"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="Cash"
@@ -156,7 +187,7 @@
     Name="PrepareDt"
     ColumnName="PREPARE_DT"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="VOUCHER"/>
   <Attribute
@@ -175,7 +206,7 @@
     Name="CheckDt"
     ColumnName="CHECK_DT"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="VOUCHER"/>
   <Attribute
@@ -194,7 +225,7 @@
     Name="VerifyDt"
     ColumnName="VERIFY_DT"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="VOUCHER"/>
   <Attribute
@@ -213,7 +244,7 @@
     Name="ApproveDt"
     ColumnName="APPROVE_DT"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="VOUCHER"/>
   <Attribute
@@ -275,6 +306,14 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="50"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolgls.erpsolglsmodel.erpsolglseo.Voucher.RefNo_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="SubmitVoucherNo"
@@ -324,7 +363,7 @@
     Name="SubmitDate"
     ColumnName="SUBMIT_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="VOUCHER"/>
   <Attribute
@@ -380,7 +419,7 @@
     Name="MigratedDate"
     ColumnName="MIGRATED_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="VOUCHER"/>
   <Attribute
@@ -413,7 +452,14 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="VOUCHER"/>
+    TableName="VOUCHER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolgls.erpsolglsmodel.erpsolglseo.Voucher.ExchangeRate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="AuditRefNo"
     Precision="50"

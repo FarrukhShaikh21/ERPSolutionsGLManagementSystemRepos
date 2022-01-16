@@ -290,7 +290,7 @@
     Name="Voucherseq"
     ColumnName="VOUCHERSEQ"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="VOUCHER_DET"/>
   <Attribute
@@ -298,7 +298,7 @@
     IsUnique="true"
     ColumnName="VOUCHERDETSEQ"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="VOUCHER_DET"
     PrimaryKey="true"/>
@@ -309,11 +309,10 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="VOUCHER_DET"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression
-      trustMode="untrusted"><![CDATA[CostCenter?.Ccregion+CostCenter?.CcsubLocation+CostCenter?.Ccsubsidary]]></TransientExpression>
+    <TransientExpression><![CDATA[CostCenter?.Ccregion==null?"":CostCenter?.Ccregion+CostCenter?.CcsubLocation+CostCenter?.Ccsubsidary]]></TransientExpression>
+    <RecalcCondition><![CDATA[true]]></RecalcCondition>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -340,8 +339,7 @@
     ColumnType="VARCHAR2"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression
-      trustMode="untrusted"><![CDATA[CostCenter?.Description]]></TransientExpression>
+    <TransientExpression><![CDATA[CostCenter?.Description]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -360,8 +358,8 @@
     ColumnType="VARCHAR2"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression
-      trustMode="untrusted"><![CDATA[ChartOfAcc?.GlnatureOfAC+ChartOfAcc?.GlbroadCategory+ChartOfAcc?.GlcontrolAC+ChartOfAcc?.GlsubControlAC+ChartOfAcc?.GlsubsidaryAC]]></TransientExpression>
+    <TransientExpression><![CDATA[ChartOfAcc?.GlnatureOfAC==null?"":ChartOfAcc?.GlnatureOfAC+ChartOfAcc?.GlbroadCategory+ChartOfAcc?.GlcontrolAC+ChartOfAcc?.GlsubControlAC+ChartOfAcc?.GlsubsidaryAC]]></TransientExpression>
+    <RecalcCondition><![CDATA[true]]></RecalcCondition>
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
@@ -380,8 +378,7 @@
     ColumnType="VARCHAR2"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression
-      trustMode="untrusted"><![CDATA[ChartOfAcc?.Description]]></TransientExpression>
+    <TransientExpression><![CDATA[ChartOfAcc?.Description]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -400,8 +397,8 @@
     ColumnType="VARCHAR2"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression
-      trustMode="untrusted"><![CDATA[ChartOfAcc?.GlnatureOfAC+ChartOfAcc?.GlbroadCategory+ChartOfAcc?.GlcontrolAC+ChartOfAcc?.GlsubControlAC+ChartOfAcc?.GlsubsidaryAC]]></TransientExpression>
+    <TransientExpression><![CDATA[ChartOfAcc?.GlnatureOfAC==null?"":ChartOfAcc?.GlnatureOfAC+ChartOfAcc?.GlbroadCategory+ChartOfAcc?.GlcontrolAC+ChartOfAcc?.GlsubControlAC+ChartOfAcc?.GlsubsidaryAC]]></TransientExpression>
+    <RecalcCondition><![CDATA[true]]></RecalcCondition>
     <Properties>
       <SchemaBasedProperties>
         <LABEL

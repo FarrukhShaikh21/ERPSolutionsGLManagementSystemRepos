@@ -483,15 +483,15 @@ public class VoucherDetImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for Voucherseq, using the alias name Voucherseq.
      * @return the value of Voucherseq
      */
-    public BigDecimal getVoucherseq() {
-        return (BigDecimal) getAttributeInternal(VOUCHERSEQ);
+    public Integer getVoucherseq() {
+        return (Integer) getAttributeInternal(VOUCHERSEQ);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for Voucherseq.
      * @param value value to set the Voucherseq
      */
-    public void setVoucherseq(BigDecimal value) {
+    public void setVoucherseq(Integer value) {
         setAttributeInternal(VOUCHERSEQ, value);
     }
 
@@ -499,15 +499,15 @@ public class VoucherDetImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for Voucherdetseq, using the alias name Voucherdetseq.
      * @return the value of Voucherdetseq
      */
-    public BigDecimal getVoucherdetseq() {
-        return (BigDecimal) getAttributeInternal(VOUCHERDETSEQ);
+    public Integer getVoucherdetseq() {
+        return (Integer) getAttributeInternal(VOUCHERDETSEQ);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for Voucherdetseq.
      * @param value value to set the Voucherdetseq
      */
-    public void setVoucherdetseq(BigDecimal value) {
+    public void setVoucherdetseq(Integer value) {
         setAttributeInternal(VOUCHERDETSEQ, value);
     }
 
@@ -671,7 +671,7 @@ public class VoucherDetImpl extends ERPSolGlobalsEntityImpl {
 
      * @return a Key object based on given key constituents.
      */
-    public static Key createPrimaryKey(String sNo, BigDecimal voucherdetseq) {
+    public static Key createPrimaryKey(String sNo, Integer voucherdetseq) {
         return new Key(new Object[] { sNo, voucherdetseq });
     }
 
@@ -705,6 +705,9 @@ public class VoucherDetImpl extends ERPSolGlobalsEntityImpl {
      * @param e the transaction event
      */
     protected void doDML(int operation, TransactionEvent e) {
+        if (operation==DML_INSERT) {
+           populateAttributeAsChanged(VOUCHER, getVoucher().getAttribute("VoucherNo").toString()); 
+       }
         super.doDML(operation, e);
     }
 }

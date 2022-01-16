@@ -177,6 +177,25 @@
       <value n="j2eeWebAppName" v="ERPSolutionsGLManagementSystem-ERPSolGLSViewController-webapp"/>
       <value n="j2eeWebContextRoot" v="ERPSolutionsGLManagementSystem-ERPSolGLSViewController-context-root"/>
    </hash>
+   <hash n="oracle.jdeveloper.runner.RunConfigurations">
+      <hash n="runConfigurationDefinitions">
+         <hash n="Default">
+            <value n="custom" v="false"/>
+            <value n="name" v="Default"/>
+            <hash n="oracle.adfdt.controller.adfc.source.runner.AdfcRunnerLaunchSettings">
+               <hash n="inputParameterValues">
+                  <value n="P_ADF_USER_LOCATIONCODE" v="DKHI"/>
+                  <value n="P_ADF_USER_REGIONCODE" v="S"/>
+                  <value n="P_ADF_USER_STORECODE" v="001"/>
+                  <value n="P_ADF_USERCODE" v="ERP"/>
+               </hash>
+               <value n="taskFlowId" v="ERPSOLGLS"/>
+               <value n="unboundedTaskFlow" v="false"/>
+            </hash>
+            <url n="targetURL" path="public_html/WEB-INF/ERPSOLGLS.xml"/>
+         </hash>
+      </hash>
+   </hash>
    <hash n="oracle.jdevimpl.config.JProjectLibraries">
       <list n="exportedReferences">
          <hash>
