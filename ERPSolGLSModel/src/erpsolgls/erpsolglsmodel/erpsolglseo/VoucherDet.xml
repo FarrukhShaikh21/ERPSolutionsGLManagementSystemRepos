@@ -338,7 +338,10 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="VOUCHER_DET">
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[ChartOfAcc?.GlnatureOfAC+ChartOfAcc?.GlbroadCategory+ChartOfAcc?.GlcontrolAC+ChartOfAcc?.GlsubControlAC+ChartOfAcc?.GlsubsidaryAC]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
@@ -355,7 +358,11 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="VOUCHER_DET">
+    TableName="VOUCHER_DET"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[ChartOfAcc?.Description]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -372,7 +379,11 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="VOUCHER_DET">
+    TableName="VOUCHER_DET"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[ChartOfAcc?.GlnatureOfAC+ChartOfAcc?.GlbroadCategory+ChartOfAcc?.GlcontrolAC+ChartOfAcc?.GlsubControlAC+ChartOfAcc?.GlsubsidaryAC]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -389,7 +400,11 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="VOUCHER_DET">
+    TableName="VOUCHER_DET"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[ChartOfAcc?.Description]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL

@@ -13,6 +13,32 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <ViewAccessor
+    Name="AccVoucherView"
+    ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsvo.VoucherView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccVoucherTypeView"
+    ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsvo.VoucherTypeView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LovVoucherType"
+    ListVOName="AccVoucherTypeView"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="VoucherType"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="VoucherType1"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="Voucher"
     Entity="erpsolgls.erpsolglsmodel.erpsolglseo.Voucher"/>
@@ -29,7 +55,15 @@
     PrecisionRule="true"
     EntityAttrName="VoucherType"
     EntityUsage="Voucher"
-    AliasName="VOUCHER_TYPE"/>
+    AliasName="VOUCHER_TYPE"
+    LOVName="LovVoucherType">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="LocCode"
     IsNotNull="true"
