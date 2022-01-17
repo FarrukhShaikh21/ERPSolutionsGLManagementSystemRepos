@@ -14,9 +14,11 @@
   SelectAllAttributes="false"
   PageIterMode="Full"
   ComponentClass="erpsolgls.erpsolglsmodel.erpsolglsvo.VoucherViewImpl"
-  RowClass="erpsolgls.erpsolglsmodel.erpsolglsvo.VoucherViewRowImpl">
+  RowClass="erpsolgls.erpsolglsmodel.erpsolglsvo.VoucherViewRowImpl"
+  ComponentInterface="erpsolgls.erpsolglsmodel.erpsolglsvo.common.VoucherView"
+  ClientProxyName="erpsolgls.erpsolglsmodel.erpsolglsvo.client.VoucherViewClient">
   <DesignTime>
-    <Attr Name="_codeGenFlag2" Value="Access|Coll|Prog|VarAccess"/>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
     <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
   <ViewAccessor
@@ -398,4 +400,14 @@
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
+  <ClientInterface
+    Name="__clientInterface">
+    <Method
+      Name="doSuperviseGLVoucher"
+      MethodName="doSuperviseGLVoucher">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
+    </Method>
+  </ClientInterface>
 </ViewObject>

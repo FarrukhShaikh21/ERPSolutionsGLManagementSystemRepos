@@ -1,7 +1,16 @@
 package erpsolgls.erpsolglsmodel.erpsolglsvo;
 
+import erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobClassModel;
+
+import erpsolgls.erpsolglsmodel.erpsolglsvo.common.VoucherView;
+
+import java.sql.CallableStatement;
 import java.sql.ResultSet;
 
+import java.sql.SQLException;
+import java.sql.Types;
+
+import oracle.jbo.JboException;
 import oracle.jbo.Row;
 import oracle.jbo.server.ViewObjectImpl;
 import oracle.jbo.server.ViewRowImpl;
@@ -12,55 +21,43 @@ import oracle.jbo.server.ViewRowSetImpl;
 // ---    Custom code may be added to this class.
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
-public class VoucherViewImpl extends ViewObjectImpl {
+public class VoucherViewImpl extends ViewObjectImpl implements VoucherView {
     /**
      * This is the default constructor (do not remove).
      */
     public VoucherViewImpl() {
     }
 
-    /**
-     * executeQueryForCollection - overridden for custom java data source support.
-     */
-    @Override
-    protected void executeQueryForCollection(Object qc, Object[] params, int noUserParams) {
-        super.executeQueryForCollection(qc, params, noUserParams);
+    public void doSuperviseGLVoucher() {
+        
+        CallableStatement cs=this.getDBTransaction().createCallableStatement("begin ?:=pkg_receipt.func_submit_gl_voucher('"+this.getCurrentRow().getAttribute("VoucherNo")+"','"+this.getCurrentRow().getAttribute("LocCode")+"',TO_DATE('"+this.getCurrentRow().getAttribute("VoucherDate")+"','YYYY-MM-DD'),'"+this.getCurrentRow().getAttribute("VoucherType")+"','"+ERPSolGlobClassModel.doGetUserCode()+"'); END;", 1);
+        System.out.println("begin ?:=pkg_receipt.func_submit_gl_voucher('"+this.getCurrentRow().getAttribute("VoucherNo")+"','"+this.getCurrentRow().getAttribute("LocCode")+"',TO_DATE('"+this.getCurrentRow().getAttribute("VoucherDate")+"','YYYY-MM-DD'),'"+this.getCurrentRow().getAttribute("VoucherType")+"','"+ERPSolGlobClassModel.doGetUserCode()+"'); END;");
+        try {
+            cs.registerOutParameter(1, Types.VARCHAR);
+            cs.executeUpdate();
+            this.getCurrentRow().refresh(Row.REFRESH_WITH_DB_FORGET_CHANGES);
+            
+            if (!cs.getString(1).equals("ERPSOLSUCCESS")) {
+    //               this.getCurrentRow().setAttribute("Submit", "N");
+               this.getDBTransaction().commit();
+                throw new JboException("Unable to supervise due to "+cs.getString(1));
+               
+           }
+            this.getCurrentRow().setAttribute("Submit", "Y");
+            this.getDBTransaction().commit();
+        } catch (SQLException e) {
+    //            this.getCurrentRow().setAttribute("Submit", "N");
+            this.getDBTransaction().commit();
+            System.out.println(e.getMessage()+ "this is message");
+            throw new JboException("Unable to supervise ");
+        }
+        finally{
+            try {
+                cs.close();
+            } catch (SQLException e) {
+            }
+        }
     }
 
-    /**
-     * hasNextForCollection - overridden for custom java data source support.
-     */
-    @Override
-    protected boolean hasNextForCollection(Object qc) {
-        boolean bRet = super.hasNextForCollection(qc);
-        return bRet;
-    }
-
-    /**
-     * createRowFromResultSet - overridden for custom java data source support.
-     */
-    @Override
-    protected ViewRowImpl createRowFromResultSet(Object qc, ResultSet resultSet) {
-        ViewRowImpl value = super.createRowFromResultSet(qc, resultSet);
-        return value;
-    }
-
-    /**
-     * getQueryHitCount - overridden for custom java data source support.
-     */
-    @Override
-    public long getQueryHitCount(ViewRowSetImpl viewRowSet) {
-        long value = super.getQueryHitCount(viewRowSet);
-        return value;
-    }
-
-    /**
-     * getCappedQueryHitCount - overridden for custom java data source support.
-     */
-    @Override
-    public long getCappedQueryHitCount(ViewRowSetImpl viewRowSet, Row[] masterRows, long oldCap, long cap) {
-        long value = super.getCappedQueryHitCount(viewRowSet, masterRows, oldCap, cap);
-        return value;
-    }
 }
 

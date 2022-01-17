@@ -255,5 +255,10 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <methodAction id="doSuperviseGLVoucher" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="doSuperviseGLVoucher" IsViewObjectMethod="true"
+                  DataControl="ERPSolGLSAppModuleDataControl"
+                  InstanceName="data.ERPSolGLSAppModuleDataControl.VoucherCRUD"
+                  ReturnName="data.ERPSolGLSAppModuleDataControl.methodResults.doSuperviseGLVoucher_ERPSolGLSAppModuleDataControl_VoucherCRUD_doSuperviseGLVoucher_result"/>
   </bindings>
 </pageDefinition>

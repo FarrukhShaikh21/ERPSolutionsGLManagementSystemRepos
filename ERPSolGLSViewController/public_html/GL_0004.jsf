@@ -37,9 +37,8 @@
                                inlineStyle="border-color:#b8d6f3; outline-width:thin; border-width:thin thin thin thin;">
                     <f:facet name="toolbar">
                       <af:toolbar id="t1">
-                        <af:button actionListener="#{bindings.doSuperviseControlReceipt.execute}"
-                                   text="doSuperviseControlReceipt"
-                                   disabled="#{!bindings.doSuperviseControlReceipt.enabled}" id="b11" rendered="false"/>
+                        <af:button actionListener="#{bindings.doSuperviseGLVoucher.execute}" text="doSuperviseGLVoucher"
+                                   disabled="#{!bindings.doSuperviseGLVoucher.enabled}" id="b11" rendered="false"/>
                         <af:button text="Close Form" id="b10" action="ACT-ERP-EXIT-FORM"
                                    icon="#{resource['images:imgExitForm.png']}" iconPosition="top"/>
                         <af:button text="Search" id="b12" action="ERP-ACT-AR-0047-SEARCH"
@@ -103,6 +102,35 @@
                           </af:inputDate>
                         </af:gridCell>
                       </af:gridRow>
+                      <af:gridRow id="gr7" height="30px">
+                        <af:gridCell id="gc16" valign="middle">
+                          <af:outputLabel value="#{bindings.SubmitVoucherNo.hints.label}" id="ol8"/>
+                        </af:gridCell>
+                        <af:gridCell id="gc17" valign="middle">
+                          <af:inputText value="#{bindings.SubmitVoucherNo.inputValue}"
+                                        label="#{bindings.SubmitVoucherNo.hints.label}"
+                                        required="#{bindings.SubmitVoucherNo.hints.mandatory}"
+                                        columns="#{bindings.SubmitVoucherNo.hints.displayWidth}"
+                                        maximumLength="#{bindings.SubmitVoucherNo.hints.precision}"
+                                        shortDesc="#{bindings.SubmitVoucherNo.hints.tooltip}" id="it11" simple="true"
+                                        readOnly="true">
+                            <f:validator binding="#{bindings.SubmitVoucherNo.validator}"/>
+                          </af:inputText>
+                        </af:gridCell>
+                        <af:gridCell id="gc18" valign="middle">
+                          <af:outputLabel value="#{bindings.SubmitVoucherDate.hints.label}" id="ol11"/>
+                        </af:gridCell>
+                        <af:gridCell id="gc19">
+                          <af:inputDate value="#{bindings.SubmitVoucherDate.inputValue}"
+                                        label="#{bindings.SubmitVoucherDate.hints.label}"
+                                        required="#{bindings.SubmitVoucherDate.hints.mandatory}"
+                                        columns="#{bindings.SubmitVoucherDate.hints.displayWidth}"
+                                        shortDesc="#{bindings.SubmitVoucherDate.hints.tooltip}" id="id3" simple="true">
+                            <f:validator binding="#{bindings.SubmitVoucherDate.validator}"/>
+                            <af:convertDateTime pattern="#{bindings.SubmitVoucherDate.format}"/>
+                          </af:inputDate>
+                        </af:gridCell>
+                      </af:gridRow>
                       <af:gridRow height="30px" id="gr5">
                         <af:gridCell marginStart="5px" width="15%" id="gc8" valign="middle">
                           <af:outputLabel id="ol1" value="#{bindings.VoucherType.label}"/>
@@ -130,7 +158,7 @@
                                                         required="#{bindings.txtLocationName.hints.mandatory}"
                                                         columns="#{bindings.txtLocationName.hints.displayWidth}"
                                                         shortDesc="#{bindings.txtLocationName.hints.tooltip}"
-                                                        simple="true">
+                                                        simple="true" readOnly="#{bindings.VoucherNo.inputValue!=null}">
                             <f:validator binding="#{bindings.txtLocationName.validator}"/>
                             <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolGLSPageFlowBean.doERPSolGetAutoSuggestedLocationValues}"/>
                           </af:inputComboboxListOfValues>

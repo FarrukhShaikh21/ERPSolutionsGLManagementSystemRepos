@@ -986,5 +986,13 @@ public class VoucherViewRowImpl extends ViewRowImpl {
     public RowSet getAccAllLocationsView() {
         return (RowSet) getAttributeInternal(ACCALLLOCATIONSVIEW);
     }
+    @Override
+    public boolean isAttributeUpdateable(int i) {
+        // TODO Implement this method
+        if (getSubmit().equals("Y")) {
+            return false;
+       }
+        return super.isAttributeUpdateable(i);
+    }
 }
 

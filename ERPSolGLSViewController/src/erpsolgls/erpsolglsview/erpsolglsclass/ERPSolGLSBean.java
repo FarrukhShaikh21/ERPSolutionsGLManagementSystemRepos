@@ -275,7 +275,7 @@ public class ERPSolGLSBean {
             if (!ob.getErrors().isEmpty()) {
                 return ;
            }
-             ob = ERPSolGlobalViewBean.doIsERPSolGerOperationBinding("doSuperviseControlReceipt");
+             ob = ERPSolGlobalViewBean.doIsERPSolGerOperationBinding("doSuperviseGLVoucher");
             ob.execute();
         }
     }

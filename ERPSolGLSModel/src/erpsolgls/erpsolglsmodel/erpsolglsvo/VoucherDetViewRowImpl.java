@@ -678,5 +678,14 @@ public class VoucherDetViewRowImpl extends ViewRowImpl {
     public RowSet getAccVWCostCenterQVO() {
         return (RowSet) getAttributeInternal(ACCVWCOSTCENTERQVO);
     }
+    
+    @Override
+    public boolean isAttributeUpdateable(int i) {
+        // TODO Implement this method
+        if (getVoucherDet().getAttribute("Submit").equals("Y")) {
+            return false;
+       }
+        return super.isAttributeUpdateable(i);
+    }
 }
 
