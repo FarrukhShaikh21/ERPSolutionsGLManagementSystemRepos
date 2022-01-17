@@ -12,7 +12,12 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  RowClass="erpsolgls.erpsolglsmodel.erpsolglsvo.VoucherDetViewRowImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <ViewAccessor
     Name="AccVWChartOfAccountQVO"
     ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsqvo.VWChartOfAccountQVO"
@@ -33,55 +38,21 @@
     </AttrArray>
     <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="DerivedAttrNames">
+      <Item Value="GlbroadCategory"/>
+      <Item Value="GlcontrolAC"/>
+      <Item Value="GlnatureOfAC"/>
+      <Item Value="GlsubControlAC"/>
+      <Item Value="GlsubsidaryAC"/>
       <Item Value="txtGLCode"/>
-      <Item Value="GlbroadCategory"/>
-      <Item Value="GlcontrolAC"/>
-      <Item Value="GlnatureOfAC"/>
-      <Item Value="GlsubControlAC"/>
-      <Item Value="GlsubsidaryAC"/>
     </AttrArray>
     <AttrArray Name="ListAttrNames">
       <Item Value="Description"/>
-      <Item Value="Glcode"/>
       <Item Value="GlbroadCategory"/>
       <Item Value="GlcontrolAC"/>
       <Item Value="GlnatureOfAC"/>
       <Item Value="GlsubControlAC"/>
       <Item Value="GlsubsidaryAC"/>
-    </AttrArray>
-    <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="Description"/>
       <Item Value="Glcode"/>
-    </AttrArray>
-    <DisplayCriteria/>
-  </ListBinding>
-  <ListBinding
-    Name="LovtxtGLCodeCreditDescription"
-    ListVOName="AccVWChartOfAccountQVO"
-    ListRangeSize="-1"
-    ComboRowCountHint="10"
-    NullValueFlag="none"
-    MRUCount="0">
-    <AttrArray Name="AttrNames">
-      <Item Value="txtGLCodeCreditDescription"/>
-    </AttrArray>
-    <AttrArray Name="AttrExpressions"/>
-    <AttrArray Name="DerivedAttrNames">
-      <Item Value="txtGLCodeCredit"/>
-      <Item Value="GlbroadCategory"/>
-      <Item Value="GlcontrolAC"/>
-      <Item Value="GlnatureOfAC"/>
-      <Item Value="GlsubControlAC"/>
-      <Item Value="GlsubsidaryAC"/>
-    </AttrArray>
-    <AttrArray Name="ListAttrNames">
-      <Item Value="Description"/>
-      <Item Value="Glcode"/>
-      <Item Value="GlbroadCategory"/>
-      <Item Value="GlcontrolAC"/>
-      <Item Value="GlnatureOfAC"/>
-      <Item Value="GlsubControlAC"/>
-      <Item Value="GlsubsidaryAC"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="Description"/>
@@ -116,6 +87,40 @@
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="Description"/>
       <Item Value="Costcenterid"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtGLCodeCreditDescription"
+    ListVOName="AccVWChartOfAccountQVO"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0"
+    ComboRowCountHint="10">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtGLCodeCreditDescription"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="txtGLCodeCredit"/>
+      <Item Value="GlbroadCategory"/>
+      <Item Value="GlcontrolAC"/>
+      <Item Value="GlnatureOfAC"/>
+      <Item Value="GlsubsidaryAC"/>
+      <Item Value="GlsubControlAC"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Description"/>
+      <Item Value="Glcode"/>
+      <Item Value="GlbroadCategory"/>
+      <Item Value="GlcontrolAC"/>
+      <Item Value="GlnatureOfAC"/>
+      <Item Value="GlsubsidaryAC"/>
+      <Item Value="GlsubControlAC"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+      <Item Value="Glcode"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -352,6 +357,14 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="txtGLType"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtGLType"
+    EntityUsage="VoucherDet"
+    AliasName="TXT_GLTYPE"/>
   <ViewLinkAccessor
     Name="ChartOfAccView"
     ViewLink="erpsolgls.erpsolglsmodel.erpsolglslink.ChartOfAccountVoucherDetailGLCodeLink"

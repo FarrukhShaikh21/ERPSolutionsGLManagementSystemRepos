@@ -189,14 +189,12 @@
   </Attribute>
   <Attribute
     Name="SNo"
-    IsNotNull="true"
     Precision="4"
     ColumnName="S_NO"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="VOUCHER_DET"
-    PrimaryKey="true">
+    TableName="VOUCHER_DET">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="4"/>
     </DesignTime>
@@ -358,6 +356,8 @@
     ColumnType="VARCHAR2"
     IsPersistent="false"
     IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[(ChartOfAcc?.GlnatureOfAC==null||txtGLType=="C"||FcurrCredit!=null) ?"":ChartOfAcc?.GlnatureOfAC+ChartOfAcc?.GlbroadCategory+ChartOfAcc?.GlcontrolAC+ChartOfAcc?.GlsubControlAC+ChartOfAcc?.GlsubsidaryAC]]></TransientExpression>
     <RecalcCondition><![CDATA[true]]></RecalcCondition>
     <Properties>
       <SchemaBasedProperties>
@@ -377,7 +377,10 @@
     ColumnType="VARCHAR2"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression><![CDATA[ChartOfAcc?.Description]]></TransientExpression>
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[(ChartOfAcc?.GlnatureOfAC==null||txtGLType=="C"||FcurrCredit!=null) ?"":ChartOfAcc?.Description]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -396,7 +399,8 @@
     ColumnType="VARCHAR2"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression><![CDATA[ChartOfAcc?.GlnatureOfAC==null?"":ChartOfAcc?.GlnatureOfAC+ChartOfAcc?.GlbroadCategory+ChartOfAcc?.GlcontrolAC+ChartOfAcc?.GlsubControlAC+ChartOfAcc?.GlsubsidaryAC]]></TransientExpression>
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[(ChartOfAcc?.GlnatureOfAC==null||txtGLType=="D"||FcurrDebit!=null) ?"":ChartOfAcc?.GlnatureOfAC+ChartOfAcc?.GlbroadCategory+ChartOfAcc?.GlcontrolAC+ChartOfAcc?.GlsubControlAC+ChartOfAcc?.GlsubsidaryAC]]></TransientExpression>
     <RecalcCondition><![CDATA[true]]></RecalcCondition>
     <Properties>
       <SchemaBasedProperties>
@@ -417,11 +421,31 @@
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[ChartOfAcc?.Description]]></TransientExpression>
+      trustMode="untrusted"><![CDATA[(ChartOfAcc?.GlnatureOfAC==null||txtGLType=="D"||FcurrDebit!=null) ?"":ChartOfAcc?.Description]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
           ResId="erpsolgls.erpsolglsmodel.erpsolglseo.VoucherDet.txtGLCodeCreditDescription_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="txtGLType"
+    Precision="80"
+    ColumnName="TXT_GLTYPE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    IsPersistent="false"
+    IsQueriable="false">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolgls.erpsolglsmodel.erpsolglseo.VoucherDet.txtGLType_LABEL"/>
         <DISPLAYWIDTH
           Value="20"/>
       </SchemaBasedProperties>
@@ -462,7 +486,6 @@
       <Attr Name="_DBObjectName" Value="SYS_C0015523"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="erpsolgls.erpsolglsmodel.erpsolglseo.VoucherDet.SNo"/>
       <Item Value="erpsolgls.erpsolglsmodel.erpsolglseo.VoucherDet.Voucherdetseq"/>
     </AttrArray>
   </Key>

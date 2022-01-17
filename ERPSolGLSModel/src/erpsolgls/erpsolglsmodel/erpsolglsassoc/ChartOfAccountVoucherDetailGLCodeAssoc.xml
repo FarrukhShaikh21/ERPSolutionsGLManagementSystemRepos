@@ -18,13 +18,12 @@
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="ChartOfAcc"/>
-      <Attr Name="_foreignKey" Value="erpsolgls.erpsolglsmodel.erpsolglseo.ChartOfAcc.SysC0016261"/>
       <Attr Name="_isUpdateable" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="erpsolgls.erpsolglsmodel.erpsolglseo.ChartOfAcc.GlnatureOfAC"/>
       <Item Value="erpsolgls.erpsolglsmodel.erpsolglseo.ChartOfAcc.GlbroadCategory"/>
       <Item Value="erpsolgls.erpsolglsmodel.erpsolglseo.ChartOfAcc.GlcontrolAC"/>
+      <Item Value="erpsolgls.erpsolglsmodel.erpsolglseo.ChartOfAcc.GlnatureOfAC"/>
       <Item Value="erpsolgls.erpsolglsmodel.erpsolglseo.ChartOfAcc.GlsubControlAC"/>
       <Item Value="erpsolgls.erpsolglsmodel.erpsolglseo.ChartOfAcc.GlsubsidaryAC"/>
     </AttrArray>

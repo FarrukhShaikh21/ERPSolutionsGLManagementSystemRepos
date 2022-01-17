@@ -111,7 +111,8 @@
                           <af:selectOneChoice value="#{bindings.VoucherType.inputValue}"
                                               label="#{bindings.VoucherType.label}"
                                               required="#{bindings.VoucherType.hints.mandatory}"
-                                              shortDesc="#{bindings.VoucherType.hints.tooltip}" id="soc1" simple="true">
+                                              shortDesc="#{bindings.VoucherType.hints.tooltip}" id="soc1" simple="true"
+                                              readOnly="#{bindings.VoucherNo.inputValue!=null}">
                             <f:selectItems value="#{bindings.VoucherType.items}" id="si1"/>
                             <f:validator binding="#{bindings.VoucherType.validator}"/>
                           </af:selectOneChoice>
@@ -131,6 +132,7 @@
                                                         shortDesc="#{bindings.txtLocationName.hints.tooltip}"
                                                         simple="true">
                             <f:validator binding="#{bindings.txtLocationName.validator}"/>
+                            <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolGLSPageFlowBean.doERPSolGetAutoSuggestedLocationValues}"/>
                           </af:inputComboboxListOfValues>
                         </af:gridCell>
                       </af:gridRow>
@@ -141,7 +143,7 @@
                         <af:gridCell marginStart="5px" width="35%" id="gc13" halign="stretch" valign="middle">
                           <af:selectOneRadio label="Label 2" id="sor2" layout="horizontal"
                                              value="#{bindings.txtGLVTYPE.inputValue}" simple="true"
-                                             autoSubmit="true">
+                                             autoSubmit="true" readOnly="#{bindings.VoucherNo.inputValue!=null}">
                             <af:selectItem label="Receipt" value="R" id="si5"/>
                             <af:selectItem label="Payment" value="P" id="si6"/>
                           </af:selectOneRadio>
@@ -237,6 +239,132 @@
                     </f:facet>
                     <f:facet name="statusbar"/>
                     <f:facet name="secondaryToolbar"/>
+                    <af:table value="#{bindings.VoucherDetViewDetCRUD.collectionModel}" var="row"
+                              rows="#{bindings.VoucherDetViewDetCRUD.rangeSize}"
+                              emptyText="#{bindings.VoucherDetViewDetCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
+                              rowBandingInterval="0"
+                              selectedRowKeys="#{bindings.VoucherDetViewDetCRUD.collectionModel.selectedRow}"
+                              selectionListener="#{bindings.VoucherDetViewDetCRUD.collectionModel.makeCurrent}"
+                              rowSelection="single" fetchSize="#{bindings.VoucherDetViewDetCRUD.rangeSize}" id="t2"
+                              partialTriggers="::b3 ::b4" styleClass="AFStretchWidth" autoHeightRows="5"
+                              scrollPolicy="page">
+                      <af:column headerText="#{bindings.VoucherDetViewDetCRUD.hints.txtGLCode.label}" id="c1">
+                        <af:inputText value="#{row.bindings.txtGLCode.inputValue}"
+                                      label="#{bindings.VoucherDetViewDetCRUD.hints.txtGLCode.label}"
+                                      required="#{bindings.VoucherDetViewDetCRUD.hints.txtGLCode.mandatory}"
+                                      columns="#{bindings.VoucherDetViewDetCRUD.hints.txtGLCode.displayWidth}"
+                                      maximumLength="#{bindings.VoucherDetViewDetCRUD.hints.txtGLCode.precision}"
+                                      shortDesc="#{bindings.VoucherDetViewDetCRUD.hints.txtGLCode.tooltip}" id="it5"
+                                      readOnly="true">
+                          <f:validator binding="#{row.bindings.txtGLCode.validator}"/>
+                        </af:inputText>
+                      </af:column>
+                      <af:column headerText="#{bindings.VoucherDetViewDetCRUD.hints.txtGlDescription.label}" id="c4"
+                                 width="200">
+                        <af:inputComboboxListOfValues id="txtGlDescriptionId"
+                                                      popupTitle="Search and Select: #{bindings.VoucherDetViewDetCRUD.hints.txtGlDescription.label}"
+                                                      value="#{row.bindings.txtGlDescription.inputValue}"
+                                                      model="#{row.bindings.txtGlDescription.listOfValuesModel}"
+                                                      required="#{bindings.VoucherDetViewDetCRUD.hints.txtGlDescription.mandatory}"
+                                                      columns="#{bindings.VoucherDetViewDetCRUD.hints.txtGlDescription.displayWidth}"
+                                                      shortDesc="#{bindings.VoucherDetViewDetCRUD.hints.txtGlDescription.tooltip}"
+                                                      autoSubmit="true" contentStyle="width:100%">
+                          <f:validator binding="#{row.bindings.txtGlDescription.validator}"/>
+                          <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolGLSPageFlowBean.doERPSolGetAutoSuggestedCOAValues}"/>
+                        </af:inputComboboxListOfValues>
+                      </af:column>
+                      <af:column headerText="#{bindings.VoucherDetViewDetCRUD.hints.txtGLCodeCredit.label}" id="c2">
+                        <af:inputText value="#{row.bindings.txtGLCodeCredit.inputValue}"
+                                      label="#{bindings.VoucherDetViewDetCRUD.hints.txtGLCodeCredit.label}"
+                                      required="#{bindings.VoucherDetViewDetCRUD.hints.txtGLCodeCredit.mandatory}"
+                                      columns="#{bindings.VoucherDetViewDetCRUD.hints.txtGLCodeCredit.displayWidth}"
+                                      maximumLength="#{bindings.VoucherDetViewDetCRUD.hints.txtGLCodeCredit.precision}"
+                                      shortDesc="#{bindings.VoucherDetViewDetCRUD.hints.txtGLCodeCredit.tooltip}"
+                                      id="it6" readOnly="true">
+                          <f:validator binding="#{row.bindings.txtGLCodeCredit.validator}"/>
+                        </af:inputText>
+                      </af:column>
+                      <af:column headerText="#{bindings.VoucherDetViewDetCRUD.hints.txtGLCodeCreditDescription.label}"
+                                 id="c3" width="200" displayIndex="-1">
+                        <af:inputComboboxListOfValues id="txtGLCodeCreditDescriptionId"
+                                                      popupTitle="Search and Select: #{bindings.VoucherDetViewDetCRUD.hints.txtGLCodeCreditDescription.label}"
+                                                      value="#{row.bindings.txtGLCodeCreditDescription.inputValue}"
+                                                      model="#{row.bindings.txtGLCodeCreditDescription.listOfValuesModel}"
+                                                      required="#{bindings.VoucherDetViewDetCRUD.hints.txtGLCodeCreditDescription.mandatory}"
+                                                      columns="#{bindings.VoucherDetViewDetCRUD.hints.txtGLCodeCreditDescription.displayWidth}"
+                                                      shortDesc="#{bindings.VoucherDetViewDetCRUD.hints.txtGLCodeCreditDescription.tooltip}"
+                                                      partialTriggers="txtGlDescriptionId" autoSubmit="true"
+                                                      contentStyle="width:100%">
+                          <f:validator binding="#{row.bindings.txtGLCodeCreditDescription.validator}"/>
+                          <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolGLSPageFlowBean.doERPSolGetAutoSuggestedCOAValues}"/>
+                        </af:inputComboboxListOfValues>
+                      </af:column>
+                      <af:column headerText="#{bindings.VoucherDetViewDetCRUD.hints.txtCostCenter.label}" id="c5">
+                        <af:inputText value="#{row.bindings.txtCostCenter.inputValue}"
+                                      label="#{bindings.VoucherDetViewDetCRUD.hints.txtCostCenter.label}"
+                                      required="#{bindings.VoucherDetViewDetCRUD.hints.txtCostCenter.mandatory}"
+                                      columns="#{bindings.VoucherDetViewDetCRUD.hints.txtCostCenter.displayWidth}"
+                                      maximumLength="#{bindings.VoucherDetViewDetCRUD.hints.txtCostCenter.precision}"
+                                      shortDesc="#{bindings.VoucherDetViewDetCRUD.hints.txtCostCenter.tooltip}"
+                                      id="it7" readOnly="true">
+                          <f:validator binding="#{row.bindings.txtCostCenter.validator}"/>
+                        </af:inputText>
+                      </af:column>
+                      <af:column headerText="#{bindings.VoucherDetViewDetCRUD.hints.txtCostCenterDescription.label}"
+                                 id="c6" width="150">
+                        <af:inputComboboxListOfValues id="txtCostCenterDescriptionId"
+                                                      popupTitle="Search and Select: #{bindings.VoucherDetViewDetCRUD.hints.txtCostCenterDescription.label}"
+                                                      value="#{row.bindings.txtCostCenterDescription.inputValue}"
+                                                      model="#{row.bindings.txtCostCenterDescription.listOfValuesModel}"
+                                                      required="#{bindings.VoucherDetViewDetCRUD.hints.txtCostCenterDescription.mandatory}"
+                                                      columns="#{bindings.VoucherDetViewDetCRUD.hints.txtCostCenterDescription.displayWidth}"
+                                                      shortDesc="#{bindings.VoucherDetViewDetCRUD.hints.txtCostCenterDescription.tooltip}"
+                                                      autoSubmit="true">
+                          <f:validator binding="#{row.bindings.txtCostCenterDescription.validator}"/>
+                          <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolGLSPageFlowBean.doERPSolGetAutoSuggestedCostCenterValues}"/>
+                        </af:inputComboboxListOfValues>
+                      </af:column>
+                      <af:column headerText="#{bindings.VoucherDetViewDetCRUD.hints.FcurrDebit.label}" id="c7"
+                                 width="80">
+                        <af:inputText value="#{row.bindings.FcurrDebit.inputValue}"
+                                      label="#{bindings.VoucherDetViewDetCRUD.hints.FcurrDebit.label}"
+                                      required="#{bindings.VoucherDetViewDetCRUD.hints.FcurrDebit.mandatory}"
+                                      columns="#{bindings.VoucherDetViewDetCRUD.hints.FcurrDebit.displayWidth}"
+                                      maximumLength="#{bindings.VoucherDetViewDetCRUD.hints.FcurrDebit.precision}"
+                                      shortDesc="#{bindings.VoucherDetViewDetCRUD.hints.FcurrDebit.tooltip}" id="it8"
+                                      autoSubmit="true"
+                                      readOnly='#{row.bindings.txtGLCodeCreditDescription.inputValue!=""}'>
+                          <f:validator binding="#{row.bindings.FcurrDebit.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.VoucherDetViewDetCRUD.hints.FcurrDebit.format}"/>
+                        </af:inputText>
+                      </af:column>
+                      <af:column headerText="#{bindings.VoucherDetViewDetCRUD.hints.FcurrCredit.label}" id="c8"
+                                 width="80">
+                        <af:inputText value="#{row.bindings.FcurrCredit.inputValue}"
+                                      label="#{bindings.VoucherDetViewDetCRUD.hints.FcurrCredit.label}"
+                                      required="#{bindings.VoucherDetViewDetCRUD.hints.FcurrCredit.mandatory}"
+                                      columns="#{bindings.VoucherDetViewDetCRUD.hints.FcurrCredit.displayWidth}"
+                                      maximumLength="#{bindings.VoucherDetViewDetCRUD.hints.FcurrCredit.precision}"
+                                      shortDesc="#{bindings.VoucherDetViewDetCRUD.hints.FcurrCredit.tooltip}" id="it9"
+                                      autoSubmit="true" readOnly="#{row.bindings.txtGLCode.inputValue!=&quot;&quot;}">
+                          <f:validator binding="#{row.bindings.FcurrCredit.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.VoucherDetViewDetCRUD.hints.FcurrCredit.format}"/>
+                        </af:inputText>
+                      </af:column>
+                      <af:column headerText="#{bindings.VoucherDetViewDetCRUD.hints.Narration.label}" id="c9">
+                        <af:inputText value="#{row.bindings.Narration.inputValue}"
+                                      label="#{bindings.VoucherDetViewDetCRUD.hints.Narration.label}"
+                                      required="#{bindings.VoucherDetViewDetCRUD.hints.Narration.mandatory}"
+                                      columns="#{bindings.VoucherDetViewDetCRUD.hints.Narration.displayWidth}"
+                                      maximumLength="#{bindings.VoucherDetViewDetCRUD.hints.Narration.precision}"
+                                      shortDesc="#{bindings.VoucherDetViewDetCRUD.hints.Narration.tooltip}" id="it10"
+                                      autoSubmit="true">
+                          <f:validator binding="#{row.bindings.Narration.validator}"/>
+                        </af:inputText>
+                      </af:column>
+                    </af:table>
                   </af:panelCollection>
                 </af:gridCell>
               </af:gridRow>

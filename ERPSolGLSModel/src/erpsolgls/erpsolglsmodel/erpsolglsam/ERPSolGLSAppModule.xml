@@ -13,6 +13,15 @@
   <ViewUsage
     Name="VoucherDetViewDetCRUD"
     ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsvo.VoucherDetView"/>
+  <ViewUsage
+    Name="VWChartOfAccountAutoSuggestRO"
+    ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsqvo.VWChartOfAccountQVO"/>
+  <ViewUsage
+    Name="VWCostCenterAutoSuggestRO"
+    ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsqvo.VWCostCenterQVO"/>
+  <ViewUsage
+    Name="AllLocationsAutoSuggestRO"
+    ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsvo.AllLocationsView"/>
   <ViewLinkUsage
     Name="FkVoucherDetVoucherSeqLink1"
     ViewLinkObjectName="erpsolgls.erpsolglsmodel.erpsolglsvo.FkVoucherDetVoucherSeqLink"

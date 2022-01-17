@@ -1,5 +1,6 @@
 package erpsolgls.erpsolglsmodel.erpsolglseo;
 
+import erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobClassModel;
 import erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobalsEntityImpl;
 
 import java.math.BigDecimal;
@@ -50,6 +51,7 @@ public class VoucherDetImpl extends ERPSolGlobalsEntityImpl {
         txtGlDescription,
         txtGLCodeCredit,
         txtGLCodeCreditDescription,
+        txtGLType,
         Voucher,
         Voucher1,
         ChartOfAcc,
@@ -108,6 +110,7 @@ public class VoucherDetImpl extends ERPSolGlobalsEntityImpl {
     public static final int TXTGLDESCRIPTION = AttributesEnum.txtGlDescription.index();
     public static final int TXTGLCODECREDIT = AttributesEnum.txtGLCodeCredit.index();
     public static final int TXTGLCODECREDITDESCRIPTION = AttributesEnum.txtGLCodeCreditDescription.index();
+    public static final int TXTGLTYPE = AttributesEnum.txtGLType.index();
     public static final int VOUCHER = AttributesEnum.Voucher.index();
     public static final int VOUCHER1 = AttributesEnum.Voucher1.index();
     public static final int CHARTOFACC = AttributesEnum.ChartOfAcc.index();
@@ -608,6 +611,22 @@ public class VoucherDetImpl extends ERPSolGlobalsEntityImpl {
     }
 
     /**
+     * Gets the attribute value for txtGLType, using the alias name txtGLType.
+     * @return the value of txtGLType
+     */
+    public String gettxtGLType() {
+        return (String) getAttributeInternal(TXTGLTYPE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtGLType.
+     * @param value value to set the txtGLType
+     */
+    public void settxtGLType(String value) {
+        setAttributeInternal(TXTGLTYPE, value);
+    }
+
+    /**
      * @return the associated entity VoucherImpl.
      */
     public VoucherImpl getVoucher() {
@@ -666,13 +685,12 @@ public class VoucherDetImpl extends ERPSolGlobalsEntityImpl {
 
 
     /**
-     * @param sNo key constituent
      * @param voucherdetseq key constituent
 
      * @return a Key object based on given key constituents.
      */
-    public static Key createPrimaryKey(String sNo, Integer voucherdetseq) {
-        return new Key(new Object[] { sNo, voucherdetseq });
+    public static Key createPrimaryKey(Integer voucherdetseq) {
+        return new Key(new Object[] { voucherdetseq });
     }
 
     /**
@@ -682,6 +700,7 @@ public class VoucherDetImpl extends ERPSolGlobalsEntityImpl {
     protected void create(AttributeList attributeList) {
         setERPSolPKColumnName("Voucherdetseq");
         setERPSolPKSeqName("voucher_det_seq");
+        setTrnLocCode(ERPSolGlobClassModel.doGetUserLocationCode());
         super.create(attributeList);
     }
 
@@ -706,8 +725,18 @@ public class VoucherDetImpl extends ERPSolGlobalsEntityImpl {
      */
     protected void doDML(int operation, TransactionEvent e) {
         if (operation==DML_INSERT) {
-           populateAttributeAsChanged(VOUCHER, getVoucher().getAttribute("VoucherNo").toString()); 
+           populateAttributeAsChanged(VOUCHERNO, getVoucher().getAttribute("VoucherNo").toString()); 
+           populateAttributeAsChanged(LOCCODE, getVoucher().getAttribute("LocCode").toString()); 
+           populateAttributeAsChanged(VOUCHERTYPE, getVoucher().getAttribute("VoucherType").toString()); 
+           String pkValue="FUNC_GET_MAX_ID('VOUCHER_DET WHERE VOUCHER_TYPE=''"+getVoucherType()+"'' AND VOUCHER_NO=''"+getVoucherNo()+"'' AND LOC_CODE=''"+getLocCode()+"''','TO_NUMBER(S_NO)')";
+           System.out.println(pkValue);
+           String result= ERPSolGlobClassModel.doGetERPSolPrimaryKeyValueModel(getDBTransaction(), pkValue, "dual", null, null);
+           populateAttributeAsChanged(SNO, result);
+
        }
+      
+//        populateAttributeAsChanged(SALESORDERID, getSoSalesOrder().getAttribute("Salesorderid").toString());
+          
         super.doDML(operation, e);
     }
 }

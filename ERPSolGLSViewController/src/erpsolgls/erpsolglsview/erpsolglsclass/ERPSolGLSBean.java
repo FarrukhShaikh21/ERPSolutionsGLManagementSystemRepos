@@ -113,7 +113,7 @@ public class ERPSolGLSBean {
         BindingContainer ERPSolbc=ERPSolGlobalViewBean.doGetERPBindings();
         AttributeBinding ERPLocid =(AttributeBinding)ERPSolbc.getControlBinding("Locationid");
         ResultList= ERPSolGlobalViewBean.doERPSolGetAutoSuggestedValues(pStringValues, "AllBankBranchesAutoSuggestRO",
-                                                            "LOCATIONID='"+ERPLocid+"' AND UPPER(CONCAT(Branch_Name,Branchid))", "BranchName", "Branchid", 10,"ERPSolFMSAppModuleDataControl");
+                                                            "LOCATIONID='"+ERPLocid+"' AND UPPER(CONCAT(Branch_Name,Branchid))", "BranchName", "Branchid", 10,"ERPSolGLSAppModuleDataControl");
         return ResultList;
         
     }
@@ -148,7 +148,7 @@ public class ERPSolGLSBean {
         BindingContainer ERPSolbc=ERPSolGlobalViewBean.doGetERPBindings();
         System.out.println("b");
         ResultList= ERPSolGlobalViewBean.doERPSolGetAutoSuggestedValues(pStringValues, "AllLocationsAutoSuggestRO",
-                                                            "UPPER(CONCAT(Locationid,Location_Description))", "LocationDescription", "Locationid", 10,"ERPSolFMSAppModuleDataControl");
+                                                            "UPPER(CONCAT(Locationid,Location_Description))", "LocationDescription", "Locationid", 10,"ERPSolGLSAppModuleDataControl");
         return ResultList;
         
     }
@@ -168,7 +168,7 @@ public class ERPSolGLSBean {
         System.out.println("d");
 //        System.out.println(ERPLocid);//ERPSolGlobalViewBean.
         ResultList= ERPSolGlobalViewBean.doERPSolGetAutoSuggestedValues(pStringValues, "AllCustomersAutoSuggestRO",
-                                                            "LOCATIONID='"+ERPLocid+"' AND UPPER(CONCAT(CUSTOMERID,CUSTOMER_NAME))", "CustomerName", "Customerid", 10,"ERPSolFMSAppModuleDataControl");
+                                                            "LOCATIONID='"+ERPLocid+"' AND UPPER(CONCAT(CUSTOMERID,CUSTOMER_NAME))", "CustomerName", "Customerid", 10,"ERPSolGLSAppModuleDataControl");
         return ResultList;
         
     }   
@@ -188,7 +188,7 @@ public class ERPSolGLSBean {
         System.out.println("d");
     //        System.out.println(ERPLocid);//ERPSolGlobalViewBean.
         ResultList= ERPSolGlobalViewBean.doERPSolGetAutoSuggestedValues(pStringValues, "VwAllCustomerAutoSuggestRO",
-                                                            " LOCATIONID='"+ERPLocid+"' AND  UPPER(CONCAT(CUSTOMERID,CUSTOMER_NAME))", "CustomerName", "Customerid", 10,"ERPSolFMSAppModuleDataControl");
+                                                            " LOCATIONID='"+ERPLocid+"' AND  UPPER(CONCAT(CUSTOMERID,CUSTOMER_NAME))", "CustomerName", "Customerid", 10,"ERPSolGLSAppModuleDataControl");
         return ResultList;
         
     }   
@@ -213,7 +213,7 @@ public class ERPSolGLSBean {
         System.out.println("d");
         System.out.println(ERPCustomerId);//ERPSolGlobalViewBean.
         ResultList= ERPSolGlobalViewBean.doERPSolGetAutoSuggestedValues(pStringValues, "SoSalesPersonsAutoSuggestRO",
-                                                            "SALESPERSONID IN (SELECT ASP.SALESPERSONID from ALL_CUSTOMER_SALESPERSON ASP WHERE ASP.CUSTOMERID='"+ERPCustomerId+"') AND UPPER(CONCAT(Salespersonid,name))", "Name", "Salespersonid", 10,"ERPSolFMSAppModuleDataControl");
+                                                            "SALESPERSONID IN (SELECT ASP.SALESPERSONID from ALL_CUSTOMER_SALESPERSON ASP WHERE ASP.CUSTOMERID='"+ERPCustomerId+"') AND UPPER(CONCAT(Salespersonid,name))", "Name", "Salespersonid", 10,"ERPSolGLSAppModuleDataControl");
         return ResultList;
         
     }   
@@ -233,7 +233,7 @@ public class ERPSolGLSBean {
         System.out.println("d");
         System.out.println(ERPLocid);//ERPSolGlobalViewBean.
         ResultList= ERPSolGlobalViewBean.doERPSolGetAutoSuggestedValues(pStringValues, "PuSuppliersAutoSuggestRO",
-                                                            "LOCATIONID='"+ERPLocid+"' AND UPPER(CONCAT(SUPPLIERID,SUPP_NAME))", "SuppName", "Supplierid", 10,"ERPSolFMSAppModuleDataControl");
+                                                            "LOCATIONID='"+ERPLocid+"' AND UPPER(CONCAT(SUPPLIERID,SUPP_NAME))", "SuppName", "Supplierid", 10,"ERPSolGLSAppModuleDataControl");
         return ResultList;
         
     }   
@@ -243,7 +243,7 @@ public class ERPSolGLSBean {
     //public static List<SelectItem> doERPSolGetAutoSuggestedValues(String pSearch,String pViewObjectName,String pWhereColumn,String pAttribute1,String pAttribute2,Integer pNoOfRecordsSuggest) {
         //public List<SelectItem> doERPSolGetAutoSuggestedValues(String pSearch,String pViewObjectName,String pWhereColumn,String pAttribute1,String pAttribute2,Integer pNoOfRecordsSuggest) {
         List<SelectItem> ResultList=new ArrayList<SelectItem>();
-        ResultList= ERPSolGlobalViewBean.doERPSolGetAutoSuggestedValues(pStringValues, "InItemsAutoSuggestRO"," UPPER(CONCAT(Productid,Model_No))", "Productid", "ModelNo", 10,"ERPSolFMSAppModuleDataControl");
+        ResultList= ERPSolGlobalViewBean.doERPSolGetAutoSuggestedValues(pStringValues, "InItemsAutoSuggestRO"," UPPER(CONCAT(Productid,Model_No))", "Productid", "ModelNo", 10,"ERPSolGLSAppModuleDataControl");
         return ResultList;
         
     }   
@@ -252,7 +252,7 @@ public class ERPSolGLSBean {
     //public static List<SelectItem> doERPSolGetAutoSuggestedValues(String pSearch,String pViewObjectName,String pWhereColumn,String pAttribute1,String pAttribute2,Integer pNoOfRecordsSuggest) {
         //public List<SelectItem> doERPSolGetAutoSuggestedValues(String pSearch,String pViewObjectName,String pWhereColumn,String pAttribute1,String pAttribute2,Integer pNoOfRecordsSuggest) {
         List<SelectItem> ResultList=new ArrayList<SelectItem>();
-        ResultList= ERPSolGlobalViewBean.doERPSolGetAutoSuggestedValues(pStringValues, "VWChartOfAccountAutoSuggestRO"," UPPER(CONCAT(GLCODE,Description))", "Description", "Glcode", 10,"ERPSolFMSAppModuleDataControl");
+        ResultList= ERPSolGlobalViewBean.doERPSolGetAutoSuggestedValues(pStringValues, "VWChartOfAccountAutoSuggestRO"," UPPER(CONCAT(GLCODE,Description))", "Description", "Glcode", 10,"ERPSolGLSAppModuleDataControl");
         return ResultList;
         
     }  
@@ -261,7 +261,7 @@ public class ERPSolGLSBean {
     //public static List<SelectItem> doERPSolGetAutoSuggestedValues(String pSearch,String pViewObjectName,String pWhereColumn,String pAttribute1,String pAttribute2,Integer pNoOfRecordsSuggest) {
         //public List<SelectItem> doERPSolGetAutoSuggestedValues(String pSearch,String pViewObjectName,String pWhereColumn,String pAttribute1,String pAttribute2,Integer pNoOfRecordsSuggest) {
         List<SelectItem> ResultList=new ArrayList<SelectItem>();
-        ResultList= ERPSolGlobalViewBean.doERPSolGetAutoSuggestedValues(pStringValues, "VWCostCenterAutoSuggestRO"," UPPER(CONCAT(Costcenterid,Description))", "Description", "Costcenterid", 10,"ERPSolFMSAppModuleDataControl");
+        ResultList= ERPSolGlobalViewBean.doERPSolGetAutoSuggestedValues(pStringValues, "VWCostCenterAutoSuggestRO"," UPPER(CONCAT(Costcenterid,Description))", "Description", "Costcenterid", 10,"ERPSolGLSAppModuleDataControl");
         return ResultList;
         
     }  

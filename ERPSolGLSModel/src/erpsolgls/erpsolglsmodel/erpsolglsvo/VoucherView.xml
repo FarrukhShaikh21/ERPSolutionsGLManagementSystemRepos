@@ -12,7 +12,13 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  ComponentClass="erpsolgls.erpsolglsmodel.erpsolglsvo.VoucherViewImpl"
+  RowClass="erpsolgls.erpsolglsmodel.erpsolglsvo.VoucherViewRowImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|Prog|VarAccess"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <ViewAccessor
     Name="AccVoucherView"
     ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsvo.VoucherView"
