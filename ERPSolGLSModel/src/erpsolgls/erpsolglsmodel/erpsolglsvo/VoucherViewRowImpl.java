@@ -4,7 +4,6 @@ import erpsolgls.erpsolglsmodel.erpsolglseo.VoucherImpl;
 
 import java.math.BigDecimal;
 
-import java.sql.Timestamp;
 
 import oracle.jbo.Row;
 import oracle.jbo.RowIterator;
@@ -18,6 +17,7 @@ import oracle.jbo.server.ViewRowImpl;
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
 public class VoucherViewRowImpl extends ViewRowImpl {
+
     public static final int ENTITY_VOUCHER = 0;
 
     /**
@@ -77,7 +77,8 @@ public class VoucherViewRowImpl extends ViewRowImpl {
         AccVoucherView,
         AccVoucherTypeView,
         AccAllLocationsView;
-        private static AttributesEnum[] vals = null;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -99,6 +100,7 @@ public class VoucherViewRowImpl extends ViewRowImpl {
             return vals;
         }
     }
+
     public static final int VOUCHERNO = AttributesEnum.VoucherNo.index();
     public static final int VOUCHERTYPE = AttributesEnum.VoucherType.index();
     public static final int LOCCODE = AttributesEnum.LocCode.index();
@@ -571,15 +573,15 @@ public class VoucherViewRowImpl extends ViewRowImpl {
      * Gets the attribute value for SUBMIT_VOUCHER_DATE using the alias name SubmitVoucherDate.
      * @return the SUBMIT_VOUCHER_DATE
      */
-    public Timestamp getSubmitVoucherDate() {
-        return (Timestamp) getAttributeInternal(SUBMITVOUCHERDATE);
+    public Date getSubmitVoucherDate() {
+        return (Date) getAttributeInternal(SUBMITVOUCHERDATE);
     }
 
     /**
      * Sets <code>value</code> as attribute value for SUBMIT_VOUCHER_DATE using the alias name SubmitVoucherDate.
      * @param value value to set the SUBMIT_VOUCHER_DATE
      */
-    public void setSubmitVoucherDate(Timestamp value) {
+    public void setSubmitVoucherDate(Date value) {
         setAttributeInternal(SUBMITVOUCHERDATE, value);
     }
 

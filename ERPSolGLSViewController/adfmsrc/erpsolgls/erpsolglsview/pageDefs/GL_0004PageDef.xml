@@ -235,7 +235,10 @@
     <list IterBinding="VoucherCRUDIterator" StaticList="false" Uses="LovVoucherType" id="VoucherType"
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     <action IterBinding="VoucherDetViewDetCRUDIterator" id="CreateInsert1" RequiresUpdateModel="true"
-            Action="createInsertRow"/>
+            Action="createWithParams" InstanceName="ERPSolGLSAppModuleDataControl.VoucherDetViewDetCRUD"
+            DataControl="ERPSolGLSAppModuleDataControl">
+      <NamedData NDName="SNo" NDValue="#{''}" NDType="java.lang.String"/>
+    </action>
     <action IterBinding="VoucherDetViewDetCRUDIterator" id="Delete1" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"

@@ -2,16 +2,16 @@
 <Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.1.3.10.47" id="DataBindings"
              SeparateXMLFiles="false" Package="erpsolgls.erpsolglsview" ClientType="Generic">
   <pageMap>
-    <page path="/WEB-INF/ERPSOLGLS.xml#ERPSOLGLS@ExecuteQueryGLSTransaction"
+    <page path="/WEB-INF/ERPSOLGLSBTF.xml#ERPSOLGLSBTF@ExecuteQueryGLSTransaction"
           usageId="erpsolgls_erpsolglsview_ERPSOLGLS_ERPSOLGLS_ExecuteWithParamsPageDef"/>
-    <page path="/WEB-INF/ERPSOLGLS.xml#ERPSOLGLS@ExecuteQueryGLSSetup"
+    <page path="/WEB-INF/ERPSOLGLSBTF.xml#ERPSOLGLSBTF@ExecuteQueryGLSSetup"
           usageId="erpsolgls_erpsolglsview_ERPSOLGLS_ERPSOLGLS_ExecuteWithParamsPageDef1"/>
-    <page path="/WEB-INF/ERPSOLGLS.xml#ERPSOLGLS@ExecuteWithParamsReportGLS"
+    <page path="/WEB-INF/ERPSOLGLSBTF.xml#ERPSOLGLSBTF@ExecuteWithParamsReportGLS"
           usageId="erpsolgls_erpsolglsview_ERPSOLGLS_ERPSOLGLS_ExecuteWithParamsPageDef11"/>
-    <page path="/WEB-INF/ERPSOLGLS.xml#ERPSOLGLS@ExecuteWithParaReportDetGLS"
+    <page path="/WEB-INF/ERPSOLGLSBTF.xml#ERPSOLGLSBTF@ExecuteWithParaReportDetGLS"
           usageId="erpsolgls_erpsolglsview_ERPSOLGLS_ERPSOLGLS_ExecuteWithParamsPageDef111"/>
     <page path="/ERPSolGLSMain.jsf" usageId="erpsolgls_erpsolglsview_ERPSolGLSMainPageDef"/>
-    <page path="/WEB-INF/ERPSOLGLS.xml#ERPSOLGLS@RollbackBeforeFornGLS"
+    <page path="/WEB-INF/ERPSOLGLSBTF.xml#ERPSOLGLSBTF@RollbackBeforeFornGLS"
           usageId="erpsolgls_erpsolglsview_ERPSOLGLS_ERPSOLGLS_RollbackPageDef"/>
     <page path="/GL_0004.jsf" usageId="erpsolgls_erpsolglsview_GL_0004PageDef"/>
   </pageMap>

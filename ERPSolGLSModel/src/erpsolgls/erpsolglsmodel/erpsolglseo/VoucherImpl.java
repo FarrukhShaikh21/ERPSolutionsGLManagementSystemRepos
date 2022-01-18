@@ -7,7 +7,6 @@ import java.math.BigDecimal;
 
 import java.sql.CallableStatement;
 import java.sql.SQLException;
-import java.sql.Timestamp;
 
 import java.sql.Types;
 
@@ -572,15 +571,15 @@ public class VoucherImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for SubmitVoucherDate, using the alias name SubmitVoucherDate.
      * @return the value of SubmitVoucherDate
      */
-    public Timestamp getSubmitVoucherDate() {
-        return (Timestamp) getAttributeInternal(SUBMITVOUCHERDATE);
+    public Date getSubmitVoucherDate() {
+        return (Date) getAttributeInternal(SUBMITVOUCHERDATE);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for SubmitVoucherDate.
      * @param value value to set the SubmitVoucherDate
      */
-    public void setSubmitVoucherDate(Timestamp value) {
+    public void setSubmitVoucherDate(Date value) {
         setAttributeInternal(SUBMITVOUCHERDATE, value);
     }
 

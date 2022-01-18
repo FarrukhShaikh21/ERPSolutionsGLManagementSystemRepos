@@ -18,7 +18,11 @@
     ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsqvo.VWChartOfAccountQVO"/>
   <ViewUsage
     Name="VWCostCenterAutoSuggestRO"
-    ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsqvo.VWCostCenterQVO"/>
+    ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsqvo.VWCostCenterQVO">
+    <ViewCriteriaUsage
+      Name="VWCostCenterQVOLastLevelCostCenterVC"
+      FullName="erpsolgls.erpsolglsmodel.erpsolglsqvo.VWCostCenterQVO.VWCostCenterQVOLastLevelCostCenterVC"/>
+  </ViewUsage>
   <ViewUsage
     Name="AllLocationsAutoSuggestRO"
     ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsvo.AllLocationsView"/>

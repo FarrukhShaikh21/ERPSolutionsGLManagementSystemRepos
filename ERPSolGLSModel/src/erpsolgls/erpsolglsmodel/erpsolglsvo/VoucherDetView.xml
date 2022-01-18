@@ -25,7 +25,11 @@
   <ViewAccessor
     Name="AccVWCostCenterQVO"
     ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsqvo.VWCostCenterQVO"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="VWCostCenterQVOLastLevelCostCenterVC"
+      FullName="erpsolgls.erpsolglsmodel.erpsolglsqvo.VWCostCenterQVO.VWCostCenterQVOLastLevelCostCenterVC"/>
+  </ViewAccessor>
   <ListBinding
     Name="LovtxtGlDescription"
     ListVOName="AccVWChartOfAccountQVO"
@@ -374,6 +378,12 @@
   <ViewLinkAccessor
     Name="CostCenterView"
     ViewLink="erpsolgls.erpsolglsmodel.erpsolglslink.CostCenterVoucherDetCostCenterLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="VoucherView"
+    ViewLink="erpsolgls.erpsolglsmodel.erpsolglsvo.FkVoucherDetVoucherSeqLink"
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>

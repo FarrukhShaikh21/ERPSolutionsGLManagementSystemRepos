@@ -38,7 +38,6 @@
   </Attribute>
   <Attribute
     Name="VoucherType"
-    IsNotNull="true"
     Precision="3"
     ColumnName="VOUCHER_TYPE"
     SQLType="VARCHAR"
@@ -334,9 +333,18 @@
     Name="SubmitVoucherDate"
     ColumnName="SUBMIT_VOUCHER_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
-    TableName="VOUCHER"/>
+    TableName="VOUCHER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolgls.erpsolglsmodel.erpsolglseo.Voucher.SubmitVoucherDate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="Submit"
     Precision="1"

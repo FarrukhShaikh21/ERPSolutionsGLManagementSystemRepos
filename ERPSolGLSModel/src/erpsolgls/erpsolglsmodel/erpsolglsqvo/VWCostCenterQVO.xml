@@ -94,6 +94,42 @@
       <Attr Name="_DisplaySize" Value="5"/>
     </DesignTime>
   </ViewAttribute>
+  <ViewCriteria
+    Name="VWCostCenterQVOLastLevelCostCenterVC"
+    ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsqvo.VWCostCenterQVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="VWCostCenterQVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="Ccsubsidary"
+        ViewAttribute="Ccsubsidary"
+        Operator="&lt;>"
+        Conjunction="AND"
+        Value="00000"
+        UpperColumns="0"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <AttrArray Name="KeyAttributes">
     <Item Value="Costcenterid"/>
   </AttrArray>

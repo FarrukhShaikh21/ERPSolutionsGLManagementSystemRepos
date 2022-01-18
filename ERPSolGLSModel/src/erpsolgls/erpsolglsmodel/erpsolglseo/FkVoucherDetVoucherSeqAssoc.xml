@@ -13,11 +13,12 @@
     Name="Voucher"
     Cardinality="1"
     Source="true"
-    Owner="erpsolgls.erpsolglsmodel.erpsolglseo.Voucher">
+    Owner="erpsolgls.erpsolglsmodel.erpsolglseo.Voucher"
+    LockLevel="NONE"
+    DeleteContainee="true">
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="Voucher"/>
-      <Attr Name="_foreignKey" Value="erpsolgls.erpsolglsmodel.erpsolglseo.Voucher.UnqVoucher"/>
       <Attr Name="_isUpdateable" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">
@@ -27,11 +28,11 @@
   <AssociationEnd
     Name="VoucherDet"
     Cardinality="-1"
-    Owner="erpsolgls.erpsolglsmodel.erpsolglseo.VoucherDet">
+    Owner="erpsolgls.erpsolglsmodel.erpsolglseo.VoucherDet"
+    HasOwner="true">
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="VoucherDet"/>
-      <Attr Name="_foreignKey" Value="erpsolgls.erpsolglsmodel.erpsolglseo.VoucherDet.FkVoucherDetVoucherSeq"/>
       <Attr Name="_isUpdateable" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">

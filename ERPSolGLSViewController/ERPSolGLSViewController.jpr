@@ -165,10 +165,10 @@
                   <value n="P_ADF_USER_STORECODE" v="001"/>
                   <value n="P_ADF_USERCODE" v="ERP"/>
                </hash>
-               <value n="taskFlowId" v="ERPSOLGLS"/>
+               <value n="taskFlowId" v="ERPSOLGLSBTF"/>
                <value n="unboundedTaskFlow" v="false"/>
             </hash>
-            <url n="targetURL" path="public_html/WEB-INF/ERPSOLGLS.xml"/>
+            <url n="targetURL" path="public_html/WEB-INF/ERPSOLGLSBTF.xml"/>
          </hash>
       </hash>
    </hash>

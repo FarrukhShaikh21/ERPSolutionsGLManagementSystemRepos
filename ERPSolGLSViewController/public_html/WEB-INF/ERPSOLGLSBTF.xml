@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="windows-1252" ?>
 <adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
-  <task-flow-definition id="ERPSOLGLS">
+  <task-flow-definition id="ERPSOLGLSBTF">
     <default-activity>doERPSolGLSSessionGlobals</default-activity>
     <data-control-scope>
       <shared/>
@@ -23,7 +23,7 @@
     <input-parameter-definition id="__25">
       <name>P_ADF_USER_REGIONCODE</name>
       <value>#{pageFlowScope.ERPSolGLSPageFlowBean.ERPSolStrUserRegionCode}</value>
-      <class>erpsolfms.erpsolfmsview.erpsolfmsclass.ERPSolFMSBean</class>
+      <class>erpsolgls.erpsolglsview.erpsolglsclass.ERPSolGLSBean</class>
     </input-parameter-definition>
     <managed-bean id="__5">
       <managed-bean-name>ERPSolGLSPageFlowBean</managed-bean-name>

@@ -15,6 +15,7 @@ import oracle.jbo.server.ViewRowImpl;
 // ---------------------------------------------------------------------
 public class VoucherDetViewRowImpl extends ViewRowImpl {
 
+
     public static final int ENTITY_VOUCHERDET = 0;
 
     /**
@@ -54,6 +55,7 @@ public class VoucherDetViewRowImpl extends ViewRowImpl {
         txtGLType,
         ChartOfAccView,
         CostCenterView,
+        VoucherView,
         AccVWChartOfAccountQVO,
         AccVWCostCenterQVO;
         static AttributesEnum[] vals = null;
@@ -79,6 +81,7 @@ public class VoucherDetViewRowImpl extends ViewRowImpl {
             return vals;
         }
     }
+
 
     public static final int VOUCHERNO = AttributesEnum.VoucherNo.index();
     public static final int VOUCHERTYPE = AttributesEnum.VoucherType.index();
@@ -113,6 +116,7 @@ public class VoucherDetViewRowImpl extends ViewRowImpl {
     public static final int TXTGLTYPE = AttributesEnum.txtGLType.index();
     public static final int CHARTOFACCVIEW = AttributesEnum.ChartOfAccView.index();
     public static final int COSTCENTERVIEW = AttributesEnum.CostCenterView.index();
+    public static final int VOUCHERVIEW = AttributesEnum.VoucherView.index();
     public static final int ACCVWCHARTOFACCOUNTQVO = AttributesEnum.AccVWChartOfAccountQVO.index();
     public static final int ACCVWCOSTCENTERQVO = AttributesEnum.AccVWCostCenterQVO.index();
 
@@ -450,6 +454,14 @@ public class VoucherDetViewRowImpl extends ViewRowImpl {
      * @param value value to set the FCURR_DEBIT
      */
     public void setFcurrDebit(BigDecimal value) {
+        try {
+            if(getFcurrDebit()!=null) {
+                settxtGLType("D");
+            }
+       } catch (Exception e) {
+            // TODO: Add catch code
+//            e.printStackTrace();
+        }
         setAttributeInternal(FCURRDEBIT, value);
     }
 
@@ -467,7 +479,14 @@ public class VoucherDetViewRowImpl extends ViewRowImpl {
      * @param value value to set the FCURR_CREDIT
      */
     public void setFcurrCredit(BigDecimal value) {
-        
+        try {
+            if(getFcurrCredit()!=null) {
+                settxtGLType("C");
+            }
+        } catch (Exception e) {
+            // TODO: Add catch code
+        //            e.printStackTrace();
+        }
         setAttributeInternal(FCURRCREDIT, value);
     }
 
@@ -666,6 +685,20 @@ public class VoucherDetViewRowImpl extends ViewRowImpl {
     }
 
     /**
+     * Gets the associated <code>Row</code> using master-detail link VoucherView.
+     */
+    public Row getVoucherView() {
+        return (Row) getAttributeInternal(VOUCHERVIEW);
+    }
+
+    /**
+     * Sets the master-detail link VoucherView between this object and <code>value</code>.
+     */
+    public void setVoucherView(Row value) {
+        setAttributeInternal(VOUCHERVIEW, value);
+    }
+
+    /**
      * Gets the view accessor <code>RowSet</code> AccVWChartOfAccountQVO.
      */
     public RowSet getAccVWChartOfAccountQVO() {
@@ -682,7 +715,7 @@ public class VoucherDetViewRowImpl extends ViewRowImpl {
     @Override
     public boolean isAttributeUpdateable(int i) {
         // TODO Implement this method
-        if (getVoucherDet().getAttribute("Submit").equals("Y")) {
+        if (getVoucherView().getAttribute("Submit").equals("Y")) {
             return false;
        }
         return super.isAttributeUpdateable(i);

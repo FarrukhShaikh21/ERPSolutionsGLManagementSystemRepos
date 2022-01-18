@@ -10,7 +10,8 @@
   DBObjectName="VOUCHER_DET"
   AliasName="VoucherDet"
   BindingStyle="OracleName"
-  RowClass="erpsolgls.erpsolglsmodel.erpsolglseo.VoucherDetImpl">
+  RowClass="erpsolgls.erpsolglsmodel.erpsolglseo.VoucherDetImpl"
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation">
   <DesignTime>
     <Attr Name="_codeGenFlag2" Value="Init|Delete|Access|DML"/>
     <Attr Name="_superClass" Value="erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobalsEntityImpl"/>
@@ -356,8 +357,7 @@
     ColumnType="VARCHAR2"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression
-      trustMode="untrusted"><![CDATA[(ChartOfAcc?.GlnatureOfAC==null||txtGLType=="C"||FcurrCredit!=null) ?"":ChartOfAcc?.GlnatureOfAC+ChartOfAcc?.GlbroadCategory+ChartOfAcc?.GlcontrolAC+ChartOfAcc?.GlsubControlAC+ChartOfAcc?.GlsubsidaryAC]]></TransientExpression>
+    <TransientExpression><![CDATA[(ChartOfAcc?.GlnatureOfAC==null||txtGLType=="C"||FcurrCredit!=null) ?"":ChartOfAcc?.GlnatureOfAC+ChartOfAcc?.GlbroadCategory+ChartOfAcc?.GlcontrolAC+ChartOfAcc?.GlsubControlAC+ChartOfAcc?.GlsubsidaryAC]]></TransientExpression>
     <RecalcCondition><![CDATA[true]]></RecalcCondition>
     <Properties>
       <SchemaBasedProperties>
@@ -377,10 +377,8 @@
     ColumnType="VARCHAR2"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression
-      trustMode="untrusted"><![CDATA[(ChartOfAcc?.GlnatureOfAC==null||txtGLType=="C"||FcurrCredit!=null) ?"":ChartOfAcc?.Description]]></TransientExpression>
-    <RecalcCondition
-      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+    <TransientExpression><![CDATA[(ChartOfAcc?.GlnatureOfAC==null||txtGLType=="C"||FcurrCredit!=null) ?"":ChartOfAcc?.Description]]></TransientExpression>
+    <RecalcCondition><![CDATA[true]]></RecalcCondition>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -399,8 +397,7 @@
     ColumnType="VARCHAR2"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression
-      trustMode="untrusted"><![CDATA[(ChartOfAcc?.GlnatureOfAC==null||txtGLType=="D"||FcurrDebit!=null) ?"":ChartOfAcc?.GlnatureOfAC+ChartOfAcc?.GlbroadCategory+ChartOfAcc?.GlcontrolAC+ChartOfAcc?.GlsubControlAC+ChartOfAcc?.GlsubsidaryAC]]></TransientExpression>
+    <TransientExpression><![CDATA[(ChartOfAcc?.GlnatureOfAC==null||txtGLType=="D"||FcurrDebit!=null) ?"":ChartOfAcc?.GlnatureOfAC+ChartOfAcc?.GlbroadCategory+ChartOfAcc?.GlcontrolAC+ChartOfAcc?.GlsubControlAC+ChartOfAcc?.GlsubsidaryAC]]></TransientExpression>
     <RecalcCondition><![CDATA[true]]></RecalcCondition>
     <Properties>
       <SchemaBasedProperties>
@@ -420,10 +417,8 @@
     ColumnType="VARCHAR2"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression
-      trustMode="untrusted"><![CDATA[(ChartOfAcc?.GlnatureOfAC==null||txtGLType=="D"||FcurrDebit!=null) ?"":ChartOfAcc?.Description]]></TransientExpression>
-    <RecalcCondition
-      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+    <TransientExpression><![CDATA[(ChartOfAcc?.GlnatureOfAC==null||txtGLType=="D"||FcurrDebit!=null) ?"":ChartOfAcc?.Description]]></TransientExpression>
+    <RecalcCondition><![CDATA[true]]></RecalcCondition>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -581,6 +576,44 @@
       <Item Value="erpsolgls.erpsolglsmodel.erpsolglseo.VoucherDet.Ccsubsidary"/>
     </AttrArray>
   </Key>
+  <validation:ExpressionValidationBean
+    Name="VoucherDetRule0"
+    OperandType="EXPR"
+    Inverse="false">
+    <validation:MsgIds>
+      <validation:Item
+        Value="ERR_VOUCHER_AMOUNT"/>
+      <validation:Item
+        Value="ERR_VOUCHER_GL"/>
+      <validation:Item
+        Value="ERR_VOUCHER_COST"/>
+    </validation:MsgIds>
+    <validation:ResExpressions
+      Name="VoucherDetRule0_ResExprList">
+      <validation:Expression
+        Name="0"><![CDATA[txtGLCode.length()==0?"Credit Amount":"Debit Amount"]]></validation:Expression>
+    </validation:ResExpressions>
+    <validation:TransientExpression><![CDATA[System.out.println("txtCostCenter");
+System.out.println(txtCostCenter.length());
+if (txtGLCode.length()==0 && txtGLCodeCredit.length()==0)
+{
+adf.error.raise("ERR_VOUCHER_GL");
+return false;
+}
+else if(FcurrDebit==null && FcurrCredit==null)
+{
+adf.error.raise("ERR_VOUCHER_AMOUNT");
+return false;
+}
+
+else if(txtCostCenter.length()==0)
+{
+
+adf.error.raise("ERR_VOUCHER_COST");
+return false;
+}
+else return true;]]></validation:TransientExpression>
+  </validation:ExpressionValidationBean>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="erpsolgls.erpsolglsmodel.ERPSolGLSModelBundle"/>
