@@ -18,6 +18,7 @@ import oracle.jbo.server.ViewRowImpl;
 // ---------------------------------------------------------------------
 public class VoucherViewRowImpl extends ViewRowImpl {
 
+
     public static final int ENTITY_VOUCHER = 0;
 
     /**
@@ -76,7 +77,8 @@ public class VoucherViewRowImpl extends ViewRowImpl {
         AllLocationsView,
         AccVoucherView,
         AccVoucherTypeView,
-        AccAllLocationsView;
+        AccAllLocationsView,
+        AccVWYesNoQVO;
         static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -100,6 +102,7 @@ public class VoucherViewRowImpl extends ViewRowImpl {
             return vals;
         }
     }
+
 
     public static final int VOUCHERNO = AttributesEnum.VoucherNo.index();
     public static final int VOUCHERTYPE = AttributesEnum.VoucherType.index();
@@ -154,6 +157,7 @@ public class VoucherViewRowImpl extends ViewRowImpl {
     public static final int ACCVOUCHERVIEW = AttributesEnum.AccVoucherView.index();
     public static final int ACCVOUCHERTYPEVIEW = AttributesEnum.AccVoucherTypeView.index();
     public static final int ACCALLLOCATIONSVIEW = AttributesEnum.AccAllLocationsView.index();
+    public static final int ACCVWYESNOQVO = AttributesEnum.AccVWYesNoQVO.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -988,6 +992,14 @@ public class VoucherViewRowImpl extends ViewRowImpl {
     public RowSet getAccAllLocationsView() {
         return (RowSet) getAttributeInternal(ACCALLLOCATIONSVIEW);
     }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccVWYesNoQVO.
+     */
+    public RowSet getAccVWYesNoQVO() {
+        return (RowSet) getAttributeInternal(ACCVWYESNOQVO);
+    }
+
     @Override
     public boolean isAttributeUpdateable(int i) {
         // TODO Implement this method

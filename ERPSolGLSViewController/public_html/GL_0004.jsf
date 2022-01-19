@@ -41,7 +41,7 @@
                                    disabled="#{!bindings.doSuperviseGLVoucher.enabled}" id="b11" rendered="false"/>
                         <af:button text="Close Form" id="b10" action="ACT-ERP-EXIT-FORM"
                                    icon="#{resource['images:imgExitForm.png']}" iconPosition="top"/>
-                        <af:button text="Search" id="b12" action="ERP-ACT-AR-0047-SEARCH"
+                        <af:button text="Find" id="b12" action="ERP-ACT-AR-0047-SEARCH"
                                    icon="#{resource['images:imgFind.png']}" iconPosition="top"/>
                         <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
                                    disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b8"

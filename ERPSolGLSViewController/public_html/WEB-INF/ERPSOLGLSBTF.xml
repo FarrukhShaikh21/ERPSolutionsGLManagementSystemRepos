@@ -93,11 +93,18 @@
     <view id="GL_0004">
       <page>/GL_0004.jsf</page>
     </view>
+    <view id="GL_0004_SEARCH">
+      <page>/GL_0004_SEARCH.jsf</page>
+    </view>
     <control-flow-rule id="__1">
       <from-activity-id>*</from-activity-id>
       <control-flow-case id="__2">
         <from-outcome>ACT-ERP-GOTO-MODLE-SELECTION</from-outcome>
         <to-activity-id>RETURN-FROM-GLS</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__27">
+        <from-outcome>ACT-ERP-GOTO-MAIN-GLS</from-outcome>
+        <to-activity-id>ERPSolGLSMain</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__3">
@@ -160,6 +167,20 @@
       <from-activity-id>doERPGotoGLSActivity</from-activity-id>
       <control-flow-case id="__26">
         <from-outcome>ERP-ACT-GL-0004</from-outcome>
+        <to-activity-id>GL_0004</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__28">
+      <from-activity-id>GL_0004</from-activity-id>
+      <control-flow-case id="__29">
+        <from-outcome>ERP-ACT-GL-0004-SEARCH</from-outcome>
+        <to-activity-id>GL_0004_SEARCH</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__30">
+      <from-activity-id>GL_0004_SEARCH</from-activity-id>
+      <control-flow-case id="__31">
+        <from-outcome>ERP-ACT-GL-0004-SEARCH-BACK</from-outcome>
         <to-activity-id>GL_0004</to-activity-id>
       </control-flow-case>
     </control-flow-rule>

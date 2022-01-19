@@ -33,6 +33,10 @@
     Name="AccAllLocationsView"
     ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsvo.AllLocationsView"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccVWYesNoQVO"
+    ViewObjectName="erpsolglob.erpsolglobmodel.erpsolglobqvo.VWYesNoQVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LovVoucherType"
     ListVOName="AccVoucherTypeView"
@@ -72,6 +76,25 @@
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="LocationDescription"/>
       <Item Value="Locationid"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovSubmit"
+    ListVOName="AccVWYesNoQVO"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Submit"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ID"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -250,7 +273,15 @@
     PrecisionRule="true"
     EntityAttrName="Submit"
     EntityUsage="Voucher"
-    AliasName="SUBMIT"/>
+    AliasName="SUBMIT"
+    LOVName="LovSubmit">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="SubmitBy"
     PrecisionRule="true"
@@ -384,6 +415,100 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewCriteria
+    Name="VoucherViewFindVC"
+    ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsvo.VoucherView"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="VoucherViewCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="VoucherNo"
+        ViewAttribute="VoucherNo"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="VoucherType"
+        ViewAttribute="VoucherType"
+        Operator="="
+        Conjunction="AND"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="VoucherDate"
+        ViewAttribute="VoucherDate"
+        Operator="BETWEEN"
+        Conjunction="AND"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="SubmitVoucherNo"
+        ViewAttribute="SubmitVoucherNo"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="SubmitVoucherDate"
+        ViewAttribute="SubmitVoucherDate"
+        Operator="BETWEEN"
+        Conjunction="AND"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="Submit"
+        ViewAttribute="Submit"
+        Operator="="
+        Conjunction="AND"
+        UpperColumns="0"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="VoucherViewCriteria_VoucherViewCriteria_row_0_AllLocationsView"
+        ViewAttribute="AllLocationsView"
+        Operator="EXISTS"
+        Conjunction="AND"
+        IsNestedCriteria="true"
+        Required="Optional">
+        <ViewCriteria
+          Name="AllLocationsViewNestedCriteria"
+          ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsvo.AllLocationsView"
+          Conjunction="AND">
+          <ViewCriteriaRow
+            Name="AllLocationsViewNestedCriteria_row_0"
+            UpperColumns="1">
+            <ViewCriteriaItem
+              Name="AllLocationsViewNestedCriteria_AllLocationsViewNestedCriteria_row_0_Locationid"
+              ViewAttribute="Locationid"
+              Operator="CONTAINS"
+              Conjunction="AND"
+              Required="Optional"/>
+            <ViewCriteriaItem
+              Name="LocationDescription"
+              ViewAttribute="LocationDescription"
+              Operator="CONTAINS"
+              Conjunction="AND"
+              Required="Optional"/>
+          </ViewCriteriaRow>
+        </ViewCriteria>
+      </ViewCriteriaItem>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ViewLinkAccessor
     Name="VoucherDetView"
     ViewLink="erpsolgls.erpsolglsmodel.erpsolglsvo.FkVoucherDetVoucherSeqLink"

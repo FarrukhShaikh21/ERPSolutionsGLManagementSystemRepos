@@ -11,9 +11,9 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">67.5918</property>
+         name="y">655.8906</property>
       <property
-         name="x">90.7041</property>
+         name="x">680.7041</property>
    </MethodCall>
    <WildcardControlFlowRule
       id="WildcardControlFlowRule3">
@@ -22,9 +22,9 @@
       <property
          name="srcid">__3</property>
       <property
-         name="y">163.0</property>
+         name="y">169.29883</property>
       <property
-         name="x">50.0</property>
+         name="x">51.0</property>
    </WildcardControlFlowRule>
    <WildcardControlFlowRule
       id="WildcardControlFlowRule4">
@@ -46,9 +46,9 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">373.5918</property>
+         name="y">483.89062</property>
       <property
-         name="x">110.70508</property>
+         name="x">884.7051</property>
    </MethodCall>
    <MethodCall
       id="MethodCall6">
@@ -59,9 +59,9 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">169.5918</property>
+         name="y">130.89062</property>
       <property
-         name="x">180.03027</property>
+         name="x">313.03027</property>
    </MethodCall>
    <MethodCall
       id="MethodCall7">
@@ -72,9 +72,9 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">271.5918</property>
+         name="y">656.8906</property>
       <property
-         name="x">196.37207</property>
+         name="x">378.37207</property>
    </MethodCall>
    <WildcardControlFlowRule
       id="WildcardControlFlowRule8">
@@ -83,9 +83,9 @@
       <property
          name="srcid">__1</property>
       <property
-         name="y">61.0</property>
+         name="y">134.29883</property>
       <property
-         name="x">230.0</property>
+         name="x">588.0</property>
    </WildcardControlFlowRule>
    <View
       id="View9">
@@ -98,9 +98,9 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">377.79883</property>
+         name="y">496.39648</property>
       <property
-         name="x">235.5</property>
+         name="x">260.5</property>
    </View>
    <TaskFlowReturn
       id="TaskFlowReturn10">
@@ -128,9 +128,9 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">480.5</property>
+         name="y">658.7988</property>
       <property
-         name="x">286.37793</property>
+         name="x">153.37793</property>
    </MethodCall>
    <MethodCall
       id="MethodCall12">
@@ -141,9 +141,9 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">67.5918</property>
+         name="y">664.8906</property>
       <property
-         name="x">379.3662</property>
+         name="x">883.3662</property>
    </MethodCall>
    <View
       id="View13">
@@ -156,9 +156,9 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">173.79883</property>
+         name="y">201.09766</property>
       <property
-         name="x">341.01953</property>
+         name="x">878.01953</property>
    </View>
    <TaskFlowReturn
       id="TaskFlowReturn14">
@@ -171,9 +171,9 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">291.79883</property>
+         name="y">494.09766</property>
       <property
-         name="x">353.66406</property>
+         name="x">-64.33594</property>
    </TaskFlowReturn>
    <MethodCall
       id="MethodCall15">
@@ -200,7 +200,7 @@
       <property
          name="fromsrcid">__18</property>
       <property
-         name="sdm:polyPoints">R50,86.0,163.0,139.03027,169.5918,L50</property>
+         name="sdm:polyPoints">R45,87.0,165.94824,272.03027,130.54004,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -214,7 +214,7 @@
       <property
          name="fromsrcid">__3</property>
       <property
-         name="sdm:polyPoints">L50,14.0,163.0,51.680664,495.79883,L50</property>
+         name="sdm:polyPoints">R55,87.0,172.94824,133.68066,495.44824,R50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -228,7 +228,7 @@
       <property
          name="fromsrcid">__1</property>
       <property
-         name="sdm:polyPoints">B50,50.0,205.5,312.66406,291.79883,L50</property>
+         name="sdm:polyPoints">L50,15.0,169.44824,-64.33594,439.74707,T50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -242,7 +242,7 @@
       <property
          name="fromsrcid">__20</property>
       <property
-         name="sdm:polyPoints">R50,221.03027,169.5918,448.02637,426.5,T50</property>
+         name="sdm:polyPoints">B50,313.03027,184.54004,448.02637,426.1494,T50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -256,7 +256,7 @@
       <property
          name="fromsrcid">__8</property>
       <property
-         name="sdm:polyPoints">T50,286.37793,426.1494,196.37207,325.5918,B50</property>
+         name="sdm:polyPoints">R50,194.37793,658.44824,337.37207,656.54004,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -270,7 +270,7 @@
       <property
          name="fromsrcid">__10</property>
       <property
-         name="sdm:polyPoints">T50,196.37207,217.5918,131.7041,67.5918,R50</property>
+         name="sdm:polyPoints">R50,419.37207,656.54004,639.7041,655.54004,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -284,7 +284,7 @@
       <property
          name="fromsrcid">__12</property>
       <property
-         name="sdm:polyPoints">T50,90.7041,13.241211,379.3662,13.241211,T50</property>
+         name="sdm:polyPoints">R50,721.7041,655.54004,842.3662,664.54004,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -298,7 +298,7 @@
       <property
          name="fromsrcid">__16</property>
       <property
-         name="sdm:polyPoints">T50,110.70508,319.5918,300.01953,173.44824,L50</property>
+         name="sdm:polyPoints">T50,884.7051,429.54004,878.01953,254.74707,B50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -312,7 +312,7 @@
       <property
          name="fromsrcid">__14</property>
       <property
-         name="sdm:polyPoints">L50,338.3662,67.5918,151.70508,373.5918,R50</property>
+         name="sdm:polyPoints">T50,883.3662,610.54004,884.7051,537.54004,B50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -326,6 +326,51 @@
       <property
          name="fromsrcid">__7</property>
       <property
-         name="sdm:polyPoints">L50,407.02637,480.5,276.5,377.44824,R50</property>
+         name="sdm:polyPoints">L50,407.02637,480.1494,301.5,496.0459,R50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase26"
+      from="WildcardControlFlowRule8"
+      to="View13">
+      <property
+         name="fromOutcome">ACT-ERP-GOTO-MAIN-GLS</property>
+      <property
+         name="sdm:polyPoints">R50,624.0,134.44824,837.01953,200.74707,L50</property>
+   </ControlFlowCase>
+   <View
+      id="View27">
+      <property
+         name="activityId">GL_0004_SEARCH</property>
+      <property
+         name="page">/GL_0004_SEARCH.jsf</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>GL_0004_SEARCH&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">264.74707</property>
+      <property
+         name="x">259.03027</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase28"
+      from="View9"
+      to="View27">
+      <property
+         name="fromOutcome">ERP-ACT-GL-0004-SEARCH</property>
+      <property
+         name="sdm:polyPoints">T44,257.0,442.0459,255.53027,318.7888,B44</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase29"
+      from="View27"
+      to="View9">
+      <property
+         name="fromOutcome">ERP-ACT-GL-0004-SEARCH-BACK</property>
+      <property
+         name="sdm:polyPoints">B56,262.53027,318.74707,264.0,442.00418,T56</property>
    </ControlFlowCase>
 </SDM>

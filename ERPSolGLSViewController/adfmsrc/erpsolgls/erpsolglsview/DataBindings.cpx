@@ -14,6 +14,7 @@
     <page path="/WEB-INF/ERPSOLGLSBTF.xml#ERPSOLGLSBTF@RollbackBeforeFornGLS"
           usageId="erpsolgls_erpsolglsview_ERPSOLGLS_ERPSOLGLS_RollbackPageDef"/>
     <page path="/GL_0004.jsf" usageId="erpsolgls_erpsolglsview_GL_0004PageDef"/>
+    <page path="/GL_0004_SEARCH.jsf" usageId="erpsolgls_erpsolglsview_GL_0004_SEARCHPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="erpsolgls_erpsolglsview_ERPSOLGLS_ERPSOLGLS_ExecuteWithParamsPageDef"
@@ -29,6 +30,8 @@
     <page id="erpsolgls_erpsolglsview_ERPSOLGLS_ERPSOLGLS_RollbackPageDef"
           path="erpsolgls.erpsolglsview.pageDefs.ERPSOLGLS_ERPSOLGLS_RollbackPageDef"/>
     <page id="erpsolgls_erpsolglsview_GL_0004PageDef" path="erpsolgls.erpsolglsview.pageDefs.GL_0004PageDef"/>
+    <page id="erpsolgls_erpsolglsview_GL_0004_SEARCHPageDef"
+          path="erpsolgls.erpsolglsview.pageDefs.GL_0004_SEARCHPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="ERPSolTempAppModuleDataControl" Package="erpsoltemp.erpsoltempmodel.erpsoltempam"
