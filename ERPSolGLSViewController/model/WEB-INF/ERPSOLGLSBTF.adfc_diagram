@@ -361,7 +361,7 @@
       <property
          name="fromOutcome">ERP-ACT-GL-0004-SEARCH</property>
       <property
-         name="sdm:polyPoints">T44,257.0,442.0459,255.53027,318.7888,B44</property>
+         name="sdm:polyPoints">T44,257.0,442.0459,255.53027,318.43808,B44</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -371,6 +371,6 @@
       <property
          name="fromOutcome">ERP-ACT-GL-0004-SEARCH-BACK</property>
       <property
-         name="sdm:polyPoints">B56,262.53027,318.74707,264.0,442.00418,T56</property>
+         name="sdm:polyPoints">B56,262.53027,318.39648,264.0,442.0043,T56</property>
    </ControlFlowCase>
 </SDM>
