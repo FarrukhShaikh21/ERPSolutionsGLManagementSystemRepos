@@ -150,6 +150,13 @@
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc11" halign="stretch"
                                      valign="middle">
+                          <af:inputText value="#{bindings.LocCode.inputValue}" label="#{bindings.LocCode.hints.label}"
+                                        required="#{bindings.LocCode.hints.mandatory}"
+                                        columns="#{bindings.LocCode.hints.displayWidth}"
+                                        maximumLength="#{bindings.LocCode.hints.precision}"
+                                        shortDesc="#{bindings.LocCode.hints.tooltip}" id="it12" rendered="false">
+                            <f:validator binding="#{bindings.LocCode.validator}"/>
+                          </af:inputText>
                           <af:inputComboboxListOfValues id="txtLocationNameId"
                                                         popupTitle="Search and Select: #{bindings.txtLocationName.hints.label}"
                                                         value="#{bindings.txtLocationName.inputValue}"
@@ -262,7 +269,7 @@
                         <af:button actionListener="#{bindings.CreateInsert1.execute}" text="Add Voucher Line"
                                    disabled="#{bindings.Submit.inputValue=='Y'}" id="b3"/>
                         <af:button actionListener="#{bindings.Delete1.execute}" text="Delete Voucher Line"
-                                   disabled="#{bindings.Submit.inputValue=='Y'}" id="b4"/>
+                                   disabled="#{bindings.Submit.inputValue=='Y'}" id="b4" immediate="true"/>
                       </af:toolbar>
                     </f:facet>
                     <f:facet name="statusbar"/>
@@ -298,7 +305,7 @@
                                                       shortDesc="#{bindings.VoucherDetViewDetCRUD.hints.txtGlDescription.tooltip}"
                                                       autoSubmit="true" contentStyle="width:100%">
                           <f:validator binding="#{row.bindings.txtGlDescription.validator}"/>
-                          <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolGLSPageFlowBean.doERPSolGetAutoSuggestedCOAValues}"/>
+                          <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolGLSPageFlowBean.doERPSolGetAutoSuggestedDebitGLValues}"/>
                         </af:inputComboboxListOfValues>
                       </af:column>
                       <af:column headerText="#{bindings.VoucherDetViewDetCRUD.hints.txtGLCodeCredit.label}" id="c2">
@@ -324,7 +331,7 @@
                                                       partialTriggers="txtGlDescriptionId" autoSubmit="true"
                                                       contentStyle="width:100%">
                           <f:validator binding="#{row.bindings.txtGLCodeCreditDescription.validator}"/>
-                          <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolGLSPageFlowBean.doERPSolGetAutoSuggestedCOAValues}"/>
+                          <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolGLSPageFlowBean.doERPSolGetAutoSuggestedCreditGLValues}"/>
                         </af:inputComboboxListOfValues>
                       </af:column>
                       <af:column headerText="#{bindings.VoucherDetViewDetCRUD.hints.txtCostCenter.label}" id="c5">

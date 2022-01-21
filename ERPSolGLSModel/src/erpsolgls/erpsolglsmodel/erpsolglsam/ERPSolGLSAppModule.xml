@@ -26,6 +26,12 @@
   <ViewUsage
     Name="AllLocationsAutoSuggestRO"
     ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsvo.AllLocationsView"/>
+  <ViewUsage
+    Name="VWGLDebitGLAutoSuggestRO"
+    ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsqvo.VWGLDebitGLQVO"/>
+  <ViewUsage
+    Name="VWGLCreditGLAutoSuggestRO"
+    ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsqvo.VWGLCreditQVO"/>
   <ViewLinkUsage
     Name="FkVoucherDetVoucherSeqLink1"
     ViewLinkObjectName="erpsolgls.erpsolglsmodel.erpsolglsvo.FkVoucherDetVoucherSeqLink"

@@ -86,3 +86,14 @@ af|inputComboboxListOfValues::content{
 .ERPSolFormEntryAreaFont{
 font-size:large;color:white;font-family:verdana
 }
+
+af|inputListOfValues{
+             -tr-stretch-search-dialog: true;
+           } 
+
+
+
+
+af|inputComboboxListOfValues{
+             -tr-stretch-search-dialog: true;
+           } 

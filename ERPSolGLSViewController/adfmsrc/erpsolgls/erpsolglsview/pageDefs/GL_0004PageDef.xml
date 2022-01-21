@@ -263,5 +263,10 @@
                   DataControl="ERPSolGLSAppModuleDataControl"
                   InstanceName="data.ERPSolGLSAppModuleDataControl.VoucherCRUD"
                   ReturnName="data.ERPSolGLSAppModuleDataControl.methodResults.doSuperviseGLVoucher_ERPSolGLSAppModuleDataControl_VoucherCRUD_doSuperviseGLVoucher_result"/>
+    <attributeValues IterBinding="VoucherCRUDIterator" id="LocCode">
+      <AttrNames>
+        <Item Value="LocCode"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

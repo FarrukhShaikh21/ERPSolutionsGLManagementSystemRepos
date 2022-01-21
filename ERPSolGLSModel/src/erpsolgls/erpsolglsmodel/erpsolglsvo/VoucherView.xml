@@ -28,7 +28,11 @@
   <ViewAccessor
     Name="AccVoucherTypeView"
     ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsvo.VoucherTypeView"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="VoucherTypeViewUserGLVC"
+      FullName="erpsolgls.erpsolglsmodel.erpsolglsvo.VoucherTypeView.VoucherTypeViewUserGLVC"/>
+  </ViewAccessor>
   <ViewAccessor
     Name="AccAllLocationsView"
     ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsvo.AllLocationsView"

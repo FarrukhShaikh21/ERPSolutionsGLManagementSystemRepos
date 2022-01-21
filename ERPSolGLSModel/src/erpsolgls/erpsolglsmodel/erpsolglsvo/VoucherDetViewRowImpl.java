@@ -57,7 +57,9 @@ public class VoucherDetViewRowImpl extends ViewRowImpl {
         CostCenterView,
         VoucherView,
         AccVWChartOfAccountQVO,
-        AccVWCostCenterQVO;
+        AccVWCostCenterQVO,
+        AccVWGLDebitGLQVO,
+        AccVWGLCreditQVO;
         static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -119,6 +121,8 @@ public class VoucherDetViewRowImpl extends ViewRowImpl {
     public static final int VOUCHERVIEW = AttributesEnum.VoucherView.index();
     public static final int ACCVWCHARTOFACCOUNTQVO = AttributesEnum.AccVWChartOfAccountQVO.index();
     public static final int ACCVWCOSTCENTERQVO = AttributesEnum.AccVWCostCenterQVO.index();
+    public static final int ACCVWGLDEBITGLQVO = AttributesEnum.AccVWGLDebitGLQVO.index();
+    public static final int ACCVWGLCREDITQVO = AttributesEnum.AccVWGLCreditQVO.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -711,7 +715,21 @@ public class VoucherDetViewRowImpl extends ViewRowImpl {
     public RowSet getAccVWCostCenterQVO() {
         return (RowSet) getAttributeInternal(ACCVWCOSTCENTERQVO);
     }
-    
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccVWGLDebitGLQVO.
+     */
+    public RowSet getAccVWGLDebitGLQVO() {
+        return (RowSet) getAttributeInternal(ACCVWGLDEBITGLQVO);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccVWGLCreditQVO.
+     */
+    public RowSet getAccVWGLCreditQVO() {
+        return (RowSet) getAttributeInternal(ACCVWGLCREDITQVO);
+    }
+
     @Override
     public boolean isAttributeUpdateable(int i) {
         // TODO Implement this method

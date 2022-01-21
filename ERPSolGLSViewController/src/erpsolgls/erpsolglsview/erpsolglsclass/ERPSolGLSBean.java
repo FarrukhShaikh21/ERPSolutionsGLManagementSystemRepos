@@ -257,6 +257,80 @@ public class ERPSolGLSBean {
         
     }  
     
+    public List<SelectItem> doERPSolGetAutoSuggestedCreditGLValues(String pStringValues) {
+    
+        BindingContainer ERPSolbc=ERPSolGlobalViewBean.doGetERPBindings();
+        DCIteratorBinding ERPSolIB=(DCIteratorBinding)ERPSolbc.get("VoucherCRUDIterator");
+        ApplicationModule ERPSolAM=ERPSolIB.getViewObject().getApplicationModule();
+        System.out.println("b");
+        AttributeBinding ERPVoucherType =(AttributeBinding)ERPSolbc.getControlBinding("VoucherType");
+        AttributeBinding ERPLocCode =(AttributeBinding)ERPSolbc.getControlBinding("LocCode");
+        ViewObject vo=ERPSolAM.findViewObject("VWGLCreditGLAutoSuggestRO");
+        vo.setNamedWhereClauseParam("P_ADF_VOUCHER_TYPE", ERPVoucherType.getInputValue());
+        vo.setNamedWhereClauseParam("P_ADF_LOC_CODE",  ERPLocCode.getInputValue());
+        vo.executeQuery();
+        List<SelectItem> ResultList=new ArrayList<SelectItem>();
+        ResultList= ERPSolGlobalViewBean.doERPSolGetAutoSuggestedValues(pStringValues, "VWGLCreditGLAutoSuggestRO"," UPPER(CONCAT(GL_CODE,Description))", "Description", "GlCode", 10,"ERPSolGLSAppModuleDataControl");
+        return ResultList;
+        
+    } 
+   
+    public List<SelectItem> doERPSolGetAutoSuggestedDebitGLValues(String pStringValues) {
+    
+        BindingContainer ERPSolbc=ERPSolGlobalViewBean.doGetERPBindings();
+        DCIteratorBinding ERPSolIB=(DCIteratorBinding)ERPSolbc.get("VoucherCRUDIterator");
+        ApplicationModule ERPSolAM=ERPSolIB.getViewObject().getApplicationModule();
+        System.out.println("b");
+        AttributeBinding ERPVoucherType =(AttributeBinding)ERPSolbc.getControlBinding("VoucherType");
+        System.out.println("C");
+        AttributeBinding ERPLocCode =(AttributeBinding)ERPSolbc.getControlBinding("LocCode");
+        System.out.println("D");
+        ViewObject vo=ERPSolAM.findViewObject("VWGLDebitGLAutoSuggestRO");
+        System.out.println("E");
+        vo.setNamedWhereClauseParam("P_ADF_VOUCHER_TYPE", ERPVoucherType.getInputValue());
+        System.out.println("F");
+        vo.setNamedWhereClauseParam("P_ADF_LOC_CODE",  ERPLocCode.getInputValue());
+        System.out.println("G");
+        vo.executeQuery();
+        System.out.println("start"+vo.getRowCount());
+//        System.out.println(vo.getQuery());
+        System.out.println("end");
+        List<SelectItem> ResultList=new ArrayList<SelectItem>();
+        ResultList= doERPSolGetAutoSuggestedValues(pStringValues, "VWGLDebitGLAutoSuggestRO"," UPPER(CONCAT(GL_CODE,Description))", "Description", "GlCode", 10,"ERPSolGLSAppModuleDataControl");
+        return ResultList;
+        
+    }  
+    
+    public static List<SelectItem> doERPSolGetAutoSuggestedValues(String pSearch,String pViewObjectName,String pWhereColumn,String pAttribute1,String pAttribute2,Integer pNoOfRecordsSuggest,String pERPSolDCName) {
+        List<SelectItem> ResultList = new ArrayList<SelectItem>();
+        System.out.println("one");
+        DCBindingContainer bc = (DCBindingContainer) BindingContext.getCurrent().getCurrentBindingsEntry();
+        System.out.println("two");
+        DCDataControl ERPSoldc = bc.findDataControl(pERPSolDCName);
+        System.out.println("three");
+        ApplicationModule ERPSolam = ERPSoldc.getApplicationModule();
+        System.out.println("four");
+        ViewObject vo = ERPSolam.findViewObject(pViewObjectName);
+        System.out.println("five");
+        vo.getViewObject().reset();
+        System.out.println("six");
+        vo.getViewObject().setWhereClause(pWhereColumn + " LIKE UPPER('%" + pSearch + "%') AND ROWNUM<="+pNoOfRecordsSuggest);
+        System.out.println("seven");
+        vo.executeQuery();
+        System.out.println("eight");
+        //System.out.println(vo.getEstimatedRowCount()+ " ERC");
+        while (vo.getViewObject().hasNext()) {
+            System.out.println("nine");
+            Row suggestedRow = vo.next();
+            System.out.println("ten");
+            ResultList.add(new SelectItem(suggestedRow.getAttribute(pAttribute1), suggestedRow.getAttribute(pAttribute1)+(pAttribute2.equals("-") ? "" : " ("+suggestedRow.getAttribute(pAttribute2))+")"));
+            System.out.println("eleven");
+        }
+        
+        return ResultList;
+        
+    } 
+    
     public List<SelectItem> doERPSolGetAutoSuggestedCostCenterValues(String pStringValues) {
     //public static List<SelectItem> doERPSolGetAutoSuggestedValues(String pSearch,String pViewObjectName,String pWhereColumn,String pAttribute1,String pAttribute2,Integer pNoOfRecordsSuggest) {
         //public List<SelectItem> doERPSolGetAutoSuggestedValues(String pSearch,String pViewObjectName,String pWhereColumn,String pAttribute1,String pAttribute2,Integer pNoOfRecordsSuggest) {

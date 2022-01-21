@@ -30,9 +30,39 @@
       Name="VWCostCenterQVOLastLevelCostCenterVC"
       FullName="erpsolgls.erpsolglsmodel.erpsolglsqvo.VWCostCenterQVO.VWCostCenterQVOLastLevelCostCenterVC"/>
   </ViewAccessor>
+  <ViewAccessor
+    Name="AccVWGLDebitGLQVO"
+    ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsqvo.VWGLDebitGLQVO"
+    RowLevelBinds="true">
+    <ParameterMap>
+      <PIMap Variable="P_ADF_LOC_CODE">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[VoucherView?.LocCode]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_VOUCHER_TYPE">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[VoucherView?.VoucherType==null?"0":VoucherView?.VoucherType]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccVWGLCreditQVO"
+    ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsqvo.VWGLCreditQVO"
+    RowLevelBinds="true">
+    <ParameterMap>
+      <PIMap Variable="P_ADF_LOC_CODE">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[VoucherView?.LocCode]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_VOUCHER_TYPE">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[VoucherView?.VoucherType==null?"0":VoucherView?.VoucherType]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LovtxtGlDescription"
-    ListVOName="AccVWChartOfAccountQVO"
+    ListVOName="AccVWGLDebitGLQVO"
     ListRangeSize="-1"
     ComboRowCountHint="10"
     NullValueFlag="none"
@@ -42,25 +72,25 @@
     </AttrArray>
     <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="DerivedAttrNames">
+      <Item Value="txtGLCode"/>
       <Item Value="GlbroadCategory"/>
       <Item Value="GlcontrolAC"/>
       <Item Value="GlnatureOfAC"/>
       <Item Value="GlsubControlAC"/>
       <Item Value="GlsubsidaryAC"/>
-      <Item Value="txtGLCode"/>
     </AttrArray>
     <AttrArray Name="ListAttrNames">
       <Item Value="Description"/>
+      <Item Value="GlCode"/>
       <Item Value="GlbroadCategory"/>
       <Item Value="GlcontrolAC"/>
       <Item Value="GlnatureOfAC"/>
       <Item Value="GlsubControlAC"/>
       <Item Value="GlsubsidaryAC"/>
-      <Item Value="Glcode"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="Description"/>
-      <Item Value="Glcode"/>
+      <Item Value="GlCode"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -96,7 +126,7 @@
   </ListBinding>
   <ListBinding
     Name="LovtxtGLCodeCreditDescription"
-    ListVOName="AccVWChartOfAccountQVO"
+    ListVOName="AccVWGLCreditQVO"
     ListRangeSize="-1"
     NullValueFlag="none"
     MRUCount="0"
@@ -110,21 +140,21 @@
       <Item Value="GlbroadCategory"/>
       <Item Value="GlcontrolAC"/>
       <Item Value="GlnatureOfAC"/>
-      <Item Value="GlsubsidaryAC"/>
       <Item Value="GlsubControlAC"/>
+      <Item Value="GlsubsidaryAC"/>
     </AttrArray>
     <AttrArray Name="ListAttrNames">
       <Item Value="Description"/>
-      <Item Value="Glcode"/>
+      <Item Value="GlCode"/>
       <Item Value="GlbroadCategory"/>
       <Item Value="GlcontrolAC"/>
       <Item Value="GlnatureOfAC"/>
-      <Item Value="GlsubsidaryAC"/>
       <Item Value="GlsubControlAC"/>
+      <Item Value="GlsubsidaryAC"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="Description"/>
-      <Item Value="Glcode"/>
+      <Item Value="GlCode"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
