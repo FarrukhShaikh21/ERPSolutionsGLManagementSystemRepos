@@ -70,8 +70,8 @@ public class VoucherViewRowImpl extends ViewRowImpl {
         RefDoctypeid,
         RefVoucherNo,
         Voucherseq,
-        txtGLVTYPE,
         txtLocationName,
+        GlVType,
         VoucherDetView,
         VoucherDetView1,
         AllLocationsView,
@@ -149,8 +149,8 @@ public class VoucherViewRowImpl extends ViewRowImpl {
     public static final int REFDOCTYPEID = AttributesEnum.RefDoctypeid.index();
     public static final int REFVOUCHERNO = AttributesEnum.RefVoucherNo.index();
     public static final int VOUCHERSEQ = AttributesEnum.Voucherseq.index();
-    public static final int TXTGLVTYPE = AttributesEnum.txtGLVTYPE.index();
     public static final int TXTLOCATIONNAME = AttributesEnum.txtLocationName.index();
+    public static final int GLVTYPE = AttributesEnum.GlVType.index();
     public static final int VOUCHERDETVIEW = AttributesEnum.VoucherDetView.index();
     public static final int VOUCHERDETVIEW1 = AttributesEnum.VoucherDetView1.index();
     public static final int ALLLOCATIONSVIEW = AttributesEnum.AllLocationsView.index();
@@ -893,40 +893,6 @@ public class VoucherViewRowImpl extends ViewRowImpl {
         setAttributeInternal(VOUCHERSEQ, value);
     }
 
-    /**
-     * Gets the attribute value for TXT_GLVTYPE using the alias name txtGLVTYPE.
-     * @return the TXT_GLVTYPE
-     */
-    public String gettxtGLVTYPE() {
-        if (getVoucherNo() == null) {
-            return (String) getAttributeInternal(TXTGLVTYPE);
-        } else {
-            if (getVoucherType().equals("BV") && getGlVoucherType().equals("BRV"))
-                return "R";
-            else if (getVoucherType().equals("BV") && getGlVoucherType().equals("BPV"))
-                return "P";
-            else if (getVoucherType().equals("CV") && getGlVoucherType().equals("CRV"))
-                return "R";
-            else if (getVoucherType().equals("CV") && getGlVoucherType().equals("CPV"))
-                return "P";
-            else if (getVoucherType().equals("PV") && getGlVoucherType().equals("CRV"))
-                return "R";
-            else if (getVoucherType().equals("PV") && getGlVoucherType().equals("CPV"))
-                return "P";
-            else
-                return "R";
-
-        }
-
-    }
-
-    /**
-     * Sets <code>value</code> as attribute value for TXT_GLVTYPE using the alias name txtGLVTYPE.
-     * @param value value to set the TXT_GLVTYPE
-     */
-    public void settxtGLVTYPE(String value) {
-        setAttributeInternal(TXTGLVTYPE, value);
-    }
 
     /**
      * Gets the attribute value for TXT_LOCATION_NAME using the alias name txtLocationName.
@@ -942,6 +908,22 @@ public class VoucherViewRowImpl extends ViewRowImpl {
      */
     public void settxtLocationName(String value) {
         setAttributeInternal(TXTLOCATIONNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for GL_V_TYPE using the alias name GlVType.
+     * @return the GL_V_TYPE
+     */
+    public String getGlVType() {
+        return (String) getAttributeInternal(GLVTYPE);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for GL_V_TYPE using the alias name GlVType.
+     * @param value value to set the GL_V_TYPE
+     */
+    public void setGlVType(String value) {
+        setAttributeInternal(GLVTYPE, value);
     }
 
     /**

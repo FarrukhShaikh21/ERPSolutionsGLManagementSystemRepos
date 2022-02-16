@@ -396,14 +396,6 @@
     EntityUsage="Voucher"
     AliasName="VOUCHERSEQ"/>
   <ViewAttribute
-    Name="txtGLVTYPE"
-    IsQueriable="false"
-    IsPersistent="false"
-    PrecisionRule="true"
-    EntityAttrName="txtGLVTYPE"
-    EntityUsage="Voucher"
-    AliasName="TXT_GLVTYPE"/>
-  <ViewAttribute
     Name="txtLocationName"
     IsQueriable="false"
     IsPersistent="false"
@@ -419,6 +411,12 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="GlVType"
+    PrecisionRule="true"
+    EntityAttrName="GlVType"
+    EntityUsage="Voucher"
+    AliasName="GL_V_TYPE"/>
   <ViewCriteria
     Name="VoucherViewFindVC"
     ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsvo.VoucherView"

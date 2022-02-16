@@ -580,19 +580,21 @@
     </Properties>
   </Attribute>
   <Attribute
-    Name="txtGLVTYPE"
-    Precision="80"
-    ColumnName="TXT_GLVTYPE"
+    Name="GlVType"
+    Precision="5"
+    ColumnName="GL_V_TYPE"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    IsPersistent="false"
-    IsQueriable="false"
+    TableName="VOUCHER"
     DefaultValue="R">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="5"/>
+    </DesignTime>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
-          ResId="erpsolgls.erpsolglsmodel.erpsolglseo.Voucher.txtGLVTYPE_LABEL"/>
+          ResId="erpsolgls.erpsolglsmodel.erpsolglseo.Voucher.GlVType_LABEL"/>
         <DISPLAYWIDTH
           Value="20"/>
       </SchemaBasedProperties>

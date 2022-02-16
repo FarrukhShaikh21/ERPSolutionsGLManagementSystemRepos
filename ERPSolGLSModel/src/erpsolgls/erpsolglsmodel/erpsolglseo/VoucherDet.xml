@@ -349,26 +349,6 @@
     </Properties>
   </Attribute>
   <Attribute
-    Name="txtGLCode"
-    Precision="80"
-    ColumnName="TXT_GLCODE"
-    SQLType="VARCHAR"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    IsPersistent="false"
-    IsQueriable="false">
-    <TransientExpression><![CDATA[(ChartOfAcc?.GlnatureOfAC==null||txtGLType=="C"||FcurrCredit!=null) ?"":ChartOfAcc?.GlnatureOfAC+ChartOfAcc?.GlbroadCategory+ChartOfAcc?.GlcontrolAC+ChartOfAcc?.GlsubControlAC+ChartOfAcc?.GlsubsidaryAC]]></TransientExpression>
-    <RecalcCondition><![CDATA[true]]></RecalcCondition>
-    <Properties>
-      <SchemaBasedProperties>
-        <DISPLAYWIDTH
-          Value="20"/>
-        <LABEL
-          ResId="erpsolgls.erpsolglsmodel.erpsolglseo.VoucherDet.txtGLCode_LABEL"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </Attribute>
-  <Attribute
     Name="txtGlDescription"
     Precision="80"
     ColumnName="TXT_GL_DESCRIPTION"
@@ -377,8 +357,10 @@
     ColumnType="VARCHAR2"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression><![CDATA[(ChartOfAcc?.GlnatureOfAC==null||txtGLType=="C"||FcurrCredit!=null) ?"":ChartOfAcc?.Description]]></TransientExpression>
-    <RecalcCondition><![CDATA[true]]></RecalcCondition>
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[DebitGlCode==null ?"":ChartOfAcc?.Description]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -387,26 +369,10 @@
           Value="20"/>
       </SchemaBasedProperties>
     </Properties>
-  </Attribute>
-  <Attribute
-    Name="txtGLCodeCredit"
-    Precision="80"
-    ColumnName="TXT_GLCODE_CREDIT"
-    SQLType="VARCHAR"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    IsPersistent="false"
-    IsQueriable="false">
-    <TransientExpression><![CDATA[(ChartOfAcc?.GlnatureOfAC==null||txtGLType=="D"||FcurrDebit!=null) ?"":ChartOfAcc?.GlnatureOfAC+ChartOfAcc?.GlbroadCategory+ChartOfAcc?.GlcontrolAC+ChartOfAcc?.GlsubControlAC+ChartOfAcc?.GlsubsidaryAC]]></TransientExpression>
-    <RecalcCondition><![CDATA[true]]></RecalcCondition>
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="erpsolgls.erpsolglsmodel.erpsolglseo.VoucherDet.txtGLCodeCredit_LABEL"/>
-        <DISPLAYWIDTH
-          Value="20"/>
-      </SchemaBasedProperties>
-    </Properties>
+    <Dependencies>
+      <Item
+        Value="DebitGlCode"/>
+    </Dependencies>
   </Attribute>
   <Attribute
     Name="txtGLCodeCreditDescription"
@@ -417,8 +383,10 @@
     ColumnType="VARCHAR2"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression><![CDATA[(ChartOfAcc?.GlnatureOfAC==null||txtGLType=="D"||FcurrDebit!=null) ?"":ChartOfAcc?.Description]]></TransientExpression>
-    <RecalcCondition><![CDATA[true]]></RecalcCondition>
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[CreditGlCode==null ?"":ChartOfAcc?.Description]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -427,20 +395,46 @@
           Value="20"/>
       </SchemaBasedProperties>
     </Properties>
+    <Dependencies>
+      <Item
+        Value="CreditGlCode"/>
+    </Dependencies>
   </Attribute>
   <Attribute
-    Name="txtGLType"
-    Precision="80"
-    ColumnName="TXT_GLTYPE"
+    Name="DebitGlCode"
+    Precision="20"
+    ColumnName="DEBIT_GL_CODE"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    IsPersistent="false"
-    IsQueriable="false">
+    TableName="VOUCHER_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
-          ResId="erpsolgls.erpsolglsmodel.erpsolglseo.VoucherDet.txtGLType_LABEL"/>
+          ResId="erpsolgls.erpsolglsmodel.erpsolglseo.VoucherDet.DebitGlCode_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="CreditGlCode"
+    Precision="20"
+    ColumnName="CREDIT_GL_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="VOUCHER_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolgls.erpsolglsmodel.erpsolglseo.VoucherDet.CreditGlCode_LABEL"/>
         <DISPLAYWIDTH
           Value="20"/>
       </SchemaBasedProperties>
@@ -591,11 +585,11 @@
     <validation:ResExpressions
       Name="VoucherDetRule0_ResExprList">
       <validation:Expression
-        Name="0"><![CDATA[txtGLCode.length()==0?"Credit Amount":"Debit Amount"]]></validation:Expression>
+        Name="0"><![CDATA[DebitGlCode==null?"Credit Amount":"Debit Amount"]]></validation:Expression>
     </validation:ResExpressions>
     <validation:TransientExpression><![CDATA[System.out.println("txtCostCenter");
 System.out.println(txtCostCenter.length());
-if (txtGLCode.length()==0 && txtGLCodeCredit.length()==0)
+if (DebitGlCode==0 && CreditGlCode==0)
 {
 adf.error.raise("ERR_VOUCHER_GL");
 return false;

@@ -42,29 +42,25 @@
       </SchemaBasedProperties>
     </Properties>
   </Variable>
-  <SQLQuery><![CDATA[select A.glnature_of_a_c || A.glbroad_category || A.glcontrol_a_c ||                            
-A.glsub_control_a_c || A.glsubsidary_a_c GL_Code,                            
-A.DESCRIPTION,                            
-A.glnature_of_a_c,                            
-A.glbroad_category,                            
-A.glcontrol_a_c,                            
-A.glsub_control_a_c,                            
-A.glsubsidary_a_c                            
-from chart_of_acc A, COA_LOC_MAP B                            
-WHERE A.glsubsidary_a_c <> '00000'                            
-and NVL(A.Restrict_gl_code, 'N') = 'N'                            
-and B.LocationId = :P_ADF_LOC_CODE                            
-AND NVL(A.COA_Type, 'JV') = :P_ADF_VOUCHER_TYPE                            
-and A.glnature_of_a_c || A.glbroad_category || A.glcontrol_a_c ||                            
-A.glsub_control_a_c || A.glsubsidary_a_c =                            
-B.glnature_of_a_c || B.glbroad_category || B.glcontrol_a_c ||                            
-B.glsub_control_a_c || B.glsubsidary_a_c                            
-AND A.glnature_of_a_c || A.glbroad_category || A.glcontrol_a_c ||                            
-A.glsub_control_a_c || A.glsubsidary_a_c NOT IN                            
-(Select R.gl_code                            
-From COA_LOC_MAP_Restrict R                            
-Where R.locationid = :P_ADF_LOC_CODE                            
-AND R.voucher_type = :P_ADF_VOUCHER_TYPE                            
+  <SQLQuery><![CDATA[select A.glnature_of_a_c || A.glbroad_category || A.glcontrol_a_c ||A.glsub_control_a_c || A.glsubsidary_a_c GL_Code,   
+A.DESCRIPTION,
+A.glnature_of_a_c,
+A.glbroad_category,
+A.glcontrol_a_c,
+A.glsub_control_a_c,
+A.glsubsidary_a_c
+from chart_of_acc A, COA_LOC_MAP B
+WHERE A.glsubsidary_a_c <> '00000' 
+and NVL(A.Restrict_gl_code, 'N') = 'N'
+and B.LocationId = :P_ADF_LOC_CODE
+AND NVL(A.COA_Type, 'JV') = :P_ADF_VOUCHER_TYPE 
+and A.glnature_of_a_c || A.glbroad_category || A.glcontrol_a_c ||A.glsub_control_a_c || A.glsubsidary_a_c =B.glnature_of_a_c || B.glbroad_category || B.glcontrol_a_c ||B.glsub_control_a_c || B.glsubsidary_a_c
+AND A.glnature_of_a_c || A.glbroad_category || A.glcontrol_a_c ||A.glsub_control_a_c || A.glsubsidary_a_c
+NOT IN 
+(Select R.gl_code 
+From COA_LOC_MAP_Restrict R
+Where R.locationid = :P_ADF_LOC_CODE
+AND R.voucher_type = :P_ADF_VOUCHER_TYPE
 AND R.restrict_side = 'D' AND :P_ADF_VOUCHER_TYPE!='PV')]]></SQLQuery>
   <ViewAttribute
     Name="GlCode"
@@ -84,6 +80,8 @@ AND R.restrict_side = 'D' AND :P_ADF_VOUCHER_TYPE!='PV')]]></SQLQuery>
       <SchemaBasedProperties>
         <LABEL
           ResId="erpsolgls.erpsolglsmodel.erpsolglsqvo.VWGLDebitGLQVO.GlCode_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -101,6 +99,12 @@ AND R.restrict_side = 'D' AND :P_ADF_VOUCHER_TYPE!='PV')]]></SQLQuery>
     <DesignTime>
       <Attr Name="_DisplaySize" Value="50"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="GlnatureOfAC"
@@ -116,6 +120,12 @@ AND R.restrict_side = 'D' AND :P_ADF_VOUCHER_TYPE!='PV')]]></SQLQuery>
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="GlbroadCategory"
@@ -131,6 +141,12 @@ AND R.restrict_side = 'D' AND :P_ADF_VOUCHER_TYPE!='PV')]]></SQLQuery>
     <DesignTime>
       <Attr Name="_DisplaySize" Value="2"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="GlcontrolAC"
@@ -146,6 +162,12 @@ AND R.restrict_side = 'D' AND :P_ADF_VOUCHER_TYPE!='PV')]]></SQLQuery>
     <DesignTime>
       <Attr Name="_DisplaySize" Value="2"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="GlsubControlAC"
@@ -161,6 +183,12 @@ AND R.restrict_side = 'D' AND :P_ADF_VOUCHER_TYPE!='PV')]]></SQLQuery>
     <DesignTime>
       <Attr Name="_DisplaySize" Value="2"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="GlsubsidaryAC"
@@ -176,6 +204,12 @@ AND R.restrict_side = 'D' AND :P_ADF_VOUCHER_TYPE!='PV')]]></SQLQuery>
     <DesignTime>
       <Attr Name="_DisplaySize" Value="5"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewCriteria
     Name="VWGLDebitGLFindVC"

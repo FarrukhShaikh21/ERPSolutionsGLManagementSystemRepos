@@ -265,9 +265,11 @@ public class ERPSolGLSBean {
         System.out.println("b");
         AttributeBinding ERPVoucherType =(AttributeBinding)ERPSolbc.getControlBinding("VoucherType");
         AttributeBinding ERPLocCode =(AttributeBinding)ERPSolbc.getControlBinding("LocCode");
+        AttributeBinding ERPGLVtype =(AttributeBinding)ERPSolbc.getControlBinding("GlVType");
         ViewObject vo=ERPSolAM.findViewObject("VWGLCreditGLAutoSuggestRO");
         vo.setNamedWhereClauseParam("P_ADF_VOUCHER_TYPE", ERPVoucherType.getInputValue());
         vo.setNamedWhereClauseParam("P_ADF_LOC_CODE",  ERPLocCode.getInputValue());
+        vo.setNamedWhereClauseParam("P_ADF_GL_V_TYPE",  ERPGLVtype.getInputValue());
         vo.executeQuery();
         List<SelectItem> ResultList=new ArrayList<SelectItem>();
         ResultList= ERPSolGlobalViewBean.doERPSolGetAutoSuggestedValues(pStringValues, "VWGLCreditGLAutoSuggestRO"," UPPER(CONCAT(GL_CODE,Description))", "Description", "GlCode", 10,"ERPSolGLSAppModuleDataControl");

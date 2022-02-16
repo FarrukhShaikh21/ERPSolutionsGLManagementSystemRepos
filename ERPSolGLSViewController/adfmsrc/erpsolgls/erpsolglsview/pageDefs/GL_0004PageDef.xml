@@ -145,11 +145,6 @@
         <Item Value="SubmitDate"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="VoucherCRUDIterator" id="GlVoucherType">
-      <AttrNames>
-        <Item Value="GlVoucherType"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="VoucherCRUDIterator" id="AuditorCheck">
       <AttrNames>
         <Item Value="AuditorCheck"/>
@@ -220,12 +215,10 @@
         <Item Value="RefVoucherNo"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="VoucherCRUDIterator" id="txtGLVTYPE">
-      <AttrNames>
-        <Item Value="txtGLVTYPE"/>
-      </AttrNames>
-    </attributeValues>
-    <action IterBinding="VoucherCRUDIterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="VoucherCRUDIterator" id="CreateInsert" RequiresUpdateModel="true" Action="createWithParams"
+            InstanceName="ERPSolGLSAppModuleDataControl.VoucherCRUD" DataControl="ERPSolGLSAppModuleDataControl">
+      <NamedData NDName="Particulars" NDValue="#{''}" NDType="java.lang.String"/>
+    </action>
     <action IterBinding="VoucherCRUDIterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
     <listOfValues IterBinding="VoucherCRUDIterator" StaticList="false" Uses="LovtxtLocationName" id="txtLocationName"/>
     <action IterBinding="VoucherCRUDIterator" id="Next" RequiresUpdateModel="true" Action="next"/>
@@ -246,8 +239,6 @@
     <tree IterBinding="VoucherDetViewDetCRUDIterator" id="VoucherDetViewDetCRUD">
       <nodeDefinition DefName="erpsolgls.erpsolglsmodel.erpsolglsvo.VoucherDetView" Name="VoucherDetViewDetCRUD0">
         <AttrNames>
-          <Item Value="txtGLCode"/>
-          <Item Value="txtGLCodeCredit"/>
           <Item Value="txtGLCodeCreditDescription"/>
           <Item Value="txtGlDescription"/>
           <Item Value="txtCostCenter"/>
@@ -255,6 +246,8 @@
           <Item Value="FcurrDebit"/>
           <Item Value="FcurrCredit"/>
           <Item Value="Narration"/>
+          <Item Value="CreditGlCode"/>
+          <Item Value="DebitGlCode"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -266,6 +259,11 @@
     <attributeValues IterBinding="VoucherCRUDIterator" id="LocCode">
       <AttrNames>
         <Item Value="LocCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VoucherCRUDIterator" id="GlVType">
+      <AttrNames>
+        <Item Value="GlVType"/>
       </AttrNames>
     </attributeValues>
   </bindings>

@@ -58,6 +58,10 @@
         <TransientExpression
           trustMode="untrusted"><![CDATA[VoucherView?.VoucherType==null?"0":VoucherView?.VoucherType]]></TransientExpression>
       </PIMap>
+      <PIMap Variable="P_ADF_GL_V_TYPE">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[VoucherView?.GlVType]]></TransientExpression>
+      </PIMap>
     </ParameterMap>
   </ViewAccessor>
   <ListBinding
@@ -72,7 +76,7 @@
     </AttrArray>
     <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="DerivedAttrNames">
-      <Item Value="txtGLCode"/>
+      <Item Value="DebitGlCode"/>
       <Item Value="GlbroadCategory"/>
       <Item Value="GlcontrolAC"/>
       <Item Value="GlnatureOfAC"/>
@@ -136,7 +140,7 @@
     </AttrArray>
     <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="DerivedAttrNames">
-      <Item Value="txtGLCodeCredit"/>
+      <Item Value="CreditGlCode"/>
       <Item Value="GlbroadCategory"/>
       <Item Value="GlcontrolAC"/>
       <Item Value="GlnatureOfAC"/>
@@ -344,22 +348,6 @@
     </Properties>
   </ViewAttribute>
   <ViewAttribute
-    Name="txtGLCode"
-    IsQueriable="false"
-    IsPersistent="false"
-    PrecisionRule="true"
-    EntityAttrName="txtGLCode"
-    EntityUsage="VoucherDet"
-    AliasName="TXT_GLCODE"/>
-  <ViewAttribute
-    Name="txtGLCodeCredit"
-    IsQueriable="false"
-    IsPersistent="false"
-    PrecisionRule="true"
-    EntityAttrName="txtGLCodeCredit"
-    EntityUsage="VoucherDet"
-    AliasName="TXT_GLCODE_CREDIT"/>
-  <ViewAttribute
     Name="txtGLCodeCreditDescription"
     IsQueriable="false"
     IsPersistent="false"
@@ -392,13 +380,17 @@
     </Properties>
   </ViewAttribute>
   <ViewAttribute
-    Name="txtGLType"
-    IsQueriable="false"
-    IsPersistent="false"
+    Name="DebitGlCode"
     PrecisionRule="true"
-    EntityAttrName="txtGLType"
+    EntityAttrName="DebitGlCode"
     EntityUsage="VoucherDet"
-    AliasName="TXT_GLTYPE"/>
+    AliasName="DEBIT_GL_CODE"/>
+  <ViewAttribute
+    Name="CreditGlCode"
+    PrecisionRule="true"
+    EntityAttrName="CreditGlCode"
+    EntityUsage="VoucherDet"
+    AliasName="CREDIT_GL_CODE"/>
   <ViewLinkAccessor
     Name="ChartOfAccView"
     ViewLink="erpsolgls.erpsolglsmodel.erpsolglslink.ChartOfAccountVoucherDetailGLCodeLink"

@@ -47,16 +47,16 @@ public class VoucherDetImpl extends ERPSolGlobalsEntityImpl {
         Voucherdetseq,
         txtCostCenter,
         txtCostCenterDescription,
-        txtGLCode,
         txtGlDescription,
-        txtGLCodeCredit,
         txtGLCodeCreditDescription,
-        txtGLType,
+        DebitGlCode,
+        CreditGlCode,
         Voucher,
         Voucher1,
         ChartOfAcc,
         CostCenter;
-        private static AttributesEnum[] vals = null;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -106,11 +106,10 @@ public class VoucherDetImpl extends ERPSolGlobalsEntityImpl {
     public static final int VOUCHERDETSEQ = AttributesEnum.Voucherdetseq.index();
     public static final int TXTCOSTCENTER = AttributesEnum.txtCostCenter.index();
     public static final int TXTCOSTCENTERDESCRIPTION = AttributesEnum.txtCostCenterDescription.index();
-    public static final int TXTGLCODE = AttributesEnum.txtGLCode.index();
     public static final int TXTGLDESCRIPTION = AttributesEnum.txtGlDescription.index();
-    public static final int TXTGLCODECREDIT = AttributesEnum.txtGLCodeCredit.index();
     public static final int TXTGLCODECREDITDESCRIPTION = AttributesEnum.txtGLCodeCreditDescription.index();
-    public static final int TXTGLTYPE = AttributesEnum.txtGLType.index();
+    public static final int DEBITGLCODE = AttributesEnum.DebitGlCode.index();
+    public static final int CREDITGLCODE = AttributesEnum.CreditGlCode.index();
     public static final int VOUCHER = AttributesEnum.Voucher.index();
     public static final int VOUCHER1 = AttributesEnum.Voucher1.index();
     public static final int CHARTOFACC = AttributesEnum.ChartOfAcc.index();
@@ -546,21 +545,6 @@ public class VoucherDetImpl extends ERPSolGlobalsEntityImpl {
         setAttributeInternal(TXTCOSTCENTERDESCRIPTION, value);
     }
 
-    /**
-     * Gets the attribute value for txtGLCode, using the alias name txtGLCode.
-     * @return the value of txtGLCode
-     */
-    public String gettxtGLCode() {
-        return (String) getAttributeInternal(TXTGLCODE);
-    }
-
-    /**
-     * Sets <code>value</code> as the attribute value for txtGLCode.
-     * @param value value to set the txtGLCode
-     */
-    public void settxtGLCode(String value) {
-        setAttributeInternal(TXTGLCODE, value);
-    }
 
     /**
      * Gets the attribute value for txtGlDescription, using the alias name txtGlDescription.
@@ -578,21 +562,6 @@ public class VoucherDetImpl extends ERPSolGlobalsEntityImpl {
         setAttributeInternal(TXTGLDESCRIPTION, value);
     }
 
-    /**
-     * Gets the attribute value for txtGLCodeCredit, using the alias name txtGLCodeCredit.
-     * @return the value of txtGLCodeCredit
-     */
-    public String gettxtGLCodeCredit() {
-        return (String) getAttributeInternal(TXTGLCODECREDIT);
-    }
-
-    /**
-     * Sets <code>value</code> as the attribute value for txtGLCodeCredit.
-     * @param value value to set the txtGLCodeCredit
-     */
-    public void settxtGLCodeCredit(String value) {
-        setAttributeInternal(TXTGLCODECREDIT, value);
-    }
 
     /**
      * Gets the attribute value for txtGLCodeCreditDescription, using the alias name txtGLCodeCreditDescription.
@@ -610,20 +579,37 @@ public class VoucherDetImpl extends ERPSolGlobalsEntityImpl {
         setAttributeInternal(TXTGLCODECREDITDESCRIPTION, value);
     }
 
+
     /**
-     * Gets the attribute value for txtGLType, using the alias name txtGLType.
-     * @return the value of txtGLType
+     * Gets the attribute value for DebitGlCode, using the alias name DebitGlCode.
+     * @return the value of DebitGlCode
      */
-    public String gettxtGLType() {
-        return (String) getAttributeInternal(TXTGLTYPE);
+    public String getDebitGlCode() {
+        return (String) getAttributeInternal(DEBITGLCODE);
     }
 
     /**
-     * Sets <code>value</code> as the attribute value for txtGLType.
-     * @param value value to set the txtGLType
+     * Sets <code>value</code> as the attribute value for DebitGlCode.
+     * @param value value to set the DebitGlCode
      */
-    public void settxtGLType(String value) {
-        setAttributeInternal(TXTGLTYPE, value);
+    public void setDebitGlCode(String value) {
+        setAttributeInternal(DEBITGLCODE, value);
+    }
+
+    /**
+     * Gets the attribute value for CreditGlCode, using the alias name CreditGlCode.
+     * @return the value of CreditGlCode
+     */
+    public String getCreditGlCode() {
+        return (String) getAttributeInternal(CREDITGLCODE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for CreditGlCode.
+     * @param value value to set the CreditGlCode
+     */
+    public void setCreditGlCode(String value) {
+        setAttributeInternal(CREDITGLCODE, value);
     }
 
     /**

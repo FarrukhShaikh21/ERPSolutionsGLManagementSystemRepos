@@ -48,11 +48,10 @@ public class VoucherDetViewRowImpl extends ViewRowImpl {
         Voucherdetseq,
         txtCostCenter,
         txtCostCenterDescription,
-        txtGLCode,
-        txtGLCodeCredit,
         txtGLCodeCreditDescription,
         txtGlDescription,
-        txtGLType,
+        DebitGlCode,
+        CreditGlCode,
         ChartOfAccView,
         CostCenterView,
         VoucherView,
@@ -111,11 +110,10 @@ public class VoucherDetViewRowImpl extends ViewRowImpl {
     public static final int VOUCHERDETSEQ = AttributesEnum.Voucherdetseq.index();
     public static final int TXTCOSTCENTER = AttributesEnum.txtCostCenter.index();
     public static final int TXTCOSTCENTERDESCRIPTION = AttributesEnum.txtCostCenterDescription.index();
-    public static final int TXTGLCODE = AttributesEnum.txtGLCode.index();
-    public static final int TXTGLCODECREDIT = AttributesEnum.txtGLCodeCredit.index();
     public static final int TXTGLCODECREDITDESCRIPTION = AttributesEnum.txtGLCodeCreditDescription.index();
     public static final int TXTGLDESCRIPTION = AttributesEnum.txtGlDescription.index();
-    public static final int TXTGLTYPE = AttributesEnum.txtGLType.index();
+    public static final int DEBITGLCODE = AttributesEnum.DebitGlCode.index();
+    public static final int CREDITGLCODE = AttributesEnum.CreditGlCode.index();
     public static final int CHARTOFACCVIEW = AttributesEnum.ChartOfAccView.index();
     public static final int COSTCENTERVIEW = AttributesEnum.CostCenterView.index();
     public static final int VOUCHERVIEW = AttributesEnum.VoucherView.index();
@@ -458,14 +456,6 @@ public class VoucherDetViewRowImpl extends ViewRowImpl {
      * @param value value to set the FCURR_DEBIT
      */
     public void setFcurrDebit(BigDecimal value) {
-        try {
-            if(getFcurrDebit()!=null) {
-                settxtGLType("D");
-            }
-       } catch (Exception e) {
-            // TODO: Add catch code
-//            e.printStackTrace();
-        }
         setAttributeInternal(FCURRDEBIT, value);
     }
 
@@ -483,14 +473,6 @@ public class VoucherDetViewRowImpl extends ViewRowImpl {
      * @param value value to set the FCURR_CREDIT
      */
     public void setFcurrCredit(BigDecimal value) {
-        try {
-            if(getFcurrCredit()!=null) {
-                settxtGLType("C");
-            }
-        } catch (Exception e) {
-            // TODO: Add catch code
-        //            e.printStackTrace();
-        }
         setAttributeInternal(FCURRCREDIT, value);
     }
 
@@ -574,41 +556,6 @@ public class VoucherDetViewRowImpl extends ViewRowImpl {
         setAttributeInternal(TXTCOSTCENTERDESCRIPTION, value);
     }
 
-    /**
-     * Gets the attribute value for TXT_GLCODE using the alias name txtGLCode.
-     * @return the TXT_GLCODE
-     */
-    public String gettxtGLCode() {
-        return (String) getAttributeInternal(TXTGLCODE);
-    }
-
-    /**
-     * Sets <code>value</code> as attribute value for TXT_GLCODE using the alias name txtGLCode.
-     * @param value value to set the TXT_GLCODE
-     */
-    public void settxtGLCode(String value) {
-        System.out.println("Debit");
-        setFcurrCredit(null);
-        setAttributeInternal(TXTGLCODE, value);
-    }
-
-    /**
-     * Gets the attribute value for TXT_GLCODE_CREDIT using the alias name txtGLCodeCredit.
-     * @return the TXT_GLCODE_CREDIT
-     */
-    public String gettxtGLCodeCredit() {
-        return (String) getAttributeInternal(TXTGLCODECREDIT);
-    }
-
-    /**
-     * Sets <code>value</code> as attribute value for TXT_GLCODE_CREDIT using the alias name txtGLCodeCredit.
-     * @param value value to set the TXT_GLCODE_CREDIT
-     */
-    public void settxtGLCodeCredit(String value) {
-        System.out.println("Credit");
-        setFcurrDebit(null);
-        setAttributeInternal(TXTGLCODECREDIT, value);
-    }
 
     /**
      * Gets the attribute value for TXT_GLCODE_CREDIT_DESCRIPTION using the alias name txtGLCodeCreditDescription.
@@ -623,7 +570,6 @@ public class VoucherDetViewRowImpl extends ViewRowImpl {
      * @param value value to set the TXT_GLCODE_CREDIT_DESCRIPTION
      */
     public void settxtGLCodeCreditDescription(String value) {
-        settxtGLType("C");
         setAttributeInternal(TXTGLCODECREDITDESCRIPTION, value);
     }
 
@@ -640,24 +586,40 @@ public class VoucherDetViewRowImpl extends ViewRowImpl {
      * @param value value to set the TXT_GL_DESCRIPTION
      */
     public void settxtGlDescription(String value) {
-        settxtGLType("D");
         setAttributeInternal(TXTGLDESCRIPTION, value);
     }
 
+
     /**
-     * Gets the attribute value for TXT_GLTYPE using the alias name txtGLType.
-     * @return the TXT_GLTYPE
+     * Gets the attribute value for DEBIT_GL_CODE using the alias name DebitGlCode.
+     * @return the DEBIT_GL_CODE
      */
-    public String gettxtGLType() {
-        return (String) getAttributeInternal(TXTGLTYPE);
+    public String getDebitGlCode() {
+        return (String) getAttributeInternal(DEBITGLCODE);
     }
 
     /**
-     * Sets <code>value</code> as attribute value for TXT_GLTYPE using the alias name txtGLType.
-     * @param value value to set the TXT_GLTYPE
+     * Sets <code>value</code> as attribute value for DEBIT_GL_CODE using the alias name DebitGlCode.
+     * @param value value to set the DEBIT_GL_CODE
      */
-    public void settxtGLType(String value) {
-        setAttributeInternal(TXTGLTYPE, value);
+    public void setDebitGlCode(String value) {
+        setAttributeInternal(DEBITGLCODE, value);
+    }
+
+    /**
+     * Gets the attribute value for CREDIT_GL_CODE using the alias name CreditGlCode.
+     * @return the CREDIT_GL_CODE
+     */
+    public String getCreditGlCode() {
+        return (String) getAttributeInternal(CREDITGLCODE);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for CREDIT_GL_CODE using the alias name CreditGlCode.
+     * @param value value to set the CREDIT_GL_CODE
+     */
+    public void setCreditGlCode(String value) {
+        setAttributeInternal(CREDITGLCODE, value);
     }
 
     /**

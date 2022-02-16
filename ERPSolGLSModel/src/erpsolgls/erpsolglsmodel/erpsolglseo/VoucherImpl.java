@@ -74,11 +74,12 @@ public class VoucherImpl extends ERPSolGlobalsEntityImpl {
         RefVoucherNo,
         Voucherseq,
         txtLocationName,
-        txtGLVTYPE,
+        GlVType,
         VoucherDet,
         VoucherDet1,
         AllLocations;
-        private static AttributesEnum[] vals = null;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -148,7 +149,7 @@ public class VoucherImpl extends ERPSolGlobalsEntityImpl {
     public static final int REFVOUCHERNO = AttributesEnum.RefVoucherNo.index();
     public static final int VOUCHERSEQ = AttributesEnum.Voucherseq.index();
     public static final int TXTLOCATIONNAME = AttributesEnum.txtLocationName.index();
-    public static final int TXTGLVTYPE = AttributesEnum.txtGLVTYPE.index();
+    public static final int GLVTYPE = AttributesEnum.GlVType.index();
     public static final int VOUCHERDET = AttributesEnum.VoucherDet.index();
     public static final int VOUCHERDET1 = AttributesEnum.VoucherDet1.index();
     public static final int ALLLOCATIONS = AttributesEnum.AllLocations.index();
@@ -903,20 +904,21 @@ public class VoucherImpl extends ERPSolGlobalsEntityImpl {
         setAttributeInternal(TXTLOCATIONNAME, value);
     }
 
+
     /**
-     * Gets the attribute value for txtGLVTYPE, using the alias name txtGLVTYPE.
-     * @return the value of txtGLVTYPE
+     * Gets the attribute value for GlVType, using the alias name GlVType.
+     * @return the value of GlVType
      */
-    public String gettxtGLVTYPE() {
-        return (String) getAttributeInternal(TXTGLVTYPE);
+    public String getGlVType() {
+        return (String) getAttributeInternal(GLVTYPE);
     }
 
     /**
-     * Sets <code>value</code> as the attribute value for txtGLVTYPE.
-     * @param value value to set the txtGLVTYPE
+     * Sets <code>value</code> as the attribute value for GlVType.
+     * @param value value to set the GlVType
      */
-    public void settxtGLVTYPE(String value) {
-        setAttributeInternal(TXTGLVTYPE, value);
+    public void setGlVType(String value) {
+        setAttributeInternal(GLVTYPE, value);
     }
 
     /**
@@ -964,6 +966,7 @@ public class VoucherImpl extends ERPSolGlobalsEntityImpl {
     protected void create(AttributeList attributeList) {
         setERPSolPKColumnName("Voucherseq");
         setERPSolPKSeqName("voucher_seq");
+        setLocCode(ERPSolGlobClassModel.doGetUserLocationCode());
         super.create(attributeList);
     }
 
@@ -989,25 +992,23 @@ public class VoucherImpl extends ERPSolGlobalsEntityImpl {
     protected void doDML(int operation, TransactionEvent e) {
         if (operation==DML_INSERT) {
 
-            if (getVoucherType().equals("BV") && gettxtGLVTYPE().equals("R"))
+            if (getVoucherType().equals("BV") && getGlVType().equals("R"))
                 populateAttributeAsChanged(GLVOUCHERTYPE, "BRV");
-           else if (getVoucherType().equals("BV") && gettxtGLVTYPE().equals("P"))
+           else if (getVoucherType().equals("BV") && getGlVType().equals("P"))
                 populateAttributeAsChanged(GLVOUCHERTYPE, "BPV");
-           else if (getVoucherType().equals("CV") && gettxtGLVTYPE().equals("R"))
+           else if (getVoucherType().equals("CV") && getGlVType().equals("R"))
                 populateAttributeAsChanged(GLVOUCHERTYPE, "CRV");
-           else if (getVoucherType().equals("CV") && gettxtGLVTYPE().equals("P"))
+           else if (getVoucherType().equals("CV") && getGlVType().equals("P"))
                 populateAttributeAsChanged(GLVOUCHERTYPE, "CPV");
-           else if (getVoucherType().equals("PV") && gettxtGLVTYPE().equals("R"))
+           else if (getVoucherType().equals("PV") && getGlVType().equals("R"))
                 populateAttributeAsChanged(GLVOUCHERTYPE, "CRV");
-           else if (getVoucherType().equals("PV") && gettxtGLVTYPE().equals("P"))
+           else if (getVoucherType().equals("PV") && getGlVType().equals("P"))
                 populateAttributeAsChanged(GLVOUCHERTYPE, "CPV");
            else if (getVoucherType().equals("CNT"))
                 populateAttributeAsChanged(GLVOUCHERTYPE, "CNT");
             else
                 populateAttributeAsChanged(GLVOUCHERTYPE, "JVV");
             
-
-
             String plsql=" BEGIN ?:=func_get_voucher_no('"+ERPSolGlobClassModel.doGetUserLocationCode()+"',TO_DATE('"+getVoucherDate()+"','YYYY-MM-DD'),'"+getVoucherType()+"'); END;";
             CallableStatement cs = getDBTransaction().createCallableStatement(plsql, getDBTransaction().DEFAULT);
             System.out.println(plsql);
