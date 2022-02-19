@@ -266,5 +266,10 @@
         <Item Value="GlVType"/>
       </AttrNames>
     </attributeValues>
+    <attributeValues IterBinding="VoucherCRUDIterator" id="Voucherseq">
+      <AttrNames>
+        <Item Value="Voucherseq"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

@@ -43,6 +43,10 @@
         <TransientExpression
           trustMode="untrusted"><![CDATA[VoucherView?.VoucherType==null?"0":VoucherView?.VoucherType]]></TransientExpression>
       </PIMap>
+      <PIMap Variable="P_ADF_GL_VOUCHER_TYPE">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[VoucherView?.GlVType]]></TransientExpression>
+      </PIMap>
     </ParameterMap>
   </ViewAccessor>
   <ViewAccessor

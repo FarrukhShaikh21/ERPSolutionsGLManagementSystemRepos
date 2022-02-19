@@ -41,6 +41,9 @@
                                    disabled="#{!bindings.doSuperviseGLVoucher.enabled}" id="b11" rendered="false"/>
                         <af:button text="Close Form" id="b10" action="ACT-ERP-GOTO-MAIN-GLS"
                                    icon="#{resource['images:imgExitForm.png']}" iconPosition="top"/>
+                        <af:button text="Print Preview" id="b13" icon="#{resource['images:imgPrintPreview.png']}"
+                                   iconPosition="top" partialSubmit="true"
+                                   action="#{pageFlowScope.ERPSolGLSPageFlowBean.doERPSolVoucherReport}"/>
                         <af:button text="Search" id="b12" action="ERP-ACT-GL-0004-SEARCH"
                                    icon="#{resource['images:imgFind.png']}" iconPosition="top"/>
                         <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
@@ -77,6 +80,15 @@
                           <af:outputLabel value="#{bindings.VoucherNo.hints.label}" id="ol5"/>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="35%" id="gc3" valign="middle">
+                          <af:inputText value="#{bindings.Voucherseq.inputValue}"
+                                        label="#{bindings.Voucherseq.hints.label}"
+                                        required="#{bindings.Voucherseq.hints.mandatory}"
+                                        columns="#{bindings.Voucherseq.hints.displayWidth}"
+                                        maximumLength="#{bindings.Voucherseq.hints.precision}"
+                                        shortDesc="#{bindings.Voucherseq.hints.tooltip}" id="it13" rendered="false">
+                            <f:validator binding="#{bindings.Voucherseq.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.Voucherseq.format}"/>
+                          </af:inputText>
                           <af:inputText value="#{bindings.VoucherNo.inputValue}"
                                         label="#{bindings.VoucherNo.hints.label}"
                                         required="#{bindings.VoucherNo.hints.mandatory}"
@@ -140,7 +152,8 @@
                                               label="#{bindings.VoucherType.label}"
                                               required="#{bindings.VoucherType.hints.mandatory}"
                                               shortDesc="#{bindings.VoucherType.hints.tooltip}" id="soc1" simple="true"
-                                              readOnly="#{bindings.VoucherNo.inputValue!=null}" autoSubmit="true">
+                                              readOnly="#{bindings.VoucherNo.inputValue!=null}" autoSubmit="true"
+                                              partialTriggers="soc1">
                             <f:selectItems value="#{bindings.VoucherType.items}" id="si1"/>
                             <f:validator binding="#{bindings.VoucherType.validator}"/>
                           </af:selectOneChoice>
@@ -178,7 +191,9 @@
                         <af:gridCell marginStart="5px" width="35%" id="gc13" halign="stretch" valign="middle">
                           <af:selectOneRadio label="Label 2" id="sor2" layout="horizontal"
                                              value="#{bindings.GlVType.inputValue}" simple="true"
-                                             autoSubmit="true" readOnly="#{bindings.VoucherNo.inputValue!=null}">
+                                             autoSubmit="true"
+                                             readOnly="#{bindings.VoucherNo.inputValue!=null  || bindings.VoucherDetViewDetCRUDIterator.estimatedRowCount>0 || bindings.VoucherType.inputValue=='PV'}"
+                                             partialTriggers="pc1:b3 pc1:b4 soc1">
                             <af:selectItem label="Receipt" value="R" id="si5"/>
                             <af:selectItem label="Payment" value="P" id="si6"/>
                           </af:selectOneRadio>
@@ -304,7 +319,7 @@
                                                       required="#{bindings.VoucherDetViewDetCRUD.hints.txtGlDescription.mandatory}"
                                                       columns="#{bindings.VoucherDetViewDetCRUD.hints.txtGlDescription.displayWidth}"
                                                       shortDesc="#{bindings.VoucherDetViewDetCRUD.hints.txtGlDescription.tooltip}"
-                                                      autoSubmit="true" contentStyle="width:100%"
+                                                      autoSubmit="true" contentStyle="width:95%"
                                                       readOnly="#{row.bindings.txtGLCodeCreditDescription.inputValue!=&quot;&quot;}">
                           <f:validator binding="#{row.bindings.txtGlDescription.validator}"/>
                           <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolGLSPageFlowBean.doERPSolGetAutoSuggestedDebitGLValues}"/>

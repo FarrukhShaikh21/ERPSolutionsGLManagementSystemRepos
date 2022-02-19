@@ -282,21 +282,14 @@ public class ERPSolGLSBean {
         BindingContainer ERPSolbc=ERPSolGlobalViewBean.doGetERPBindings();
         DCIteratorBinding ERPSolIB=(DCIteratorBinding)ERPSolbc.get("VoucherCRUDIterator");
         ApplicationModule ERPSolAM=ERPSolIB.getViewObject().getApplicationModule();
-        System.out.println("b");
         AttributeBinding ERPVoucherType =(AttributeBinding)ERPSolbc.getControlBinding("VoucherType");
-        System.out.println("C");
         AttributeBinding ERPLocCode =(AttributeBinding)ERPSolbc.getControlBinding("LocCode");
-        System.out.println("D");
+        AttributeBinding ERPGLVtype =(AttributeBinding)ERPSolbc.getControlBinding("GlVType");
         ViewObject vo=ERPSolAM.findViewObject("VWGLDebitGLAutoSuggestRO");
-        System.out.println("E");
         vo.setNamedWhereClauseParam("P_ADF_VOUCHER_TYPE", ERPVoucherType.getInputValue());
-        System.out.println("F");
+        vo.setNamedWhereClauseParam("P_ADF_GL_VOUCHER_TYPE", ERPGLVtype.getInputValue());
         vo.setNamedWhereClauseParam("P_ADF_LOC_CODE",  ERPLocCode.getInputValue());
-        System.out.println("G");
         vo.executeQuery();
-        System.out.println("start"+vo.getRowCount());
-//        System.out.println(vo.getQuery());
-        System.out.println("end");
         List<SelectItem> ResultList=new ArrayList<SelectItem>();
         ResultList= doERPSolGetAutoSuggestedValues(pStringValues, "VWGLDebitGLAutoSuggestRO"," UPPER(CONCAT(GL_CODE,Description))", "Description", "GlCode", 10,"ERPSolGLSAppModuleDataControl");
         return ResultList;
@@ -525,6 +518,43 @@ public class ERPSolGLSBean {
 
     public String getERPSolReportName() {
         return ERPSolReportName;
+    }
+
+    public String doERPSolVoucherReport() {
+        BindingContainer bc = ERPSolGlobalViewBean.doGetERPBindings();
+        DCIteratorBinding ib=(DCIteratorBinding)bc.get("VoucherCRUDIterator");
+        ApplicationModule am=ib.getViewObject().getApplicationModule();
+        ViewObject vo=am.findViewObject("QVOVoucher");
+        if (vo!=null) {
+            vo.remove();
+       }
+        
+        vo=am.createViewObjectFromQueryStmt("QVOVoucher", "select PARAMETER_VALUE FROM so_sales_parameter a where a.Parameter_Id='REPORT_SERVER_URL'");
+        vo.executeQuery();
+        String pReportUrl=vo.first().getAttribute(0).toString();
+        vo.remove();
+        vo=am.createViewObjectFromQueryStmt("QVOVoucher", "select PATH PATH FROM SYSTEM a where a.PROJECTID='SO' ");
+        vo.executeQuery();
+        String pReportPath=vo.first().getAttribute(0).toString()+"REPORTS\\\\";
+        System.out.println(pReportPath);
+        pReportPath=pReportPath+"RPT_VOUCHER.RDF";
+        
+    
+        BindingContainer ERPSolbc=ERPSolGlobalViewBean.doGetERPBindings();
+        System.out.println("b");
+        AttributeBinding VoucherSeq          =(AttributeBinding)ERPSolbc.getControlBinding("Voucherseq");
+        String reportParameter="";
+        reportParameter="P_VOUCHER_SEQ="+ (VoucherSeq.getInputValue()==null?"":VoucherSeq.getInputValue());
+        reportParameter+="&USER="+ERPSolGlobClassModel.doGetUserCode();
+        pReportUrl=pReportUrl.replace("<P_REPORT_PATH>", pReportPath);
+        pReportUrl=pReportUrl.replace("<P_REPORT_PARAMETERS>", reportParameter);
+        
+        System.out.println(pReportPath);
+        System.out.println(reportParameter);
+        System.out.println(pReportUrl);
+        
+        doErpSolOpenReportTab(pReportUrl);
+        return null;
     }
     
     

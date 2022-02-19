@@ -198,6 +198,9 @@ public class VoucherImpl extends ERPSolGlobalsEntityImpl {
      */
     public void setVoucherType(String value) {
         setAttributeInternal(VOUCHERTYPE, value);
+        if (value!=null && value.equals("PV")) {
+            setGlVType("P");
+        }
     }
 
     /**
