@@ -32,6 +32,9 @@
   <ViewUsage
     Name="VWGLCreditGLAutoSuggestRO"
     ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsqvo.VWGLCreditQVO"/>
+  <ViewUsage
+    Name="VwGeneralLedgerReportRO"
+    ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsqvo.VwGeneralLedgerReportQVO"/>
   <ViewLinkUsage
     Name="FkVoucherDetVoucherSeqLink1"
     ViewLinkObjectName="erpsolgls.erpsolglsmodel.erpsolglsvo.FkVoucherDetVoucherSeqLink"

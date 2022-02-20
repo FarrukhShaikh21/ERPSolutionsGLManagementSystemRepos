@@ -1,10 +1,124 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE html>
 <f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
-    <af:document title="GL_0123.jsf" id="d1">
+    <af:document title="SO_1124.jsf" id="d1">
+        <af:messages id="m1"/>
         <af:form id="f1">
             <af:pageTemplate viewId="/ERPSolutionTemplate.jsf" value="#{bindings.ptb1}" id="pt1">
-                <f:facet name="erptempmain"/>
+                <f:facet name="erptempmain">
+                    <af:decorativeBox id="db1">
+                        <f:facet name="center">
+                            <af:panelGridLayout id="pgl1">
+                                <af:gridRow marginTop="5px" height="auto" id="gr1">
+                                    <af:gridCell marginStart="5px" width="70%" marginEnd="5px" id="gc1">
+                                        <af:panelFormLayout id="pfl1">
+                                            <af:selectOneChoice value="#{bindings.txtCompanyCode.inputValue}"
+                                                                label="#{bindings.txtCompanyCode.label}"
+                                                                required="#{bindings.txtCompanyCode.hints.mandatory}"
+                                                                shortDesc="#{bindings.txtCompanyCode.hints.tooltip}"
+                                                                id="soc1">
+                                                <f:selectItems value="#{bindings.txtCompanyCode.items}" id="si1"/>
+                                                <f:validator binding="#{bindings.txtCompanyCode.validator}"/>
+                                            </af:selectOneChoice>
+                                            <af:inputText value="#{bindings.Pk.inputValue}"
+                                                          label="#{bindings.Pk.hints.label}"
+                                                          required="#{bindings.Pk.hints.mandatory}"
+                                                          columns="#{bindings.Pk.hints.displayWidth}"
+                                                          maximumLength="#{bindings.Pk.hints.precision}"
+                                                          shortDesc="#{bindings.Pk.hints.tooltip}" id="it1"
+                                                          rendered="false">
+                                                <f:validator binding="#{bindings.Pk.validator}"/>
+                                                <af:convertNumber groupingUsed="false" pattern="#{bindings.Pk.format}"/>
+                                            </af:inputText>
+                                            <af:inputDate value="#{bindings.txtFromDate.inputValue}"
+                                                          label="#{bindings.txtFromDate.hints.label}"
+                                                          required="#{bindings.txtFromDate.hints.mandatory}"
+                                                          columns="#{bindings.txtFromDate.hints.displayWidth}"
+                                                          shortDesc="#{bindings.txtFromDate.hints.tooltip}" id="id1">
+                                                <f:validator binding="#{bindings.txtFromDate.validator}"/>
+                                                <af:convertDateTime pattern="#{bindings.txtFromDate.format}"/>
+                                            </af:inputDate>
+                                            <af:inputDate value="#{bindings.txtToDate.inputValue}"
+                                                          label="#{bindings.txtToDate.hints.label}"
+                                                          required="#{bindings.txtToDate.hints.mandatory}"
+                                                          columns="#{bindings.txtToDate.hints.displayWidth}"
+                                                          shortDesc="#{bindings.txtToDate.hints.tooltip}" id="id2">
+                                                <f:validator binding="#{bindings.txtToDate.validator}"/>
+                                                <af:convertDateTime pattern="#{bindings.txtToDate.format}"/>
+                                            </af:inputDate>
+                                            <af:inputComboboxListOfValues id="txtFromGlCodeId"
+                                                                          popupTitle="Search and Select: #{bindings.txtFromGlCode.hints.label}"
+                                                                          value="#{bindings.txtFromGlCode.inputValue}"
+                                                                          label="#{bindings.txtFromGlCode.hints.label}"
+                                                                          model="#{bindings.txtFromGlCode.listOfValuesModel}"
+                                                                          required="#{bindings.txtFromGlCode.hints.mandatory}"
+                                                                          columns="#{bindings.txtFromGlCode.hints.displayWidth}"
+                                                                          shortDesc="#{bindings.txtFromGlCode.hints.tooltip}">
+                                                <f:validator binding="#{bindings.txtFromGlCode.validator}"/>
+                                            </af:inputComboboxListOfValues>
+                                            <af:inputText value="#{bindings.txtFromGlDescription.inputValue}"
+                                                          label="#{bindings.txtFromGlDescription.hints.label}"
+                                                          required="#{bindings.txtFromGlDescription.hints.mandatory}"
+                                                          columns="#{bindings.txtFromGlDescription.hints.displayWidth}"
+                                                          maximumLength="#{bindings.txtFromGlDescription.hints.precision}"
+                                                          shortDesc="#{bindings.txtFromGlDescription.hints.tooltip}"
+                                                          partialTriggers="txtFromGlCodeId" id="it2" readOnly="true">
+                                                <f:validator binding="#{bindings.txtFromGlDescription.validator}"/>
+                                            </af:inputText>
+                                            <af:inputComboboxListOfValues id="txtToGlCodeId"
+                                                                          popupTitle="Search and Select: #{bindings.txtToGlCode.hints.label}"
+                                                                          value="#{bindings.txtToGlCode.inputValue}"
+                                                                          label="#{bindings.txtToGlCode.hints.label}"
+                                                                          model="#{bindings.txtToGlCode.listOfValuesModel}"
+                                                                          required="#{bindings.txtToGlCode.hints.mandatory}"
+                                                                          columns="#{bindings.txtToGlCode.hints.displayWidth}"
+                                                                          shortDesc="#{bindings.txtToGlCode.hints.tooltip}">
+                                                <f:validator binding="#{bindings.txtToGlCode.validator}"/>
+                                            </af:inputComboboxListOfValues>
+                                            <af:inputText value="#{bindings.txtToGlDescription.inputValue}"
+                                                          label="#{bindings.txtToGlDescription.hints.label}"
+                                                          required="#{bindings.txtToGlDescription.hints.mandatory}"
+                                                          columns="#{bindings.txtToGlDescription.hints.displayWidth}"
+                                                          maximumLength="#{bindings.txtToGlDescription.hints.precision}"
+                                                          shortDesc="#{bindings.txtToGlDescription.hints.tooltip}"
+                                                          partialTriggers="txtToGlCodeId" id="it3" readOnly="true">
+                                                <f:validator binding="#{bindings.txtToGlDescription.validator}"/>
+                                            </af:inputText>
+                                            <af:inputComboboxListOfValues id="txtCostCenterId"
+                                                                          popupTitle="Search and Select: #{bindings.txtCostCenter.hints.label}"
+                                                                          value="#{bindings.txtCostCenter.inputValue}"
+                                                                          label="#{bindings.txtCostCenter.hints.label}"
+                                                                          model="#{bindings.txtCostCenter.listOfValuesModel}"
+                                                                          required="#{bindings.txtCostCenter.hints.mandatory}"
+                                                                          columns="#{bindings.txtCostCenter.hints.displayWidth}"
+                                                                          shortDesc="#{bindings.txtCostCenter.hints.tooltip}">
+                                                <f:validator binding="#{bindings.txtCostCenter.validator}"/>
+                                            </af:inputComboboxListOfValues>
+                                            <af:inputText value="#{bindings.txtCostCenterDescription.inputValue}"
+                                                          label="#{bindings.txtCostCenterDescription.hints.label}"
+                                                          required="#{bindings.txtCostCenterDescription.hints.mandatory}"
+                                                          columns="#{bindings.txtCostCenterDescription.hints.displayWidth}"
+                                                          maximumLength="#{bindings.txtCostCenterDescription.hints.precision}"
+                                                          shortDesc="#{bindings.txtCostCenterDescription.hints.tooltip}"
+                                                          partialTriggers="txtCostCenterId" id="it4" readOnly="true">
+                                                <f:validator binding="#{bindings.txtCostCenterDescription.validator}"/>
+                                            </af:inputText>
+                                        </af:panelFormLayout>
+                                    </af:gridCell>
+                                    <af:gridCell marginStart="5px" width="30%" marginEnd="5px" id="gc2"
+                                                 halign="stretch" valign="stretch">
+                                        <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+                                            <f:facet name="menus"/>
+                                            <f:facet name="toolbar"/>
+                                            <f:facet name="statusbar"/>
+                                        </af:panelCollection>
+                                    </af:gridCell>
+                                </af:gridRow>
+                            </af:panelGridLayout>
+                        </f:facet>
+                        <f:facet name="top"/>
+                    </af:decorativeBox>
+                </f:facet>
                 <f:facet name="erptempleft"/>
             </af:pageTemplate>
         </af:form>
