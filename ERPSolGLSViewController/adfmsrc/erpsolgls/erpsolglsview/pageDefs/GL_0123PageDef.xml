@@ -5,6 +5,60 @@
   <executables>
     <variableIterator id="variables"/>
     <page path="erpsoltemp.erpsoltempview.pageDefs.ERPSolutionTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator Binds="VwGeneralLedgerReportRO" RangeSize="25" DataControl="ERPSolGLSAppModuleDataControl"
+              id="VwGeneralLedgerReportROIterator"/>
+    <iterator Binds="SysProgramDetRO" RangeSize="25" DataControl="ERPSolTempAppModuleDataControl"
+              id="SysProgramDetROIterator"/>
+    <searchRegion Binds="SysProgramDetROIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="SysProgramDetROQuery"/>
   </executables>
-  <bindings/>
+  <bindings>
+    <listOfValues IterBinding="VwGeneralLedgerReportROIterator" StaticList="false" Uses="LovtxtFromGlCode"
+                  id="txtFromGlCode"/>
+    <listOfValues IterBinding="VwGeneralLedgerReportROIterator" StaticList="false" Uses="LovtxtToGlCode"
+                  id="txtToGlCode"/>
+    <listOfValues IterBinding="VwGeneralLedgerReportROIterator" StaticList="false" Uses="LovtxtCostCenter"
+                  id="txtCostCenter"/>
+    <list IterBinding="VwGeneralLedgerReportROIterator" StaticList="false" Uses="LovtxtCompanyCode"
+          id="txtCompanyCode" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="VwGeneralLedgerReportROIterator" id="Pk">
+      <AttrNames>
+        <Item Value="Pk"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VwGeneralLedgerReportROIterator" id="txtFromDate">
+      <AttrNames>
+        <Item Value="txtFromDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VwGeneralLedgerReportROIterator" id="txtToDate">
+      <AttrNames>
+        <Item Value="txtToDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VwGeneralLedgerReportROIterator" id="txtFromGlDescription">
+      <AttrNames>
+        <Item Value="txtFromGlDescription"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VwGeneralLedgerReportROIterator" id="txtToGlDescription">
+      <AttrNames>
+        <Item Value="txtToGlDescription"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VwGeneralLedgerReportROIterator" id="txtCostCenterDescription">
+      <AttrNames>
+        <Item Value="txtCostCenterDescription"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="SysProgramDetROIterator" id="SysProgramDetRO">
+      <nodeDefinition DefName="erpsoltemp.erpsoltempmodel.erpsoltempvo.SysProgramView" Name="SysProgramDetRO0">
+        <AttrNames>
+          <Item Value="Moduleid"/>
+          <Item Value="ModuleName"/>
+          <Item Value="ExecName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
 </pageDefinition>

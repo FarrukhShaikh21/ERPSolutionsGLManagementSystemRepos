@@ -96,6 +96,9 @@
     <view id="GL_0004_SEARCH">
       <page>/GL_0004_SEARCH.jsf</page>
     </view>
+    <view id="GL_0123">
+      <page>/GL_0123.jsf</page>
+    </view>
     <control-flow-rule id="__1">
       <from-activity-id>*</from-activity-id>
       <control-flow-case id="__2">
@@ -168,6 +171,10 @@
       <control-flow-case id="__26">
         <from-outcome>ERP-ACT-GL-0004</from-outcome>
         <to-activity-id>GL_0004</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__32">
+        <from-outcome>ERP-ACT-GL-0123</from-outcome>
+        <to-activity-id>GL_0123</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__28">

@@ -242,7 +242,7 @@
       <property
          name="fromsrcid">__20</property>
       <property
-         name="sdm:polyPoints">B50,313.03027,184.54004,448.02637,426.1494,T50</property>
+         name="sdm:polyPoints">B50,313.03027,184.54004,444.52637,426.1494,T44</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -372,5 +372,30 @@
          name="fromOutcome">ERP-ACT-GL-0004-SEARCH-BACK</property>
       <property
          name="sdm:polyPoints">B56,262.53027,318.39648,264.0,442.0043,T56</property>
+   </ControlFlowCase>
+   <View
+      id="View30">
+      <property
+         name="activityId">GL_0123</property>
+      <property
+         name="page">/GL_0123.jsf</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>GL_0123&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">358.39648</property>
+      <property
+         name="x">626.5</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase31"
+      from="MethodCall15"
+      to="View30">
+      <property
+         name="fromOutcome">ERP-ACT-GL-0123</property>
+      <property
+         name="sdm:polyPoints">T56,451.52637,426.1494,585.5,358.0459,L50</property>
    </ControlFlowCase>
 </SDM>
