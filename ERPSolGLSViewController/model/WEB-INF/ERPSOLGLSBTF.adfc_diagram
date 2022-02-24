@@ -242,7 +242,7 @@
       <property
          name="fromsrcid">__20</property>
       <property
-         name="sdm:polyPoints">B50,313.03027,184.54004,444.52637,426.1494,T44</property>
+         name="sdm:polyPoints">B50,313.03027,184.54004,448.02637,426.1494,T50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -384,18 +384,41 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">358.39648</property>
+         name="y">420.99414</property>
       <property
-         name="x">626.5</property>
+         name="x">771.5</property>
    </View>
    <ControlFlowCase
       islink="true"
       id="ControlFlowCase31"
       from="MethodCall15"
+      to="MethodCall32">
+      <property
+         name="fromOutcome">ERP-ACT-GL-0123</property>
+      <property
+         name="sdm:polyPoints">R50,489.02637,480.1494,658.7119,513.7988,L50</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall32">
+      <property
+         name="activityId">doSetERPSolGLReportDefault</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>doSetERPSolGLReportDefault&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">514.1494</property>
+      <property
+         name="x">699.7119</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase33"
+      from="MethodCall32"
       to="View30">
       <property
          name="fromOutcome">ERP-ACT-GL-0123</property>
       <property
-         name="sdm:polyPoints">T56,451.52637,426.1494,585.5,358.0459,L50</property>
+         name="sdm:polyPoints">T50,699.7119,459.79883,771.5,366.64355,T50</property>
    </ControlFlowCase>
 </SDM>

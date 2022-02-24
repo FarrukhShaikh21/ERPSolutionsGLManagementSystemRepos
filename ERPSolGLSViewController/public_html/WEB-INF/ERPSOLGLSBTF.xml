@@ -99,6 +99,12 @@
     <view id="GL_0123">
       <page>/GL_0123.jsf</page>
     </view>
+    <method-call id="doSetERPSolGLReportDefault">
+      <method>#{bindings.doSetERPSolGLReportDefault.execute}</method>
+      <outcome>
+        <fixed-outcome>ERP-ACT-GL-0123</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__1">
       <from-activity-id>*</from-activity-id>
       <control-flow-case id="__2">
@@ -174,7 +180,7 @@
       </control-flow-case>
       <control-flow-case id="__32">
         <from-outcome>ERP-ACT-GL-0123</from-outcome>
-        <to-activity-id>GL_0123</to-activity-id>
+        <to-activity-id>doSetERPSolGLReportDefault</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__28">
@@ -189,6 +195,13 @@
       <control-flow-case id="__31">
         <from-outcome>ERP-ACT-GL-0004-SEARCH-BACK</from-outcome>
         <to-activity-id>GL_0004</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__33">
+      <from-activity-id>doSetERPSolGLReportDefault</from-activity-id>
+      <control-flow-case id="__34">
+        <from-outcome>ERP-ACT-GL-0123</from-outcome>
+        <to-activity-id>GL_0123</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>

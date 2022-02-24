@@ -239,20 +239,12 @@ public class ERPSolGLSBean {
     }   
      
     
-    public List<SelectItem> doERPSolGetAutoSuggestedModelValues(String pStringValues) {
-    //public static List<SelectItem> doERPSolGetAutoSuggestedValues(String pSearch,String pViewObjectName,String pWhereColumn,String pAttribute1,String pAttribute2,Integer pNoOfRecordsSuggest) {
-        //public List<SelectItem> doERPSolGetAutoSuggestedValues(String pSearch,String pViewObjectName,String pWhereColumn,String pAttribute1,String pAttribute2,Integer pNoOfRecordsSuggest) {
-        List<SelectItem> ResultList=new ArrayList<SelectItem>();
-        ResultList= ERPSolGlobalViewBean.doERPSolGetAutoSuggestedValues(pStringValues, "InItemsAutoSuggestRO"," UPPER(CONCAT(Productid,Model_No))", "Productid", "ModelNo", 10,"ERPSolGLSAppModuleDataControl");
-        return ResultList;
-        
-    }   
   
     public List<SelectItem> doERPSolGetAutoSuggestedCOAValues(String pStringValues) {
     //public static List<SelectItem> doERPSolGetAutoSuggestedValues(String pSearch,String pViewObjectName,String pWhereColumn,String pAttribute1,String pAttribute2,Integer pNoOfRecordsSuggest) {
         //public List<SelectItem> doERPSolGetAutoSuggestedValues(String pSearch,String pViewObjectName,String pWhereColumn,String pAttribute1,String pAttribute2,Integer pNoOfRecordsSuggest) {
         List<SelectItem> ResultList=new ArrayList<SelectItem>();
-        ResultList= ERPSolGlobalViewBean.doERPSolGetAutoSuggestedValues(pStringValues, "VWChartOfAccountAutoSuggestRO"," UPPER(CONCAT(GLCODE,Description))", "Description", "Glcode", 10,"ERPSolGLSAppModuleDataControl");
+        ResultList= ERPSolGlobalViewBean.doERPSolGetAutoSuggestedValues(pStringValues, "VWChartOfAccountAutoSuggestRO"," UPPER(CONCAT(GLCODE,Description))", "Glcode", "Description", 10,"ERPSolGLSAppModuleDataControl");
         return ResultList;
         
     }  
@@ -442,16 +434,16 @@ public class ERPSolGLSBean {
         BindingContainer bc = ERPSolGlobalViewBean.doGetERPBindings();
         DCIteratorBinding ib=(DCIteratorBinding)bc.get("SysProgramDetROIterator");
         ApplicationModule am=ib.getViewObject().getApplicationModule();
-        ViewObject vo=am.findViewObject("QVOReport");
+        ViewObject vo=am.findViewObject("QVOGLReport");
         if (vo!=null) {
             vo.remove();
        }
         
-        vo=am.createViewObjectFromQueryStmt("QVOReport", "select PARAMETER_VALUE FROM so_sales_parameter a where a.Parameter_Id='REPORT_SERVER_URL'");
+        vo=am.createViewObjectFromQueryStmt("QVOGLReport", "select PARAMETER_VALUE FROM so_sales_parameter a where a.Parameter_Id='REPORT_SERVER_URL'");
         vo.executeQuery();
         String pReportUrl=vo.first().getAttribute(0).toString();
         vo.remove();
-        vo=am.createViewObjectFromQueryStmt("QVOReport", "select PATH PATH FROM SYSTEM a where a.PROJECTID='AR' ");
+        vo=am.createViewObjectFromQueryStmt("QVOGLReport", "select PATH PATH FROM SYSTEM a where a.PROJECTID='GL' ");
         vo.executeQuery();
         String pReportPath=vo.first().getAttribute(0).toString()+"REPORTS\\\\";
         System.out.println(pReportPath);
@@ -460,32 +452,43 @@ public class ERPSolGLSBean {
     
         BindingContainer ERPSolbc=ERPSolGlobalViewBean.doGetERPBindings();
         System.out.println("b");
-        AttributeBinding ERPCompanyid       =(AttributeBinding)ERPSolbc.getControlBinding("Companyid");
-        AttributeBinding ERPRegionid        =(AttributeBinding)ERPSolbc.getControlBinding("Regionid");
-        AttributeBinding ERPLocationid      =(AttributeBinding)ERPSolbc.getControlBinding("Locationid");
-        AttributeBinding ERPSalesTerritory  =(AttributeBinding)ERPSolbc.getControlBinding("txtSalesTerritoryId");
-        AttributeBinding ERPCustomerid      =(AttributeBinding)ERPSolbc.getControlBinding("Customerid");
-        AttributeBinding ERPSalespersonid   =(AttributeBinding)ERPSolbc.getControlBinding("Salespersonid");
-//        AttributeBinding ERPProductgroup    =(AttributeBinding)ERPSolbc.getControlBinding("Productgroup");
-//        AttributeBinding ERPProductid       =(AttributeBinding)ERPSolbc.getControlBinding("Productid");
+        AttributeBinding ERPCompanyid       =(AttributeBinding)ERPSolbc.getControlBinding("txtCompanyCode");
+        System.out.println("c");
+        AttributeBinding ERPLocationid      =(AttributeBinding)ERPSolbc.getControlBinding("txtLocationId");
+        System.out.println("d");
+        AttributeBinding ERPFromGLCode      =(AttributeBinding)ERPSolbc.getControlBinding("txtFromGlCode");
+        System.out.println("e");
+        AttributeBinding ERPToGLCode        =(AttributeBinding)ERPSolbc.getControlBinding("txtToGlCode");
+        System.out.println("f");
+        AttributeBinding ERPCostCenter   =(AttributeBinding)ERPSolbc.getControlBinding("txtCostCenter");
+        System.out.println("g");
         AttributeBinding ERPFromDate        =(AttributeBinding)ERPSolbc.getControlBinding("txtFromDate");
+        System.out.println("h");
         AttributeBinding ERPToDate          =(AttributeBinding)ERPSolbc.getControlBinding("txtToDate");
+        System.out.println("i");
         String reportParameter="";
         reportParameter="COMPANY="+ (ERPCompanyid.getInputValue()==null?"":ERPCompanyid.getInputValue());
-        reportParameter+="&P_REGID="+(ERPRegionid.getInputValue()==null?"":ERPRegionid.getInputValue());
+        System.out.println("j");
         reportParameter+="&P_LOCID="+(ERPLocationid.getInputValue()==null?"":ERPLocationid.getInputValue());
-        reportParameter+="&P_TERRITORY_ID="+(ERPSalesTerritory.getInputValue()==null?"":ERPSalesTerritory.getInputValue());
-        reportParameter+="&CUSTID="+(ERPCustomerid.getInputValue()==null?"":ERPCustomerid.getInputValue());
-        reportParameter+="&SALEPERSONID="+(ERPSalespersonid.getInputValue()==null?"":ERPSalespersonid.getInputValue());
-//        reportParameter+="&P_PRODUCT_GROUP_ID="+(ERPProductgroup.getInputValue()==null?"":ERPProductgroup.getInputValue());
+        System.out.println("k");
+        reportParameter+="&P_FROM_GL_CODE="+(ERPFromGLCode.getInputValue()==null?"":ERPFromGLCode.getInputValue());
+        System.out.println("l");
+        reportParameter+="&P_TO_GL_CODE="+(ERPToGLCode.getInputValue()==null?"":ERPToGLCode.getInputValue());
+        System.out.println("m");
+        reportParameter+="&P_COST_CENTER_ID="+(ERPCostCenter.getInputValue()==null?"":ERPCostCenter.getInputValue());
+        System.out.println("n");
+      //        reportParameter+="&P_PRODUCT_GROUP_ID="+(ERPProductgroup.getInputValue()==null?"":ERPProductgroup.getInputValue());
 //        reportParameter+="&P_PRODUCT_ID="+(ERPProductid.getInputValue()==null?"":ERPProductid.getInputValue());
-        reportParameter+="&FROM_DATE="+(ERPFromDate.getInputValue()==null?"":doERPSolGetFormatDate(""+ERPFromDate.getInputValue() ) );
-        reportParameter+="&TO_DATE="+(ERPToDate.getInputValue()==null?"":doERPSolGetFormatDate(""+ERPToDate.getInputValue())  );
+        reportParameter+="&P_FROM_DATE="+(ERPFromDate.getInputValue()==null?"":doERPSolGetFormatDate(""+ERPFromDate.getInputValue() ) );
+        System.out.println("o");
+        reportParameter+="&P_TO_DATE="+(ERPToDate.getInputValue()==null?"":doERPSolGetFormatDate(""+ERPToDate.getInputValue())  );
+        System.out.println("p");
         reportParameter+="&USER="+ERPSolGlobClassModel.doGetUserCode();
-        
+        System.out.println("m");
         pReportUrl=pReportUrl.replace("<P_REPORT_PATH>", pReportPath);
+        System.out.println("q");
         pReportUrl=pReportUrl.replace("<P_REPORT_PARAMETERS>", reportParameter);
-        
+        System.out.println("r");
         System.out.println(pReportPath);
         System.out.println(reportParameter);
         System.out.println(pReportUrl);
@@ -533,7 +536,7 @@ public class ERPSolGLSBean {
         vo.executeQuery();
         String pReportUrl=vo.first().getAttribute(0).toString();
         vo.remove();
-        vo=am.createViewObjectFromQueryStmt("QVOVoucher", "select PATH PATH FROM SYSTEM a where a.PROJECTID='SO' ");
+        vo=am.createViewObjectFromQueryStmt("QVOVoucher", "select PATH PATH FROM SYSTEM a where a.PROJECTID='GL' ");
         vo.executeQuery();
         String pReportPath=vo.first().getAttribute(0).toString()+"REPORTS\\\\";
         System.out.println(pReportPath);
@@ -556,6 +559,7 @@ public class ERPSolGLSBean {
         doErpSolOpenReportTab(pReportUrl);
         return null;
     }
+  
     
     
 }

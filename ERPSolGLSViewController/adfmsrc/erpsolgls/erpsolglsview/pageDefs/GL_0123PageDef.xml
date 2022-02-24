@@ -17,8 +17,6 @@
                   id="txtFromGlCode"/>
     <listOfValues IterBinding="VwGeneralLedgerReportROIterator" StaticList="false" Uses="LovtxtToGlCode"
                   id="txtToGlCode"/>
-    <listOfValues IterBinding="VwGeneralLedgerReportROIterator" StaticList="false" Uses="LovtxtCostCenter"
-                  id="txtCostCenter"/>
     <list IterBinding="VwGeneralLedgerReportROIterator" StaticList="false" Uses="LovtxtCompanyCode"
           id="txtCompanyCode" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
     <attributeValues IterBinding="VwGeneralLedgerReportROIterator" id="Pk">
@@ -46,11 +44,6 @@
         <Item Value="txtToGlDescription"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="VwGeneralLedgerReportROIterator" id="txtCostCenterDescription">
-      <AttrNames>
-        <Item Value="txtCostCenterDescription"/>
-      </AttrNames>
-    </attributeValues>
     <tree IterBinding="SysProgramDetROIterator" id="SysProgramDetRO">
       <nodeDefinition DefName="erpsoltemp.erpsoltempmodel.erpsoltempvo.SysProgramView" Name="SysProgramDetRO0">
         <AttrNames>
@@ -60,5 +53,19 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <attributeValues IterBinding="VwGeneralLedgerReportROIterator" id="txtCostCenter">
+      <AttrNames>
+        <Item Value="txtCostCenter"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="VwGeneralLedgerReportROIterator" StaticList="false" Uses="LovtxtCostCenterDescription"
+                  id="txtCostCenterDescription"/>
+    <attributeValues IterBinding="VwGeneralLedgerReportROIterator" id="txtLocationId">
+      <AttrNames>
+        <Item Value="txtLocationId"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="VwGeneralLedgerReportROIterator" StaticList="false" Uses="LovtxtLocationName"
+                  id="txtLocationName"/>
   </bindings>
 </pageDefinition>

@@ -10,16 +10,37 @@
                         <f:facet name="center">
                             <af:panelGridLayout id="pgl1">
                                 <af:gridRow marginTop="5px" height="auto" id="gr1">
-                                    <af:gridCell marginStart="5px" width="70%" marginEnd="5px" id="gc1">
+                                    <af:gridCell marginStart="5px" width="60%" marginEnd="5px" id="gc1">
                                         <af:panelFormLayout id="pfl1">
                                             <af:selectOneChoice value="#{bindings.txtCompanyCode.inputValue}"
                                                                 label="#{bindings.txtCompanyCode.label}"
                                                                 required="#{bindings.txtCompanyCode.hints.mandatory}"
                                                                 shortDesc="#{bindings.txtCompanyCode.hints.tooltip}"
-                                                                id="soc1">
+                                                                id="soc1" autoSubmit="true">
                                                 <f:selectItems value="#{bindings.txtCompanyCode.items}" id="si1"/>
                                                 <f:validator binding="#{bindings.txtCompanyCode.validator}"/>
                                             </af:selectOneChoice>
+                                            <af:inputComboboxListOfValues id="txtLocationNameId"
+                                                                          popupTitle="Search and Select: #{bindings.txtLocationName.hints.label}"
+                                                                          value="#{bindings.txtLocationName.inputValue}"
+                                                                          label="#{bindings.txtLocationName.hints.label}"
+                                                                          model="#{bindings.txtLocationName.listOfValuesModel}"
+                                                                          required="#{bindings.txtLocationName.hints.mandatory}"
+                                                                          columns="#{bindings.txtLocationName.hints.displayWidth}"
+                                                                          shortDesc="#{bindings.txtLocationName.hints.tooltip}"
+                                                                          autoSubmit="true">
+                                                <f:validator binding="#{bindings.txtLocationName.validator}"/>
+                                                <af:autoSuggestBehavior/>
+                                                <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolGLSPageFlowBean.doERPSolGetAutoSuggestedLocationValues}"/>
+                                            </af:inputComboboxListOfValues>
+                                            <af:inputText value="#{bindings.txtLocationId.inputValue}"
+                                                          label="#{bindings.txtLocationId.hints.label}"
+                                                          required="#{bindings.txtLocationId.hints.mandatory}"
+                                                          columns="#{bindings.txtLocationId.hints.displayWidth}"
+                                                          maximumLength="#{bindings.txtLocationId.hints.precision}"
+                                                          shortDesc="#{bindings.txtLocationId.hints.tooltip}" id="it8">
+                                                <f:validator binding="#{bindings.txtLocationId.validator}"/>
+                                            </af:inputText>
                                             <af:inputText value="#{bindings.Pk.inputValue}"
                                                           label="#{bindings.Pk.hints.label}"
                                                           required="#{bindings.Pk.hints.mandatory}"
@@ -34,7 +55,8 @@
                                                           label="#{bindings.txtFromDate.hints.label}"
                                                           required="#{bindings.txtFromDate.hints.mandatory}"
                                                           columns="#{bindings.txtFromDate.hints.displayWidth}"
-                                                          shortDesc="#{bindings.txtFromDate.hints.tooltip}" id="id1">
+                                                          shortDesc="#{bindings.txtFromDate.hints.tooltip}" id="id1"
+                                                          autoSubmit="true">
                                                 <f:validator binding="#{bindings.txtFromDate.validator}"/>
                                                 <af:convertDateTime pattern="#{bindings.txtFromDate.format}"/>
                                             </af:inputDate>
@@ -42,7 +64,8 @@
                                                           label="#{bindings.txtToDate.hints.label}"
                                                           required="#{bindings.txtToDate.hints.mandatory}"
                                                           columns="#{bindings.txtToDate.hints.displayWidth}"
-                                                          shortDesc="#{bindings.txtToDate.hints.tooltip}" id="id2">
+                                                          shortDesc="#{bindings.txtToDate.hints.tooltip}" id="id2"
+                                                          autoSubmit="true">
                                                 <f:validator binding="#{bindings.txtToDate.validator}"/>
                                                 <af:convertDateTime pattern="#{bindings.txtToDate.format}"/>
                                             </af:inputDate>
@@ -53,8 +76,10 @@
                                                                           model="#{bindings.txtFromGlCode.listOfValuesModel}"
                                                                           required="#{bindings.txtFromGlCode.hints.mandatory}"
                                                                           columns="#{bindings.txtFromGlCode.hints.displayWidth}"
-                                                                          shortDesc="#{bindings.txtFromGlCode.hints.tooltip}">
+                                                                          shortDesc="#{bindings.txtFromGlCode.hints.tooltip}"
+                                                                          autoSubmit="true">
                                                 <f:validator binding="#{bindings.txtFromGlCode.validator}"/>
+                                                <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolGLSPageFlowBean.doERPSolGetAutoSuggestedCOAValues}"/>
                                             </af:inputComboboxListOfValues>
                                             <af:inputText value="#{bindings.txtFromGlDescription.inputValue}"
                                                           label="#{bindings.txtFromGlDescription.hints.label}"
@@ -72,8 +97,10 @@
                                                                           model="#{bindings.txtToGlCode.listOfValuesModel}"
                                                                           required="#{bindings.txtToGlCode.hints.mandatory}"
                                                                           columns="#{bindings.txtToGlCode.hints.displayWidth}"
-                                                                          shortDesc="#{bindings.txtToGlCode.hints.tooltip}">
+                                                                          shortDesc="#{bindings.txtToGlCode.hints.tooltip}"
+                                                                          autoSubmit="true">
                                                 <f:validator binding="#{bindings.txtToGlCode.validator}"/>
+                                                <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolGLSPageFlowBean.doERPSolGetAutoSuggestedCOAValues}"/>
                                             </af:inputComboboxListOfValues>
                                             <af:inputText value="#{bindings.txtToGlDescription.inputValue}"
                                                           label="#{bindings.txtToGlDescription.hints.label}"
@@ -84,28 +111,30 @@
                                                           partialTriggers="txtToGlCodeId" id="it3" readOnly="true">
                                                 <f:validator binding="#{bindings.txtToGlDescription.validator}"/>
                                             </af:inputText>
-                                            <af:inputComboboxListOfValues id="txtCostCenterId"
-                                                                          popupTitle="Search and Select: #{bindings.txtCostCenter.hints.label}"
-                                                                          value="#{bindings.txtCostCenter.inputValue}"
-                                                                          label="#{bindings.txtCostCenter.hints.label}"
-                                                                          model="#{bindings.txtCostCenter.listOfValuesModel}"
-                                                                          required="#{bindings.txtCostCenter.hints.mandatory}"
-                                                                          columns="#{bindings.txtCostCenter.hints.displayWidth}"
-                                                                          shortDesc="#{bindings.txtCostCenter.hints.tooltip}">
-                                                <f:validator binding="#{bindings.txtCostCenter.validator}"/>
-                                            </af:inputComboboxListOfValues>
-                                            <af:inputText value="#{bindings.txtCostCenterDescription.inputValue}"
-                                                          label="#{bindings.txtCostCenterDescription.hints.label}"
-                                                          required="#{bindings.txtCostCenterDescription.hints.mandatory}"
-                                                          columns="#{bindings.txtCostCenterDescription.hints.displayWidth}"
-                                                          maximumLength="#{bindings.txtCostCenterDescription.hints.precision}"
-                                                          shortDesc="#{bindings.txtCostCenterDescription.hints.tooltip}"
-                                                          partialTriggers="txtCostCenterId" id="it4" readOnly="true">
+                                            <af:inputComboboxListOfValues id="txtCostCenterDescriptionId"
+                                                                          popupTitle="Search and Select: #{bindings.txtCostCenterDescription.hints.label}"
+                                                                          value="#{bindings.txtCostCenterDescription.inputValue}"
+                                                                          label="#{bindings.txtCostCenterDescription.hints.label}"
+                                                                          model="#{bindings.txtCostCenterDescription.listOfValuesModel}"
+                                                                          required="#{bindings.txtCostCenterDescription.hints.mandatory}"
+                                                                          columns="#{bindings.txtCostCenterDescription.hints.displayWidth}"
+                                                                          shortDesc="#{bindings.txtCostCenterDescription.hints.tooltip}"
+                                                                          autoSubmit="true">
                                                 <f:validator binding="#{bindings.txtCostCenterDescription.validator}"/>
+                                                <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolGLSPageFlowBean.doERPSolGetAutoSuggestedCostCenterValues}"/>
+                                            </af:inputComboboxListOfValues>
+                                            <af:inputText value="#{bindings.txtCostCenter.inputValue}"
+                                                          label="#{bindings.txtCostCenter.hints.label}"
+                                                          required="#{bindings.txtCostCenter.hints.mandatory}"
+                                                          columns="#{bindings.txtCostCenter.hints.displayWidth}"
+                                                          maximumLength="#{bindings.txtCostCenter.hints.precision}"
+                                                          shortDesc="#{bindings.txtCostCenter.hints.tooltip}" id="it4"
+                                                          readOnly="true" partialTriggers="txtCostCenterDescriptionId">
+                                                <f:validator binding="#{bindings.txtCostCenter.validator}"/>
                                             </af:inputText>
                                         </af:panelFormLayout>
                                     </af:gridCell>
-                                    <af:gridCell marginStart="5px" width="30%" marginEnd="5px" id="gc2"
+                                    <af:gridCell marginStart="5px" width="40%" marginEnd="5px" id="gc2"
                                                  halign="stretch" valign="stretch">
                                         <af:panelCollection id="pc1" styleClass="AFStretchWidth">
                                             <f:facet name="menus"/>
@@ -122,7 +151,7 @@
                                                       filterModel="#{bindings.SysProgramDetROQuery.queryDescriptor}"
                                                       queryListener="#{bindings.SysProgramDetROQuery.processQuery}"
                                                       filterVisible="true" varStatus="vs" id="t1"
-                                                      styleClass="AFStretchWidth">
+                                                      styleClass="AFStretchWidth" columnStretching="column:c2">
                                                 <af:column sortProperty="#{bindings.SysProgramDetRO.hints.Moduleid.name}"
                                                            filterable="true"
                                                            headerText="#{bindings.SysProgramDetRO.hints.Moduleid.label}"
@@ -139,7 +168,7 @@
                                                 </af:column>
                                                 <af:column sortProperty="#{bindings.SysProgramDetRO.hints.ModuleName.name}"
                                                            filterable="true"
-                                                           headerText="#{bindings.SysProgramDetRO.hints.ModuleName.label}"
+                                                           headerText="Report Name"
                                                            id="c2" width="200" displayIndex="-1">
                                                     <af:inputText value="#{row.bindings.ModuleName.inputValue}"
                                                                   label="#{bindings.SysProgramDetRO.hints.ModuleName.label}"
@@ -153,9 +182,12 @@
                                                 </af:column>
                                                 <af:column sortProperty="#{bindings.SysProgramDetRO.hints.ExecName.name}"
                                                            filterable="true"
-                                                           headerText="#{bindings.SysProgramDetRO.hints.ExecName.label}"
                                                            id="c3">
-                                                    <af:link text="Execute" id="l1" partialSubmit="true"/>
+                                                    <af:link text="Execute" id="l1" partialSubmit="true"
+                                                             action="#{pageFlowScope.ERPSolGLSPageFlowBean.doERPSolExecuteGLReport}">
+                                                        <af:setActionListener from="#{row.bindings.ExecName.inputValue}"
+                                                                              to="#{pageFlowScope.ERPSolGLSPageFlowBean.ERPSolReportName}"/>
+                                                    </af:link>
                                                     <af:inputText value="#{row.bindings.ExecName.inputValue}"
                                                                   label="#{bindings.SysProgramDetRO.hints.ExecName.label}"
                                                                   required="#{bindings.SysProgramDetRO.hints.ExecName.mandatory}"

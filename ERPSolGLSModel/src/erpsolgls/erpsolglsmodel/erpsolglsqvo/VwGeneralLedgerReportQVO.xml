@@ -8,9 +8,13 @@
   InheritPersonalization="merge"
   BindingStyle="OracleName"
   CustomQuery="true"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  ComponentClass="erpsolgls.erpsolglsmodel.erpsolglsqvo.VwGeneralLedgerReportQVOImpl"
+  ComponentInterface="erpsolgls.erpsolglsmodel.erpsolglsqvo.common.VwGeneralLedgerReportQVO"
+  ClientProxyName="erpsolgls.erpsolglsmodel.erpsolglsqvo.client.VwGeneralLedgerReportQVOClient">
   <DesignTime>
     <Attr Name="_isExpertMode" Value="true"/>
+    <Attr Name="_codeGenFlag2" Value="Coll|VarAccess"/>
   </DesignTime>
   <Properties>
     <SchemaBasedProperties>
@@ -29,6 +33,10 @@
   <ViewAccessor
     Name="AccAllCompanyView"
     ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsvo.AllCompanyView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccAllLocationsView"
+    ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsvo.AllLocationsView"
     RowLevelBinds="true"/>
   <ListBinding
     Name="LovtxtFromGlCode"
@@ -79,31 +87,6 @@
     <DisplayCriteria/>
   </ListBinding>
   <ListBinding
-    Name="LovtxtCostCenter"
-    ListVOName="AccVWCostCenterQVO"
-    ListRangeSize="-1"
-    ComboRowCountHint="10"
-    NullValueFlag="none"
-    MRUCount="0">
-    <AttrArray Name="AttrNames">
-      <Item Value="txtCostCenter"/>
-    </AttrArray>
-    <AttrArray Name="AttrExpressions"/>
-    <AttrArray Name="DerivedAttrNames">
-      <Item Value="txtCostCenterDescription"/>
-    </AttrArray>
-    <AttrArray Name="ListAttrNames">
-      <Item Value="Costcenterid"/>
-      <Item Value="Description"/>
-    </AttrArray>
-    <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="Costcenterid"/>
-      <Item Value="Description"/>
-    </AttrArray>
-    <DisplayCriteria
-      Hint="hide"/>
-  </ListBinding>
-  <ListBinding
     Name="LovtxtCompanyCode"
     ListVOName="AccAllCompanyView"
     ListRangeSize="-1"
@@ -115,10 +98,58 @@
     </AttrArray>
     <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="ListAttrNames">
-      <Item Value="CompanyCode"/>
+      <Item Value="Companyid"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="CompanyName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtCostCenterDescription"
+    ListVOName="AccVWCostCenterQVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtCostCenterDescription"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="txtCostCenter"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Description"/>
+      <Item Value="Costcenterid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+      <Item Value="Costcenterid"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtLocationName"
+    ListVOName="AccAllLocationsView"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtLocationName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="txtLocationId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LocationDescription"/>
+      <Item Value="Locationid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="LocationDescription"/>
+      <Item Value="Locationid"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -260,16 +291,13 @@
     Type="java.lang.String"
     ColumnType="VARCHAR2"
     AliasName="VIEW_ATTR"
-    SQLType="VARCHAR"
-    LOVName="LovtxtCostCenter">
+    SQLType="VARCHAR">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
           ResId="erpsolgls.erpsolglsmodel.erpsolglsqvo.VwGeneralLedgerReportQVO.txtCostCenter_LABEL"/>
         <DISPLAYWIDTH
           Value="20"/>
-        <CONTROLTYPE
-          Value="combo_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -282,13 +310,16 @@
     Type="java.lang.String"
     ColumnType="VARCHAR2"
     AliasName="VIEW_ATTR"
-    SQLType="VARCHAR">
+    SQLType="VARCHAR"
+    LOVName="LovtxtCostCenterDescription">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
           ResId="erpsolgls.erpsolglsmodel.erpsolglsqvo.VwGeneralLedgerReportQVO.txtCostCenterDescription_LABEL"/>
         <DISPLAYWIDTH
           Value="20"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -314,9 +345,60 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="txtLocationId"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolgls.erpsolglsmodel.erpsolglsqvo.VwGeneralLedgerReportQVO.txtLocationId_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLocationName"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"
+    LOVName="LovtxtLocationName">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolgls.erpsolglsmodel.erpsolglsqvo.VwGeneralLedgerReportQVO.txtLocationName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <AttrArray Name="KeyAttributes">
     <Item Value="Pk"/>
   </AttrArray>
+  <ClientInterface
+    Name="__clientInterface">
+    <Method
+      Name="doSetERPSolGLReportDefault"
+      MethodName="doSetERPSolGLReportDefault">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
+    </Method>
+  </ClientInterface>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="erpsolgls.erpsolglsmodel.ERPSolGLSModelBundle"/>
