@@ -20,27 +20,32 @@
                                                 <f:selectItems value="#{bindings.txtCompanyCode.items}" id="si1"/>
                                                 <f:validator binding="#{bindings.txtCompanyCode.validator}"/>
                                             </af:selectOneChoice>
-                                            <af:inputComboboxListOfValues id="txtLocationNameId"
-                                                                          popupTitle="Search and Select: #{bindings.txtLocationName.hints.label}"
-                                                                          value="#{bindings.txtLocationName.inputValue}"
-                                                                          label="#{bindings.txtLocationName.hints.label}"
-                                                                          model="#{bindings.txtLocationName.listOfValuesModel}"
-                                                                          required="#{bindings.txtLocationName.hints.mandatory}"
-                                                                          columns="#{bindings.txtLocationName.hints.displayWidth}"
-                                                                          shortDesc="#{bindings.txtLocationName.hints.tooltip}"
-                                                                          autoSubmit="true">
-                                                <f:validator binding="#{bindings.txtLocationName.validator}"/>
-                                                <af:autoSuggestBehavior/>
-                                                <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolGLSPageFlowBean.doERPSolGetAutoSuggestedLocationValues}"/>
-                                            </af:inputComboboxListOfValues>
-                                            <af:inputText value="#{bindings.txtLocationId.inputValue}"
-                                                          label="#{bindings.txtLocationId.hints.label}"
-                                                          required="#{bindings.txtLocationId.hints.mandatory}"
-                                                          columns="#{bindings.txtLocationId.hints.displayWidth}"
-                                                          maximumLength="#{bindings.txtLocationId.hints.precision}"
-                                                          shortDesc="#{bindings.txtLocationId.hints.tooltip}" id="it8">
-                                                <f:validator binding="#{bindings.txtLocationId.validator}"/>
-                                            </af:inputText>
+                                            <af:panelLabelAndMessage label="#{bindings.txtLocationName.hints.label}" id="plam4">
+                                                <af:panelGroupLayout id="pgl5" layout="horizontal">
+                                                    <af:inputComboboxListOfValues id="txtLocationNameId"
+                                                                                  popupTitle="Search and Select: #{bindings.txtLocationName.hints.label}"
+                                                                                  value="#{bindings.txtLocationName.inputValue}"
+                                                                                  label="#{bindings.txtLocationName.hints.label}"
+                                                                                  model="#{bindings.txtLocationName.listOfValuesModel}"
+                                                                                  required="#{bindings.txtLocationName.hints.mandatory}"
+                                                                                  columns="#{bindings.txtLocationName.hints.displayWidth}"
+                                                                                  shortDesc="#{bindings.txtLocationName.hints.tooltip}"
+                                                                                  autoSubmit="true" simple="true">
+                                                        <f:validator binding="#{bindings.txtLocationName.validator}"/>
+                                                        <af:autoSuggestBehavior/>
+                                                        <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolGLSPageFlowBean.doERPSolGetAutoSuggestedLocationValues}"/>
+                                                    </af:inputComboboxListOfValues>
+                                                    <af:inputText value="#{bindings.txtLocationId.inputValue}"
+                                                                  label="#{bindings.txtLocationId.hints.label}"
+                                                                  required="#{bindings.txtLocationId.hints.mandatory}"
+                                                                  columns="#{bindings.txtLocationId.hints.displayWidth}"
+                                                                  maximumLength="#{bindings.txtLocationId.hints.precision}"
+                                                                  shortDesc="#{bindings.txtLocationId.hints.tooltip}"
+                                                                  id="it8" simple="true">
+                                                        <f:validator binding="#{bindings.txtLocationId.validator}"/>
+                                                    </af:inputText>
+                                                </af:panelGroupLayout>
+                                            </af:panelLabelAndMessage>
                                             <af:inputText value="#{bindings.Pk.inputValue}"
                                                           label="#{bindings.Pk.hints.label}"
                                                           required="#{bindings.Pk.hints.mandatory}"
@@ -69,69 +74,85 @@
                                                 <f:validator binding="#{bindings.txtToDate.validator}"/>
                                                 <af:convertDateTime pattern="#{bindings.txtToDate.format}"/>
                                             </af:inputDate>
-                                            <af:inputComboboxListOfValues id="txtFromGlCodeId"
-                                                                          popupTitle="Search and Select: #{bindings.txtFromGlCode.hints.label}"
-                                                                          value="#{bindings.txtFromGlCode.inputValue}"
-                                                                          label="#{bindings.txtFromGlCode.hints.label}"
-                                                                          model="#{bindings.txtFromGlCode.listOfValuesModel}"
-                                                                          required="#{bindings.txtFromGlCode.hints.mandatory}"
-                                                                          columns="#{bindings.txtFromGlCode.hints.displayWidth}"
-                                                                          shortDesc="#{bindings.txtFromGlCode.hints.tooltip}"
-                                                                          autoSubmit="true">
-                                                <f:validator binding="#{bindings.txtFromGlCode.validator}"/>
-                                                <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolGLSPageFlowBean.doERPSolGetAutoSuggestedCOAValues}"/>
-                                            </af:inputComboboxListOfValues>
-                                            <af:inputText value="#{bindings.txtFromGlDescription.inputValue}"
-                                                          label="#{bindings.txtFromGlDescription.hints.label}"
-                                                          required="#{bindings.txtFromGlDescription.hints.mandatory}"
-                                                          columns="#{bindings.txtFromGlDescription.hints.displayWidth}"
-                                                          maximumLength="#{bindings.txtFromGlDescription.hints.precision}"
-                                                          shortDesc="#{bindings.txtFromGlDescription.hints.tooltip}"
-                                                          partialTriggers="txtFromGlCodeId" id="it2" readOnly="true">
-                                                <f:validator binding="#{bindings.txtFromGlDescription.validator}"/>
-                                            </af:inputText>
-                                            <af:inputComboboxListOfValues id="txtToGlCodeId"
-                                                                          popupTitle="Search and Select: #{bindings.txtToGlCode.hints.label}"
-                                                                          value="#{bindings.txtToGlCode.inputValue}"
-                                                                          label="#{bindings.txtToGlCode.hints.label}"
-                                                                          model="#{bindings.txtToGlCode.listOfValuesModel}"
-                                                                          required="#{bindings.txtToGlCode.hints.mandatory}"
-                                                                          columns="#{bindings.txtToGlCode.hints.displayWidth}"
-                                                                          shortDesc="#{bindings.txtToGlCode.hints.tooltip}"
-                                                                          autoSubmit="true">
-                                                <f:validator binding="#{bindings.txtToGlCode.validator}"/>
-                                                <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolGLSPageFlowBean.doERPSolGetAutoSuggestedCOAValues}"/>
-                                            </af:inputComboboxListOfValues>
-                                            <af:inputText value="#{bindings.txtToGlDescription.inputValue}"
-                                                          label="#{bindings.txtToGlDescription.hints.label}"
-                                                          required="#{bindings.txtToGlDescription.hints.mandatory}"
-                                                          columns="#{bindings.txtToGlDescription.hints.displayWidth}"
-                                                          maximumLength="#{bindings.txtToGlDescription.hints.precision}"
-                                                          shortDesc="#{bindings.txtToGlDescription.hints.tooltip}"
-                                                          partialTriggers="txtToGlCodeId" id="it3" readOnly="true">
-                                                <f:validator binding="#{bindings.txtToGlDescription.validator}"/>
-                                            </af:inputText>
-                                            <af:inputComboboxListOfValues id="txtCostCenterDescriptionId"
-                                                                          popupTitle="Search and Select: #{bindings.txtCostCenterDescription.hints.label}"
-                                                                          value="#{bindings.txtCostCenterDescription.inputValue}"
-                                                                          label="#{bindings.txtCostCenterDescription.hints.label}"
-                                                                          model="#{bindings.txtCostCenterDescription.listOfValuesModel}"
-                                                                          required="#{bindings.txtCostCenterDescription.hints.mandatory}"
-                                                                          columns="#{bindings.txtCostCenterDescription.hints.displayWidth}"
-                                                                          shortDesc="#{bindings.txtCostCenterDescription.hints.tooltip}"
-                                                                          autoSubmit="true">
-                                                <f:validator binding="#{bindings.txtCostCenterDescription.validator}"/>
-                                                <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolGLSPageFlowBean.doERPSolGetAutoSuggestedCostCenterValues}"/>
-                                            </af:inputComboboxListOfValues>
-                                            <af:inputText value="#{bindings.txtCostCenter.inputValue}"
-                                                          label="#{bindings.txtCostCenter.hints.label}"
-                                                          required="#{bindings.txtCostCenter.hints.mandatory}"
-                                                          columns="#{bindings.txtCostCenter.hints.displayWidth}"
-                                                          maximumLength="#{bindings.txtCostCenter.hints.precision}"
-                                                          shortDesc="#{bindings.txtCostCenter.hints.tooltip}" id="it4"
-                                                          readOnly="true" partialTriggers="txtCostCenterDescriptionId">
-                                                <f:validator binding="#{bindings.txtCostCenter.validator}"/>
-                                            </af:inputText>
+                                            <af:panelLabelAndMessage label="#{bindings.txtFromGlCode.hints.label}" id="plam1">
+                                                <af:panelGroupLayout id="pgl2" layout="horizontal">
+                                                    <af:inputComboboxListOfValues id="txtFromGlCodeId"
+                                                                                  popupTitle="Search and Select: #{bindings.txtFromGlCode.hints.label}"
+                                                                                  value="#{bindings.txtFromGlCode.inputValue}"
+                                                                                  label="#{bindings.txtFromGlCode.hints.label}"
+                                                                                  model="#{bindings.txtFromGlCode.listOfValuesModel}"
+                                                                                  required="#{bindings.txtFromGlCode.hints.mandatory}"
+                                                                                  columns="#{bindings.txtFromGlCode.hints.displayWidth}"
+                                                                                  shortDesc="#{bindings.txtFromGlCode.hints.tooltip}"
+                                                                                  autoSubmit="true" simple="true">
+                                                        <f:validator binding="#{bindings.txtFromGlCode.validator}"/>
+                                                        <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolGLSPageFlowBean.doERPSolGetAutoSuggestedCOAValues}"/>
+                                                    </af:inputComboboxListOfValues>
+                                                    <af:inputText value="#{bindings.txtFromGlDescription.inputValue}"
+                                                                  label="#{bindings.txtFromGlDescription.hints.label}"
+                                                                  required="#{bindings.txtFromGlDescription.hints.mandatory}"
+                                                                  columns="#{bindings.txtFromGlDescription.hints.displayWidth}"
+                                                                  maximumLength="#{bindings.txtFromGlDescription.hints.precision}"
+                                                                  shortDesc="#{bindings.txtFromGlDescription.hints.tooltip}"
+                                                                  partialTriggers="txtFromGlCodeId" id="it2"
+                                                                  readOnly="true" simple="true">
+                                                        <f:validator binding="#{bindings.txtFromGlDescription.validator}"/>
+                                                    </af:inputText>
+                                                </af:panelGroupLayout>
+                                            </af:panelLabelAndMessage>
+                                            <af:panelLabelAndMessage label="#{bindings.txtToGlCode.hints.label}" id="plam2">
+                                                <af:panelGroupLayout id="pgl3" layout="horizontal">
+                                                    <af:inputComboboxListOfValues id="txtToGlCodeId"
+                                                                                  popupTitle="Search and Select: #{bindings.txtToGlCode.hints.label}"
+                                                                                  value="#{bindings.txtToGlCode.inputValue}"
+                                                                                  label="#{bindings.txtToGlCode.hints.label}"
+                                                                                  model="#{bindings.txtToGlCode.listOfValuesModel}"
+                                                                                  required="#{bindings.txtToGlCode.hints.mandatory}"
+                                                                                  columns="#{bindings.txtToGlCode.hints.displayWidth}"
+                                                                                  shortDesc="#{bindings.txtToGlCode.hints.tooltip}"
+                                                                                  autoSubmit="true" simple="true">
+                                                        <f:validator binding="#{bindings.txtToGlCode.validator}"/>
+                                                        <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolGLSPageFlowBean.doERPSolGetAutoSuggestedCOAValues}"/>
+                                                    </af:inputComboboxListOfValues>
+                                                    <af:inputText value="#{bindings.txtToGlDescription.inputValue}"
+                                                                  label="#{bindings.txtToGlDescription.hints.label}"
+                                                                  required="#{bindings.txtToGlDescription.hints.mandatory}"
+                                                                  columns="#{bindings.txtToGlDescription.hints.displayWidth}"
+                                                                  maximumLength="#{bindings.txtToGlDescription.hints.precision}"
+                                                                  shortDesc="#{bindings.txtToGlDescription.hints.tooltip}"
+                                                                  partialTriggers="txtToGlCodeId" id="it3"
+                                                                  readOnly="true" simple="true">
+                                                        <f:validator binding="#{bindings.txtToGlDescription.validator}"/>
+                                                    </af:inputText>
+                                                </af:panelGroupLayout>
+                                            </af:panelLabelAndMessage>
+                                            <af:panelLabelAndMessage label="#{bindings.txtCostCenterDescription.hints.label}" id="plam3">
+                                                <af:panelGroupLayout id="pgl4" layout="horizontal">
+                                                    <af:inputComboboxListOfValues id="txtCostCenterDescriptionId"
+                                                                                  popupTitle="Search and Select: #{bindings.txtCostCenterDescription.hints.label}"
+                                                                                  value="#{bindings.txtCostCenterDescription.inputValue}"
+                                                                                  label="#{bindings.txtCostCenterDescription.hints.label}"
+                                                                                  model="#{bindings.txtCostCenterDescription.listOfValuesModel}"
+                                                                                  required="#{bindings.txtCostCenterDescription.hints.mandatory}"
+                                                                                  columns="#{bindings.txtCostCenterDescription.hints.displayWidth}"
+                                                                                  shortDesc="#{bindings.txtCostCenterDescription.hints.tooltip}"
+                                                                                  autoSubmit="true" simple="true">
+                                                        <f:validator binding="#{bindings.txtCostCenterDescription.validator}"/>
+                                                        <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolGLSPageFlowBean.doERPSolGetAutoSuggestedCostCenterValues}"/>
+                                                    </af:inputComboboxListOfValues>
+                                                    <af:inputText value="#{bindings.txtCostCenter.inputValue}"
+                                                                  label="#{bindings.txtCostCenter.hints.label}"
+                                                                  required="#{bindings.txtCostCenter.hints.mandatory}"
+                                                                  columns="#{bindings.txtCostCenter.hints.displayWidth}"
+                                                                  maximumLength="#{bindings.txtCostCenter.hints.precision}"
+                                                                  shortDesc="#{bindings.txtCostCenter.hints.tooltip}"
+                                                                  id="it4" readOnly="true"
+                                                                  partialTriggers="txtCostCenterDescriptionId"
+                                                                  simple="true">
+                                                        <f:validator binding="#{bindings.txtCostCenter.validator}"/>
+                                                    </af:inputText>
+                                                </af:panelGroupLayout>
+                                            </af:panelLabelAndMessage>
                                         </af:panelFormLayout>
                                     </af:gridCell>
                                     <af:gridCell marginStart="5px" width="40%" marginEnd="5px" id="gc2"
