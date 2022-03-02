@@ -35,6 +35,9 @@
   <ViewUsage
     Name="VwGeneralLedgerReportRO"
     ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsqvo.VwGeneralLedgerReportQVO"/>
+  <ViewUsage
+    Name="ChartOfAccCRUD"
+    ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsvo.ChartOfAccView"/>
   <ViewLinkUsage
     Name="FkVoucherDetVoucherSeqLink1"
     ViewLinkObjectName="erpsolgls.erpsolglsmodel.erpsolglsvo.FkVoucherDetVoucherSeqLink"
