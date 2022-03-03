@@ -469,7 +469,7 @@
       <property
          name="fromOutcome">ERP-ACT-GL-0001-SEARCH</property>
       <property
-         name="sdm:polyPoints">L50,495.5,754.7471,279.03027,819.44824,R50</property>
+         name="sdm:polyPoints">L46,494.47626,751.2471,279.03027,815.94824,R46</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
