@@ -65,5 +65,11 @@
     <action IterBinding="ChartOfAccCRUDIterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
     <action IterBinding="ChartOfAccCRUDIterator" id="Next" RequiresUpdateModel="true" Action="next"/>
     <action IterBinding="ChartOfAccCRUDIterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="ERPSolGLSAppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPSolGLSAppModuleDataControl"/>
+    <action IterBinding="ChartOfAccCRUDIterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="ChartOfAccCRUDIterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
   </bindings>
 </pageDefinition>

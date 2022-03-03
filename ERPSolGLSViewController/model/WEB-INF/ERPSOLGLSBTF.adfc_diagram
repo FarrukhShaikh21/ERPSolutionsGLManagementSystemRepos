@@ -446,4 +446,39 @@
       <property
          name="sdm:polyPoints">B50,448.02637,534.1494,536.5,700.7471,T50</property>
    </ControlFlowCase>
+   <View
+      id="View36">
+      <property
+         name="activityId">GL_0001_SEARCH</property>
+      <property
+         name="page">/GL_0001_SEARCH.jsf</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>GL_0001_SEARCH&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">819.7988</property>
+      <property
+         name="x">238.03027</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase37"
+      from="View34"
+      to="View36">
+      <property
+         name="fromOutcome">ERP-ACT-GL-0001-SEARCH</property>
+      <property
+         name="sdm:polyPoints">L50,495.5,754.7471,279.03027,819.44824,R50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase38"
+      from="View36"
+      to="View34">
+      <property
+         name="fromOutcome">ERP-ACT-GL-0001-SEARCH-BACK</property>
+      <property
+         name="sdm:polyPoints">R54,280.05637,822.94824,495.5,758.2471,L54</property>
+   </ControlFlowCase>
 </SDM>

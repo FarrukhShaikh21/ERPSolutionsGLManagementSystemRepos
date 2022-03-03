@@ -10,18 +10,31 @@
                         <f:facet name="context"/>
                         <f:facet name="menuBar"/>
                         <f:facet name="toolbar">
-                            <af:toolbar id="t1">
-                                <af:panelGroupLayout layout="horizontal" id="pgl1">
-                                    <af:button actionListener="#{bindings.First.execute}" text="First"
-                                               disabled="#{!bindings.First.enabled}" partialSubmit="true" id="b1"/>
-                                    <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
-                                               disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b2"/>
-                                    <af:button actionListener="#{bindings.Next.execute}" text="Next"
-                                               disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="b3"/>
-                                    <af:button actionListener="#{bindings.Last.execute}" text="Last"
-                                               disabled="#{!bindings.Last.enabled}" partialSubmit="true" id="b4"/>
-                                </af:panelGroupLayout>
-                            </af:toolbar>
+<af:toolbar id="t1">
+                                <af:button text="Close Form" id="b10" action="ACT-ERP-GOTO-MAIN-GLS"
+                                   icon="#{resource['images:imgExitForm.png']}" iconPosition="top"/>
+                        <af:button text="Search" id="b12" action="ERP-ACT-GL-0004-SEARCH"
+                                   icon="#{resource['images:imgFind.png']}" iconPosition="top"/>
+                        <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
+                                   disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b8"
+                                   icon="#{resource['images:imgPrevious.png']}" iconPosition="top"/>
+                        <af:button actionListener="#{bindings.Next.execute}" text="Next"
+                                   disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="b7"
+                                   icon="#{resource['images:imgNext.png']}" iconPosition="top"/>
+                                <af:button actionListener="#{bindings.Delete.execute}" text="Delete Voucher"
+                                   disabled="#{pageFlowScope.ERPSolTempBean.LERPSolAllowDelete=='N'}" id="b2"
+                                   icon="#{resource['images:imgDelete.png']}" iconPosition="top"/>
+                        <af:button actionListener="#{bindings.CreateInsert.execute}" text="New Voucher"
+                                   disabled="#{pageFlowScope.ERPSolTempBean.LERPSolAllowAdd=='N'}" id="b1"
+                                   icon="#{resource['images:imgAdd.png']}" iconPosition="top"/>
+                        <af:button actionListener="#{bindings.Rollback.execute}" text="Undo Changes" immediate="true"
+                                   id="b6"
+                                   icon="#{resource['images:imgUndo.png']}" iconPosition="top">
+                          <af:resetActionListener/>
+                        </af:button>
+                        <af:button actionListener="#{bindings.Commit.execute}" text="Save Transaction" id="b5"
+                                   icon="#{resource['images:imgSave.png']}" iconPosition="top"/>
+                      </af:toolbar>
                         </f:facet>
                         <f:facet name="legend"/>
                         <f:facet name="info"/>
@@ -32,45 +45,45 @@
                                                   label="#{bindings.GlnatureOfAC.hints.label}"
                                                   required="#{bindings.GlnatureOfAC.hints.mandatory}"
                                                   columns="#{bindings.GlnatureOfAC.hints.displayWidth}"
-                                                  maximumLength="#{bindings.GlnatureOfAC.hints.precision}"
+                                                  maximumLength="1"
                                                   shortDesc="#{bindings.GlnatureOfAC.hints.tooltip}" id="it1"
-                                                  simple="true">
+                                                  simple="true" contentStyle="width:30px">
                                         <f:validator binding="#{bindings.GlnatureOfAC.validator}"/>
                                     </af:inputText>
                                     <af:inputText value="#{bindings.GlbroadCategory.inputValue}"
                                                   label="#{bindings.GlbroadCategory.hints.label}"
                                                   required="#{bindings.GlbroadCategory.hints.mandatory}"
                                                   columns="#{bindings.GlbroadCategory.hints.displayWidth}"
-                                                  maximumLength="#{bindings.GlbroadCategory.hints.precision}"
+                                                  maximumLength="2"
                                                   shortDesc="#{bindings.GlbroadCategory.hints.tooltip}" id="it2"
-                                                  simple="true">
+                                                  simple="true" contentStyle="width:30px">
                                         <f:validator binding="#{bindings.GlbroadCategory.validator}"/>
                                     </af:inputText>
                                     <af:inputText value="#{bindings.GlcontrolAC.inputValue}"
                                                   label="#{bindings.GlcontrolAC.hints.label}"
                                                   required="#{bindings.GlcontrolAC.hints.mandatory}"
                                                   columns="#{bindings.GlcontrolAC.hints.displayWidth}"
-                                                  maximumLength="#{bindings.GlcontrolAC.hints.precision}"
+                                                  maximumLength="2"
                                                   shortDesc="#{bindings.GlcontrolAC.hints.tooltip}" id="it3"
-                                                  simple="true">
+                                                  simple="true" contentStyle="width:30px">
                                         <f:validator binding="#{bindings.GlcontrolAC.validator}"/>
                                     </af:inputText>
                                     <af:inputText value="#{bindings.GlsubControlAC.inputValue}"
                                                   label="#{bindings.GlsubControlAC.hints.label}"
                                                   required="#{bindings.GlsubControlAC.hints.mandatory}"
                                                   columns="#{bindings.GlsubControlAC.hints.displayWidth}"
-                                                  maximumLength="#{bindings.GlsubControlAC.hints.precision}"
+                                                  maximumLength="2"
                                                   shortDesc="#{bindings.GlsubControlAC.hints.tooltip}" id="it4"
-                                                  simple="true">
+                                                  simple="true" contentStyle="width:30px">
                                         <f:validator binding="#{bindings.GlsubControlAC.validator}"/>
                                     </af:inputText>
                                     <af:inputText value="#{bindings.GlsubsidaryAC.inputValue}"
                                                   label="#{bindings.GlsubsidaryAC.hints.label}"
                                                   required="#{bindings.GlsubsidaryAC.hints.mandatory}"
                                                   columns="#{bindings.GlsubsidaryAC.hints.displayWidth}"
-                                                  maximumLength="#{bindings.GlsubsidaryAC.hints.precision}"
+                                                  maximumLength="5"
                                                   shortDesc="#{bindings.GlsubsidaryAC.hints.tooltip}" id="it5"
-                                                  simple="true">
+                                                  simple="true" contentStyle="width:50px">
                                         <f:validator binding="#{bindings.GlsubsidaryAC.validator}"/>
                                     </af:inputText>
                                 </af:panelGroupLayout>
