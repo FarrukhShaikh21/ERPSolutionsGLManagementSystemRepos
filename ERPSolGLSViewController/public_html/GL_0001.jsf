@@ -7,37 +7,35 @@
             <af:pageTemplate viewId="/ERPSolutionTemplate.jsf" value="#{bindings.ptb1}" id="pt1">
                 <f:facet name="erptempmain">
                     <af:panelHeader text="Chart Of Account" id="ph1">
-                        <f:facet name="context"/>
-                        <f:facet name="menuBar"/>
                         <f:facet name="toolbar">
-<af:toolbar id="t1">
+                            <af:toolbar id="t1">
                                 <af:button text="Close Form" id="b10" action="ACT-ERP-GOTO-MAIN-GLS"
-                                   icon="#{resource['images:imgExitForm.png']}" iconPosition="top"/>
-                        <af:button text="Search" id="b12" action="ERP-ACT-GL-0004-SEARCH"
-                                   icon="#{resource['images:imgFind.png']}" iconPosition="top"/>
-                        <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
-                                   disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b8"
-                                   icon="#{resource['images:imgPrevious.png']}" iconPosition="top"/>
-                        <af:button actionListener="#{bindings.Next.execute}" text="Next"
-                                   disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="b7"
-                                   icon="#{resource['images:imgNext.png']}" iconPosition="top"/>
+                                           icon="#{resource['images:imgExitForm.png']}" iconPosition="top"/>
+                                <af:button text="Search" id="b12" action="ERP-ACT-GL-0001-SEARCH"
+                                           icon="#{resource['images:imgFind.png']}" iconPosition="top"/>
+                                <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
+                                           disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b8"
+                                           icon="#{resource['images:imgPrevious.png']}" iconPosition="top"/>
+                                <af:button actionListener="#{bindings.Next.execute}" text="Next"
+                                           disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="b7"
+                                           icon="#{resource['images:imgNext.png']}" iconPosition="top"/>
                                 <af:button actionListener="#{bindings.Delete.execute}" text="Delete Voucher"
-                                   disabled="#{pageFlowScope.ERPSolTempBean.LERPSolAllowDelete=='N'}" id="b2"
-                                   icon="#{resource['images:imgDelete.png']}" iconPosition="top"/>
-                        <af:button actionListener="#{bindings.CreateInsert.execute}" text="New Voucher"
-                                   disabled="#{pageFlowScope.ERPSolTempBean.LERPSolAllowAdd=='N'}" id="b1"
-                                   icon="#{resource['images:imgAdd.png']}" iconPosition="top"/>
-                        <af:button actionListener="#{bindings.Rollback.execute}" text="Undo Changes" immediate="true"
-                                   id="b6"
-                                   icon="#{resource['images:imgUndo.png']}" iconPosition="top">
-                          <af:resetActionListener/>
-                        </af:button>
-                        <af:button actionListener="#{bindings.Commit.execute}" text="Save Transaction" id="b5"
-                                   icon="#{resource['images:imgSave.png']}" iconPosition="top"/>
-                      </af:toolbar>
+                                           disabled="#{pageFlowScope.ERPSolTempBean.LERPSolAllowDelete=='N'}" id="b2"
+                                           icon="#{resource['images:imgDelete.png']}" iconPosition="top"/>
+                                <af:button actionListener="#{bindings.CreateInsert.execute}" text="New Voucher"
+                                           disabled="#{pageFlowScope.ERPSolTempBean.LERPSolAllowAdd=='N'}" id="b1"
+                                           icon="#{resource['images:imgAdd.png']}" iconPosition="top"/>
+                                <af:button actionListener="#{bindings.Rollback.execute}" text="Undo Changes"
+                                           immediate="true" id="b6" icon="#{resource['images:imgUndo.png']}"
+                                           iconPosition="top">
+                                    <af:resetActionListener/>
+                                </af:button>
+                                <af:button actionListener="#{bindings.Commit.execute}" text="Save Transaction" id="b5"
+                                           icon="#{resource['images:imgSave.png']}" iconPosition="top"/>
+                            </af:toolbar>
                         </f:facet>
                         <f:facet name="legend"/>
-                        <f:facet name="info"/>
+                        <af:spacer width="10" height="10" id="s2"/>
                         <af:panelFormLayout id="pfl1">
                             <af:panelLabelAndMessage label="GL Code" id="plam1">
                                 <af:panelGroupLayout id="pgl2" layout="horizontal">
@@ -45,9 +43,8 @@
                                                   label="#{bindings.GlnatureOfAC.hints.label}"
                                                   required="#{bindings.GlnatureOfAC.hints.mandatory}"
                                                   columns="#{bindings.GlnatureOfAC.hints.displayWidth}"
-                                                  maximumLength="1"
-                                                  shortDesc="#{bindings.GlnatureOfAC.hints.tooltip}" id="it1"
-                                                  simple="true" contentStyle="width:30px">
+                                                  maximumLength="1" shortDesc="#{bindings.GlnatureOfAC.hints.tooltip}"
+                                                  id="it1" simple="true" contentStyle="width:30px">
                                         <f:validator binding="#{bindings.GlnatureOfAC.validator}"/>
                                     </af:inputText>
                                     <af:inputText value="#{bindings.GlbroadCategory.inputValue}"
@@ -62,8 +59,7 @@
                                     <af:inputText value="#{bindings.GlcontrolAC.inputValue}"
                                                   label="#{bindings.GlcontrolAC.hints.label}"
                                                   required="#{bindings.GlcontrolAC.hints.mandatory}"
-                                                  columns="#{bindings.GlcontrolAC.hints.displayWidth}"
-                                                  maximumLength="2"
+                                                  columns="#{bindings.GlcontrolAC.hints.displayWidth}" maximumLength="2"
                                                   shortDesc="#{bindings.GlcontrolAC.hints.tooltip}" id="it3"
                                                   simple="true" contentStyle="width:30px">
                                         <f:validator binding="#{bindings.GlcontrolAC.validator}"/>
@@ -72,18 +68,16 @@
                                                   label="#{bindings.GlsubControlAC.hints.label}"
                                                   required="#{bindings.GlsubControlAC.hints.mandatory}"
                                                   columns="#{bindings.GlsubControlAC.hints.displayWidth}"
-                                                  maximumLength="2"
-                                                  shortDesc="#{bindings.GlsubControlAC.hints.tooltip}" id="it4"
-                                                  simple="true" contentStyle="width:30px">
+                                                  maximumLength="2" shortDesc="#{bindings.GlsubControlAC.hints.tooltip}"
+                                                  id="it4" simple="true" contentStyle="width:30px">
                                         <f:validator binding="#{bindings.GlsubControlAC.validator}"/>
                                     </af:inputText>
                                     <af:inputText value="#{bindings.GlsubsidaryAC.inputValue}"
                                                   label="#{bindings.GlsubsidaryAC.hints.label}"
                                                   required="#{bindings.GlsubsidaryAC.hints.mandatory}"
                                                   columns="#{bindings.GlsubsidaryAC.hints.displayWidth}"
-                                                  maximumLength="5"
-                                                  shortDesc="#{bindings.GlsubsidaryAC.hints.tooltip}" id="it5"
-                                                  simple="true" contentStyle="width:50px">
+                                                  maximumLength="5" shortDesc="#{bindings.GlsubsidaryAC.hints.tooltip}"
+                                                  id="it5" simple="true" contentStyle="width:50px">
                                         <f:validator binding="#{bindings.GlsubsidaryAC.validator}"/>
                                     </af:inputText>
                                 </af:panelGroupLayout>
@@ -93,12 +87,14 @@
                                           required="#{bindings.Description.hints.mandatory}"
                                           columns="#{bindings.Description.hints.displayWidth}"
                                           maximumLength="#{bindings.Description.hints.precision}"
-                                          shortDesc="#{bindings.Description.hints.tooltip}" id="it6">
+                                          shortDesc="#{bindings.Description.hints.tooltip}" id="it6"
+                                          contentStyle="width:100%">
                                 <f:validator binding="#{bindings.Description.validator}"/>
                             </af:inputText>
                             <af:selectOneChoice value="#{bindings.CoaType.inputValue}" label="#{bindings.CoaType.label}"
                                                 required="#{bindings.CoaType.hints.mandatory}"
-                                                shortDesc="#{bindings.CoaType.hints.tooltip}" id="soc1">
+                                                shortDesc="#{bindings.CoaType.hints.tooltip}" id="soc1"
+                                                contentStyle="width:100%">
                                 <f:selectItems value="#{bindings.CoaType.items}" id="si1"/>
                                 <f:validator binding="#{bindings.CoaType.validator}"/>
                             </af:selectOneChoice>
@@ -126,16 +122,15 @@
                                           shortDesc="#{bindings.Remarks2.hints.tooltip}" id="it9">
                                 <f:validator binding="#{bindings.Remarks2.validator}"/>
                             </af:inputText>
-                            <af:inputText value="#{bindings.RestrictGlCode.inputValue}"
-                                          label="#{bindings.RestrictGlCode.hints.label}"
-                                          required="#{bindings.RestrictGlCode.hints.mandatory}"
-                                          columns="#{bindings.RestrictGlCode.hints.displayWidth}"
-                                          maximumLength="#{bindings.RestrictGlCode.hints.precision}"
-                                          shortDesc="#{bindings.RestrictGlCode.hints.tooltip}" id="it10">
-                                <f:validator binding="#{bindings.RestrictGlCode.validator}"/>
-                            </af:inputText>
+                            <af:selectOneChoice label="#{bindings.RestrictGlCode.hints.label}"
+                                                value="#{bindings.RestrictGlCode.inputValue}" id="soc2"
+                                                contentStyle="width:100%">
+                                <af:selectItem label="Yes" value="Y" id="si2"/>
+                                <af:selectItem label="No" value="N" id="si3"/>
+                            </af:selectOneChoice>
                             <f:facet name="footer"/>
                         </af:panelFormLayout>
+                        <af:spacer width="10" height="10" id="s1"/>
                     </af:panelHeader>
                 </f:facet>
                 <f:facet name="erptempleft"/>

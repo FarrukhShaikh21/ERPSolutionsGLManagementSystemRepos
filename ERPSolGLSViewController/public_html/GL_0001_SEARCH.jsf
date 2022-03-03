@@ -12,6 +12,12 @@
                               queryListener="#{bindings.ChartOfAccViewFindVCQuery.processQuery}"
                               queryOperationListener="#{bindings.ChartOfAccViewFindVCQuery.processQueryOperation}"
                               resultComponentId="::resId1" modeChangeVisible="false" saveQueryMode="hidden"/>
+                    <f:facet name="toolbar">
+                        <af:toolbar id="t1">
+                            <af:button text="Back To Chart Of Account" id="b1" action="ERP-ACT-GL-0001-SEARCH-BACK"
+                                       icon="#{resource['images:imgExitForm.png']}"/>
+                        </af:toolbar>
+                    </f:facet>
                 </af:panelHeader>
                 <af:table value="#{bindings.ChartOfAccCRUD.collectionModel}" var="row"
                           rows="#{bindings.ChartOfAccCRUD.rangeSize}"
@@ -22,8 +28,11 @@
                           rowSelection="single" fetchSize="#{bindings.ChartOfAccCRUD.rangeSize}" id="resId1"
                           columnStretching="resId1c6">
                     <af:column headerText="#{bindings.ChartOfAccCRUD.hints.GlnatureOfAC.label}" id="resId1c1">
+                        <af:link text="#{row.GlnatureOfAC}" id="l1" partialSubmit="true"
+                                 action="ERP-ACT-GL-0001-SEARCH-BACK"/>
                         <af:outputText value="#{row.GlnatureOfAC}"
-                                       shortDesc="#{bindings.ChartOfAccCRUD.hints.GlnatureOfAC.tooltip}" id="ot1"/>
+                                       shortDesc="#{bindings.ChartOfAccCRUD.hints.GlnatureOfAC.tooltip}" id="ot1"
+                                       rendered="false"/>
                     </af:column>
                     <af:column headerText="#{bindings.ChartOfAccCRUD.hints.GlbroadCategory.label}" id="resId1c2">
                         <af:outputText value="#{row.GlbroadCategory}"

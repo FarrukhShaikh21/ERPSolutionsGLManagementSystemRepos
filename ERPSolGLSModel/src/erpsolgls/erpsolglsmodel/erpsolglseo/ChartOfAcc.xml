@@ -9,7 +9,13 @@
   DBObjectType="table"
   DBObjectName="CHART_OF_ACC"
   AliasName="ChartOfAcc"
-  BindingStyle="OracleName">
+  BindingStyle="OracleName"
+  RowClass="erpsolgls.erpsolglsmodel.erpsolglseo.ChartOfAccImpl">
+  <DesignTime>
+    <Attr Name="_superClass" Value="erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobalsEntityImpl"/>
+    <Attr Name="_codeGenFlag2" Value="Init|Delete|Access|DML"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <Attribute
     Name="GlnatureOfAC"
     IsNotNull="true"
@@ -118,7 +124,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="CHART_OF_ACC">
+    TableName="CHART_OF_ACC"
+    DefaultValue="F">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
