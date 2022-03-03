@@ -421,4 +421,29 @@
       <property
          name="sdm:polyPoints">T50,699.7119,459.79883,771.5,366.64355,T50</property>
    </ControlFlowCase>
+   <View
+      id="View34">
+      <property
+         name="activityId">GL_0001</property>
+      <property
+         name="page">/GL_0001.jsf</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>GL_0001&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">755.09766</property>
+      <property
+         name="x">536.5</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase35"
+      from="MethodCall15"
+      to="View34">
+      <property
+         name="fromOutcome">ERP-ACT-GL-0001</property>
+      <property
+         name="sdm:polyPoints">B50,448.02637,534.1494,536.5,700.7471,T50</property>
+   </ControlFlowCase>
 </SDM>

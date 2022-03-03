@@ -2,9 +2,129 @@
 <!DOCTYPE html>
 <f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
     <af:document title="GL_0001.jsf" id="d1">
+        <af:messages id="m1"/>
         <af:form id="f1">
             <af:pageTemplate viewId="/ERPSolutionTemplate.jsf" value="#{bindings.ptb1}" id="pt1">
-                <f:facet name="erptempmain"/>
+                <f:facet name="erptempmain">
+                    <af:panelHeader text="Chart Of Account" id="ph1">
+                        <f:facet name="context"/>
+                        <f:facet name="menuBar"/>
+                        <f:facet name="toolbar">
+                            <af:toolbar id="t1">
+                                <af:panelGroupLayout layout="horizontal" id="pgl1">
+                                    <af:button actionListener="#{bindings.First.execute}" text="First"
+                                               disabled="#{!bindings.First.enabled}" partialSubmit="true" id="b1"/>
+                                    <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
+                                               disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b2"/>
+                                    <af:button actionListener="#{bindings.Next.execute}" text="Next"
+                                               disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="b3"/>
+                                    <af:button actionListener="#{bindings.Last.execute}" text="Last"
+                                               disabled="#{!bindings.Last.enabled}" partialSubmit="true" id="b4"/>
+                                </af:panelGroupLayout>
+                            </af:toolbar>
+                        </f:facet>
+                        <f:facet name="legend"/>
+                        <f:facet name="info"/>
+                        <af:panelFormLayout id="pfl1">
+                            <af:panelLabelAndMessage label="GL Code" id="plam1">
+                                <af:panelGroupLayout id="pgl2" layout="horizontal">
+                                    <af:inputText value="#{bindings.GlnatureOfAC.inputValue}"
+                                                  label="#{bindings.GlnatureOfAC.hints.label}"
+                                                  required="#{bindings.GlnatureOfAC.hints.mandatory}"
+                                                  columns="#{bindings.GlnatureOfAC.hints.displayWidth}"
+                                                  maximumLength="#{bindings.GlnatureOfAC.hints.precision}"
+                                                  shortDesc="#{bindings.GlnatureOfAC.hints.tooltip}" id="it1"
+                                                  simple="true">
+                                        <f:validator binding="#{bindings.GlnatureOfAC.validator}"/>
+                                    </af:inputText>
+                                    <af:inputText value="#{bindings.GlbroadCategory.inputValue}"
+                                                  label="#{bindings.GlbroadCategory.hints.label}"
+                                                  required="#{bindings.GlbroadCategory.hints.mandatory}"
+                                                  columns="#{bindings.GlbroadCategory.hints.displayWidth}"
+                                                  maximumLength="#{bindings.GlbroadCategory.hints.precision}"
+                                                  shortDesc="#{bindings.GlbroadCategory.hints.tooltip}" id="it2"
+                                                  simple="true">
+                                        <f:validator binding="#{bindings.GlbroadCategory.validator}"/>
+                                    </af:inputText>
+                                    <af:inputText value="#{bindings.GlcontrolAC.inputValue}"
+                                                  label="#{bindings.GlcontrolAC.hints.label}"
+                                                  required="#{bindings.GlcontrolAC.hints.mandatory}"
+                                                  columns="#{bindings.GlcontrolAC.hints.displayWidth}"
+                                                  maximumLength="#{bindings.GlcontrolAC.hints.precision}"
+                                                  shortDesc="#{bindings.GlcontrolAC.hints.tooltip}" id="it3"
+                                                  simple="true">
+                                        <f:validator binding="#{bindings.GlcontrolAC.validator}"/>
+                                    </af:inputText>
+                                    <af:inputText value="#{bindings.GlsubControlAC.inputValue}"
+                                                  label="#{bindings.GlsubControlAC.hints.label}"
+                                                  required="#{bindings.GlsubControlAC.hints.mandatory}"
+                                                  columns="#{bindings.GlsubControlAC.hints.displayWidth}"
+                                                  maximumLength="#{bindings.GlsubControlAC.hints.precision}"
+                                                  shortDesc="#{bindings.GlsubControlAC.hints.tooltip}" id="it4"
+                                                  simple="true">
+                                        <f:validator binding="#{bindings.GlsubControlAC.validator}"/>
+                                    </af:inputText>
+                                    <af:inputText value="#{bindings.GlsubsidaryAC.inputValue}"
+                                                  label="#{bindings.GlsubsidaryAC.hints.label}"
+                                                  required="#{bindings.GlsubsidaryAC.hints.mandatory}"
+                                                  columns="#{bindings.GlsubsidaryAC.hints.displayWidth}"
+                                                  maximumLength="#{bindings.GlsubsidaryAC.hints.precision}"
+                                                  shortDesc="#{bindings.GlsubsidaryAC.hints.tooltip}" id="it5"
+                                                  simple="true">
+                                        <f:validator binding="#{bindings.GlsubsidaryAC.validator}"/>
+                                    </af:inputText>
+                                </af:panelGroupLayout>
+                            </af:panelLabelAndMessage>
+                            <af:inputText value="#{bindings.Description.inputValue}"
+                                          label="#{bindings.Description.hints.label}"
+                                          required="#{bindings.Description.hints.mandatory}"
+                                          columns="#{bindings.Description.hints.displayWidth}"
+                                          maximumLength="#{bindings.Description.hints.precision}"
+                                          shortDesc="#{bindings.Description.hints.tooltip}" id="it6">
+                                <f:validator binding="#{bindings.Description.validator}"/>
+                            </af:inputText>
+                            <af:selectOneChoice value="#{bindings.CoaType.inputValue}" label="#{bindings.CoaType.label}"
+                                                required="#{bindings.CoaType.hints.mandatory}"
+                                                shortDesc="#{bindings.CoaType.hints.tooltip}" id="soc1">
+                                <f:selectItems value="#{bindings.CoaType.items}" id="si1"/>
+                                <f:validator binding="#{bindings.CoaType.validator}"/>
+                            </af:selectOneChoice>
+                            <af:inputText value="#{bindings.OldGlCode.inputValue}"
+                                          label="#{bindings.OldGlCode.hints.label}"
+                                          required="#{bindings.OldGlCode.hints.mandatory}"
+                                          columns="#{bindings.OldGlCode.hints.displayWidth}"
+                                          maximumLength="#{bindings.OldGlCode.hints.precision}"
+                                          shortDesc="#{bindings.OldGlCode.hints.tooltip}" id="it7">
+                                <f:validator binding="#{bindings.OldGlCode.validator}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.Remarks1.inputValue}"
+                                          label="#{bindings.Remarks1.hints.label}"
+                                          required="#{bindings.Remarks1.hints.mandatory}"
+                                          columns="#{bindings.Remarks1.hints.displayWidth}"
+                                          maximumLength="#{bindings.Remarks1.hints.precision}"
+                                          shortDesc="#{bindings.Remarks1.hints.tooltip}" id="it8">
+                                <f:validator binding="#{bindings.Remarks1.validator}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.Remarks2.inputValue}"
+                                          label="#{bindings.Remarks2.hints.label}"
+                                          required="#{bindings.Remarks2.hints.mandatory}"
+                                          columns="#{bindings.Remarks2.hints.displayWidth}"
+                                          maximumLength="#{bindings.Remarks2.hints.precision}"
+                                          shortDesc="#{bindings.Remarks2.hints.tooltip}" id="it9">
+                                <f:validator binding="#{bindings.Remarks2.validator}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.RestrictGlCode.inputValue}"
+                                          label="#{bindings.RestrictGlCode.hints.label}"
+                                          required="#{bindings.RestrictGlCode.hints.mandatory}"
+                                          columns="#{bindings.RestrictGlCode.hints.displayWidth}"
+                                          maximumLength="#{bindings.RestrictGlCode.hints.precision}"
+                                          shortDesc="#{bindings.RestrictGlCode.hints.tooltip}" id="it10">
+                                <f:validator binding="#{bindings.RestrictGlCode.validator}"/>
+                            </af:inputText>
+                            <f:facet name="footer"/>
+                        </af:panelFormLayout>
+                    </af:panelHeader>
+                </f:facet>
                 <f:facet name="erptempleft"/>
             </af:pageTemplate>
         </af:form>

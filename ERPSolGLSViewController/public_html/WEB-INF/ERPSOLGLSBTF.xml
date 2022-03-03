@@ -105,6 +105,9 @@
         <fixed-outcome>ERP-ACT-GL-0123</fixed-outcome>
       </outcome>
     </method-call>
+    <view id="GL_0001">
+      <page>/GL_0001.jsf</page>
+    </view>
     <control-flow-rule id="__1">
       <from-activity-id>*</from-activity-id>
       <control-flow-case id="__2">
@@ -181,6 +184,10 @@
       <control-flow-case id="__32">
         <from-outcome>ERP-ACT-GL-0123</from-outcome>
         <to-activity-id>doSetERPSolGLReportDefault</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__35">
+        <from-outcome>ERP-ACT-GL-0001</from-outcome>
+        <to-activity-id>GL_0001</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__28">

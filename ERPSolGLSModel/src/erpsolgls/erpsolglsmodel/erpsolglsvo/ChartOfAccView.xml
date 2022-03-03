@@ -13,6 +13,29 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <ViewAccessor
+    Name="AccGlCoaTypeView"
+    ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsvo.GlCoaTypeView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LovCoaType"
+    ListVOName="AccGlCoaTypeView"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CoaType"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CoaTypeId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CoaTypeName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="ChartOfAcc"
     Entity="erpsolgls.erpsolglsmodel.erpsolglseo.ChartOfAcc"/>
@@ -117,7 +140,15 @@
     PrecisionRule="true"
     EntityAttrName="CoaType"
     EntityUsage="ChartOfAcc"
-    AliasName="COA_TYPE"/>
+    AliasName="COA_TYPE"
+    LOVName="LovCoaType">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewLinkAccessor
     Name="VoucherDetView"
     ViewLink="erpsolgls.erpsolglsmodel.erpsolglslink.ChartOfAccountVoucherDetailGLCodeLink"
