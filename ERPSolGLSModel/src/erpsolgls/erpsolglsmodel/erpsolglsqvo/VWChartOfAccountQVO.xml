@@ -40,6 +40,14 @@ A.glnature_of_a_c , A.glbroad_category , A.glcontrol_a_c ,
     <DesignTime>
       <Attr Name="_DisplaySize" Value="12"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolgls.erpsolglsmodel.erpsolglsqvo.VWChartOfAccountQVO.Glcode_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="Description"
@@ -55,6 +63,14 @@ A.glnature_of_a_c , A.glbroad_category , A.glcontrol_a_c ,
     <DesignTime>
       <Attr Name="_DisplaySize" Value="50"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <LABEL
+          ResId="erpsolgls.erpsolglsmodel.erpsolglsqvo.VWChartOfAccountQVO.Description_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="GlnatureOfAC"
