@@ -51,24 +51,21 @@
       </SchemaBasedProperties>
     </Properties>
   </Variable>
-  <SQLQuery><![CDATA[select A.glnature_of_a_c || A.glbroad_category || A.glcontrol_a_c ||A.glsub_control_a_c || A.glsubsidary_a_c GL_Code,           
-A.DESCRIPTION,       
-A.glnature_of_a_c,       
-A.glbroad_category,       
-A.glcontrol_a_c,         
-A.glsub_control_a_c,       
-A.glsubsidary_a_c       
-from chart_of_acc A, COA_LOC_MAP B        
-WHERE A.glsubsidary_a_c <> '00000'        
-and NVL(A.Restrict_gl_code, 'N') = 'N'        
-and B.LocationId = :P_ADF_LOC_CODE        
-AND ((NVL(A.COA_Type, 'JV') = 'JV' AND :P_ADF_GL_V_TYPE ='R' AND :P_ADF_VOUCHER_TYPE !='CNT') OR (NVL(A.COA_Type, 'JV') = :P_ADF_VOUCHER_TYPE AND :P_ADF_GL_V_TYPE ='P' AND :P_ADF_VOUCHER_TYPE !='CNT') OR (NVL(A.COA_Type, 'JV') in('BV', 'CV', 'PV') AND :P_ADF_VOUCHER_TYPE ='CNT'))    
-and A.glnature_of_a_c || A.glbroad_category || A.glcontrol_a_c ||A.glsub_control_a_c || A.glsubsidary_a_c =B.glnature_of_a_c || B.glbroad_category || B.glcontrol_a_c ||B.glsub_control_a_c || B.glsubsidary_a_c        
-AND A.glnature_of_a_c || A.glbroad_category || A.glcontrol_a_c ||A.glsub_control_a_c || A.glsubsidary_a_c NOT IN        
-(Select R.gl_code               
-From COA_LOC_MAP_Restrict R               
-Where R.locationid = :P_ADF_LOC_CODE               
-AND R.voucher_type = :P_ADF_VOUCHER_TYPE        
+  <SQLQuery><![CDATA[select A.GL_Code,              
+A.DESCRIPTION,          
+A.glnature_of_a_c,          
+A.glbroad_category,          
+A.glcontrol_a_c,            
+A.glsub_control_a_c,          
+A.glsubsidary_a_c          
+from VW_GL_CREDIT A  
+WHERE A.LocationId = :P_ADF_LOC_CODE          
+AND ((NVL(A.COA_Type, 'JV') = 'JV' AND :P_ADF_GL_V_TYPE ='R' AND :P_ADF_VOUCHER_TYPE !='CNT') OR (NVL(A.COA_Type, 'JV') = :P_ADF_VOUCHER_TYPE AND :P_ADF_GL_V_TYPE ='P' AND :P_ADF_VOUCHER_TYPE !='CNT') OR (NVL(A.COA_Type, 'JV') in('BV', 'CV', 'PV') AND :P_ADF_VOUCHER_TYPE ='CNT'))  
+AND a.GL_Code NOT IN          
+(Select R.gl_code                 
+From COA_LOC_MAP_Restrict R                 
+Where R.locationid = :P_ADF_LOC_CODE                 
+AND R.voucher_type = :P_ADF_VOUCHER_TYPE          
 AND R.restrict_side = 'C') ORDER BY A.DESCRIPTION]]></SQLQuery>
   <ViewAttribute
     Name="GlCode"
