@@ -481,4 +481,19 @@
       <property
          name="sdm:polyPoints">R54,280.05637,822.94824,495.5,758.2471,L54</property>
    </ControlFlowCase>
+   <View
+      id="View39">
+      <property
+         name="activityId">ERPSolGLSException</property>
+      <property
+         name="page">/ERPSolGLSException.jsf</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ERPSolGLSException&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">true</property>
+      <property
+         name="y">716.7988</property>
+      <property
+         name="x">-117.63574</property>
+   </View>
 </SDM>

@@ -35,6 +35,7 @@
       <managed-bean-class>erpsoltemp.erpsoltempview.erptempclass.ERPSolutionTemplateBean</managed-bean-class>
       <managed-bean-scope>pageFlow</managed-bean-scope>
     </managed-bean>
+    <exception-handler>ERPSolGLSException</exception-handler>
     <task-flow-return id="RETURN-FROM-GLS">
       <outcome>
         <name>RETURN-FROM-GLS</name>
@@ -110,6 +111,9 @@
     </view>
     <view id="GL_0001_SEARCH">
       <page>/GL_0001_SEARCH.jsf</page>
+    </view>
+    <view id="ERPSolGLSException">
+      <page>/ERPSolGLSException.jsf</page>
     </view>
     <control-flow-rule id="__1">
       <from-activity-id>*</from-activity-id>

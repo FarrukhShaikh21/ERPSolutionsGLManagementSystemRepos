@@ -462,6 +462,13 @@
         Conjunction="AND"
         Required="Optional"/>
       <ViewCriteriaItem
+        Name="ChequeNo"
+        ViewAttribute="ChequeNo"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        UpperColumns="1"
+        Required="Optional"/>
+      <ViewCriteriaItem
         Name="SubmitVoucherNo"
         ViewAttribute="SubmitVoucherNo"
         Operator="CONTAINS"
