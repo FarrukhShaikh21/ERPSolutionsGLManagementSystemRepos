@@ -51,21 +51,27 @@
       </SchemaBasedProperties>
     </Properties>
   </Variable>
-  <SQLQuery><![CDATA[select A.GL_Code,              
-A.DESCRIPTION,          
-A.glnature_of_a_c,          
-A.glbroad_category,          
-A.glcontrol_a_c,            
-A.glsub_control_a_c,          
-A.glsubsidary_a_c          
-from VW_GL_CREDIT A  
-WHERE A.LocationId = :P_ADF_LOC_CODE          
-AND ((NVL(A.COA_Type, 'JV') = 'JV' AND :P_ADF_GL_V_TYPE ='R' AND :P_ADF_VOUCHER_TYPE !='CNT') OR (NVL(A.COA_Type, 'JV') = :P_ADF_VOUCHER_TYPE AND :P_ADF_GL_V_TYPE ='P' AND :P_ADF_VOUCHER_TYPE !='CNT') OR (NVL(A.COA_Type, 'JV') in('BV', 'CV', 'PV') AND :P_ADF_VOUCHER_TYPE ='CNT'))  
-AND a.GL_Code NOT IN          
-(Select R.gl_code                 
-From COA_LOC_MAP_Restrict R                 
-Where R.locationid = :P_ADF_LOC_CODE                 
-AND R.voucher_type = :P_ADF_VOUCHER_TYPE          
+  <SQLQuery><![CDATA[with vw_param as( 
+                select :P_ADF_VOUCHER_TYPE P_ADF_VOUCHER_TYPE, 
+                       :P_ADF_GL_V_TYPE P_ADF_GL_V_TYPE, 
+                       :P_ADF_LOC_CODE P_ADF_LOC_CODE 
+                 from dual 
+                 )       
+select A.GL_Code,               
+A.DESCRIPTION,           
+A.glnature_of_a_c,           
+A.glbroad_category,           
+A.glcontrol_a_c,             
+A.glsub_control_a_c,           
+A.glsubsidary_a_c           
+from VW_GL_CREDIT A , vw_param 
+WHERE A.LocationId = vw_param.P_ADF_LOC_CODE           
+AND ((NVL(A.COA_Type, 'JV') = 'JV' AND vw_param.P_ADF_GL_V_TYPE ='R' AND vw_param.P_ADF_VOUCHER_TYPE !='CNT') OR (NVL(A.COA_Type, 'JV') = vw_param.P_ADF_VOUCHER_TYPE AND vw_param.P_ADF_GL_V_TYPE ='P' AND vw_param.P_ADF_VOUCHER_TYPE !='CNT') OR (NVL(A.COA_Type, 'JV') in('BV', 'CV', 'PV') AND vw_param.P_ADF_VOUCHER_TYPE ='CNT'))   
+AND a.GL_Code NOT IN           
+(Select R.gl_code                  
+From COA_LOC_MAP_Restrict R                  
+Where R.locationid = vw_param.P_ADF_LOC_CODE                  
+AND R.voucher_type = vw_param.P_ADF_VOUCHER_TYPE           
 AND R.restrict_side = 'C') ORDER BY A.DESCRIPTION]]></SQLQuery>
   <ViewAttribute
     Name="GlCode"
@@ -109,7 +115,7 @@ AND R.restrict_side = 'C') ORDER BY A.DESCRIPTION]]></SQLQuery>
         <LABEL
           ResId="erpsolgls.erpsolglsmodel.erpsolglsqvo.VWGLCreditQVO.Description_LABEL"/>
         <DISPLAYWIDTH
-          Value="20"/>
+          Value="30"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -249,13 +255,27 @@ AND R.restrict_side = 'C') ORDER BY A.DESCRIPTION]]></SQLQuery>
         ViewAttribute="GlCode"
         Operator="CONTAINS"
         Conjunction="AND"
-        Required="Optional"/>
+        Required="Optional">
+        <Properties>
+          <SchemaBasedProperties>
+            <DISPLAYWIDTH
+              Value="30"/>
+          </SchemaBasedProperties>
+        </Properties>
+      </ViewCriteriaItem>
       <ViewCriteriaItem
         Name="VWGLCreditQVOCriteria_VWGLCreditQVOCriteria_row_0_Description"
         ViewAttribute="Description"
         Operator="CONTAINS"
         Conjunction="AND"
-        Required="Optional"/>
+        Required="Optional">
+        <Properties>
+          <SchemaBasedProperties>
+            <DISPLAYWIDTH
+              Value="30"/>
+          </SchemaBasedProperties>
+        </Properties>
+      </ViewCriteriaItem>
     </ViewCriteriaRow>
   </ViewCriteria>
   <AttrArray Name="KeyAttributes">

@@ -1028,7 +1028,8 @@ public class VoucherImpl extends ERPSolGlobalsEntityImpl {
                 }
             }
 
-            
+            populateAttributeAsChanged(PREPAREBY, ERPSolGlobClassModel.doGetUserCode());
+            populateAttributeAsChanged(PREPAREDT,ERPSolGlobClassModel.doGetOracleJBOCurrentDate()); 
                   
         }        
 

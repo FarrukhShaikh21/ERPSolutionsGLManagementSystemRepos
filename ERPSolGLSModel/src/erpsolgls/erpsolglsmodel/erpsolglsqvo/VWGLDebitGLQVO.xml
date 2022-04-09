@@ -53,23 +53,29 @@
       </SchemaBasedProperties>
     </Properties>
   </Variable>
-  <SQLQuery><![CDATA[select A.GL_Code,                       
-A.DESCRIPTION,                    
-A.glnature_of_a_c,                    
-A.glbroad_category,                    
-A.glcontrol_a_c,                    
-A.glsub_control_a_c,                    
-A.glsubsidary_a_c                    
-from VW_GL_Debit a      
-where a.LocationId = :P_ADF_LOC_CODE    
-AND ((NVL(COA_Type, 'JV') = :P_ADF_VOUCHER_TYPE  AND :P_ADF_GL_VOUCHER_TYPE='R')  OR (NVL(A.COA_Type, 'JV') = 'JV'  AND :P_ADF_GL_VOUCHER_TYPE='P'  AND :P_ADF_VOUCHER_TYPE!='PV') OR (a.glnature_of_a_c = 'E'  AND :P_ADF_VOUCHER_TYPE='PV') OR (NVL(A.COA_Type, 'JV') in('BV', 'CV', 'PV')  AND :P_ADF_VOUCHER_TYPE='CNT'))   
-AND A.GL_Code   
-NOT IN                
-(Select R.gl_code                
-From COA_LOC_MAP_Restrict R               
-Where R.locationid = :P_ADF_LOC_CODE               
-AND R.voucher_type = :P_ADF_VOUCHER_TYPE               
-AND R.restrict_side = 'D' AND  :P_ADF_VOUCHER_TYPE!='PV') ORDER BY A.DESCRIPTION]]></SQLQuery>
+  <SQLQuery><![CDATA[with vw_param as(  
+                select :P_ADF_VOUCHER_TYPE P_ADF_VOUCHER_TYPE,  
+                       :P_ADF_GL_VOUCHER_TYPE P_ADF_GL_VOUCHER_TYPE,  
+                       :P_ADF_LOC_CODE P_ADF_LOC_CODE  
+                 from dual  
+                 )        
+select A.GL_Code,                         
+A.DESCRIPTION,                      
+A.glnature_of_a_c,                      
+A.glbroad_category,                      
+A.glcontrol_a_c,                      
+A.glsub_control_a_c,                      
+A.glsubsidary_a_c                      
+from VW_GL_Debit a ,vw_param  
+where a.LocationId = vw_param.P_ADF_LOC_CODE      
+AND ((NVL(COA_Type, 'JV') = vw_param.P_ADF_VOUCHER_TYPE  AND vw_param.P_ADF_GL_VOUCHER_TYPE='R')  OR (NVL(A.COA_Type, 'JV') = 'JV'  AND vw_param.P_ADF_GL_VOUCHER_TYPE='P'  AND vw_param.P_ADF_VOUCHER_TYPE!='PV') OR (a.glnature_of_a_c = 'E'  AND vw_param.P_ADF_VOUCHER_TYPE='PV') OR (NVL(A.COA_Type, 'JV') in('BV', 'CV', 'PV')  AND vw_param.P_ADF_VOUCHER_TYPE='CNT'))     
+AND A.GL_Code     
+NOT IN                  
+(Select R.gl_code                  
+From COA_LOC_MAP_Restrict R                 
+Where R.locationid = vw_param.P_ADF_LOC_CODE                 
+AND R.voucher_type = vw_param.P_ADF_VOUCHER_TYPE                 
+AND R.restrict_side = 'D' AND  vw_param.P_ADF_VOUCHER_TYPE!='PV') ORDER BY A.DESCRIPTION]]></SQLQuery>
   <ViewAttribute
     Name="GlCode"
     IsUpdateable="false"
@@ -110,7 +116,7 @@ AND R.restrict_side = 'D' AND  :P_ADF_VOUCHER_TYPE!='PV') ORDER BY A.DESCRIPTION
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="20"/>
+          Value="30"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -124,7 +130,8 @@ AND R.restrict_side = 'D' AND  :P_ADF_VOUCHER_TYPE!='PV') ORDER BY A.DESCRIPTION
     ColumnType="VARCHAR2"
     AliasName="GLNATURE_OF_A_C"
     Expression="GLNATURE_OF_A_C"
-    SQLType="VARCHAR">
+    SQLType="VARCHAR"
+    IsQueriable="false">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -145,7 +152,8 @@ AND R.restrict_side = 'D' AND  :P_ADF_VOUCHER_TYPE!='PV') ORDER BY A.DESCRIPTION
     ColumnType="VARCHAR2"
     AliasName="GLBROAD_CATEGORY"
     Expression="GLBROAD_CATEGORY"
-    SQLType="VARCHAR">
+    SQLType="VARCHAR"
+    IsQueriable="false">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="2"/>
     </DesignTime>
@@ -166,7 +174,8 @@ AND R.restrict_side = 'D' AND  :P_ADF_VOUCHER_TYPE!='PV') ORDER BY A.DESCRIPTION
     ColumnType="VARCHAR2"
     AliasName="GLCONTROL_A_C"
     Expression="GLCONTROL_A_C"
-    SQLType="VARCHAR">
+    SQLType="VARCHAR"
+    IsQueriable="false">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="2"/>
     </DesignTime>
@@ -187,7 +196,8 @@ AND R.restrict_side = 'D' AND  :P_ADF_VOUCHER_TYPE!='PV') ORDER BY A.DESCRIPTION
     ColumnType="VARCHAR2"
     AliasName="GLSUB_CONTROL_A_C"
     Expression="GLSUB_CONTROL_A_C"
-    SQLType="VARCHAR">
+    SQLType="VARCHAR"
+    IsQueriable="false">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="2"/>
     </DesignTime>
@@ -208,7 +218,8 @@ AND R.restrict_side = 'D' AND  :P_ADF_VOUCHER_TYPE!='PV') ORDER BY A.DESCRIPTION
     ColumnType="VARCHAR2"
     AliasName="GLSUBSIDARY_A_C"
     Expression="GLSUBSIDARY_A_C"
-    SQLType="VARCHAR">
+    SQLType="VARCHAR"
+    IsQueriable="false">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="5"/>
     </DesignTime>
@@ -250,13 +261,27 @@ AND R.restrict_side = 'D' AND  :P_ADF_VOUCHER_TYPE!='PV') ORDER BY A.DESCRIPTION
         ViewAttribute="GlCode"
         Operator="CONTAINS"
         Conjunction="AND"
-        Required="Optional"/>
+        Required="Optional">
+        <Properties>
+          <SchemaBasedProperties>
+            <DISPLAYWIDTH
+              Value="30"/>
+          </SchemaBasedProperties>
+        </Properties>
+      </ViewCriteriaItem>
       <ViewCriteriaItem
         Name="VWGLDebitGLQVOCriteria_VWGLDebitGLQVOCriteria_row_0_Description"
         ViewAttribute="Description"
         Operator="CONTAINS"
         Conjunction="AND"
-        Required="Optional"/>
+        Required="Optional">
+        <Properties>
+          <SchemaBasedProperties>
+            <DISPLAYWIDTH
+              Value="30"/>
+          </SchemaBasedProperties>
+        </Properties>
+      </ViewCriteriaItem>
     </ViewCriteriaRow>
   </ViewCriteria>
   <AttrArray Name="KeyAttributes">

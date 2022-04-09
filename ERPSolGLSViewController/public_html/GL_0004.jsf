@@ -322,7 +322,6 @@
                                                       autoSubmit="true" contentStyle="width:95%"
                                                       readOnly="#{row.bindings.txtGLCodeCreditDescription.inputValue!=&quot;&quot;}">
                           <f:validator binding="#{row.bindings.txtGlDescription.validator}"/>
-                          <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolGLSPageFlowBean.doERPSolGetAutoSuggestedDebitGLValues}"/>
                         </af:inputComboboxListOfValues>
                       </af:column>
                       <af:column headerText="#{bindings.VoucherDetViewDetCRUD.hints.CreditGlCode.label}" id="c2"
@@ -349,7 +348,6 @@
                                                       contentStyle="width:100%"
                                                       readOnly="#{row.bindings.DebitGlCode.inputValue!=null}">
                           <f:validator binding="#{row.bindings.txtGLCodeCreditDescription.validator}"/>
-                          <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolGLSPageFlowBean.doERPSolGetAutoSuggestedCreditGLValues}"/>
                         </af:inputComboboxListOfValues>
                       </af:column>
                       <af:column headerText="#{bindings.VoucherDetViewDetCRUD.hints.txtCostCenter.label}" id="c5">

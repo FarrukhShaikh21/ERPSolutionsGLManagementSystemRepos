@@ -100,7 +100,8 @@
       <Item Value="Description"/>
       <Item Value="GlCode"/>
     </AttrArray>
-    <DisplayCriteria/>
+    <DisplayCriteria
+      Name="VWGLDebitGLFindVC"/>
   </ListBinding>
   <ListBinding
     Name="LovtxtCostCenterDescription"
@@ -164,7 +165,8 @@
       <Item Value="Description"/>
       <Item Value="GlCode"/>
     </AttrArray>
-    <DisplayCriteria/>
+    <DisplayCriteria
+      Name="VWGLCreditFindVC"/>
   </ListBinding>
   <EntityUsage
     Name="VoucherDet"
