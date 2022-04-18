@@ -10,7 +10,10 @@ import java.sql.SQLException;
 
 import java.sql.Types;
 
+import oracle.adf.share.logging.ADFLogger;
+
 import oracle.jbo.AttributeList;
+import oracle.jbo.JboException;
 import oracle.jbo.Key;
 import oracle.jbo.RowIterator;
 import oracle.jbo.domain.Date;
@@ -994,26 +997,52 @@ public class VoucherImpl extends ERPSolGlobalsEntityImpl {
      */
     protected void doDML(int operation, TransactionEvent e) {
         if (operation==DML_INSERT) {
+        System.out.println("this is error..");
+            ADFLogger.createADFLogger("arg0");
+            try {
+                if (getVoucherType().equals("BV") && getGlVType().equals("R")) {
+                    System.out.println("two...");
+                    populateAttributeAsChanged(GLVOUCHERTYPE, "BRV");
+                    System.out.println("three...");
+                } else if (getVoucherType().equals("BV") && getGlVType().equals("P")) {
+                    System.out.println("four...");
+                    populateAttributeAsChanged(GLVOUCHERTYPE, "BPV");
+                    System.out.println("five...");
+                } else if (getVoucherType().equals("CV") && getGlVType().equals("R")) {
+                    System.out.println("five...");
+                    populateAttributeAsChanged(GLVOUCHERTYPE, "CRV");
+                    System.out.println("six...");
+                } else if (getVoucherType().equals("CV") && getGlVType().equals("P")) {
+                    System.out.println("seven...");
+                    populateAttributeAsChanged(GLVOUCHERTYPE, "CPV");
+                    System.out.println("eight...");
+                } else if (getVoucherType().equals("PV") && getGlVType().equals("R")) {
+                    System.out.println("nine...");
+                    populateAttributeAsChanged(GLVOUCHERTYPE, "CRV");
+                    System.out.println("ten...");
+                } else if (getVoucherType().equals("PV") && getGlVType().equals("P"))
 
-            if (getVoucherType().equals("BV") && getGlVType().equals("R"))
-                populateAttributeAsChanged(GLVOUCHERTYPE, "BRV");
-           else if (getVoucherType().equals("BV") && getGlVType().equals("P"))
-                populateAttributeAsChanged(GLVOUCHERTYPE, "BPV");
-           else if (getVoucherType().equals("CV") && getGlVType().equals("R"))
-                populateAttributeAsChanged(GLVOUCHERTYPE, "CRV");
-           else if (getVoucherType().equals("CV") && getGlVType().equals("P"))
-                populateAttributeAsChanged(GLVOUCHERTYPE, "CPV");
-           else if (getVoucherType().equals("PV") && getGlVType().equals("R"))
-                populateAttributeAsChanged(GLVOUCHERTYPE, "CRV");
-           else if (getVoucherType().equals("PV") && getGlVType().equals("P"))
-                populateAttributeAsChanged(GLVOUCHERTYPE, "CPV");
-           else if (getVoucherType().equals("CNT"))
-                populateAttributeAsChanged(GLVOUCHERTYPE, "CNT");
-            else
-                populateAttributeAsChanged(GLVOUCHERTYPE, "JVV");
+                {
+                    System.out.println("eleven...");
+                    populateAttributeAsChanged(GLVOUCHERTYPE, "CPV");
+                    System.out.println("twelve...");
+                } else if (getVoucherType().equals("CNT")) {
+                    System.out.println("thirteen...");
+                    populateAttributeAsChanged(GLVOUCHERTYPE, "CNT");
+                    System.out.println("fourteen...");
+                } else {
+                    System.out.println("fifteen...");
+                    populateAttributeAsChanged(GLVOUCHERTYPE, "JVV");
+                    System.out.println("sixteen...");
+                }
+            } catch (Exception ee) {
+                // TODO: Add catch code
+               throw new JboException("Donot Close Message please contact IT:"+ee.getMessage());
+            }   
             
             String plsql=" BEGIN ?:=func_get_voucher_no('"+ERPSolGlobClassModel.doGetUserLocationCode()+"',TO_DATE('"+getVoucherDate()+"','YYYY-MM-DD'),'"+getVoucherType()+"'); END;";
             CallableStatement cs = getDBTransaction().createCallableStatement(plsql, getDBTransaction().DEFAULT);
+            
             System.out.println(plsql);
             try {
                 cs.registerOutParameter(1, Types.VARCHAR);
