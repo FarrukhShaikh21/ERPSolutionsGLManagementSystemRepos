@@ -714,14 +714,15 @@ public class VoucherDetImpl extends ERPSolGlobalsEntityImpl {
            populateAttributeAsChanged(VOUCHERNO, getVoucher().getAttribute("VoucherNo").toString()); 
            populateAttributeAsChanged(LOCCODE, getVoucher().getAttribute("LocCode").toString()); 
            populateAttributeAsChanged(VOUCHERTYPE, getVoucher().getAttribute("VoucherType").toString()); 
-           populateAttributeAsChanged(DEBIT, getFcurrDebit()); 
-           populateAttributeAsChanged(CREDIT, getFcurrCredit()); 
-
            String pkValue="FUNC_GET_MAX_ID('VOUCHER_DET WHERE VOUCHER_TYPE=''"+getVoucherType()+"'' AND VOUCHER_NO=''"+getVoucherNo()+"'' AND LOC_CODE=''"+getLocCode()+"''','TO_NUMBER(S_NO)')";
            System.out.println(pkValue);
            String result= ERPSolGlobClassModel.doGetERPSolPrimaryKeyValueModel(getDBTransaction(), pkValue, "dual", null, null);
            populateAttributeAsChanged(SNO, result);
 
+       }
+        if (operation!=DML_DELETE) {
+           populateAttributeAsChanged(DEBIT, getFcurrDebit()); 
+           populateAttributeAsChanged(CREDIT, getFcurrCredit()); 
        }
       
 //        populateAttributeAsChanged(SALESORDERID, getSoSalesOrder().getAttribute("Salesorderid").toString());
