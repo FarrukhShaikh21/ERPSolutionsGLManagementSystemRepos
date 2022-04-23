@@ -30,8 +30,8 @@ public class VoucherViewImpl extends ViewObjectImpl implements VoucherView {
 
     public void doSuperviseGLVoucher() {
         
-        CallableStatement cs=this.getDBTransaction().createCallableStatement("begin ?:=pkg_receipt.func_submit_gl_voucher('"+this.getCurrentRow().getAttribute("VoucherNo")+"','"+this.getCurrentRow().getAttribute("LocCode")+"',TO_DATE('"+this.getCurrentRow().getAttribute("VoucherDate")+"','YYYY-MM-DD'),'"+this.getCurrentRow().getAttribute("VoucherType")+"','"+ERPSolGlobClassModel.doGetUserCode()+"'); END;", 1);
-        System.out.println("begin ?:=pkg_receipt.func_submit_gl_voucher('"+this.getCurrentRow().getAttribute("VoucherNo")+"','"+this.getCurrentRow().getAttribute("LocCode")+"',TO_DATE('"+this.getCurrentRow().getAttribute("VoucherDate")+"','YYYY-MM-DD'),'"+this.getCurrentRow().getAttribute("VoucherType")+"','"+ERPSolGlobClassModel.doGetUserCode()+"'); END;");
+        CallableStatement cs=this.getDBTransaction().createCallableStatement("begin ?:=pkg_receipt.func_submit_gl_voucher('"+this.getCurrentRow().getAttribute("VoucherNo")+"','"+this.getCurrentRow().getAttribute("LocCode")+"',TO_DATE('"+this.getCurrentRow().getAttribute("SubmitVoucherDate")+"','YYYY-MM-DD'),'"+this.getCurrentRow().getAttribute("VoucherType")+"','"+ERPSolGlobClassModel.doGetUserCode()+"'); END;", 1);
+//        System.out.println("begin ?:=pkg_receipt.func_submit_gl_voucher('"+this.getCurrentRow().getAttribute("VoucherNo")+"','"+this.getCurrentRow().getAttribute("LocCode")+"',TO_DATE('"+this.getCurrentRow().getAttribute("SubmitVoucherDate")+"','YYYY-MM-DD'),'"+this.getCurrentRow().getAttribute("VoucherType")+"','"+ERPSolGlobClassModel.doGetUserCode()+"'); END;");
         try {
             cs.registerOutParameter(1, Types.VARCHAR);
             cs.executeUpdate();
