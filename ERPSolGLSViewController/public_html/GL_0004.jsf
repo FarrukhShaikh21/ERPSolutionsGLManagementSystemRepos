@@ -12,7 +12,7 @@
       </af:popup>
       <af:pageTemplate viewId="/ERPSolutionTemplate.jsf" value="#{bindings.ptb1}" id="pt1">
         <f:facet name="erptempmain">
-          <af:panelHeader text=" " id="ph1" partialTriggers="::d2 b2 b1 b6 b5">
+          <af:panelHeader text="Voucher" id="ph1" partialTriggers="::d2 b2 b1 b6 b5">
             <f:facet name="context"/>
             <f:facet name="menuBar"/>
             <f:facet name="toolbar"/>
@@ -137,7 +137,8 @@
                                         label="#{bindings.SubmitVoucherDate.hints.label}"
                                         required="#{bindings.SubmitVoucherDate.hints.mandatory}"
                                         columns="#{bindings.SubmitVoucherDate.hints.displayWidth}"
-                                        shortDesc="#{bindings.SubmitVoucherDate.hints.tooltip}" id="id3" simple="true">
+                                        shortDesc="#{bindings.SubmitVoucherDate.hints.tooltip}" id="id3" simple="true"
+                                        autoSubmit="true">
                             <f:validator binding="#{bindings.SubmitVoucherDate.validator}"/>
                             <af:convertDateTime pattern="#{bindings.SubmitVoucherDate.format}"/>
                           </af:inputDate>
@@ -152,8 +153,7 @@
                                               label="#{bindings.VoucherType.label}"
                                               required="#{bindings.VoucherType.hints.mandatory}"
                                               shortDesc="#{bindings.VoucherType.hints.tooltip}" id="soc1" simple="true"
-                                              readOnly="#{bindings.VoucherNo.inputValue!=null}" autoSubmit="true"
-                                              partialTriggers="soc1">
+                                              readOnly="#{bindings.VoucherNo.inputValue!=null}" autoSubmit="true">
                             <f:selectItems value="#{bindings.VoucherType.items}" id="si1"/>
                             <f:validator binding="#{bindings.VoucherType.validator}"/>
                           </af:selectOneChoice>
