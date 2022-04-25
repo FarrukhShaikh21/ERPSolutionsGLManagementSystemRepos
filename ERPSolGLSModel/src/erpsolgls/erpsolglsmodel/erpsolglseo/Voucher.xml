@@ -43,7 +43,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="VOUCHER">
+    TableName="VOUCHER"
+    DefaultValue="JV">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="3"/>
     </DesignTime>
