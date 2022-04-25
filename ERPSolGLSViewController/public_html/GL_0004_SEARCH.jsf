@@ -111,6 +111,16 @@
                 <f:validator binding="#{row.bindings.RefNo.validator}"/>
               </af:inputText>
             </af:column>
+            <af:column headerText="#{bindings.VoucherCRUD.hints.BankRefNo.label}" id="c13">
+              <af:inputText value="#{row.bindings.BankRefNo.inputValue}"
+                            label="#{bindings.VoucherCRUD.hints.BankRefNo.label}"
+                            required="#{bindings.VoucherCRUD.hints.BankRefNo.mandatory}"
+                            columns="#{bindings.VoucherCRUD.hints.BankRefNo.displayWidth}"
+                            maximumLength="#{bindings.VoucherCRUD.hints.BankRefNo.precision}"
+                            shortDesc="#{bindings.VoucherCRUD.hints.BankRefNo.tooltip}" id="it7" readOnly="true">
+                <f:validator binding="#{row.bindings.BankRefNo.validator}"/>
+              </af:inputText>
+            </af:column>
             <af:column headerText="#{bindings.VoucherCRUD.hints.SubmitVoucherNo.label}" id="c10">
               <af:inputText value="#{row.bindings.SubmitVoucherNo.inputValue}"
                             label="#{bindings.VoucherCRUD.hints.SubmitVoucherNo.label}"

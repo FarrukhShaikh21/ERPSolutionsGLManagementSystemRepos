@@ -80,11 +80,11 @@ public class VoucherImpl extends ERPSolGlobalsEntityImpl {
         Voucherseq,
         txtLocationName,
         GlVType,
+        BankRefNo,
         VoucherDet,
         VoucherDet1,
         AllLocations;
-        static AttributesEnum[] vals = null;
-        ;
+        private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -155,6 +155,7 @@ public class VoucherImpl extends ERPSolGlobalsEntityImpl {
     public static final int VOUCHERSEQ = AttributesEnum.Voucherseq.index();
     public static final int TXTLOCATIONNAME = AttributesEnum.txtLocationName.index();
     public static final int GLVTYPE = AttributesEnum.GlVType.index();
+    public static final int BANKREFNO = AttributesEnum.BankRefNo.index();
     public static final int VOUCHERDET = AttributesEnum.VoucherDet.index();
     public static final int VOUCHERDET1 = AttributesEnum.VoucherDet1.index();
     public static final int ALLLOCATIONS = AttributesEnum.AllLocations.index();
@@ -927,6 +928,22 @@ public class VoucherImpl extends ERPSolGlobalsEntityImpl {
      */
     public void setGlVType(String value) {
         setAttributeInternal(GLVTYPE, value);
+    }
+
+    /**
+     * Gets the attribute value for BankRefNo, using the alias name BankRefNo.
+     * @return the value of BankRefNo
+     */
+    public String getBankRefNo() {
+        return (String) getAttributeInternal(BANKREFNO);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for BankRefNo.
+     * @param value value to set the BankRefNo
+     */
+    public void setBankRefNo(String value) {
+        setAttributeInternal(BANKREFNO, value);
     }
 
     /**

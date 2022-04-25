@@ -47,16 +47,16 @@
                         <af:button text="Search" id="b12" action="ERP-ACT-GL-0004-SEARCH"
                                    icon="#{resource['images:imgFind.png']}" iconPosition="top"/>
                         <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
-                                   disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b8"
+                                   disabled="#{!bindings.Previous.enabled ||( bindings.VoucherNo.inputValue==null &amp;&amp; bindings.Voucherseq.inputValue>0)}" partialSubmit="true" id="b8"
                                    icon="#{resource['images:imgPrevious.png']}" iconPosition="top"/>
                         <af:button actionListener="#{bindings.Next.execute}" text="Next"
-                                   disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="b7"
+                                   disabled="#{!bindings.Next.enabled ||( bindings.VoucherNo.inputValue==null &amp;&amp; bindings.Voucherseq.inputValue>0)}" partialSubmit="true" id="b7"
                                    icon="#{resource['images:imgNext.png']}" iconPosition="top"/>
                         <af:button actionListener="#{bindings.Delete.execute}" text="Delete Voucher"
                                    disabled="#{pageFlowScope.ERPSolTempBean.LERPSolAllowDelete=='N'  || bindings.Submit.inputValue=='Y'}" id="b2"
                                    icon="#{resource['images:imgDelete.png']}" iconPosition="top"/>
                         <af:button actionListener="#{bindings.CreateInsert.execute}" text="New Voucher"
-                                   disabled="#{pageFlowScope.ERPSolTempBean.LERPSolAllowAdd=='N'}" id="b1"
+                                   disabled="#{pageFlowScope.ERPSolTempBean.LERPSolAllowAdd=='N' ||( bindings.VoucherNo.inputValue==null &amp;&amp; bindings.Voucherseq.inputValue>0)}" id="b1"
                                    icon="#{resource['images:imgAdd.png']}" iconPosition="top"/>
                         <af:button actionListener="#{bindings.Rollback.execute}" text="Undo Changes" immediate="true"
                                    id="b6"
@@ -240,10 +240,23 @@
                         </af:gridCell>
                       </af:gridRow>
                       <af:gridRow height="30px" marginBottom="5px" id="gr9">
+                        <af:gridCell id="gc30" width="15%" marginStart="5px" valign="middle">
+                          <af:outputLabel value="#{bindings.BankRefNo.hints.label}" id="ol12"/>
+                        </af:gridCell>
+                        <af:gridCell id="gc29" width="35%">
+                          <af:inputText value="#{bindings.BankRefNo.inputValue}"
+                                        label="#{bindings.BankRefNo.hints.label}"
+                                        required="#{bindings.BankRefNo.hints.mandatory}"
+                                        columns="#{bindings.BankRefNo.hints.displayWidth}"
+                                        maximumLength="#{bindings.BankRefNo.hints.precision}"
+                                        shortDesc="#{bindings.BankRefNo.hints.tooltip}" id="it14" simple="true">
+                            <f:validator binding="#{bindings.BankRefNo.validator}"/>
+                          </af:inputText>
+                        </af:gridCell>
                         <af:gridCell marginStart="5px" width="15%" id="gc24" valign="middle">
                           <af:outputLabel value="#{bindings.Particulars.hints.label}" id="ol3"/>
                         </af:gridCell>
-                        <af:gridCell marginStart="5px" width="75%" id="gc25" columnSpan="3" rowSpan="1"
+                        <af:gridCell marginStart="5px" width="35%" id="gc25" columnSpan="1" rowSpan="1"
                                      halign="stretch" valign="middle">
                           <af:inputText value="#{bindings.Particulars.inputValue}"
                                         label="#{bindings.Particulars.hints.label}"

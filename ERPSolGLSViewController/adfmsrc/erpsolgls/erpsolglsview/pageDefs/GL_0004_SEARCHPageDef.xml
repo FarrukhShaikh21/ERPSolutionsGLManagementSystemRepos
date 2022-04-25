@@ -24,6 +24,7 @@
           <Item Value="SubmitVoucherNo"/>
           <Item Value="SubmitVoucherDate"/>
           <Item Value="Submit"/>
+          <Item Value="BankRefNo"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

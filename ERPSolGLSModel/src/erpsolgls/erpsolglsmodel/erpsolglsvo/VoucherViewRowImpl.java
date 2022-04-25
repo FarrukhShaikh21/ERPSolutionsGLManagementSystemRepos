@@ -72,6 +72,7 @@ public class VoucherViewRowImpl extends ViewRowImpl {
         Voucherseq,
         txtLocationName,
         GlVType,
+        BankRefNo,
         VoucherDetView,
         VoucherDetView1,
         AllLocationsView,
@@ -151,6 +152,7 @@ public class VoucherViewRowImpl extends ViewRowImpl {
     public static final int VOUCHERSEQ = AttributesEnum.Voucherseq.index();
     public static final int TXTLOCATIONNAME = AttributesEnum.txtLocationName.index();
     public static final int GLVTYPE = AttributesEnum.GlVType.index();
+    public static final int BANKREFNO = AttributesEnum.BankRefNo.index();
     public static final int VOUCHERDETVIEW = AttributesEnum.VoucherDetView.index();
     public static final int VOUCHERDETVIEW1 = AttributesEnum.VoucherDetView1.index();
     public static final int ALLLOCATIONSVIEW = AttributesEnum.AllLocationsView.index();
@@ -924,6 +926,22 @@ public class VoucherViewRowImpl extends ViewRowImpl {
      */
     public void setGlVType(String value) {
         setAttributeInternal(GLVTYPE, value);
+    }
+
+    /**
+     * Gets the attribute value for BANK_REF_NO using the alias name BankRefNo.
+     * @return the BANK_REF_NO
+     */
+    public String getBankRefNo() {
+        return (String) getAttributeInternal(BANKREFNO);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for BANK_REF_NO using the alias name BankRefNo.
+     * @param value value to set the BANK_REF_NO
+     */
+    public void setBankRefNo(String value) {
+        setAttributeInternal(BANKREFNO, value);
     }
 
     /**

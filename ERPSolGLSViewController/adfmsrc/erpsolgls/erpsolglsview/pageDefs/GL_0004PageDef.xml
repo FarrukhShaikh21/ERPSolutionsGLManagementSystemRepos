@@ -271,5 +271,10 @@
         <Item Value="Voucherseq"/>
       </AttrNames>
     </attributeValues>
+    <attributeValues IterBinding="VoucherCRUDIterator" id="BankRefNo">
+      <AttrNames>
+        <Item Value="BankRefNo"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

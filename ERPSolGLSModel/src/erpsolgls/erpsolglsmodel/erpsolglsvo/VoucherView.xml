@@ -417,6 +417,12 @@
     EntityAttrName="GlVType"
     EntityUsage="Voucher"
     AliasName="GL_V_TYPE"/>
+  <ViewAttribute
+    Name="BankRefNo"
+    PrecisionRule="true"
+    EntityAttrName="BankRefNo"
+    EntityUsage="Voucher"
+    AliasName="BANK_REF_NO"/>
   <ViewCriteria
     Name="VoucherViewFindVC"
     ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsvo.VoucherView"
@@ -486,6 +492,12 @@
         Operator="="
         Conjunction="AND"
         UpperColumns="0"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="BankRefNo"
+        ViewAttribute="BankRefNo"
+        Operator="CONTAINS"
+        Conjunction="AND"
         Required="Optional"/>
       <ViewCriteriaItem
         Name="VoucherViewCriteria_VoucherViewCriteria_row_0_AllLocationsView"
