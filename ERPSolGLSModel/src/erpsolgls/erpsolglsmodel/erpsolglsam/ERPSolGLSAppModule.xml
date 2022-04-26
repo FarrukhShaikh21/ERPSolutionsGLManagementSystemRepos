@@ -38,10 +38,19 @@
   <ViewUsage
     Name="ChartOfAccCRUD"
     ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsvo.ChartOfAccView"/>
+  <ViewUsage
+    Name="CoaLocMapDetCRUD"
+    ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsvo.CoaLocMapView"/>
   <ViewLinkUsage
     Name="FkVoucherDetVoucherSeqLink1"
     ViewLinkObjectName="erpsolgls.erpsolglsmodel.erpsolglsvo.FkVoucherDetVoucherSeqLink"
     SrcViewUsageName="erpsolgls.erpsolglsmodel.erpsolglsam.ERPSolGLSAppModule.VoucherCRUD"
     DstViewUsageName="erpsolgls.erpsolglsmodel.erpsolglsam.ERPSolGLSAppModule.VoucherDetViewDetCRUD"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="ChartOfAccountCoaLocMapLink1"
+    ViewLinkObjectName="erpsolgls.erpsolglsmodel.erpsolglslink.ChartOfAccountCoaLocMapLink"
+    SrcViewUsageName="erpsolgls.erpsolglsmodel.erpsolglsam.ERPSolGLSAppModule.ChartOfAccCRUD"
+    DstViewUsageName="erpsolgls.erpsolglsmodel.erpsolglsam.ERPSolGLSAppModule.CoaLocMapDetCRUD"
     Reversed="false"/>
 </AppModule>

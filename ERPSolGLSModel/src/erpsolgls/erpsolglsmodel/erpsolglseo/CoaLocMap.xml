@@ -110,7 +110,7 @@
     Name="CreatedDate"
     ColumnName="CREATED_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="COA_LOC_MAP"/>
   <Attribute
@@ -129,8 +129,8 @@
     Name="ModifiedDate"
     ColumnName="MODIFIED_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
-    ColumnType="DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="NUMBER"
     TableName="COA_LOC_MAP"/>
   <AccessorAttribute
     Name="ChartOfAcc"
