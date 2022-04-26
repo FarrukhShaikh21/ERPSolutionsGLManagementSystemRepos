@@ -7,6 +7,8 @@
     <page path="erpsoltemp.erpsoltempview.pageDefs.ERPSolutionTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
     <iterator Binds="ChartOfAccCRUD" RangeSize="25" DataControl="ERPSolGLSAppModuleDataControl"
               id="ChartOfAccCRUDIterator"/>
+    <iterator Binds="CoaLocMapDetCRUD" RangeSize="25" DataControl="ERPSolGLSAppModuleDataControl"
+              id="CoaLocMapDetCRUDIterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="ChartOfAccCRUDIterator" id="GlnatureOfAC">
@@ -71,5 +73,15 @@
             DataControl="ERPSolGLSAppModuleDataControl"/>
     <action IterBinding="ChartOfAccCRUDIterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
     <action IterBinding="ChartOfAccCRUDIterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <tree IterBinding="CoaLocMapDetCRUDIterator" id="CoaLocMapDetCRUD">
+      <nodeDefinition DefName="erpsolgls.erpsolglsmodel.erpsolglsvo.CoaLocMapView" Name="CoaLocMapDetCRUD0">
+        <AttrNames>
+          <Item Value="Locationid"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="CoaLocMapDetCRUDIterator" id="CreateInsert1" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="CoaLocMapDetCRUDIterator" id="Delete1" RequiresUpdateModel="false" Action="removeCurrentRow"/>
   </bindings>
 </pageDefinition>
