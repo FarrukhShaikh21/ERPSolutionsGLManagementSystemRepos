@@ -262,4 +262,9 @@
     ViewLink="erpsolgls.erpsolglsmodel.erpsolglslink.ChartOfAccountVoucherDetailGLCodeLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="CoaLocMapView"
+    ViewLink="erpsolgls.erpsolglsmodel.erpsolglslink.ChartOfAccountCoaLocMapLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
 </ViewObject>

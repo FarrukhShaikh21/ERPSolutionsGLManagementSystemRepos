@@ -35,7 +35,8 @@ public class ChartOfAccImpl extends ERPSolGlobalsEntityImpl {
         Modifiedby,
         ModifiedDate,
         CoaType,
-        VoucherDet;
+        VoucherDet,
+        CoaLocMap;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -58,6 +59,8 @@ public class ChartOfAccImpl extends ERPSolGlobalsEntityImpl {
             return vals;
         }
     }
+
+
     public static final int GLNATUREOFAC = AttributesEnum.GlnatureOfAC.index();
     public static final int GLBROADCATEGORY = AttributesEnum.GlbroadCategory.index();
     public static final int GLCONTROLAC = AttributesEnum.GlcontrolAC.index();
@@ -75,12 +78,21 @@ public class ChartOfAccImpl extends ERPSolGlobalsEntityImpl {
     public static final int MODIFIEDDATE = AttributesEnum.ModifiedDate.index();
     public static final int COATYPE = AttributesEnum.CoaType.index();
     public static final int VOUCHERDET = AttributesEnum.VoucherDet.index();
+    public static final int COALOCMAP = AttributesEnum.CoaLocMap.index();
 
     /**
      * This is the default constructor (do not remove).
      */
     public ChartOfAccImpl() {
     }
+
+    /**
+     * @return the definition object for this instance class.
+     */
+    public static synchronized EntityDefImpl getDefinitionObject() {
+        return EntityDefImpl.findDefObject("erpsolgls.erpsolglsmodel.erpsolglseo.ChartOfAcc");
+    }
+
 
     /**
      * Gets the attribute value for GlnatureOfAC, using the alias name GlnatureOfAC.
@@ -346,6 +358,14 @@ public class ChartOfAccImpl extends ERPSolGlobalsEntityImpl {
     }
 
     /**
+     * @return the associated entity oracle.jbo.RowIterator.
+     */
+    public RowIterator getCoaLocMap() {
+        return (RowIterator) getAttributeInternal(COALOCMAP);
+    }
+
+
+    /**
      * @param glnatureOfAC key constituent
      * @param glbroadCategory key constituent
      * @param glcontrolAC key constituent
@@ -357,13 +377,6 @@ public class ChartOfAccImpl extends ERPSolGlobalsEntityImpl {
     public static Key createPrimaryKey(String glnatureOfAC, String glbroadCategory, String glcontrolAC,
                                        String glsubControlAC, String glsubsidaryAC) {
         return new Key(new Object[] { glnatureOfAC, glbroadCategory, glcontrolAC, glsubControlAC, glsubsidaryAC });
-    }
-
-    /**
-     * @return the definition object for this instance class.
-     */
-    public static synchronized EntityDefImpl getDefinitionObject() {
-        return EntityDefImpl.findDefObject("erpsolgls.erpsolglsmodel.erpsolglseo.ChartOfAcc");
     }
 
     /**

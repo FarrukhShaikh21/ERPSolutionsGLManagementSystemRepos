@@ -240,6 +240,13 @@
     AssociationOtherEnd="erpsolgls.erpsolglsmodel.erpsolglsassoc.ChartOfAccountVoucherDetailGLCodeAssoc.ChartOfAcc"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="CoaLocMap"
+    Association="erpsolgls.erpsolglsmodel.erpsolglsassoc.ChartOfAccountCoaLocMapAssoc"
+    AssociationEnd="erpsolgls.erpsolglsmodel.erpsolglsassoc.ChartOfAccountCoaLocMapAssoc.CoaLocMap"
+    AssociationOtherEnd="erpsolgls.erpsolglsmodel.erpsolglsassoc.ChartOfAccountCoaLocMapAssoc.ChartOfAcc"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="SysC0016261"
     PrimaryKey="true">

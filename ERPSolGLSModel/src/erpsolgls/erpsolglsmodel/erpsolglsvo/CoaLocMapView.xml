@@ -82,4 +82,10 @@
     EntityAttrName="ModifiedDate"
     EntityUsage="CoaLocMap"
     AliasName="MODIFIED_DATE"/>
+  <ViewLinkAccessor
+    Name="ChartOfAccView"
+    ViewLink="erpsolgls.erpsolglsmodel.erpsolglslink.ChartOfAccountCoaLocMapLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
 </ViewObject>

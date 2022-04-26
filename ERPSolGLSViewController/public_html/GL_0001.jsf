@@ -131,6 +131,11 @@
                             <f:facet name="footer"/>
                         </af:panelFormLayout>
                         <af:spacer width="10" height="10" id="s1"/>
+                        <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+                            <f:facet name="menus"/>
+                            <f:facet name="toolbar"/>
+                            <f:facet name="statusbar"/>
+                        </af:panelCollection>
                     </af:panelHeader>
                 </f:facet>
                 <f:facet name="erptempleft"/>

@@ -132,6 +132,13 @@
     Type="java.sql.Timestamp"
     ColumnType="DATE"
     TableName="COA_LOC_MAP"/>
+  <AccessorAttribute
+    Name="ChartOfAcc"
+    Association="erpsolgls.erpsolglsmodel.erpsolglsassoc.ChartOfAccountCoaLocMapAssoc"
+    AssociationEnd="erpsolgls.erpsolglsmodel.erpsolglsassoc.ChartOfAccountCoaLocMapAssoc.ChartOfAcc"
+    AssociationOtherEnd="erpsolgls.erpsolglsmodel.erpsolglsassoc.ChartOfAccountCoaLocMapAssoc.CoaLocMap"
+    Type="erpsolgls.erpsolglsmodel.erpsolglseo.ChartOfAccImpl"
+    IsUpdateable="true"/>
   <Key
     Name="PkCoaAllkeys"
     PrimaryKey="true">
@@ -145,6 +152,21 @@
       <Item Value="erpsolgls.erpsolglsmodel.erpsolglseo.CoaLocMap.GlsubControlAC"/>
       <Item Value="erpsolgls.erpsolglsmodel.erpsolglseo.CoaLocMap.GlsubsidaryAC"/>
       <Item Value="erpsolgls.erpsolglsmodel.erpsolglseo.CoaLocMap.Locationid"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_CoaLocMap">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="SYS_C0016261"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_COA_LOC_MAP"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolgls.erpsolglsmodel.erpsolglseo.CoaLocMap.GlbroadCategory"/>
+      <Item Value="erpsolgls.erpsolglsmodel.erpsolglseo.CoaLocMap.GlcontrolAC"/>
+      <Item Value="erpsolgls.erpsolglsmodel.erpsolglseo.CoaLocMap.GlnatureOfAC"/>
+      <Item Value="erpsolgls.erpsolglsmodel.erpsolglseo.CoaLocMap.GlsubControlAC"/>
+      <Item Value="erpsolgls.erpsolglsmodel.erpsolglseo.CoaLocMap.GlsubsidaryAC"/>
     </AttrArray>
   </Key>
 </Entity>
