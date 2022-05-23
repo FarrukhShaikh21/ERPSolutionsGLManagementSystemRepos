@@ -115,6 +115,15 @@
     <view id="ERPSolGLSException">
       <page>/ERPSolGLSException.jsf</page>
     </view>
+    <view id="GL_0045">
+      <page>/GL_0045.jsf</page>
+    </view>
+    <method-call id="doSetReportDefaultGL_0045">
+      <method>#{bindings.doSetERPSolGLReportDefault.execute}</method>
+      <outcome>
+        <fixed-outcome>ERP-ACT-GL-0045</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__1">
       <from-activity-id>*</from-activity-id>
       <control-flow-case id="__2">
@@ -196,6 +205,10 @@
         <from-outcome>ERP-ACT-GL-0001</from-outcome>
         <to-activity-id>GL_0001</to-activity-id>
       </control-flow-case>
+      <control-flow-case id="__40">
+        <from-outcome>ERP-ACT-GL-0045</from-outcome>
+        <to-activity-id>doSetReportDefaultGL_0045</to-activity-id>
+      </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__28">
       <from-activity-id>GL_0004</from-activity-id>
@@ -230,6 +243,13 @@
       <control-flow-case id="__39">
         <from-outcome>ERP-ACT-GL-0001-SEARCH-BACK</from-outcome>
         <to-activity-id>GL_0001</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__41">
+      <from-activity-id>doSetReportDefaultGL_0045</from-activity-id>
+      <control-flow-case id="__42">
+        <from-outcome>ERP-ACT-GL-0045</from-outcome>
+        <to-activity-id>GL_0045</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>

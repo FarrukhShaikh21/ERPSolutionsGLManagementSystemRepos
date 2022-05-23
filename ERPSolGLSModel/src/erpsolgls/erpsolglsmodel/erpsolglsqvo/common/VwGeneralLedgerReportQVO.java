@@ -7,5 +7,7 @@ import oracle.jbo.ViewObject;
 // ---------------------------------------------------------------------
 public interface VwGeneralLedgerReportQVO extends ViewObject {
     void doSetERPSolGLReportDefault();
+
+    void doSetERPSolGLDocumentUnsubmit();
 }
 

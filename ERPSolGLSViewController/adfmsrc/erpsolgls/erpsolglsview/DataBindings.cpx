@@ -21,6 +21,8 @@
     <page path="/GL_0001.jsf" usageId="erpsolgls_erpsolglsview_GL_0001PageDef"/>
     <page path="/GL_0001_SEARCH.jsf" usageId="erpsolgls_erpsolglsview_GL_0001_SEARCHPageDef"/>
     <page path="/GL_0045.jsf" usageId="erpsolgls_erpsolglsview_GL_0045PageDef"/>
+    <page path="/WEB-INF/ERPSOLGLSBTF.xml#ERPSOLGLSBTF@doSetReportDefaultGL_0045"
+          usageId="erpsolgls_erpsolglsview_ERPSOLGLSBTF_ERPSOLGLSBTF_doSetERPSolGLReportDefault1PageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="erpsolgls_erpsolglsview_ERPSOLGLS_ERPSOLGLS_ExecuteWithParamsPageDef"
@@ -45,6 +47,8 @@
     <page id="erpsolgls_erpsolglsview_GL_0001_SEARCHPageDef"
           path="erpsolgls.erpsolglsview.pageDefs.GL_0001_SEARCHPageDef"/>
     <page id="erpsolgls_erpsolglsview_GL_0045PageDef" path="erpsolgls.erpsolglsview.pageDefs.GL_0045PageDef"/>
+    <page id="erpsolgls_erpsolglsview_ERPSOLGLSBTF_ERPSOLGLSBTF_doSetERPSolGLReportDefault1PageDef"
+          path="erpsolgls.erpsolglsview.pageDefs.ERPSOLGLSBTF_ERPSOLGLSBTF_doSetERPSolGLReportDefault1PageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="ERPSolTempAppModuleDataControl" Package="erpsoltemp.erpsoltempmodel.erpsoltempam"

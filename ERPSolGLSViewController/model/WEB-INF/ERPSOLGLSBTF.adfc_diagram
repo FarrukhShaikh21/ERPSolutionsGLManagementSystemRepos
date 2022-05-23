@@ -396,7 +396,7 @@
       <property
          name="fromOutcome">ERP-ACT-GL-0123</property>
       <property
-         name="sdm:polyPoints">R50,489.02637,480.1494,658.7119,513.7988,L50</property>
+         name="sdm:polyPoints">R46,490.6123,476.6494,658.7119,513.7988,L50</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall32">
@@ -496,4 +496,52 @@
       <property
          name="x">-117.63574</property>
    </View>
+   <View
+      id="View40">
+      <property
+         name="activityId">GL_0045</property>
+      <property
+         name="page">/GL_0045.jsf</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>GL_0045&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">832.7988</property>
+      <property
+         name="x">865.5</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase41"
+      from="MethodCall15"
+      to="MethodCall42">
+      <property
+         name="fromOutcome">ERP-ACT-GL-0045</property>
+      <property
+         name="sdm:polyPoints">R54,489.02637,483.6494,865.5,778.44824,T50</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall42">
+      <property
+         name="activityId">doSetReportDefaultGL_0045</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>doSetReportDefaultGL_0045&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">858.44824</property>
+      <property
+         name="x">760.0488</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase43"
+      from="MethodCall42"
+      to="View40">
+      <property
+         name="fromOutcome">ERP-ACT-GL-0045</property>
+      <property
+         name="sdm:polyPoints">R50,801.0488,858.09766,824.5,832.44824,L50</property>
+   </ControlFlowCase>
 </SDM>
