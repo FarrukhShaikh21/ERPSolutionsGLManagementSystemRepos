@@ -35,5 +35,15 @@
         <Item Value="Pk"/>
       </AttrNames>
     </attributeValues>
+    <attributeValues IterBinding="VwGeneralLedgerReportROIterator" id="txtDocTypeId">
+      <AttrNames>
+        <Item Value="txtDocTypeId"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="doSetERPSolGLDocumentUnsubmit" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="doSetERPSolGLDocumentUnsubmit" IsViewObjectMethod="true"
+                  DataControl="ERPSolGLSAppModuleDataControl"
+                  InstanceName="data.ERPSolGLSAppModuleDataControl.VwGeneralLedgerReportRO"
+                  ReturnName="data.ERPSolGLSAppModuleDataControl.methodResults.doSetERPSolGLDocumentUnsubmit_ERPSolGLSAppModuleDataControl_VwGeneralLedgerReportRO_doSetERPSolGLDocumentUnsubmit_result"/>
   </bindings>
 </pageDefinition>

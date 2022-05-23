@@ -41,7 +41,18 @@
   <ViewAccessor
     Name="AccVWGLDocumentIdForUnsubmitQVO"
     ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsqvo.VWGLDocumentIdForUnsubmitQVO"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true">
+    <ParameterMap>
+      <PIMap Variable="P_ADF_DOCTYPEID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[txtDocTypeId==null?"0":txtDocTypeId]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_LOCATIONID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[txtLocationId==null?"0":txtLocationId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LovtxtFromGlCode"
     ListVOName="AccVWChartOfAccountQVO"

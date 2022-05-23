@@ -1,6 +1,6 @@
 <References xmlns="http://xmlns.oracle.com/adf/jndi">
-  <Reference name="ERPSolTemplateConn" className="oracle.jdeveloper.db.adapter.DatabaseProvider"
-             credentialStoreKey="ERPSolTemplateConn" xmlns="">
+  <Reference name="ERPSolGLSConn" className="oracle.jdeveloper.db.adapter.DatabaseProvider"
+             credentialStoreKey="ERPSolGLSConn" xmlns="">
     <Factory className="oracle.jdevimpl.db.adapter.DatabaseProviderFactory1212"/>
     <RefAddresses>
       <StringRefAddr addrType="sid">
@@ -16,7 +16,7 @@
         <Contents>1521</Contents>
       </StringRefAddr>
       <StringRefAddr addrType="hostname">
-        <Contents>localhost</Contents>
+        <Contents>151.106.42.167</Contents>
       </StringRefAddr>
       <SecureRefAddr addrType="password"/>
       <StringRefAddr addrType="oraDriverType">
@@ -37,11 +37,11 @@
       <StringRefAddr addrType="user">
         <Contents>qshop</Contents>
       </StringRefAddr>
-      <StringRefAddr addrType="hostname">
-        <Contents>localhost</Contents>
-      </StringRefAddr>
       <StringRefAddr addrType="port">
         <Contents>1521</Contents>
+      </StringRefAddr>
+      <StringRefAddr addrType="hostname">
+        <Contents>151.106.42.167</Contents>
       </StringRefAddr>
       <SecureRefAddr addrType="password"/>
       <StringRefAddr addrType="oraDriverType">
@@ -49,8 +49,8 @@
       </StringRefAddr>
     </RefAddresses>
   </Reference>
-  <Reference name="ERPSolGLSConn" className="oracle.jdeveloper.db.adapter.DatabaseProvider"
-             credentialStoreKey="ERPSolGLSConn" xmlns="">
+  <Reference name="ERPSolTemplateConn" className="oracle.jdeveloper.db.adapter.DatabaseProvider"
+             credentialStoreKey="ERPSolTemplateConn" xmlns="">
     <Factory className="oracle.jdevimpl.db.adapter.DatabaseProviderFactory1212"/>
     <RefAddresses>
       <StringRefAddr addrType="sid">
@@ -62,11 +62,11 @@
       <StringRefAddr addrType="user">
         <Contents>QSHOP</Contents>
       </StringRefAddr>
-      <StringRefAddr addrType="port">
-        <Contents>1521</Contents>
-      </StringRefAddr>
       <StringRefAddr addrType="hostname">
         <Contents>151.106.42.167</Contents>
+      </StringRefAddr>
+      <StringRefAddr addrType="port">
+        <Contents>1521</Contents>
       </StringRefAddr>
       <SecureRefAddr addrType="password"/>
       <StringRefAddr addrType="oraDriverType">

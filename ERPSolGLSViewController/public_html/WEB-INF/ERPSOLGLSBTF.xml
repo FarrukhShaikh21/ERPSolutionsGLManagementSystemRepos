@@ -124,6 +124,12 @@
         <fixed-outcome>ERP-ACT-GL-0045</fixed-outcome>
       </outcome>
     </method-call>
+    <method-call id="ExecuteWithParaReverseDetGLS">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ACT-ERP-GOTO-FMS-MAIN</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__1">
       <from-activity-id>*</from-activity-id>
       <control-flow-case id="__2">
@@ -174,7 +180,7 @@
       <from-activity-id>ExecuteWithParaReportDetGLS</from-activity-id>
       <control-flow-case id="__17">
         <from-outcome>ACT-ERP-GOTO-FMS-MAIN</from-outcome>
-        <to-activity-id>ERPSolGLSMain</to-activity-id>
+        <to-activity-id>ExecuteWithParaReverseDetGLS</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__18">
@@ -250,6 +256,13 @@
       <control-flow-case id="__42">
         <from-outcome>ERP-ACT-GL-0045</from-outcome>
         <to-activity-id>GL_0045</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__43">
+      <from-activity-id>ExecuteWithParaReverseDetGLS</from-activity-id>
+      <control-flow-case id="__44">
+        <from-outcome>ACT-ERP-GOTO-FMS-MAIN</from-outcome>
+        <to-activity-id>ERPSolGLSMain</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>
