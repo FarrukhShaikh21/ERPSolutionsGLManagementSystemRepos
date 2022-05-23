@@ -5,6 +5,35 @@
   <executables>
     <variableIterator id="variables"/>
     <page path="erpsoltemp.erpsoltempview.pageDefs.ERPSolutionTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator Binds="VwGeneralLedgerReportRO" RangeSize="25" DataControl="ERPSolGLSAppModuleDataControl"
+              id="VwGeneralLedgerReportROIterator"/>
   </executables>
-  <bindings/>
+  <bindings>
+    <listOfValues IterBinding="VwGeneralLedgerReportROIterator" StaticList="false" Uses="LovtxtLocationName"
+                  id="txtLocationName"/>
+    <listOfValues IterBinding="VwGeneralLedgerReportROIterator" StaticList="false" Uses="LovtxtDocumentId"
+                  id="txtDocumentId"/>
+    <list IterBinding="VwGeneralLedgerReportROIterator" StaticList="false" Uses="LovtxtCompanyCode"
+          id="txtCompanyCode" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="VwGeneralLedgerReportROIterator" id="txtLocationId">
+      <AttrNames>
+        <Item Value="txtLocationId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VwGeneralLedgerReportROIterator" id="txtDescription">
+      <AttrNames>
+        <Item Value="txtDescription"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VwGeneralLedgerReportROIterator" id="txtVoucherseq">
+      <AttrNames>
+        <Item Value="txtVoucherseq"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VwGeneralLedgerReportROIterator" id="Pk">
+      <AttrNames>
+        <Item Value="Pk"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
 </pageDefinition>
