@@ -26,7 +26,7 @@
     Name="P_ADF_DOCTYPEID"
     Kind="where"
     Type="java.lang.String"/>
-  <SQLQuery><![CDATA[SELECT  SO.Voucher_No as DOCUMENT_ID,           
+  <SQLQuery><![CDATA[SELECT  VT.VOUCHER_TYPE||' '||SO.Voucher_No as DOCUMENT_ID,           
         SO.Voucher_Date,           
         VT.DESCRIPTION VOUCHER_TYPE,           
         'GLV' DOC_TYPE_ID,           

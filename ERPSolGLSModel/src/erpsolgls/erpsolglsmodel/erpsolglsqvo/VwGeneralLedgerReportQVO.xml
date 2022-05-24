@@ -490,6 +490,10 @@
           Value="20"/>
       </SchemaBasedProperties>
     </Properties>
+    <Dependencies>
+      <Item
+        Value="txtDocumentId"/>
+    </Dependencies>
   </ViewAttribute>
   <ViewAttribute
     Name="txtVoucherseq"
