@@ -47,6 +47,7 @@
                                           columns="#{bindings.txtDocumentId.hints.displayWidth}"
                                           shortDesc="#{bindings.txtDocumentId.hints.tooltip}">
               <f:validator binding="#{bindings.txtDocumentId.validator}"/>
+              <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolGLSPageFlowBean.doERPSolGetAutoSuggestedGLUnsubmitDoc}"/>
             </af:inputComboboxListOfValues>
             <af:inputText value="#{bindings.txtDescription.inputValue}" label="#{bindings.txtDescription.hints.label}"
                           required="#{bindings.txtDescription.hints.mandatory}"

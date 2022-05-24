@@ -30,9 +30,6 @@
     Name="VWGLDebitGLAutoSuggestRO"
     ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsqvo.VWGLDebitGLQVO"/>
   <ViewUsage
-    Name="VWGLCreditGLAutoSuggestRO"
-    ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsqvo.VWGLCreditQVO"/>
-  <ViewUsage
     Name="VwGeneralLedgerReportRO"
     ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsqvo.VwGeneralLedgerReportQVO"/>
   <ViewUsage
@@ -41,6 +38,9 @@
   <ViewUsage
     Name="CoaLocMapDetCRUD"
     ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsvo.CoaLocMapView"/>
+  <ViewUsage
+    Name="VWGLDocumentIdForUnsubmitAutoSuggestRO"
+    ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsqvo.VWGLDocumentIdForUnsubmitQVO"/>
   <ViewLinkUsage
     Name="FkVoucherDetVoucherSeqLink1"
     ViewLinkObjectName="erpsolgls.erpsolglsmodel.erpsolglsvo.FkVoucherDetVoucherSeqLink"
