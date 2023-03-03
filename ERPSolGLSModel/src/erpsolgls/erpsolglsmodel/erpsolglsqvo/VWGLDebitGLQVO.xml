@@ -68,7 +68,7 @@ A.glsub_control_a_c,
 A.glsubsidary_a_c                      
 from VW_GL_Debit a ,vw_param  
 where a.LocationId = vw_param.P_ADF_LOC_CODE      
-AND ((NVL(COA_Type, 'JV') = vw_param.P_ADF_VOUCHER_TYPE  AND vw_param.P_ADF_GL_VOUCHER_TYPE='R')  OR (NVL(A.COA_Type, 'JV') = 'JV'  AND vw_param.P_ADF_GL_VOUCHER_TYPE='P'  AND vw_param.P_ADF_VOUCHER_TYPE!='PV') OR (a.glnature_of_a_c = 'E'  AND vw_param.P_ADF_VOUCHER_TYPE='PV') OR (NVL(A.COA_Type, 'JV') in('BV', 'CV', 'PV')  AND vw_param.P_ADF_VOUCHER_TYPE='CNT'))     
+AND ((NVL(COA_Type, 'JV') = vw_param.P_ADF_VOUCHER_TYPE  AND vw_param.P_ADF_GL_VOUCHER_TYPE='R')  OR (NVL(A.COA_Type, 'JV') = 'JV'  AND vw_param.P_ADF_GL_VOUCHER_TYPE='P'  AND vw_param.P_ADF_VOUCHER_TYPE!='PV') OR (a.glnature_of_a_c IN( 'E','C','R','A','L')  AND vw_param.P_ADF_VOUCHER_TYPE='PV') OR (NVL(A.COA_Type, 'JV') in('BV', 'CV', 'PV')  AND vw_param.P_ADF_VOUCHER_TYPE='CNT'))     
 AND A.GL_Code     
 NOT IN                  
 (Select R.gl_code                  
