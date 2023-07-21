@@ -76,6 +76,7 @@ public class VoucherViewRowImpl extends ViewRowImpl {
         VoucherDetView,
         VoucherDetView1,
         AllLocationsView,
+        VoucherTypeView,
         AccVoucherView,
         AccVoucherTypeView,
         AccAllLocationsView,
@@ -156,6 +157,7 @@ public class VoucherViewRowImpl extends ViewRowImpl {
     public static final int VOUCHERDETVIEW = AttributesEnum.VoucherDetView.index();
     public static final int VOUCHERDETVIEW1 = AttributesEnum.VoucherDetView1.index();
     public static final int ALLLOCATIONSVIEW = AttributesEnum.AllLocationsView.index();
+    public static final int VOUCHERTYPEVIEW = AttributesEnum.VoucherTypeView.index();
     public static final int ACCVOUCHERVIEW = AttributesEnum.AccVoucherView.index();
     public static final int ACCVOUCHERTYPEVIEW = AttributesEnum.AccVoucherTypeView.index();
     public static final int ACCALLLOCATIONSVIEW = AttributesEnum.AccAllLocationsView.index();
@@ -970,6 +972,20 @@ public class VoucherViewRowImpl extends ViewRowImpl {
      */
     public void setAllLocationsView(Row value) {
         setAttributeInternal(ALLLOCATIONSVIEW, value);
+    }
+
+    /**
+     * Gets the associated <code>Row</code> using master-detail link VoucherTypeView.
+     */
+    public Row getVoucherTypeView() {
+        return (Row) getAttributeInternal(VOUCHERTYPEVIEW);
+    }
+
+    /**
+     * Sets the master-detail link VoucherTypeView between this object and <code>value</code>.
+     */
+    public void setVoucherTypeView(Row value) {
+        setAttributeInternal(VOUCHERTYPEVIEW, value);
     }
 
     /**

@@ -71,4 +71,9 @@
         Required="Optional"/>
     </ViewCriteriaRow>
   </ViewCriteria>
+  <ViewLinkAccessor
+    Name="VoucherView"
+    ViewLink="erpsolgls.erpsolglsmodel.erpsolglslink.VoucherTypeVoucherVoucherTypeLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
 </ViewObject>

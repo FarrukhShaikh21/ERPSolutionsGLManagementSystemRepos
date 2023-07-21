@@ -48,6 +48,13 @@
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
   </Attribute>
+  <AccessorAttribute
+    Name="Voucher"
+    Association="erpsolgls.erpsolglsmodel.erpsolglsassoc.VoucherTypeVoucherVoucherTypeAssoc"
+    AssociationEnd="erpsolgls.erpsolglsmodel.erpsolglsassoc.VoucherTypeVoucherVoucherTypeAssoc.Voucher"
+    AssociationOtherEnd="erpsolgls.erpsolglsmodel.erpsolglsassoc.VoucherTypeVoucherVoucherTypeAssoc.VoucherType1"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="SysC0015509"
     PrimaryKey="true">

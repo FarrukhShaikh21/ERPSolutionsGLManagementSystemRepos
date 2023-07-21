@@ -83,7 +83,8 @@ public class VoucherImpl extends ERPSolGlobalsEntityImpl {
         BankRefNo,
         VoucherDet,
         VoucherDet1,
-        AllLocations;
+        AllLocations,
+        VoucherType1;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -159,6 +160,7 @@ public class VoucherImpl extends ERPSolGlobalsEntityImpl {
     public static final int VOUCHERDET = AttributesEnum.VoucherDet.index();
     public static final int VOUCHERDET1 = AttributesEnum.VoucherDet1.index();
     public static final int ALLLOCATIONS = AttributesEnum.AllLocations.index();
+    public static final int VOUCHERTYPE1 = AttributesEnum.VoucherType1.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -972,6 +974,21 @@ public class VoucherImpl extends ERPSolGlobalsEntityImpl {
      */
     public void setAllLocations(EntityImpl value) {
         setAttributeInternal(ALLLOCATIONS, value);
+    }
+
+
+    /**
+     * @return the associated entity oracle.jbo.server.EntityImpl.
+     */
+    public EntityImpl getVoucherType1() {
+        return (EntityImpl) getAttributeInternal(VOUCHERTYPE1);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity oracle.jbo.server.EntityImpl.
+     */
+    public void setVoucherType1(EntityImpl value) {
+        setAttributeInternal(VOUCHERTYPE1, value);
     }
 
 
