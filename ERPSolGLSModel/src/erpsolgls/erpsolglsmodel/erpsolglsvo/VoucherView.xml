@@ -21,6 +21,20 @@
     <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
     <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
+  <Variable
+    Name="P_ADF_USERID"
+    Kind="viewcriteria"
+    Type="java.lang.String">
+    <TransientExpression
+      trustMode="untrusted"
+      Name="expression"><![CDATA[erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobClassModel.doGetUserCode()]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
   <ViewAccessor
     Name="AccVoucherView"
     ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsvo.VoucherView"
@@ -32,6 +46,15 @@
     <ViewCriteriaUsage
       Name="VoucherTypeViewUserGLVC"
       FullName="erpsolgls.erpsolglsmodel.erpsolglsvo.VoucherTypeView.VoucherTypeViewUserGLVC"/>
+    <ViewCriteriaUsage
+      Name="VoucherTypeViewUserWiseVC"
+      FullName="erpsolgls.erpsolglsmodel.erpsolglsvo.VoucherTypeView.VoucherTypeViewUserWiseVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_USERID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobClassModel.doGetUserCode()]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
   </ViewAccessor>
   <ViewAccessor
     Name="AccAllLocationsView"
@@ -525,6 +548,76 @@
               Operator="CONTAINS"
               Conjunction="AND"
               Required="Optional"/>
+          </ViewCriteriaRow>
+        </ViewCriteria>
+      </ViewCriteriaItem>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ViewCriteria
+    Name="VoucherViewUserWiseVC"
+    ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsvo.VoucherView"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="VoucherViewCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="VoucherTypeView"
+        ViewAttribute="VoucherTypeView"
+        Operator="EXISTS"
+        Conjunction="AND"
+        IsNestedCriteria="true"
+        Required="Optional">
+        <ViewCriteria
+          Name="VoucherTypeViewNestedCriteria"
+          ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsvo.VoucherTypeView"
+          Conjunction="AND">
+          <ViewCriteriaRow
+            Name="VoucherTypeViewNestedCriteria_row_0"
+            UpperColumns="1">
+            <ViewCriteriaItem
+              Name="SysUserVoucherTypeView"
+              ViewAttribute="SysUserVoucherTypeView"
+              Operator="EXISTS"
+              Conjunction="AND"
+              IsNestedCriteria="true"
+              Required="Optional">
+              <ViewCriteria
+                Name="SysUserVoucherTypeViewNestedCriteria"
+                ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsvo.SysUserVoucherTypeView"
+                Conjunction="AND">
+                <ViewCriteriaRow
+                  Name="SysUserVoucherTypeViewNestedCriteria_row_0"
+                  UpperColumns="1">
+                  <ViewCriteriaItem
+                    Name="SysUserVoucherTypeViewNestedCriteria_SysUserVoucherTypeViewNestedCriteria_row_0_Userid"
+                    ViewAttribute="Userid"
+                    Operator="="
+                    Conjunction="AND"
+                    Value=":P_ADF_USERID"
+                    IsBindVarValue="true"
+                    Required="Optional"/>
+                </ViewCriteriaRow>
+              </ViewCriteria>
+            </ViewCriteriaItem>
           </ViewCriteriaRow>
         </ViewCriteria>
       </ViewCriteriaItem>

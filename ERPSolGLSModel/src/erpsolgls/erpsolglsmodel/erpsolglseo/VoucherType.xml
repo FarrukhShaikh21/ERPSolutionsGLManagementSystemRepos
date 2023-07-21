@@ -55,6 +55,13 @@
     AssociationOtherEnd="erpsolgls.erpsolglsmodel.erpsolglsassoc.VoucherTypeVoucherVoucherTypeAssoc.VoucherType1"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="SysUserVoucherType"
+    Association="erpsolgls.erpsolglsmodel.erpsolglsassoc.VoucherTypeSysUserVoucherTypeVoucherTypeAssoc"
+    AssociationEnd="erpsolgls.erpsolglsmodel.erpsolglsassoc.VoucherTypeSysUserVoucherTypeVoucherTypeAssoc.SysUserVoucherType"
+    AssociationOtherEnd="erpsolgls.erpsolglsmodel.erpsolglsassoc.VoucherTypeSysUserVoucherTypeVoucherTypeAssoc.VoucherType"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="SysC0015509"
     PrimaryKey="true">

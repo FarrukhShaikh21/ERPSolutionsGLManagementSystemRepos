@@ -9,7 +9,17 @@
   ClearCacheOnRollback="true">
   <ViewUsage
     Name="VoucherCRUD"
-    ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsvo.VoucherView"/>
+    ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsvo.VoucherView">
+    <ViewCriteriaUsage
+      Name="VoucherViewUserWiseVC"
+      FullName="erpsolgls.erpsolglsmodel.erpsolglsvo.VoucherView.VoucherViewUserWiseVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_USERID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobClassModel.doGetUserCode()]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewUsage>
   <ViewUsage
     Name="VoucherDetViewDetCRUD"
     ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsvo.VoucherDetView"/>
