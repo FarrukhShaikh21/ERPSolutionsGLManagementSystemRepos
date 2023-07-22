@@ -53,28 +53,43 @@
       </SchemaBasedProperties>
     </Properties>
   </Variable>
-  <SQLQuery><![CDATA[with vw_param as(  
-                select :P_ADF_VOUCHER_TYPE P_ADF_VOUCHER_TYPE,  
-                       :P_ADF_GL_VOUCHER_TYPE P_ADF_GL_VOUCHER_TYPE,  
-                       :P_ADF_LOC_CODE P_ADF_LOC_CODE  
-                 from dual  
-                 )        
-select A.GL_Code,                         
-A.DESCRIPTION,                      
-A.glnature_of_a_c,                      
-A.glbroad_category,                      
-A.glcontrol_a_c,                      
-A.glsub_control_a_c,                      
-A.glsubsidary_a_c                      
-from VW_GL_Debit a ,vw_param  
-where a.LocationId = vw_param.P_ADF_LOC_CODE      
-AND ((NVL(COA_Type, 'JV') = vw_param.P_ADF_VOUCHER_TYPE  AND vw_param.P_ADF_GL_VOUCHER_TYPE='R')  OR (NVL(A.COA_Type, 'JV') = 'JV'  AND vw_param.P_ADF_GL_VOUCHER_TYPE='P'  AND vw_param.P_ADF_VOUCHER_TYPE!='PV') OR (a.glnature_of_a_c IN( 'E','C','R','A','L')  AND vw_param.P_ADF_VOUCHER_TYPE='PV') OR (NVL(A.COA_Type, 'JV') in('BV', 'CV', 'PV')  AND vw_param.P_ADF_VOUCHER_TYPE='CNT'))     
-AND A.GL_Code     
-NOT IN                  
-(Select R.gl_code                  
-From COA_LOC_MAP_Restrict R                 
-Where R.locationid = vw_param.P_ADF_LOC_CODE                 
-AND R.voucher_type = vw_param.P_ADF_VOUCHER_TYPE                 
+  <Variable
+    Name="P_ADF_USERID"
+    Kind="where"
+    Type="java.lang.String">
+    <TransientExpression
+      trustMode="untrusted"
+      Name="expression"><![CDATA[erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobClassModel.doGetUserCode()]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
+  <SQLQuery><![CDATA[with vw_param as(   
+                select :P_ADF_VOUCHER_TYPE P_ADF_VOUCHER_TYPE,   
+                       :P_ADF_GL_VOUCHER_TYPE P_ADF_GL_VOUCHER_TYPE,   
+                       :P_ADF_LOC_CODE P_ADF_LOC_CODE   
+                 from dual   
+                 )         
+select A.GL_Code,                          
+A.DESCRIPTION,                       
+A.glnature_of_a_c,                       
+A.glbroad_category,                       
+A.glcontrol_a_c,                       
+A.glsub_control_a_c,                       
+A.glsubsidary_a_c                       
+from VW_GL_Debit a ,vw_param   
+where a.LocationId = vw_param.P_ADF_LOC_CODE   
+AND A.GL_CODE NOT IN(select UM.ACCOUNT_CODE from coa_user_map UM WHERE UM.USERID=:P_ADF_USERID)  
+AND ((NVL(COA_Type, 'JV') = vw_param.P_ADF_VOUCHER_TYPE  AND vw_param.P_ADF_GL_VOUCHER_TYPE='R')  OR (NVL(A.COA_Type, 'JV') = 'JV'  AND vw_param.P_ADF_GL_VOUCHER_TYPE='P'  AND vw_param.P_ADF_VOUCHER_TYPE!='PV') OR (a.glnature_of_a_c IN( 'E','C','R','A','L')  AND vw_param.P_ADF_VOUCHER_TYPE='PV') OR (NVL(A.COA_Type, 'JV') in('BV', 'CV', 'PV')  AND vw_param.P_ADF_VOUCHER_TYPE='CNT'))      
+AND A.GL_Code      
+NOT IN                   
+(Select R.gl_code                   
+From COA_LOC_MAP_Restrict R                  
+Where R.locationid = vw_param.P_ADF_LOC_CODE                  
+AND R.voucher_type = vw_param.P_ADF_VOUCHER_TYPE                  
 AND R.restrict_side = 'D' AND  vw_param.P_ADF_VOUCHER_TYPE!='PV') ORDER BY A.DESCRIPTION]]></SQLQuery>
   <ViewAttribute
     Name="GlCode"
