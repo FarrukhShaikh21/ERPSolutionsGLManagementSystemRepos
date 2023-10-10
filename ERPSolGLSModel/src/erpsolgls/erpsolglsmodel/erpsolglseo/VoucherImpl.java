@@ -81,6 +81,7 @@ public class VoucherImpl extends ERPSolGlobalsEntityImpl {
         txtLocationName,
         GlVType,
         BankRefNo,
+        Payee,
         VoucherDet,
         VoucherDet1,
         AllLocations,
@@ -157,6 +158,7 @@ public class VoucherImpl extends ERPSolGlobalsEntityImpl {
     public static final int TXTLOCATIONNAME = AttributesEnum.txtLocationName.index();
     public static final int GLVTYPE = AttributesEnum.GlVType.index();
     public static final int BANKREFNO = AttributesEnum.BankRefNo.index();
+    public static final int PAYEE = AttributesEnum.Payee.index();
     public static final int VOUCHERDET = AttributesEnum.VoucherDet.index();
     public static final int VOUCHERDET1 = AttributesEnum.VoucherDet1.index();
     public static final int ALLLOCATIONS = AttributesEnum.AllLocations.index();
@@ -946,6 +948,22 @@ public class VoucherImpl extends ERPSolGlobalsEntityImpl {
      */
     public void setBankRefNo(String value) {
         setAttributeInternal(BANKREFNO, value==null?null:value.toUpperCase());
+    }
+
+    /**
+     * Gets the attribute value for Payee, using the alias name Payee.
+     * @return the value of Payee
+     */
+    public String getPayee() {
+        return (String) getAttributeInternal(PAYEE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for Payee.
+     * @param value value to set the Payee
+     */
+    public void setPayee(String value) {
+        setAttributeInternal(PAYEE, value);
     }
 
     /**

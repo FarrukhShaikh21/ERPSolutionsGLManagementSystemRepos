@@ -10,7 +10,8 @@
   DBObjectName="VOUCHER"
   AliasName="Voucher"
   BindingStyle="OracleName"
-  RowClass="erpsolgls.erpsolglsmodel.erpsolglseo.VoucherImpl">
+  RowClass="erpsolgls.erpsolglsmodel.erpsolglseo.VoucherImpl"
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation">
   <DesignTime>
     <Attr Name="_codeGenFlag2" Value="Init|Delete|Access|DML"/>
     <Attr Name="_superClass" Value="erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobalsEntityImpl"/>
@@ -653,6 +654,26 @@
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
+  <Attribute
+    Name="Payee"
+    Precision="100"
+    ColumnName="PAYEE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="VOUCHER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolgls.erpsolglsmodel.erpsolglseo.Voucher.Payee_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <AccessorAttribute
     Name="VoucherDet"
     Association="erpsolgls.erpsolglsmodel.erpsolglseo.FkVoucherDetVoucherSeqAssoc"
@@ -735,6 +756,31 @@
       <Item Value="erpsolgls.erpsolglsmodel.erpsolglseo.Voucher.VoucherType"/>
     </AttrArray>
   </Key>
+  <validation:ExpressionValidationBean
+    Name="VoucherRulepAYEE"
+    OperandType="EXPR"
+    Inverse="false">
+    <validation:OnAttributes>
+      <validation:Item
+        Value="VoucherType"/>
+      <validation:Item
+        Value="Payee"/>
+    </validation:OnAttributes>
+    <validation:OnCondition
+      trustMode="untrusted"
+      Name="OnConditionExpr"><![CDATA[VoucherType=='BV']]></validation:OnCondition>
+    <validation:MsgIds>
+      <validation:Item
+        Value="errorPayForBV"/>
+    </validation:MsgIds>
+    <validation:TransientExpression
+      trustMode="untrusted"><![CDATA[if(VoucherType=='BV' && Payee==null)
+{
+adf.error.raise("errorPayForBV");
+return false;
+}
+return true;]]></validation:TransientExpression>
+  </validation:ExpressionValidationBean>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="erpsolgls.erpsolglsmodel.ERPSolGLSModelBundle"/>

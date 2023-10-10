@@ -446,6 +446,12 @@
     EntityAttrName="BankRefNo"
     EntityUsage="Voucher"
     AliasName="BANK_REF_NO"/>
+  <ViewAttribute
+    Name="Payee"
+    PrecisionRule="true"
+    EntityAttrName="Payee"
+    EntityUsage="Voucher"
+    AliasName="PAYEE"/>
   <ViewCriteria
     Name="VoucherViewFindVC"
     ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsvo.VoucherView"

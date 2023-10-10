@@ -254,9 +254,19 @@
                             <f:validator binding="#{bindings.BankRefNo.validator}"/>
                           </af:inputText>
                         </af:gridCell>
-                        <af:gridCell marginStart="5px" width="15%" id="gc24" valign="middle"/>
+                        <af:gridCell marginStart="5px" width="15%" id="gc24" valign="middle">
+                          <af:outputLabel value="#{bindings.Payee.hints.label}" id="ol13"/>
+                        </af:gridCell>
                         <af:gridCell marginStart="5px" width="35%" id="gc25" columnSpan="1" rowSpan="1"
-                                     halign="stretch" valign="middle"/>
+                                     halign="stretch" valign="middle">
+                          <af:inputText value="#{bindings.Payee.inputValue}" label="#{bindings.Payee.hints.label}"
+                                        columns="#{bindings.Payee.hints.displayWidth}"
+                                        maximumLength="#{bindings.Payee.hints.precision}"
+                                        shortDesc="#{bindings.Payee.hints.tooltip}" id="it15" partialTriggers="soc1"
+                                        simple="true" contentStyle="width:100%">
+                            <f:validator binding="#{bindings.Payee.validator}"/>
+                          </af:inputText>
+                        </af:gridCell>
                       </af:gridRow>
                       <af:gridRow id="gr13" height="30px" marginTop="5px">
                         <af:gridCell id="gc31" marginStart="5px" width="15%" valign="middle">
