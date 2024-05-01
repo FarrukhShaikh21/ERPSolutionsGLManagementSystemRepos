@@ -452,6 +452,12 @@
     EntityAttrName="Payee"
     EntityUsage="Voucher"
     AliasName="PAYEE"/>
+  <ViewAttribute
+    Name="Salesterritoryid"
+    PrecisionRule="true"
+    EntityAttrName="Salesterritoryid"
+    EntityUsage="Voucher"
+    AliasName="SALESTERRITORYID"/>
   <ViewCriteria
     Name="VoucherViewFindVC"
     ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsvo.VoucherView"

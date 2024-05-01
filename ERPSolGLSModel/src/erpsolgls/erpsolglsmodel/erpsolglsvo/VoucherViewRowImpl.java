@@ -74,6 +74,7 @@ public class VoucherViewRowImpl extends ViewRowImpl {
         GlVType,
         BankRefNo,
         Payee,
+        Salesterritoryid,
         VoucherDetView,
         VoucherDetView1,
         AllLocationsView,
@@ -156,6 +157,7 @@ public class VoucherViewRowImpl extends ViewRowImpl {
     public static final int GLVTYPE = AttributesEnum.GlVType.index();
     public static final int BANKREFNO = AttributesEnum.BankRefNo.index();
     public static final int PAYEE = AttributesEnum.Payee.index();
+    public static final int SALESTERRITORYID = AttributesEnum.Salesterritoryid.index();
     public static final int VOUCHERDETVIEW = AttributesEnum.VoucherDetView.index();
     public static final int VOUCHERDETVIEW1 = AttributesEnum.VoucherDetView1.index();
     public static final int ALLLOCATIONSVIEW = AttributesEnum.AllLocationsView.index();
@@ -962,6 +964,22 @@ public class VoucherViewRowImpl extends ViewRowImpl {
      */
     public void setPayee(String value) {
         setAttributeInternal(PAYEE, value);
+    }
+
+    /**
+     * Gets the attribute value for SALESTERRITORYID using the alias name Salesterritoryid.
+     * @return the SALESTERRITORYID
+     */
+    public String getSalesterritoryid() {
+        return (String) getAttributeInternal(SALESTERRITORYID);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for SALESTERRITORYID using the alias name Salesterritoryid.
+     * @param value value to set the SALESTERRITORYID
+     */
+    public void setSalesterritoryid(String value) {
+        setAttributeInternal(SALESTERRITORYID, value);
     }
 
     /**
