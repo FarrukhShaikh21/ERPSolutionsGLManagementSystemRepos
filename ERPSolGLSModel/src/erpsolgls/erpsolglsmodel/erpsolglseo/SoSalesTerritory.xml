@@ -147,6 +147,13 @@
       <Attr Name="_DisplaySize" Value="50"/>
     </DesignTime>
   </Attribute>
+  <AccessorAttribute
+    Name="Voucher"
+    Association="erpsolgls.erpsolglsmodel.erpsolglsassoc.SoSalesTerritoryVoucherSalesterritoryIDAssoc"
+    AssociationEnd="erpsolgls.erpsolglsmodel.erpsolglsassoc.SoSalesTerritoryVoucherSalesterritoryIDAssoc.Voucher"
+    AssociationOtherEnd="erpsolgls.erpsolglsmodel.erpsolglsassoc.SoSalesTerritoryVoucherSalesterritoryIDAssoc.SoSalesTerritory"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="XpksoSalesTerritory"
     PrimaryKey="true">

@@ -90,4 +90,9 @@
     EntityAttrName="Regdesc"
     EntityUsage="SoSalesTerritory"
     AliasName="REGDESC"/>
+  <ViewLinkAccessor
+    Name="VoucherView"
+    ViewLink="erpsolgls.erpsolglsmodel.erpsolglslink.SoSalesTerritoryVoucherSalesterritoryIDLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
 </ViewObject>

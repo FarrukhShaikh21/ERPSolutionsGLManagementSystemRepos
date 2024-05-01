@@ -79,6 +79,7 @@ public class VoucherViewRowImpl extends ViewRowImpl {
         VoucherDetView1,
         AllLocationsView,
         VoucherTypeView,
+        SoSalesTerritoryVO,
         AccVoucherView,
         AccVoucherTypeView,
         AccAllLocationsView,
@@ -162,6 +163,7 @@ public class VoucherViewRowImpl extends ViewRowImpl {
     public static final int VOUCHERDETVIEW1 = AttributesEnum.VoucherDetView1.index();
     public static final int ALLLOCATIONSVIEW = AttributesEnum.AllLocationsView.index();
     public static final int VOUCHERTYPEVIEW = AttributesEnum.VoucherTypeView.index();
+    public static final int SOSALESTERRITORYVO = AttributesEnum.SoSalesTerritoryVO.index();
     public static final int ACCVOUCHERVIEW = AttributesEnum.AccVoucherView.index();
     public static final int ACCVOUCHERTYPEVIEW = AttributesEnum.AccVoucherTypeView.index();
     public static final int ACCALLLOCATIONSVIEW = AttributesEnum.AccAllLocationsView.index();
@@ -1022,6 +1024,20 @@ public class VoucherViewRowImpl extends ViewRowImpl {
      */
     public void setVoucherTypeView(Row value) {
         setAttributeInternal(VOUCHERTYPEVIEW, value);
+    }
+
+    /**
+     * Gets the associated <code>Row</code> using master-detail link SoSalesTerritoryVO.
+     */
+    public Row getSoSalesTerritoryVO() {
+        return (Row) getAttributeInternal(SOSALESTERRITORYVO);
+    }
+
+    /**
+     * Sets the master-detail link SoSalesTerritoryVO between this object and <code>value</code>.
+     */
+    public void setSoSalesTerritoryVO(Row value) {
+        setAttributeInternal(SOSALESTERRITORYVO, value);
     }
 
     /**

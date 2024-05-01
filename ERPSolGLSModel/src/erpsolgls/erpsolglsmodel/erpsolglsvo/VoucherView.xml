@@ -657,6 +657,12 @@
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="SoSalesTerritoryVO"
+    ViewLink="erpsolgls.erpsolglsmodel.erpsolglslink.SoSalesTerritoryVoucherSalesterritoryIDLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
   <ClientInterface
     Name="__clientInterface">
     <Method
