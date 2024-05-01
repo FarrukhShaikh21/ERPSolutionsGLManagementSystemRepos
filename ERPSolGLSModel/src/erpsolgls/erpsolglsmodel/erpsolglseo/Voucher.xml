@@ -78,8 +78,7 @@
     Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="VOUCHER">
-    <TransientExpression
-      trustMode="untrusted"><![CDATA[adf.currentDate]]></TransientExpression>
+    <TransientExpression><![CDATA[adf.currentDate]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -602,8 +601,7 @@
     ColumnType="VARCHAR2"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression
-      trustMode="untrusted"><![CDATA[AllLocations?.LocationDescription]]></TransientExpression>
+    <TransientExpression><![CDATA[AllLocations?.LocationDescription]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -815,6 +813,22 @@
       trustMode="untrusted"><![CDATA[if(VoucherType=='BV' && Payee==null)
 {
 adf.error.raise("errorPayForBV");
+return false;
+}
+return true;]]></validation:TransientExpression>
+  </validation:ExpressionValidationBean>
+  <validation:ExpressionValidationBean
+    Name="VoucherRuleExpLocRequiredBR"
+    OperandType="EXPR"
+    Inverse="false">
+    <validation:MsgIds>
+      <validation:Item
+        Value="errorSalester"/>
+    </validation:MsgIds>
+    <validation:TransientExpression
+      trustMode="untrusted"><![CDATA[if(Salesterritoryid==null)
+{
+adf.error.raise("errorSalester");
 return false;
 }
 return true;]]></validation:TransientExpression>

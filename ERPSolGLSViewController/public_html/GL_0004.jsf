@@ -157,7 +157,8 @@
                                                         required="#{bindings.txtLocationName.hints.mandatory}"
                                                         columns="#{bindings.txtLocationName.hints.displayWidth}"
                                                         shortDesc="#{bindings.txtLocationName.hints.tooltip}"
-                                                        simple="true" readOnly="#{bindings.VoucherNo.inputValue!=null}">
+                                                        simple="true" readOnly="#{bindings.VoucherNo.inputValue!=null}"
+                                                        autoSubmit="true">
                             <f:validator binding="#{bindings.txtLocationName.validator}"/>
                             <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolGLSPageFlowBean.doERPSolGetAutoSuggestedLocationValues}"/>
                           </af:inputComboboxListOfValues>
@@ -177,7 +178,7 @@
                                               label="#{bindings.Salesterritoryid.label}"
                                               required="#{bindings.Salesterritoryid.hints.mandatory}"
                                               shortDesc="#{bindings.Salesterritoryid.hints.tooltip}" id="soc2"
-                                              simple="true">
+                                              simple="true" partialTriggers="txtLocationNameId" autoSubmit="true">
                             <f:selectItems value="#{bindings.Salesterritoryid.items}" id="si2"/>
                             <f:validator binding="#{bindings.Salesterritoryid.validator}"/>
                           </af:selectOneChoice>
