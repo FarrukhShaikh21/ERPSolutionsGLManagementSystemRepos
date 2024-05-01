@@ -69,12 +69,19 @@
     ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsvo.SoSalesTerritoryVO"
     RowLevelBinds="true">
     <ViewCriteriaUsage
+      Name="SoSalesTerritoryVOCriteriaUserWiseVC"
+      FullName="erpsolgls.erpsolglsmodel.erpsolglsvo.SoSalesTerritoryVO.SoSalesTerritoryVOCriteriaUserWiseVC"/>
+    <ViewCriteriaUsage
       Name="SoSalesTerritoryVOLocationWiseVC"
       FullName="erpsolgls.erpsolglsmodel.erpsolglsvo.SoSalesTerritoryVO.SoSalesTerritoryVOLocationWiseVC"/>
     <ParameterMap>
       <PIMap Variable="P_ADF_LOCATIONID">
         <TransientExpression
           trustMode="untrusted"><![CDATA[LocCode==null?"-1":LocCode]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_USER_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobClassModel.doGetUserCode()]]></TransientExpression>
       </PIMap>
     </ParameterMap>
   </ViewAccessor>

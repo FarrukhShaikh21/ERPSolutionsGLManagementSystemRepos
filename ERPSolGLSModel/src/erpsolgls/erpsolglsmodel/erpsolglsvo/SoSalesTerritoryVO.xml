@@ -17,6 +17,10 @@
     Name="P_ADF_LOCATIONID"
     Kind="viewcriteria"
     Type="java.lang.String"/>
+  <Variable
+    Name="P_ADF_USER_ID"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <EntityUsage
     Name="SoSalesTerritory"
     Entity="erpsolgls.erpsolglsmodel.erpsolglseo.SoSalesTerritory"/>
@@ -128,6 +132,59 @@
         Value=":P_ADF_LOCATIONID"
         IsBindVarValue="true"
         Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ViewCriteria
+    Name="SoSalesTerritoryVOCriteriaUserWiseVC"
+    ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsvo.SoSalesTerritoryVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="SoSalesTerritoryVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="SysUserSalesTerritoryView"
+        ViewAttribute="SysUserSalesTerritoryView"
+        Operator="EXISTS"
+        Conjunction="AND"
+        IsNestedCriteria="true"
+        Required="Optional">
+        <ViewCriteria
+          Name="SysUserSalesTerritoryViewNestedCriteria"
+          ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsvo.SysUserSalesTerritoryView"
+          Conjunction="AND">
+          <ViewCriteriaRow
+            Name="SysUserSalesTerritoryViewNestedCriteria_row_0"
+            UpperColumns="1">
+            <ViewCriteriaItem
+              Name="Userid"
+              ViewAttribute="Userid"
+              Operator="="
+              Conjunction="AND"
+              Value=":P_ADF_USER_ID"
+              IsBindVarValue="true"
+              Required="Optional"/>
+          </ViewCriteriaRow>
+        </ViewCriteria>
+      </ViewCriteriaItem>
     </ViewCriteriaRow>
   </ViewCriteria>
   <ViewLinkAccessor

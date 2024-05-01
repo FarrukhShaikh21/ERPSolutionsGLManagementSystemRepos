@@ -1070,6 +1070,7 @@ public class VoucherViewRowImpl extends ViewRowImpl {
         return (RowSet) getAttributeInternal(ACCVWYESNOQVO);
     }
 
+
     /**
      * Gets the view accessor <code>RowSet</code> AccSoSalesTerritoryVO.
      */
