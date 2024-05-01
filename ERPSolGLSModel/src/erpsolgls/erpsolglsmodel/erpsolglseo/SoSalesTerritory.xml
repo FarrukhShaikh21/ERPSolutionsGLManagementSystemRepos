@@ -154,6 +154,13 @@
     AssociationOtherEnd="erpsolgls.erpsolglsmodel.erpsolglsassoc.SoSalesTerritoryVoucherSalesterritoryIDAssoc.SoSalesTerritory"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="SysUserSalesTerritory"
+    Association="erpsolgls.erpsolglsmodel.erpsolglsassoc.SoSalesTerritorySysUserTerritorySalesTerritoryIdAssoc"
+    AssociationEnd="erpsolgls.erpsolglsmodel.erpsolglsassoc.SoSalesTerritorySysUserTerritorySalesTerritoryIdAssoc.SysUserSalesTerritory"
+    AssociationOtherEnd="erpsolgls.erpsolglsmodel.erpsolglsassoc.SoSalesTerritorySysUserTerritorySalesTerritoryIdAssoc.SoSalesTerritory"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="XpksoSalesTerritory"
     PrimaryKey="true">

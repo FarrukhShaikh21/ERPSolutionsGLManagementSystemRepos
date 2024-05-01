@@ -70,4 +70,10 @@
     EntityAttrName="ModifiedDate"
     EntityUsage="SysUserSalesTerritory"
     AliasName="MODIFIED_DATE"/>
+  <ViewLinkAccessor
+    Name="SoSalesTerritoryVO"
+    ViewLink="erpsolgls.erpsolglsmodel.erpsolglslink.SoSalesTerritorySysUserTerritorySalesTerritoryIdLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
 </ViewObject>

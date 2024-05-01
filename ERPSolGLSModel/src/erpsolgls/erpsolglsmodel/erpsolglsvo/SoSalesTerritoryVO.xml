@@ -135,4 +135,9 @@
     ViewLink="erpsolgls.erpsolglsmodel.erpsolglslink.SoSalesTerritoryVoucherSalesterritoryIDLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="SysUserSalesTerritoryView"
+    ViewLink="erpsolgls.erpsolglsmodel.erpsolglslink.SoSalesTerritorySysUserTerritorySalesTerritoryIdLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
 </ViewObject>
