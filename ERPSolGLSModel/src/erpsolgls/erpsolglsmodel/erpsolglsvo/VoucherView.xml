@@ -64,6 +64,20 @@
     Name="AccVWYesNoQVO"
     ViewObjectName="erpsolglob.erpsolglobmodel.erpsolglobqvo.VWYesNoQVO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccSoSalesTerritoryVO"
+    ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsvo.SoSalesTerritoryVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SoSalesTerritoryVOLocationWiseVC"
+      FullName="erpsolgls.erpsolglsmodel.erpsolglsvo.SoSalesTerritoryVO.SoSalesTerritoryVOLocationWiseVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_LOCATIONID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[LocCode==null?"-1":LocCode]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LovVoucherType"
     ListVOName="AccVoucherTypeView"
@@ -119,6 +133,25 @@
     <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="ListAttrNames">
       <Item Value="ID"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovSalesterritoryid"
+    ListVOName="AccSoSalesTerritoryVO"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Salesterritoryid"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Salesterritoryid"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="Description"/>
@@ -457,7 +490,15 @@
     PrecisionRule="true"
     EntityAttrName="Salesterritoryid"
     EntityUsage="Voucher"
-    AliasName="SALESTERRITORYID"/>
+    AliasName="SALESTERRITORYID"
+    LOVName="LovSalesterritoryid">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="VoucherViewFindVC"
     ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsvo.VoucherView"

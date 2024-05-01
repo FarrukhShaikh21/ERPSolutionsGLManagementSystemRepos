@@ -115,10 +115,10 @@
                         </af:gridCell>
                       </af:gridRow>
                       <af:gridRow id="gr7" height="30px">
-                        <af:gridCell id="gc16" valign="middle">
+                        <af:gridCell id="gc16" valign="middle" width="15%">
                           <af:outputLabel value="#{bindings.SubmitVoucherNo.hints.label}" id="ol8"/>
                         </af:gridCell>
-                        <af:gridCell id="gc17" valign="middle">
+                        <af:gridCell id="gc17" valign="middle" width="35%">
                           <af:inputText value="#{bindings.SubmitVoucherNo.inputValue}"
                                         label="#{bindings.SubmitVoucherNo.hints.label}"
                                         required="#{bindings.SubmitVoucherNo.hints.mandatory}"
@@ -129,10 +129,10 @@
                             <f:validator binding="#{bindings.SubmitVoucherNo.validator}"/>
                           </af:inputText>
                         </af:gridCell>
-                        <af:gridCell id="gc18" valign="middle">
+                        <af:gridCell id="gc18" valign="middle" width="15%">
                           <af:outputLabel value="#{bindings.SubmitVoucherDate.hints.label}" id="ol11"/>
                         </af:gridCell>
-                        <af:gridCell id="gc19">
+                        <af:gridCell id="gc19" width="35%">
                           <af:inputDate value="#{bindings.SubmitVoucherDate.inputValue}"
                                         label="#{bindings.SubmitVoucherDate.hints.label}"
                                         required="#{bindings.SubmitVoucherDate.hints.mandatory}"
@@ -142,6 +142,45 @@
                             <f:validator binding="#{bindings.SubmitVoucherDate.validator}"/>
                             <af:convertDateTime pattern="#{bindings.SubmitVoucherDate.format}"/>
                           </af:inputDate>
+                        </af:gridCell>
+                      </af:gridRow>
+                      <af:gridRow id="gr14" height="30px">
+                        <af:gridCell id="gc33" width="15%" valign="middle">
+                          <af:outputLabel id="ol9" value="#{bindings.txtLocationName.hints.label}"/>
+                        </af:gridCell>
+                        <af:gridCell id="gc34" width="35%" valign="middle" halign="stretch">
+                          <af:inputComboboxListOfValues id="txtLocationNameId"
+                                                        popupTitle="Search and Select: #{bindings.txtLocationName.hints.label}"
+                                                        value="#{bindings.txtLocationName.inputValue}"
+                                                        label="#{bindings.txtLocationName.hints.label}"
+                                                        model="#{bindings.txtLocationName.listOfValuesModel}"
+                                                        required="#{bindings.txtLocationName.hints.mandatory}"
+                                                        columns="#{bindings.txtLocationName.hints.displayWidth}"
+                                                        shortDesc="#{bindings.txtLocationName.hints.tooltip}"
+                                                        simple="true" readOnly="#{bindings.VoucherNo.inputValue!=null}">
+                            <f:validator binding="#{bindings.txtLocationName.validator}"/>
+                            <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolGLSPageFlowBean.doERPSolGetAutoSuggestedLocationValues}"/>
+                          </af:inputComboboxListOfValues>
+                          <af:inputText value="#{bindings.LocCode.inputValue}" label="#{bindings.LocCode.hints.label}"
+                                        required="#{bindings.LocCode.hints.mandatory}"
+                                        columns="#{bindings.LocCode.hints.displayWidth}"
+                                        maximumLength="#{bindings.LocCode.hints.precision}"
+                                        shortDesc="#{bindings.LocCode.hints.tooltip}" id="it12" rendered="false">
+                            <f:validator binding="#{bindings.LocCode.validator}"/>
+                          </af:inputText>
+                        </af:gridCell>
+                        <af:gridCell id="gc35" width="15%" valign="middle">
+                          <af:outputLabel value="#{bindings.Salesterritoryid.label}" id="ol14"/>
+                        </af:gridCell>
+                        <af:gridCell id="gc36" width="35%" valign="middle" halign="stretch">
+                          <af:selectOneChoice value="#{bindings.Salesterritoryid.inputValue}"
+                                              label="#{bindings.Salesterritoryid.label}"
+                                              required="#{bindings.Salesterritoryid.hints.mandatory}"
+                                              shortDesc="#{bindings.Salesterritoryid.hints.tooltip}" id="soc2"
+                                              simple="true">
+                            <f:selectItems value="#{bindings.Salesterritoryid.items}" id="si2"/>
+                            <f:validator binding="#{bindings.Salesterritoryid.validator}"/>
+                          </af:selectOneChoice>
                         </af:gridCell>
                       </af:gridRow>
                       <af:gridRow height="30px" id="gr5">
@@ -158,31 +197,9 @@
                             <f:validator binding="#{bindings.VoucherType.validator}"/>
                           </af:selectOneChoice>
                         </af:gridCell>
-                        <af:gridCell marginStart="5px" width="15%" id="gc10" valign="middle">
-                          <af:outputLabel id="ol9" value="#{bindings.txtLocationName.hints.label}"/>
-                        </af:gridCell>
+                        <af:gridCell marginStart="5px" width="15%" id="gc10" valign="middle"/>
                         <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc11" halign="stretch"
-                                     valign="middle">
-                          <af:inputText value="#{bindings.LocCode.inputValue}" label="#{bindings.LocCode.hints.label}"
-                                        required="#{bindings.LocCode.hints.mandatory}"
-                                        columns="#{bindings.LocCode.hints.displayWidth}"
-                                        maximumLength="#{bindings.LocCode.hints.precision}"
-                                        shortDesc="#{bindings.LocCode.hints.tooltip}" id="it12" rendered="false">
-                            <f:validator binding="#{bindings.LocCode.validator}"/>
-                          </af:inputText>
-                          <af:inputComboboxListOfValues id="txtLocationNameId"
-                                                        popupTitle="Search and Select: #{bindings.txtLocationName.hints.label}"
-                                                        value="#{bindings.txtLocationName.inputValue}"
-                                                        label="#{bindings.txtLocationName.hints.label}"
-                                                        model="#{bindings.txtLocationName.listOfValuesModel}"
-                                                        required="#{bindings.txtLocationName.hints.mandatory}"
-                                                        columns="#{bindings.txtLocationName.hints.displayWidth}"
-                                                        shortDesc="#{bindings.txtLocationName.hints.tooltip}"
-                                                        simple="true" readOnly="#{bindings.VoucherNo.inputValue!=null}">
-                            <f:validator binding="#{bindings.txtLocationName.validator}"/>
-                            <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolGLSPageFlowBean.doERPSolGetAutoSuggestedLocationValues}"/>
-                          </af:inputComboboxListOfValues>
-                        </af:gridCell>
+                                     valign="middle"/>
                       </af:gridRow>
                       <af:gridRow height="30px" id="gr6">
                         <af:gridCell marginStart="5px" width="15%" id="gc12" valign="middle">

@@ -281,5 +281,7 @@
         <Item Value="Payee"/>
       </AttrNames>
     </attributeValues>
+    <list IterBinding="VoucherCRUDIterator" StaticList="false" Uses="LovSalesterritoryid" id="Salesterritoryid"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

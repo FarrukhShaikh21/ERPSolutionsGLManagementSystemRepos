@@ -13,6 +13,10 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <Variable
+    Name="P_ADF_LOCATIONID"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <EntityUsage
     Name="SoSalesTerritory"
     Entity="erpsolgls.erpsolglsmodel.erpsolglseo.SoSalesTerritory"/>
@@ -90,6 +94,42 @@
     EntityAttrName="Regdesc"
     EntityUsage="SoSalesTerritory"
     AliasName="REGDESC"/>
+  <ViewCriteria
+    Name="SoSalesTerritoryVOLocationWiseVC"
+    ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsvo.SoSalesTerritoryVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="SoSalesTerritoryVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="Locationid"
+        ViewAttribute="Locationid"
+        Operator="="
+        Conjunction="AND"
+        Value=":P_ADF_LOCATIONID"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ViewLinkAccessor
     Name="VoucherView"
     ViewLink="erpsolgls.erpsolglsmodel.erpsolglslink.SoSalesTerritoryVoucherSalesterritoryIDLink"
