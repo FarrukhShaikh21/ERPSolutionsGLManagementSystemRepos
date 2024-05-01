@@ -25,9 +25,6 @@
     Name="P_ADF_USERID"
     Kind="viewcriteria"
     Type="java.lang.String">
-    <TransientExpression
-      trustMode="untrusted"
-      Name="expression"><![CDATA[erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobClassModel.doGetUserCode()]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYHINT
@@ -505,6 +502,12 @@
           Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
+    <Dependencies>
+      <Item
+        Value="LocCode"/>
+      <Item
+        Value="txtLocationName"/>
+    </Dependencies>
   </ViewAttribute>
   <ViewCriteria
     Name="VoucherViewFindVC"
@@ -669,6 +672,76 @@
                   UpperColumns="1">
                   <ViewCriteriaItem
                     Name="SysUserVoucherTypeViewNestedCriteria_SysUserVoucherTypeViewNestedCriteria_row_0_Userid"
+                    ViewAttribute="Userid"
+                    Operator="="
+                    Conjunction="AND"
+                    Value=":P_ADF_USERID"
+                    IsBindVarValue="true"
+                    Required="Optional"/>
+                </ViewCriteriaRow>
+              </ViewCriteria>
+            </ViewCriteriaItem>
+          </ViewCriteriaRow>
+        </ViewCriteria>
+      </ViewCriteriaItem>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ViewCriteria
+    Name="VoucherSalesTerritoryWiseVC"
+    ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsvo.VoucherView"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="VoucherViewCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="SoSalesTerritoryVO"
+        ViewAttribute="SoSalesTerritoryVO"
+        Operator="EXISTS"
+        Conjunction="AND"
+        IsNestedCriteria="true"
+        Required="Optional">
+        <ViewCriteria
+          Name="SoSalesTerritoryVONestedCriteria"
+          ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsvo.SoSalesTerritoryVO"
+          Conjunction="AND">
+          <ViewCriteriaRow
+            Name="SoSalesTerritoryVONestedCriteria_row_0"
+            UpperColumns="1">
+            <ViewCriteriaItem
+              Name="SysUserSalesTerritoryView"
+              ViewAttribute="SysUserSalesTerritoryView"
+              Operator="EXISTS"
+              Conjunction="AND"
+              IsNestedCriteria="true"
+              Required="Optional">
+              <ViewCriteria
+                Name="SysUserSalesTerritoryViewNestedCriteria"
+                ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsvo.SysUserSalesTerritoryView"
+                Conjunction="AND">
+                <ViewCriteriaRow
+                  Name="SysUserSalesTerritoryViewNestedCriteria_row_0"
+                  UpperColumns="1">
+                  <ViewCriteriaItem
+                    Name="Userid"
                     ViewAttribute="Userid"
                     Operator="="
                     Conjunction="AND"

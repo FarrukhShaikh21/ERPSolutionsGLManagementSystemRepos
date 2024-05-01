@@ -11,6 +11,9 @@
     Name="VoucherCRUD"
     ViewObjectName="erpsolgls.erpsolglsmodel.erpsolglsvo.VoucherView">
     <ViewCriteriaUsage
+      Name="VoucherSalesTerritoryWiseVC"
+      FullName="erpsolgls.erpsolglsmodel.erpsolglsvo.VoucherView.VoucherSalesTerritoryWiseVC"/>
+    <ViewCriteriaUsage
       Name="VoucherViewUserWiseVC"
       FullName="erpsolgls.erpsolglsmodel.erpsolglsvo.VoucherView.VoucherViewUserWiseVC"/>
     <ParameterMap>

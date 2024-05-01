@@ -197,4 +197,8 @@
     ViewLink="erpsolgls.erpsolglsmodel.erpsolglslink.SoSalesTerritorySysUserTerritorySalesTerritoryIdLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <SortCriteria>
+    <Sort
+      Attribute="Description"/>
+  </SortCriteria>
 </ViewObject>
