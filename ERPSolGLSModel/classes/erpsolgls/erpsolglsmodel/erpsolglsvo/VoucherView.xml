@@ -148,8 +148,8 @@
     ListVOName="AccSoSalesTerritoryVO"
     ListRangeSize="-1"
     NullValueFlag="start"
-    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
-    MRUCount="0">
+    MRUCount="0"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}">
     <AttrArray Name="AttrNames">
       <Item Value="Salesterritoryid"/>
     </AttrArray>
