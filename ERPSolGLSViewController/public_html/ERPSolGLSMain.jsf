@@ -10,7 +10,7 @@
                             <af:link id="l1" icon="#{resource['images:imgHome.png']}" partialSubmit="true"
                                      action="ACT-ERP-GOTO-MODLE-SELECTION"/>
                         </f:facet>
-                        <af:image source="#{resource['images:imgGeneralLedger.png']}" id="i1"/>
+                        <af:image id="i1" source="#{resource['images:imgGeneralLedgers.png']}"/>
                     </af:panelBox>
                 </f:facet>
                 <f:facet name="erptempleft"/>
